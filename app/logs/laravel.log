@@ -1,0 +1,180 @@
+[2020-05-08 21:05:03] local.INFO: Showing user profile for user: 2
+  
+[2020-05-08 21:05:05] local.INFO: Showing user profile for user: 2
+  
+[2020-05-08 21:05:56] local.NOTICE: Showing user profile for user: 2
+  
+[2020-05-08 21:22:30] local.NOTICE: Renan Barbosa Ramos da SilvaAcessou o sistema - id: 2Token :$2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2Accesss: Relator
+  
+[2020-05-08 21:23:35] local.NOTICE: Renan Barbosa Ramos da SilvaAcessou o sistema - id: 2 - Token :$2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Accesss: Relator
+  
+[2020-05-08 21:24:27] local.NOTICE: Renan Barbosa Ramos da Silva Acessou o sistema - id: 2 - Token :$2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Accesss: Relator
+  
+[2020-05-08 21:26:40] local.NOTICE: Renan Barbosa Ramos da Silva Acessou o sistema - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 21:51:08] local.NOTICE: Url: http://localhost:8000/cpp/cadastroE-protocoloRenan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 21:53:53] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocoloRenan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 21:54:43] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 22:04:05] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 
+        - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 22:05:57] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 
+        - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 22:06:20] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 2 
+                - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator - Policial: DANIEL TECHIORg: 83742887
+  
+[2020-05-08 22:09:16] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 
+        - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator
+  
+[2020-05-08 22:10:08] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator - Policial Cadastrado: IRINEU FERNANDES LEMMERTZ - RG: 51125436
+  
+[2020-05-08 22:30:03] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo/98.966.000-0 - Renan Barbosa Ramos da Silva Realizou uma alteração - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: Relator 
+        - Policial Cadastrado:  - RG: 83742887 - eProtocolo: 98.966.000-0 - pedido: Promoção à graduação  de Sub.Tenente QPM 1-0
+  
+[2020-05-08 22:37:41] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo/05.052.222-2 - Renan Barbosa Ramos da Silva Realizou uma alteração - id: 2 - Token: $2y$10$RQNx0EA2WlrdPEnzLQPXa.Z6NSmie5n.bXRewiWkLixE.PMQQ4yK2 - Permission Accesss: RelatorALTERAÇÕES:  - Policial:  - RG: 51125436 - cpf: 82980373915 - Unidade: 9GB 1SGB 2SEC BM - MARACANA - Graduacao: 1SGT - QPMG2 - eProtocolo: 05.052.222-2 - pedido: Reconsideração de Ato
+  
+[2020-05-11 18:23:31] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator
+  
+[2020-05-11 18:57:53] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 18:59:35] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:00:33] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:02:14] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:03:17] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:04:56] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:06:29] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:08:30] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:14:37] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp.doc
+  
+[2020-05-11 19:15:55] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ccpocAta5.PDF
+  
+[2020-05-11 19:20:57] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata127.PDF
+  
+[2020-05-11 19:22:44] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:23:01] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:24:40] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:25:01] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:28:08] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:29:36] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:29:39] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:29:51] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ccpocAta5.PDF
+  
+[2020-05-11 19:30:13] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata4.PDF
+  
+[2020-05-11 19:31:03] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:31:12] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata127(1).pdf
+  
+[2020-05-11 19:31:41] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata4.PDF
+  
+[2020-05-11 19:32:18] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:32:43] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 
+  
+[2020-05-11 19:36:29] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata127.PDF
+  
+[2020-05-11 19:37:02] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp-3.pdf
+  
+[2020-05-11 19:38:18] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: PHP e Laravel Crie aplicações web como um verdadeiro artesão - Casa do Codigo.pdf
+  
+[2020-05-11 19:39:16] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: PHP e Laravel Crie aplicações web como um verdadeiro artesão - Casa do Codigo.pdf
+  
+[2020-05-11 19:40:10] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Manual_WS_v2.13.pdf
+  
+[2020-05-11 19:40:32] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Shell_Script_do_Zero.pdf
+  
+[2020-05-11 19:40:44] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ccpocAta5.PDF
+  
+[2020-05-11 19:41:07] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: 15.586.775-2 CB - CURSO.pdf
+  
+[2020-05-11 19:41:17] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AGENDA 672 11-06-2019.docx
+  
+[2020-05-11 19:41:26] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ModeloAtaCPP.odt
+  
+[2020-05-11 19:41:40] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ModeloAtaCPP.odt
+  
+[2020-05-11 19:56:10] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ccpocAta5.PDF
+  
+[2020-05-11 20:11:25] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata4.PDF
+  
+[2020-05-11 20:14:22] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata5.PDF
+  
+[2020-05-11 20:14:28] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata127(1).pdf
+  
+[2020-05-11 20:14:33] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata127.PDF
+  
+[2020-05-11 20:14:40] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: AtaCpp-3.pdf
+  
+[2020-05-11 20:14:47] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ccpocAta5.PDF
+  
+[2020-05-11 20:18:48] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: Ata5.PDF
+  
+[2020-05-11 20:19:00] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$qZEprhD0Pxyo9EqAzlEDsO5969rA7MvlQCMDFurAwNzHvCEIxpSWC - Permission Accesss: Relator - Doc name: ModeloAtaCPP.odt
+  
+[2020-05-18 08:52:57] local.NOTICE: Acessou Url: http://localhost:8000/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 2 
+        - Token: $2y$10$dIEVlfWMZDz80pWbcQsoTOPlv/P/WBSVukVenRMw7eyRUHdRfVBvm - Permission Accesss: Relator - Doc name: 
+  
