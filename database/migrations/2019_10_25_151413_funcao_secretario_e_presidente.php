@@ -21,7 +21,7 @@ class FuncaoSecretarioEPresidente extends Migration
             $blueprint->string      ('rg'   );
             $blueprint->string      ('cpf'  );
             $blueprint->string      ('qualificacao');
-            $blueprint->boolean     ('staus');
+            $blueprint->boolean     ('status');
             $blueprint->integer     ('id_membro'   )->unsigned();
             $blueprint->foreign     ('id_membro'   )->references('id')->on('users');
 

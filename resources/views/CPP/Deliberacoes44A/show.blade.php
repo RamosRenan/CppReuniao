@@ -18,174 +18,169 @@
 
     
     <body style="width:100%; max-height: 300px; ">
+        <header>            
+            <div> 
+                @lang('globalDocsCpp.header.deliberacao')
+            </div>
+        </header>
 
-     <br>
-        <div>
-            <header>            
-                <div> 
-                    @lang('globalDocsCpp.header.deliberacao')
+
+        <section style="width:99%; heigth:auto; position:relative; top:50px;">
+            <div align="center"> 
+                <span style="position: relative; top: -15px;"> <strong> <u> {{ $currentAta }} ª Reunião da Comissão de Promoções de Parças </u> </strong> </span>
+                <h4> 
+                    <strong>   
+                        D E L I B E R A Ç Ã O Nº ____ / 2019
+                    </strong>                
+                </h4>
+            </div>
+        </section>    
+
+
+        <section style="width:99%; heigth:auto; position:relative; top: 40px;">
+            <div align="center" style="text-align:justify;">  
+            <div style="width:94%; heigth:auto; margin:auto;">
+                    <textarea readonly maxlength="1550" style="border:solid 1px #a5d8ff; width:100%; text-align:justify; " rows="8" cols="60">                        
+                        {{ $dataThis44A }}
+                    </textarea>
                 </div>
-            </header>
+            </div> 
+        </section> 
 
 
+        <!--@ Tabela Carregada com Ajax com votos dos relatores @-->         
+        <section style="width:99%; heigth:auto; position:relative; top: 50px;">
 
-    
-            <section style="width:99%; heigth:auto; position:relative; top:50px;">
-                <div align="center"> 
-                    <span style="position: relative; top: -15px;"> <strong> <u> {{ $currentAta }} ª Reunião da Comissão de Promoções de Parças </u> </strong> </span>
-                    <h4> 
-                        <strong>   
-                            D E L I B E R A Ç Ã O Nº ____ / 2019
-                        </strong>                
-                    </h4>
-                </div>
-            </section>    
+            <!-- Table com mebros e seus votos -->
+            <table align="center"  style="text-align:justify;">
 
+                <thead> 
+                    <tr>
+                        <th style="font-size: 10px; min-width: 60px;"    >  <div align="center"> Voto<br>Contra.    </div>  </th>
+                        <th style="font-size: 10px;  min-width: 60px;"   >  <div align="center"> Voto<br>Favorável. </div>  </th>
+                        <th style="width: 260px; text-align:center;"     >  MEMBROS DA COMISSÃO                             </th>
+                        <th style="min-width: 330px; text-align:center; ">  ASSINATURA                                      </th>
+                    </tr>
+                </thead>                    
 
+                <!-- @ body table @ -->
+                <tbody>
 
-            <section style="width:99%; heigth:auto; position:relative; top: 40px;">
-                <div align="center" style="text-align:justify;">  
-                <div style="width:94%; heigth:auto; margin:auto;">
-                        <textarea readonly maxlength="1550" style="font-family: 'Times New Roman', Times, serif; width:100%; resize:none; border:none; text-align:justify; overflow: hidden;" rows="12" cols="60">                        
-                            {{ $dataThis44A }}
-                        </textarea>
-                    </div>
-                </div> 
-            </section> 
-
-
-
-
-
-            <!--@ Tabela Carregada com Ajax com votos dos relatores @-->         
-            <section style="width:99%; heigth:auto; position:relative; top: 50px;">
-                <table align="center"  style="text-align:justify;">
-
-                    <thead> 
-                        <tr>
-                            <th style="font-size: 10px; min-width: 60px;"    >  <div align="center"> Voto<br>Contra.    </div>  </th>
-                            <th style="font-size: 10px;  min-width: 60px;"   >  <div align="center"> Voto<br>Favorável. </div>  </th>
-                            <th style="width: 260px; text-align:center;"     >  MEMBROS DA COMISSÃO                             </th>
-                            <th style="min-width: 330px; text-align:center; ">  ASSINATURA                                      </th>
-                        </tr>
-                    </thead>                    
-
-                    <!-- @ body table @ -->
-                    <tbody>
-
-                        <tr> 
-                            <td>   </td>
-                            <td>   </td>
-                            <td> 
-                                <strong style="margin-left:4px;"> Presidente.:   </strong> 
-                                @foreach($presidenteSecretario as $key)
-                                    @if($key->qualificacao == 'Presidente')
-                                        <span> {{$key->posto}} {{$key->nome}} </span>
-                                    @endif
-                                @endforeach
-                            </td> 
-                            <td>    </td> 
-                        </tr>
-                        
-                        @if(isset($relationVote44A))
-                            @foreach( $relationVote44A as $key )
-                                <tr> 
-                                    <td> @if($key->votou_contra == "contra") <i class="fa fa-check" style="font-size:24px"></i> @endif     </td>
-                                    <td> @if($key->votou_contra == "favoravel")  <i class="fa fa-check" style="font-size:24px"></i> @endif </td>
-                                    <td> {{$key->posto}} {{$key->nome}} </td> 
-                                    <td> <span> Assinado em.: ---- </span> <span> <strong> Por.: </strong> </span> {{$key->nome}} <span> <strong> RG.: </strong> </span> {{$key->rg}} </td> 
-                                 </tr>
+                    <!-- tr exclusivo para presidente -->
+                    <tr> 
+                        <td></td>
+                        <td></td>
+                        <td> 
+                            <strong style="margin-left:4px;"> Presidente.:   </strong> 
+                            <!-- percorre $presidenteSecretario até encontrar presidente --> 
+                            @foreach($presidenteSecretario as $key)
+                                @if($key->qualificacao == 'Presidente')
+                                    <span> {{$key->posto}} {{$key->nome}} </span>
+                                @endif
                             @endforeach
-                        @endif
-                        <!-- @ Referencia cada linha com nome único. @ -->
-                        
-                    </tbody> 
-                    <!-- @ And body table @ -->
+                        </td> 
+                        <td></td> 
+                    </tr>
+                    <!-- /tr exclusivo para presidente -->
+                    
+                    <!-- verifica se votou contra ou a favor -->
+                    @if(isset($relationVote44A))
+                        @foreach( $relationVote44A as $key )
+                            <tr> 
+                                <td align="center"> 
+                                    @if($key->votou_contra) 
+                                        <i class="fa fa-check" style="font-size:24px"></i> 
+                                    @endif     
+                                </td>
+                                <td align="center"> 
+                                    @if($key->votou_favoravel)  
+                                        <i class="fa fa-check" style="font-size:24px"></i> 
+                                    @endif 
+                                </td>
+                                <td> 
+                                    {{$key->posto}} {{$key->nome}} 
+                                </td> 
+                                <td> 
+                                    <b> Assinado digitalmente. </b> 
+                                    <span> {{$key->nome}}   </span> 
+                                    <b> RG.: </b>           </span> 
+                                    <span> {{$key->rg}}     </span>
+                                </td> 
+                            </tr>
+                        @endforeach
+                    @endif
+                    <!-- @ Referência cada linha com nome único. @ -->
+                    
+                </tbody> 
+                <!-- @ And body table @ -->
 
-                </table>
-            </section>          
-            <!--@ Final Sessão: Tabela Carregada com Ajax com votos dos relatores @-->
+            </table>
+            <!-- Table com mebros e seus votos -->
 
+        </section>          
+        <!--@ Final Sessão: Tabela Carregada com Ajax com votos dos relatores @-->
+    
+
+        <!-- section que contém ícone para atualizar os votos dos relatores. -->
+        <section style=" width:99%; heigth:auto; position:relative; top: 50px; " > 
+            <div align="center" style=" position:relative; top: 15px;" >
+                <!--  Carga de membros que ja votaram -->
+                <a href="/cpp/updateVotoRelatoresDeliber44A?this44AeProtocolo={{$this44AeProtocolo}}"> 
+                    <!-- ícone Atualiza os votos dos Relatores -->                        
+                    <span class="glyphicon glyphicon-repeat" style=" font-size: 22px; color: gray; border-radius: 22px; box-shadow: 0px 2px 3px 1px #b5c3c9; cursor:pointer; " >  </span> 
+                    Atualizar votos.
+                </a>
+            </div>
+        </section> 
 
         
+        <!-- II - Lavre-se em Ata e arquive-se. -->
+        <section style="width:100%; heigth:auto; position:relative; top: 70px;">
+            <div style="margin-left:18px;"> 
+                @lang('globalDocsCpp.comissaoVotacao.footer')
+            </div>
+        </section> 
+        
 
-            <section style=" width:99%; heigth:auto; position:relative; top: 50px; " > 
-                <div align="center" style=" position:relative; top: 15px;" >
-                    <!-- @ Carga de membros que ja votaram @ -->
-                    <a href="{{ route('cpp.__44a.show', $this44AeProtocolo) }}"> 
-                        <!--@ Atualiza os votos dos Relatores @-->                        
-                        <span class="glyphicon glyphicon-repeat" style=" font-size: 22px; color: #d1d1d1; border-radius: 22px; box-shadow: 0px 2px 3px 1px #b5c3c9; cursor:pointer; " > </span> 
-                    </a>
-                </div>
-            </section> 
+        <!-- data da deliberação -->
+        <section style="width:100%; heigth:auto; position:relative; top:100px;">
+            <div align="center"> 
+                <span>Curitiba, {{ date("d") }} de {{ date("M") }} de {{ date("Y") }}.</span>
+            </div>
+        </section> 
 
 
+
+        <section style="width:100%; heigth:auto; position:relative; top:130px;">
+            <div align="center"> 
+                <h4>    Maj. QOPM Omar Bail.       </h4> 
+                <span> <strong> Presidente da CPP. </strong> <span>
+            </div>
+        </section> 
 
             
-
-            <section style="width:100%; heigth:auto; position:relative; top: 70px;">
-                <div style="margin-left:18px;"> 
-                    @lang('globalDocsCpp.comissaoVotacao.footer')
-                </div>
-            </section> 
-            
-
-
-            
-
-            
-            <section style="width:100%; heigth:auto; position:relative; top:100px;">
-                <div align="center"> 
-                    <span>Curitiba, {{ date("d") }} de {{ date("M") }} de {{ date("Y") }}.</span>
-                </div>
-            </section> 
+        <section style="width:100%; heigth:auto; position:relative; top: 180px;">
+            <div style="margin-left:18px;"> 
+                <span>
+                    Eu, <strong> Assinado digitalmente em: </strong>   <strong> RG: </strong>  ,  S,
+                    Secretário da Comissão de Promoção de Praças, lavrei a presente deliberação.
+                </span>
+            </div>
+        </section> 
 
 
-
-
-
-
-
-            <section style="width:100%; heigth:auto; position:relative; top:130px;">
-                <div align="center"> 
-                    <h4>    Maj. QOPM Omar Bail.       </h4> 
-                    <span> <strong> Presidente da CPP. </strong> <span>
-                </div>
-            </section> 
-                
-                
-
-
-
-
-                
-            <section style="width:100%; heigth:auto; position:relative; top: 180px;">
-                <div style="margin-left:18px;"> 
-                    <span>
-                        Eu, <strong> Assinado digitalmente em: </strong>   <strong> RG: </strong>  ,  S,
-                        Secretário da Comissão de Promoção de Praças, lavrei a presente deliberação.
-                    </span>
-                </div>
-            </section> 
-
-
-
-
-
-
-            <section style=" width:100%; heigth:auto; position: relative; top: 230px; ">
-                <div style=" " align="center"> 
-                    <form action="{{ route('cpp.deliberacao.edit', 0) }}" method="GET"> 
-                        <input type="hidden" value=" {{ $this44A[0] ->id_notification}} " name="id_notification">
-                        <input type="hidden" value=" {{ $this44AeProtocolo}} " name="id_44a">
-                        <button type="submit"  id="validar" class="btn btn-default btn-sm" style=" position: relative; top: 40px; box-shadow:0px 1px 5px gray; width: 400px;">
-                            <i class="fa fa-check-square-o" style="font-size: 25px;"> </i> 
-                            <span style="  font-family: 'Montserrat', sans-serif; color: #286582; position:relative; top: -4px;"> Finalizar Deliberação DEFINITIVAMENTE.  </span> 
-                        </button>
-                    </form>
-                </div>
-            </section> 
-        </div>
+        <section style=" width:100%; heigth:auto; position: relative; top: 230px; ">
+            <div style=" " align="center"> 
+                <form action="{{ route('cpp.deliberacao.edit', 0) }}" method="GET"> 
+                    <input type="hidden" value=" {{ $this44A[0] ->id_notification}} " name="id_notification">
+                    <input type="hidden" value=" {{ $this44AeProtocolo}} " name="id_44a">
+                    <button type="submit"  id="validar" class="btn btn-primary btn-sm" style=" position: relative; top: 40px; box-shadow:0px 1px 5px gray; width: 400px;">
+                        <i class="fa fa-check-square-o" style="font-size: 15px;"> </i> 
+                        <span style="  font-family: 'Montserrat', sans-serif; color: white; position:relative;  "> Finalizar Deliberação 44A. </span> 
+                    </button>
+                </form>
+            </div>
+        </section> 
 
  
         <input type="hidden" value="  " id="facultyeProtoc" class="facultyeProtoc">
@@ -200,10 +195,6 @@
            
         </style>
         <!-- Style -->
-
-            
-
-
 
             
         <!-- @ Script's @ -->
@@ -260,15 +251,10 @@
 
 
 
-
-
-
             function hiddenvalidar(){
                 alert('Realmente deseja inserir esta deliberação na ATA ?');
                 document.getElementById('validar').style.display = 'none';
             }//hiddenvalidar
-
-
 
 
 
@@ -284,8 +270,6 @@
            
 
 
-
-
             function hasclicked_voto_user(i){
 
                 var res_value_user = document.getElementById(i.children[0].id).getAttribute('value');
@@ -297,14 +281,11 @@
 
             }//hasclicked_voto_user()
 
-
-
-
         </script>
         <!-- Script's -->
-
             
     </body>
+
 </html>
         
       

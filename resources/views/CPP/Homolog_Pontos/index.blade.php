@@ -21,12 +21,14 @@
     </form>
     <!-- @ form @ -->
 
+
+    <!-- formulario para cadastro de novos pontos positivos -->
     <form method="POST" action=" {{ route('cpp.HomologP.store', 0) }} ">
         <div class="card card-default" style="position: relative; top: -40px;">
             <div class="card-body" align="center" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                <h3 class='awesome' style="font-size: 14px; color: gray;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </h3> <hr>
+                <small style=" color: gray;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </small> <hr>
 
                 <section>
                     <div class=" curtain_register " align="center" id="curtain_register"> <div>
@@ -91,25 +93,22 @@
 
 
 
-
-
-
                 <!-- @ row @ -->
                 <div class="row">
                     <div class="col-md-3 form-group" align="center">
-                        <label class='awesome'> * Nome. </label>
+                        <label class='awesome'> * Nome. <small> Não são aceitos números.</small> </label>
                         <input id="GET_NOME" id="nome_do_policial" class='form-control' type="text"  name="Nome" style="" required>
                     </div>
 
 
                     <div class="col-md-2 form-group" align="center">
-                        <label class='awesome'> * RG. </label>
+                        <label class='awesome'> * RG. <small> Não são aceitos letras.</small> </label>
                         <input id="GET_RG" id="nome_do_policial" class='form-control' type="text"  name="RG" style="" required>
                     </div>
 
 
                     <div class="col-md-2 form-group" align="center">
-                        <label class='awesome'> * CPF. </label>
+                        <label class='awesome'> * CPF. <small> Não são aceitos letras.</small> </label>
                         <input id="GET_CPF" maxlength="11" id="nome_do_policial" class='form-control' type="text"  name="CPF" style="" required>
                     </div>
 
@@ -124,7 +123,7 @@
 
                     <div class="col-md-1 form-group" align="center">
                         <label class='awesome'> *Pontos. </label>
-                        <input class='form-control' name="qtd_pontos" type="number" required>
+                        <input class='form-control' max="12" name="qtd_pontos" type="number" required>
                     </div>
 
 
@@ -139,9 +138,6 @@
                     </div>
                 </div>
                 <!-- @ row @ -->
-
-
-
 
 
 
@@ -169,7 +165,6 @@
 
                 </div>
                 <!-- @ row @ -->
-
 
 
                 <!-- @ row @ -->
@@ -208,9 +203,6 @@
                 <!-- @ row @ -->
 
 
-
-
-
                 <!-- @ row @ -->
                 <div class="row"  >
                     <div class="col-md-12 form-group" style="display: none;" id="cursosEParticip" class="cursosEParticip">
@@ -237,7 +229,7 @@
                 <div class="row">
                     <div class="col-md-12 form-group">
                         <label class='awesome'> * Descrição. </label>
-                        <textarea rows='3' class='form-control' placeholder="Sua descrição" name="descricao" type="text" style="" required></textarea>
+                        <textarea rows='1' class='form-control' placeholder="Sua descrição" name="descricao" type="text" style="" required></textarea>
                     </div>
                 </div>
                 <!--@ row @-->
@@ -261,7 +253,7 @@
     <section>
         @if(session('missing_fields') == 'missing_fields')
             <div class="alert alert-danger" role="alert">
-                Faltou algum campo. Não é possível prosseguir sem preencher todos os campos.
+                Foi detectado alguma inconsistência nos dados informados. Naõ foi possível cadastrar. Verifique os dados informados.
             </div>
         @endif
 

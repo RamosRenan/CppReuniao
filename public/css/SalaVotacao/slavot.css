@@ -9,15 +9,7 @@ html, body{
     height: 100%;
     
 }
-
-
-
-.scrool_grid{
-    max-height: 580px;
-    overflow-y: scroll;
-}
-
-
+ 
 
 .scrool_grid_salavotacao{
     max-height: 680px;

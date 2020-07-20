@@ -12,7 +12,8 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use App\Models\M4PRO\POLICE;
 use App\Models\M4PRO\POLICE_OPM;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\ Auth;
 
 
 class HomologPontosController extends Controller
@@ -27,43 +28,51 @@ class HomologPontosController extends Controller
  
      /*@  store()  @*/
      public function store(Request $request){
+
+        // valida formulario de pontos positivos
         $validator = Validator::make($request->all(), [
+
             // 'title' => 'required|unique:posts|max:255',
-            'descricao' => 'required', 
-            'curso' => 'required',
-            'Nome' => 'required',
-            'RG' => 'required',
-            'CPF' => 'required', 
-            'Graduacao' => 'required',
-            'qtd_pontos' => 'required',
-            'distincao' => 'required',
-            'faculdade' => 'required', 
-            'curso' => 'required',
-            'sid' => 'required',
-            'inciso' => 'required',
-            'data_registro_eProtocolo' => 'required',
-            'inicio_curso' => 'required',
-            'termino_curso' => 'required',
-            'unidade' => 'required',
-            'descricao' => 'required',
+            'descricao'                     => ['required', 'string'], 
+            'curso'                         => ['required',  'max:305', 'string'],
+            'Nome'                          => ['required',  'max:55', 'string', 'not_regex:/[0-9]/i'], //regex 'no_regex', siginifca que não quero os caracteres informados.
+            'RG'                            => ['required',  'max:55', 'string', 'not_regex:/[a-zA-Z]/i'],
+            'CPF'                           => ['required',  'max:55', 'string', 'not_regex:/[a-zA-Z]/i'], 
+            'Graduacao'                     => ['required',  'max:200', 'string'],
+            'qtd_pontos'                    => ['required',  'max:12', 'integer', 'not_regex:/[a-zA-Z]/i'],
+            'distincao'                     => ['required'],
+            'faculdade'                     => ['required',  'max:200', 'string'],
+            'curso'                         => ['required',  'max:200', 'string'],
+            'sid'                           => ['required',  'max:12', 'string', 'not_regex:/[a-zA-Z]/i'],
+            'inciso'                        => ['required'],
+            'data_registro_eProtocolo'      => ['required', 'date',  'max:55', 'not_regex:/[a-zA-Z]/i'],
+            'inicio_curso'                  => ['required', 'date', 'not_regex:/[a-zA-Z]/i'],
+            'termino_curso'                 => ['required', 'date', 'not_regex:/[a-zA-Z]/i'],
+            'unidade'                       => ['required', 'string', 'max:100'],
+            'descricao'                     => ['required', 'string'],
+
         ]);
 
+        // verifica se ocorreu erro ou inconsistencia na validação do form
         if ($validator->fails()) {
             return redirect($_SERVER['HTTP_REFERER'])->with('missing_fields', 'missing_fields');
         }
-        // Store the blog post...
 
+        // teste se keypedido foi rEcebido...
         //  return $request->input('keypedido');
          
         # Verifica se existe ata aberta
         $ifHasAtaOpen = ata::orderBy('id', 'Desc')
         ->where('ata_finalizada', null)
         ->paginate(1); 
+
+        //se não ata aberta então retorno que não há ata aberta, não é possivel inserir pontos;
         if( count($ifHasAtaOpen) == 0 ) return redirect($_SERVER['HTTP_REFERER'])->with('isNotHasAtaOpen', 'isNotHasAtaOpen');
 
+        //verifico se existe policial, se existe naõ crio novo, caso contrário crio novo policial
         $ifVerifyExistPolicial = Policial::where('cpf', $request->input('CPF'))->get();
 
-        # if() Caso true não cria novo policial, apenas cria uma nova homologação comreferencia ao ' $ifVerifyExistPolicial '
+        // if() Caso true não cria novo policial, apenas cria uma nova homologação com referencia ao ' $ifVerifyExistPolicial '
         if( count($ifVerifyExistPolicial) > 0 ){            
 
             // return $request->all();
@@ -147,14 +156,17 @@ class HomologPontosController extends Controller
                     break;
                 
                 default:
+
                     # code...
-                    return " Error.: Deu ruim ... ={ ";
+                    return $_SERVER['HTTP_REFERER'];
+                    // return " Error.: Deu ruim ... ={ ";
                     break;
 
             }# @end switch()     
 
  
-        }# else - Cria um novo policial pois o policial informado não existe 
+        }
+        # else - Cria um novo policial pois o policial informado não existe 
         else{
 
             $novoPolicial = new Policial;
@@ -164,8 +176,13 @@ class HomologPontosController extends Controller
             $novoPolicial->unidade      = $request->input('unidade');
             $novoPolicial->graduacao    = $request->input('Graduacao').' '.$request->input('quadro');
             $novoPolicial->save();
+
+            $id = Auth::user();
+
+            Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um novo cadastro de policial - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
             
             $call = new HomologPontosController;
+
             return $call->store($request);
 
          }# else
@@ -244,18 +261,18 @@ class HomologPontosController extends Controller
      public function edit(Request $request){
 
         $homolog_pontos_positivos = new homolog_pontos_positivos;
-        $homolog_pontos_positivos->qtd_pontos               = $request->input('qtd_pontos');
-        $homolog_pontos_positivos->pertence_ata             = $request->input('qtd_pontos');
-        $homolog_pontos_positivos->universidade             = $request->input('faculdade');
-        $homolog_pontos_positivos->curso                    = $request->input('curso');
-        $homolog_pontos_positivos->eProtocolo               = $request->input('sid');
-        $homolog_pontos_positivos->distincao                = $request->input('distincao');
-        $homolog_pontos_positivos->key_inciso               = $request->input('keypedido');
-        $homolog_pontos_positivos->data_do_registro_eProtocolo = $request->input('data_registro_eProtocolo');
-        $homolog_pontos_positivos->inicio_do_curso          = $request->input('inicio_curso');
-        $homolog_pontos_positivos->termino_do_curso         = $request->input('termino_curso');
-        $homolog_pontos_positivos->cursos_e_participacoes   = $request->input('cursosEParticipacoes');
-        $homolog_pontos_positivos->pertence_ata             = $request->input('pertence_ata');
+        $homolog_pontos_positivos->qtd_pontos                   = $request->input('qtd_pontos');
+        $homolog_pontos_positivos->pertence_ata                 = $request->input('qtd_pontos');
+        $homolog_pontos_positivos->universidade                 = $request->input('faculdade');
+        $homolog_pontos_positivos->curso                        = $request->input('curso');
+        $homolog_pontos_positivos->eProtocolo                   = $request->input('sid');
+        $homolog_pontos_positivos->distincao                    = $request->input('distincao');
+        $homolog_pontos_positivos->key_inciso                   = $request->input('keypedido');
+        $homolog_pontos_positivos->data_do_registro_eProtocolo  = $request->input('data_registro_eProtocolo');
+        $homolog_pontos_positivos->inicio_do_curso              = $request->input('inicio_curso');
+        $homolog_pontos_positivos->termino_do_curso             = $request->input('termino_curso');
+        $homolog_pontos_positivos->cursos_e_participacoes       = $request->input('cursosEParticipacoes');
+        $homolog_pontos_positivos->pertence_ata                 = $request->input('pertence_ata');
         $homolog_pontos_positivos->identifier_in_ata            = $request->input('identifier_in_ata');
         $homolog_pontos_positivos->contain_oficial_homolocao    = $request->input('conteudoOficial');
         $homolog_pontos_positivos->descricao_da_homologacao     = $request->input('descricao');

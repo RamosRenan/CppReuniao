@@ -8,7 +8,7 @@
 
     <body>
     <br>
-    <div style="width: 100%; height: auto; margin: auto; border: solid 1px black;">
+    <div style="width: 100%; height: 100vh; margin: auto; border: solid 1px black;">
     <div style="width: 95%; height: auto; margin: auto;">
         <!-- @ POLÍCIA MILITAR DO PARANÁ COMANDO-GERALCOMISSÃO DE PROMOÇÃO DE PRAÇAS @ -->
         <header>
@@ -30,14 +30,12 @@
 
 
 
-
         <!-- @ Publique-se. Coronel ........., Comandante-Geral da PMPR. @ -->
         <div style="float:right; font-family: 'Times New Roman', Times, serif;  "> <span> <strong> @lang('globalDocsCpp.comissaoVotacao.sub_header_cel.ata')  </strong> </span> </div>
         <!-- @   @ -->
 
 
         <br> <br> <br> <br>
-
 
 
 
@@ -61,34 +59,29 @@
              </h4>
         </div>
         <!-- @  @ -->
- 
- 
 
 
+        
         <!-- @ Trato dos assuntos @-->
         <!-- @ REUNIÃO DA COMISSÃO DE PROMOÇÃO DE PRAÇAS. @-->
         <section>
-            <div style=" text-align:justify;"> 
-                <span style="font-size:18px; font-family: 'Times New Roman', Times, serif; ">                        
-                    Aos(ao) {{date('d')}} dias(a) do  mês  de  <?php setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese"); date_default_timezone_set('America/Sao_Paulo');  
-                    echo ucfirst( utf8_encode(strftime("%B", strtotime('today')))); ?>  do  ano  de  {{ date('Y') }},  no  Quartel  do  Comando-Geral  da  Polícia  Militar  do  Paraná,  
-                    na  sala  de  reuniões  da  CPP, às  {{date('H'.'\h'.":".'i'.'\m'."'")}},  reuniu-se  a  Comissão  de  Promoções  de  Praças,  sob  a  Presidência  do  
-                    Sr. <strong> {{$ativePresidenteSecretario[1]->nome}} </strong>,   <strong> RG: {{$ativePresidenteSecretario[1]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  981,  
-                    de  28 de  dezembro  de  2018, estando  presentes  na  reunião  os  senhores  membros: <strong> {{$users_ative_and_inative_cpp[0]->nome}} ({{$users_ative_and_inative_cpp[0]->qualificacao}})</strong>, <strong>RG: {{$users_ative_and_inative_cpp[0]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  503,  de  20  de  
-                    julho  de  2017, <strong> {{$users_ative_and_inative_cpp[1]->nome}} ({{$users_ative_and_inative_cpp[1]->qualificacao}}) </strong>, <strong> RG:{{ $users_ative_and_inative_cpp[1]->rg}} </strong> ,  designado  pela  Portaria do CG nº 107, de 11 de fevereiro de 2019, <strong> {{$users_ative_and_inative_cpp[2]->nome}} ({{$users_ative_and_inative_cpp[0]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[2]->rg}} </strong>, designado pela Portaria do CG nº 616, 
-                    de 17 de agosto de 2018,  @if(isset($users_ative_and_inative_cpp[3])) <strong> {{$users_ative_and_inative_cpp[3]->nome}} ({{$users_ative_and_inative_cpp[3]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[3]->rg}} </strong>, designada pela Portaria do CG nº 098, de 22 de janeiro  de  2019, @endif  @if(isset($users_ative_and_inative_cpp[4])) <strong> {{$users_ative_and_inative_cpp[4]->nome}} ({{$users_ative_and_inative_cpp[4]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[4]->rg}} </strong>,  designada
-                    pela  Portaria  do  CG  nº  098,  de  22  de  janeiro  de  2019  e @endif @if(isset($users_ative_and_inative_cpp[5])) <strong> {{$users_ative_and_inative_cpp[5]->nome}} ({{$users_ative_and_inative_cpp[5]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[5]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  107,  de  11  de  fevereiro  de  2019 @endif.  
-                    O  Sr.  Presidente  declarou  aberto  os  trabalhos,  sendo  que,  em  seguida,  apresentou a pauta da reunião onde foram tratados os seguintes assuntos:   
-                </span> 
+            <div style="width:100%; height:auto;">
+                <div style="width:94%; height:auto; margin:auto; text-align:justify;"> 
+                    <span style="font-size:18px; font-family: 'Times New Roman', Times, serif; " > 
+                    {{
+                        $resp = str_replace ( 
+                                    array("<strong>", "</strong>"),
+                                    array("", ""), $AtaContent[0]->INTRODUCAO_REAUNIAO_ORDINARIA 
+                                ) 
+                    }}                         
+                    </span> 
+                </div>
             </div>
         </section> 
         <!-- @  @-->
 
 
-
-
-        <br> <br> <br> <br> <br> <br> <br> <br>
-
+        <br> <br> <br> <br>  
 
 
 
@@ -98,28 +91,23 @@
                 <h4> <strong>1.</strong> <u style="margin-left: 2px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.NewCaseFile.ata') </u> </h4>
             </div>
             
-            <br>
-
-            <div style="width: 100%; height:auto; text-align: justify;"> 
-                @foreach($totcadastrado as $key => $value)
-                    <span> 
-                        <strong> 1. {{$key = $key + 1}} </strong> 
-                        Requerimento impetrado pelo <strong>  {{$totcadastrado[$key-1]->graduacao}} {{$totcadastrado[$key-1]->nome}}, 
-                        RG: {{$totcadastrado[$key-1]->rg}} </strong>, pertencente ao <strong> {{$totcadastrado[$key-1]->unidade}} </strong>, no qual solicita  
-                        {{$totcadastrado[$key-1]->pedido}}. 
-                        (Ref.: PID nº {{$totcadastrado[$key-1]->eProtocolo}}). 
-                    </span> 
-                    <br> <br>
-                @endforeach
+            <div style="width: 100%; height:auto; text-align: left;"> 
+                    @foreach($totcadastrado as $key => $value)
+                    <p> 
+                        <b> 1.{{$key = $key + 1}} </b> 
+                        Requerimento impetrado pelo <b> {{$totcadastrado[$key-1]->graduacao}} {{$totcadastrado[$key-1]->nome}}, 
+                        RG: {{$totcadastrado[$key-1]->rg}} </b>, pertencente ao <b> {{$totcadastrado[$key-1]->unidade}} </b>, no qual solicita  
+                        <b> {{$totcadastrado[$key-1]->pedido}} (Ref.: PID nº {{$totcadastrado[$key-1]->eProtocolo}})</b>. 
+                        <br> 
+                    </p> 
+                    @endforeach
             </div>             
         </section> 
         <!-- @    @ -->
 
 
 
-
         <br>
-
 
 
 
@@ -136,10 +124,8 @@
 
 
 
-
         <br>
  
-
 
 
         <!-- @ 2. 2.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
@@ -149,7 +135,6 @@
             </div> 
         </section> 
         <!-- @   @ -->
-
 
  
 
@@ -170,10 +155,7 @@
 
 
 
-
         <br> <br>
-
-
 
 
 
@@ -184,19 +166,18 @@
         
         <br><br>
 
-
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'I')
                 @if($key->distincao == "Sgts")
-                    <div style=" text-align:justify;"> <span> <strong> {{$key->word}} ) </strong>    {{$key->contain_oficial_homolocao}} </span> </div> <br> <br> 
+                    <div style=" text-align:justify;"> 
+                        <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                    </div> 
+                    <br>  
                 @endif
             @endif
         @endforeach
 
         <!-- @   @ -->
-
-
-
 
 
         <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
@@ -207,15 +188,15 @@
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'II')
                 @if($key->distincao == "Sgts")
-                  <div style=" text-align:justify;" > <span>  <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br> 
-                @endif
+                <div style=" text-align:justify;"> 
+                    <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                </div> 
+                <br> 
+                @endif                
             @endif
         @endforeach
  
         <!-- @   @ -->
-
-
-
 
 
 
@@ -227,14 +208,15 @@
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'III')
                 @if($key->distincao == "Sgts")
-                    <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br>  <br> 
-                @endif
+                <div style=" text-align:justify;"> 
+                    <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                </div> 
+                <br>   
+                @endif            
             @endif
         @endforeach
 
         <!-- @    @ -->
-
-
 
 
 
@@ -247,13 +229,14 @@
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'IV')
                 @if($key->distincao == "Sgts")
-                 <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br>  
-                @endif
+                <div style=" text-align:justify;"> 
+                    <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                </div> 
+                <br>  
+                @endif            
             @endif
         @endforeach
 
-
- 
    
 
 
@@ -266,17 +249,16 @@
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'V')
                 @if($key->distincao == "Sgts")
-                    <div style=" text-align:justify;" > <span> <strong>  {{$key->word}} ) </strong>   {{$key->contain_oficial_homolocao}} </span> </div>   <br> <br> 
-                @endif
+                <div style=" text-align:justify;"> 
+                    <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                </div> 
+                <br> 
+                @endif               
             @endif
         @endforeach
 
             
         <!-- @   @ -->
-
-
-
- 
 
 
 
@@ -288,17 +270,18 @@
         @foreach($HomlogAtaContent as $key)
             @if($key->key_inciso == 'VI')
                 @if($key->distincao == "Sgts")
-                    <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br>
-                @endif
+                <div style=" text-align:justify;"> 
+                    <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                </div> 
+                <br>  
+                @endif             
             @endif
         @endforeach
 
         <!-- @ FIM DAS HOMOLOGAÇÕES DOS SARGENTOS @ --> 
 
 
-
         <br>
-
 
 
 
@@ -311,8 +294,6 @@
                     <div align="center"> <span style="font-size: 14px;"> <strong> <u> @lang('globalDocsCpp.comissaoVotacao.title.sumula.homologation.CB_&_SD.ata') </u> </strong> </span> </div> 
                 </div> 
             <!-- @   @ -->
-
-
   
 
             <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.sumula.homologation.CB_&_SD.ata @ -->
@@ -330,9 +311,7 @@
             <!-- @   @ -->
 
 
-
             <br> <br>
- 
 
  
             <!-- @ TRECHO SE REFERE AOS INCISOS DOS Cbs e Sds @ -->
@@ -345,8 +324,11 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'I')
                         @if($key->distincao == "Cbs e Sds")
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div>  <br> <br>  
-                        @endif
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br> 
+                        @endif                       
                     @endif
                 @endforeach
 
@@ -363,7 +345,10 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'II')
                         @if($key->distincao == "Cbs e Sds")
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br> 
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br>                       
                         @endif
                     @endif
                 @endforeach
@@ -381,7 +366,10 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'III')
                         @if($key->distincao == "Cbs e Sds")
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br> 
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br>                        
                         @endif
                     @endif
                 @endforeach
@@ -400,7 +388,10 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'IV')
                         @if($key->distincao == "Cbs e Sds")
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br>  
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br>                        
                         @endif
                     @endif
                 @endforeach
@@ -418,7 +409,10 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'V')
                         @if($key->distincao == "Cbs e Sds") 
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br>  
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br>                        
                         @endif
                     @endif
                 @endforeach
@@ -436,7 +430,10 @@
                 @foreach($HomlogAtaContent as $key)
                     @if($key->key_inciso == 'VI')
                         @if($key->distincao == "Cbs e Sds")
-                            <div style=" text-align:justify;" > <span> <strong> {{$key->word}} ) </strong>  {{$key->contain_oficial_homolocao}} </span> </div> <br> <br> 
+                        <div style=" text-align:justify;"> 
+                            <p> <b> {{$key->word}} ) </b>    {{$key->contain_oficial_homolocao}} </p> 
+                        </div> 
+                        <br>                        
                         @endif
                     @endif
                 @endforeach
@@ -446,12 +443,7 @@
         <!-- @ FIM DAS HOMOLOGAÇÕES DOS SD'S E CB'S  @ -->
 
 
-
-
-
         <br>  
-
-
 
 
         <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
@@ -470,10 +462,8 @@
         </section> 
         <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
 
-
   
         <br>  
-
 
 
         <!-- @ 4. RelatedExpedients @  -->
@@ -503,7 +493,6 @@
 
  
         <br> 
-
 
 
 
@@ -537,13 +526,8 @@
             </div>                    
         </section> 
         <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
-
-
-                 
-        <br> <br>               
-
-
-
+ 
+        <br> <br>  
 
         <!--  @  7. ENCERRAMENTO DA REUNIÃO @  --> 
         <section> 
@@ -554,39 +538,42 @@
             </div>                    
         </section> 
         <!--  @  7. ENCERRAMENTO DA REUNIÃO @  -->  
-        
 
 
-        <br> <br> <br>  <br>  <br>  <br> <br>  <br>     
+        <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-
-        <!-- footer -->
-        <section> 
-           <div style="width:100%; height:auto; text-align:center;"> 
-                <span>  
-                    {{$ativePresidenteSecretario[1]->nome}} 
-                    <br> 
-                    <strong> Presidente </strong> 
-                    <br> 
-                    <strong> Ata assinada digitalmente. </strong>
-                </span>
-                
-                <br> <br> <br>  <br>  <br>  <br>  <br>
-
-                @foreach($users_ative_and_inative_cpp as $key=> $value)
+       <!-- @  footer @ -->
+       <footer style="width:100%; height: auto; "> 
+            <!-- @  footerMembros @ -->
+            <section style="height: auto;">  
+                <div style="width: 100%; height: auto; text-align:center;">
                     <span>  
-                        {{$users_ative_and_inative_cpp[$key]->nome}} 
+                        {{$ativePresidenteSecretario[1]->nome}} 
                         <br> 
-                        <strong> {{$users_ative_and_inative_cpp[$key]->qualificacao}} </strong>
+                        <strong> Presidente </strong> 
                         <br> 
-                    <strong> Ata assinada digitalmente. </strong> 
+                        <strong> Ata assinada digitalmente. </strong>
                     </span>
                     
-                <br> <br> <br> <br> <br> <br>  <br>
-                @endforeach
-           </div> 
-        </section>
-        <!-- footer -->
+                    <br> <br> <br>  <br>  <br>  <br>  <br>
+
+                    @foreach($users_ative_and_inative_cpp as $key=> $value)
+                        <span>  
+                            {{$users_ative_and_inative_cpp[$key]->nome}} 
+                            <br> 
+                            <strong> {{$users_ative_and_inative_cpp[$key]->qualificacao}} </strong>
+                            <br> 
+                        <strong> Ata assinada digitalmente. </strong> 
+                        </span>
+                        
+                    <br> <br> <br> <br> <br> <br>  <br>
+                    @endforeach
+                </div>
+            </section> 
+            <!-- @  footerMembros @ -->                    
+        </footer> 
+        <!-- @  footer @ -->                
+         
     </div>
     </div>
     </body>

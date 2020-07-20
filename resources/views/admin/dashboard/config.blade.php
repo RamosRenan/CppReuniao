@@ -5,11 +5,11 @@
 @stop
 
 @section('css') 
-<style>
-    #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-    #sortable li { padding: 5px; float: left; text-align: center; }
-    #sortable li div { display: block; height: 80px; }
-</style>
+    <style>
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+        #sortable li { padding: 5px; float: left; text-align: center; }
+        #sortable li div { display: block; height: 80px; }
+    </style>
 @stop
 
 @section('js') 
@@ -53,6 +53,7 @@
 
 @section('content')
     <div class="card card-default">
+
         <div class="card-header">
             <div class="row">
                 <div class="col-md-10">
@@ -65,6 +66,7 @@
                 </div>
             </div>
         </div>
+
         <div class="card-body">
             <div class="col-md-12">
             @if (count($authorizedWidgets) > 0)

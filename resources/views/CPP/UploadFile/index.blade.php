@@ -15,7 +15,7 @@
             <form enctype="multipart/form-data" action="{{route('cpp.uploadFile.store')}}" method="POST" >
                 @csrf
                 <!-- MAX_FILE_SIZE deve preceder o campo input -->
-                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="90000" />
                 <!-- O Nome do elemento input determina o nome da array $_FILES -->
                 Enviar esse arquivo: 
                 <br>
@@ -27,6 +27,10 @@
         </div>
 
         <br>
+
+        <div class="" style="width:100%; height:auto;" align="center">
+            <a href="#"> <u> Buscar todas as Atas. </u> </a>
+        </div>
 
         @if(isset($moveAta))
             @if($moveAta == 'ok')

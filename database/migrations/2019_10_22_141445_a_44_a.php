@@ -17,7 +17,7 @@ class A44A extends Migration
         Schema::create('A_44_A', function(Blueprint $blueprint){
 
             $blueprint->increments  ('id');
-            $blueprint->boolean     ('was_voted');
+            $blueprint->boolean     ('was_voted')->nullable();;
             $blueprint->string      ('eProtocolo', 12);
             $blueprint->bigInteger  ('id_response_relator');
             $blueprint->bigInteger  ('pertence_ata_num_ata');
@@ -34,9 +34,7 @@ class A44A extends Migration
             $blueprint->text        ('contain_delibercao')->nullable();
             $blueprint->text        ('descricao_parecer')->nullable();
             $blueprint->bigInteger  ('id_notification')->nullable();
-            $blueprint->foreign     ('id_notification')->references('id_notification')->on('notification');
-
-
+ 
             $blueprint->timestamps();
 
         });

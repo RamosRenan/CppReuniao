@@ -15,7 +15,7 @@ class Ata extends Migration
     {
         //
         Schema::create('ata', function(Blueprint $table){
-            $table->increments  ('id'                );
+            $table->integer     ('id'                );
             $table->integer     ('numero_ata'        );
             $table->primary     ('numero_ata'        );
             $table->string      ('ata_finalizada',  5)->nullable();

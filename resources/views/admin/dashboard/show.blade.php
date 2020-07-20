@@ -5,7 +5,7 @@
 @section('content_header')
     <a class="text-muted float-right" href="{{ route('home.dashboard.index') }}">
         <span class="btn btn-md btn-warning">
-            <i class="fa fa-cog" style="color:white"></i>
+            <i class="fa fa-cog" style="color:blue"></i>
         </span>
     </a>
     <h1>@lang('dashboard.title')</h1>

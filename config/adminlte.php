@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'IntranetPMPR',
+    'title' => 'CPP IntranetPMPR',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Intranet</b>PMPR',
+    'logo' => '<b>CPP</b> - PMPR',
 
     'logo_mini' => '<b>PM</b>',
 

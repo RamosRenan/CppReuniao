@@ -16,19 +16,11 @@
 
     
     <body>
- 
-     <br>
-
         <header>
             <div> 
                 @lang('globalDocsCpp.header.deliberacao') 
             </div>
         </header>
-
-
-
-
-
 
         <section style="width:99%; heigth:auto; position:relative; top:50px;">
             <div align="center"> 
@@ -40,10 +32,6 @@
                  </h4>
             </div>
         </section>    
-
-
-
-
 
         <!-- @ **** = graduacao         @ -->
         <!-- @ !!!! = nome              @ -->
@@ -57,7 +45,7 @@
         <!-- @ @@@@ = eProtocolo        @ -->
         <section style="width:99%; heigth:auto; position:relative; top: 40px;">
             <div align="center" style="text-align:justify;">  
-               <div style="width:94%; heigth:auto; margin:auto;">
+               <div style="width:94%; heigth:auto; margin:auto;" align="center">
                     <form action="{{ route('cpp.sala44A.show', 0) }}"  method="PUT"  >
                         <textarea name="contain_deli" maxlength="1550" style="font-family: 'Times New Roman', Times, serif; width:100%; resize:none; border:none; text-align:justify; overflow: hidden;" rows="12" cols="60">                        
                             {{ 
@@ -75,26 +63,20 @@
 
                         <input type="hidden" value="{{$this44A[0]->eProtocolo}}" name="eProtocolo44_A">
  
-                        <button type="submit"  id="validar" class="btn btn-default btn-sm" style=" position: relative; top: 420px; box-shadow:0px 1px 5px gray; width: 200px;">
-                            <span class="glyphicon glyphicon-thumbs-up" style="color:blue;" > </span> Submeter aos relatores
+                        <button type="submit"  id="validar" class="btn btn-primary btn-sm" style="  position: relative; box-shadow:0px 1px 5px gray; width: 200px;">
+                            <span class=" " style="color: white; " >  Submeter aos relatores </span>
                         </button>
+
                     </form>
                 </div>
             </div> 
         </section> 
-        
-       
-
-
-
-
 
         <section style="width:100%; heigth:auto; position:relative; top: 70px;">
             <div style="margin-left:18px;"> 
                 @lang('globalDocsCpp.comissaoVotacao.footer')
             </div>
         </section> 
-        
         
         <!-- obs corrigir -->
         <section style="width:100%; heigth:auto; position:relative; top:100px;">
@@ -103,8 +85,6 @@
             </div>
         </section> 
 
-
-
         <section style="width:100%; heigth:auto; position:relative; top:130px;">
             <div align="center"> 
                 <h4>Maj. QOPM Omar Bail.</h4> 
@@ -112,9 +92,7 @@
             </div>
         </section> 
             
-            
-            
-        <section style="width:100%; heigth:auto; position:relative; top: 180px;">
+        <section style="width:100%; heigth:auto; position:relative; top: 150px;">
             <div style="margin-left:18px;"> 
                 <span>
                     Eu, <strong> Assinado digitalmente em: </strong> {{$this44A[0]->created_at}} <strong> RG: </strong> {{$presidenteSecretario[0]->rg}}, {{$presidenteSecretario[0]->posto}} {{$presidenteSecretario[0]->nome}},
@@ -122,7 +100,6 @@
                  </span>
             </div>
         </section> 
-        
 
         <!-- @ Style @ -->
         <style>
@@ -137,21 +114,12 @@
             }
         </style>
         <!-- Style -->
-
-            
             
         <!-- @ Script's @ -->
         <script  type="text/javascript" > 
-            
-
-           
-
-
-
 
         </script>
         <!-- Script's -->
-
             
     </body>
 </html>

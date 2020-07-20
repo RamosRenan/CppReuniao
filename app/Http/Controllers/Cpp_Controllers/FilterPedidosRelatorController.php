@@ -29,13 +29,11 @@ class FilterPedidosRelatorController extends Controller
         ->where('eProtocolo_sorteados.id_membro', Auth::user()->id)
         ->get();
         if(empty($selectedPedidos)){
-            // return "entrou empty";
             $res = new RelatorController();
             return $res->index();
         }else{
-            // return "entrou empty 2";
             $res = new RelatorController();
-            return $res->index();
+            // return $res->index();
             return view('/CPP/Relator.index')->with(['usename'=>$usename, 'Usorteados'=>$selectedPedidos]);
         }
     }//show()

@@ -12,11 +12,7 @@ use App\Models\Notification\         notification;
 use App\                             User;
 use Illuminate\Support\Facades\      Auth;
 use App\Notifications\               InvoicePaid;
-
-
-
-
-
+use App\Models\Members_Relatores_President\Members_Relatores_and_President;
 
 class Sala44AController extends Controller
 {
@@ -42,6 +38,11 @@ class Sala44AController extends Controller
     
     public function create(Request $request){ 
 
+        $verifyIfExistRelatoresRegistrered = Members_Relatores_and_President::select('*')->get();
+
+        if(count($verifyIfExistRelatoresRegistrered)<2) 
+            return redirect($_SERVER['HTTP_REFERER'])->with('emptyRelatores', true);
+        
         $respis = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')->paginate(1);
 
@@ -56,7 +57,8 @@ class Sala44AController extends Controller
             _A44A::where('eProtocolo', $eProtocolo)->update(['quorum'=>$ComissaoCorum, 'votacao_comissao'=>$ComissaoOpnou, 
             'deliberou_por'=>$decisao_da_comissao, 'condicao'=>$Condicao ]);
     
-            $callDeliber  = new DeliberController;            
+            $callDeliber  = new DeliberController;
+
             return $callDeliber->newDeliber44A($eProtocolo);
 
         }else{
@@ -64,6 +66,7 @@ class Sala44AController extends Controller
             // $callDeliber  = new DeliberController;            
             return "Não atualize a pagina";//$callDeliber->newDeliber44A($eProtocolo);
             echo "Não atualize a pagina";
+
         }
 
     }# create()
@@ -105,6 +108,8 @@ class Sala44AController extends Controller
         $eProtocolo44_A = $request->input('eProtocolo44_A');
         $data = $request->input('contain_deli');
 
+        // verifico se há alguma notificação com 'read_at' null. 
+        // Isso significa que se houver, então pego o id desta notificação e a vinculo com o pedido 44A.
         $respis = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')->paginate(1);
 
@@ -117,12 +122,16 @@ class Sala44AController extends Controller
 
             _A44A::where('eProtocolo', $eProtocolo44_A)->update([ 'id_notification'=>$actualNotification[0]->id_notification, 'contain_delibercao'=>$data ]);
             $votoRelatoresDeliber44A = new DeliberController;
+            
             return $votoRelatoresDeliber44A->votoRelatoresDeliber44A($eProtocolo44_A);
     
         }else{
 
+            // Se entrar no else há notificação com 'read_at' null
+            // Atualizo eProtocolo com novo conteúdo da deliberação.
             _A44A::where('eProtocolo', $eProtocolo44_A)->update(['contain_delibercao'=>$data]);
             $votoRelatoresDeliber44A = new DeliberController;
+
             return  $votoRelatoresDeliber44A->votoRelatoresDeliber44A($eProtocolo44_A);
             
         }# else

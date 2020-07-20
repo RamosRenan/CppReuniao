@@ -20,8 +20,8 @@ class Policial extends Migration
             $table->primary ('cpf'      );
             $table->string  ('rg', 30       );
             $table->string  ('nome' , 50    );
-            $table->string  ('unidade', 15  );
-            $table->string  ('graduacao', 15);          
+            $table->string  ('unidade', 100  );
+            $table->string  ('graduacao', 50);          
 
             $table->timestamps();
         });

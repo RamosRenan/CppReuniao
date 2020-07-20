@@ -28,6 +28,12 @@ return [
     //Contagem de pontos. Referece ao documento: 'DELIBERAÇÃO'.
    'comissaoVotacao.pontosPositivos'=>'A Comissão de Promoção de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo    ****    !!!!, RG 0000, pertencente à ¨¨¨¨, no qual pleiteia por &&&&, deliberou por  °°°° de votos dos Senhores Oficiais Membros presentes,  +_+  o Parecer do Oficial Relator que opinou por  ####  do pleito, em face das razões expostas no relatório o qual o Colegiado adotou como arrazoado para decidir. (Ref.: SID nº  @@@@).',
     
+   // Referece ao texto padrão da DELIBERAÇÃO.
+   'comissaoVotacao.textPadrao'=>'A Comissão de Promoção de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo    ****    !!!!, CPF 0000, pertencente à ¨¨¨¨, no qual pleiteia por &&&&, deliberou por  °°°°  de votos dos Senhores Oficiais Membros presentes em,  ...  o Parecer do Oficial Relator que opinou por  ####  do pleito, em face das razões expostas no relatório o qual o Colegiado adotou como arrazoado para decidir. (Ref.: SID nº  @@@@).',
+    
+   // Referece ao texto padrão da DELIBERAÇÃO para deliberações postergadas.
+   'comissaoVotacao.textPadraoPostergado'=>'A Comissão de Promoção de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo    ****    !!!!, CPF 0000, pertencente à ¨¨¨¨, no qual pleiteia por &&&&, deliberou por  °°°°  de votos dos Senhores Oficiais Membros presentes em, Postergar a decisão sobre o pleito para a próxima reunião em data a ser definida pela CPP. (Ref.: SID nº  @@@@).',
+    
    'comissaoVotacao.pedido'=>'a Vossa senhoria o registro de pontos positivos na ficha de promoção, devido a concluisão do curso de especialização em ensino e história do Brasil.',
    
    //Roda pé. Referece ao documento: 'DELIBERAÇÃO'.

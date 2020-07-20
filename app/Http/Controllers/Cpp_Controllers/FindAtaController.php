@@ -15,10 +15,11 @@ class FindAtaController extends Controller
 {
     //
     public function index(){
-        // return "olaaa";
+
         $allAtas =  DB::select('SELECT * FROM public."fileAta" ');
 
-        return view('\CPP\FindAta\index')->with(['allAtas'=>$allAtas]);
+        // return $allAtas;
+        return view('CPP.FindAta.index')->with(['allAtas'=>$allAtas]);
 
     }#index()
 
@@ -45,7 +46,7 @@ class FindAtaController extends Controller
 
         // // return $AtaContent;
 
-        // return view('CPP\Ata\index')->with(['AtaContent'=>$AtaContent, 'HomlogAtaContent'=>$HomlogAtaContent]); 
+        // return view('CPP.Ata.index')->with(['AtaContent'=>$AtaContent, 'HomlogAtaContent'=>$HomlogAtaContent]); 
          
      }#create()
 
@@ -53,9 +54,9 @@ class FindAtaController extends Controller
 
     public function show(Request $request){
  
-        $num_ata = $request->input('num_ata');
-        $date_i = $request->input('datai');
-        $date_f = $request->input('dataf');
+        $num_ata    = $request->input('num_ata');
+        $date_i     = $request->input('datai');
+        $date_f     = $request->input('dataf');
 
         if( !empty($date_i) && !empty($date_f) ){
             $allAtas = ata::whereBetween('ata.created_at', [$date_i, $date_f])
@@ -63,35 +64,32 @@ class FindAtaController extends Controller
             ->get();
             if(count( $allAtas) == 0) return redirect($_SERVER['HTTP_REFERER'])->with('notFoundDeliber', 'false');
             // return  $allAtas;
-            return view('\CPP\FindAta\show')->with(['allAtas'=>$allAtas]);
+            return view('CPP.FindAta.show')->with(['allAtas'=>$allAtas]);
         }elseif(!empty($num_ata)){
             $finAta = ata::where('numero_ata', $num_ata )
             ->join('users', 'users.id', '=', 'ata.response_finalized_ata')
             ->get();
             if(count( $finAta) == 0) return redirect($_SERVER['HTTP_REFERER'])->with('notFoundDeliber', 'false');
-            return view('\CPP\FindAta\show')->with(['allAtas'=>$finAta]);
+            return view('CPP.FindAta.show')->with(['allAtas'=>$finAta]);
             // return $finAta;
         }else{
             return redirect($_SERVER['HTTP_REFERER'])->with('allInputsEmpty', 'false');
         }
-      
     }#show()
 
 
     public function edit(Request $request, $id){
         $ata = DB::select('SELECT * FROM public."fileAta" WHERE id = '.$id.'');
-
         $call = new FindAtaController;
         return $call->pesentingAta($ata);
     }//show()
 
-    private function pesentingAta($ata){
-        $file = '../public/ata/reunioes/cpp/pdf/'.$ata[0]->name.'' ;
+
+    public function presentingAta(){
+        $file = '../public/ata/reunioes/cpp/pdf/'.$_GET['nameata'].'' ;
         header('Content-type: application/pdf');
-        header('Content-Disposition: inline; filename="' .$ata[0]->name. '"');
+        header('Content-Disposition: inline; filename="' .$_GET['nameata']. '"');
         header('Content-Transfer-Encoding; binary');
         readfile($file);
-
     }
-
 }#FindAta

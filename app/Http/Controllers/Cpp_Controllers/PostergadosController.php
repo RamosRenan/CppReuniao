@@ -17,7 +17,7 @@ class PostergadosController extends Controller
 
     public function index(){
         $allLastDeliberPostergados = deliberacao::where('numero_ata', '<',  ata::max('numero_ata'))
-        ->where('condicao_this_deliberacao', 'Postergado')
+        ->where('deliberacao.condicao_this_deliberacao', 'Postergado')
         ->join('eProtocolo_sorteados', 'eProtocolo_sorteados.eProtocolo', '=', 'deliberacao.eProtocolo')
         ->join('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
         ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
@@ -40,6 +40,8 @@ class PostergadosController extends Controller
             ->orderBy('data_inicio', 'DESC')
             ->orderBy('created_at', 'DESC')
             ->paginate(1);
+
+            if(count($verify_ata_has_open) == 0) return redirect($_SERVER['HTTP_REFERER']); 
             // return  $verify_ata_has_open ;
         
             $num_sid          = $request->input('eProtocolo'         );
@@ -56,18 +58,18 @@ class PostergadosController extends Controller
             ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
             ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')->get();
 
-            $presidenteSecretario =  secretario_e_presidente::where('qualificacao', 'Secretario')
+            $presidenteSecretario =  secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
             ->where('status', true)->get();
 
             # @ Atualizo table eProtocolosSorteados com o resultado da sala de votacao  @ #            
             eProtocolosSorteados::where('eProtocolo', $num_sid)
-            ->update(['deliberou_por'=>$selectdecision, 'quorum'=>$ComissaoCorum, 'votacao_comissao'=>$ComissaoOpnou, 'condicao_this_deliber'=>$Condicao]);
+            ->update(['deliberou_por'=>$selectdecision, 'quorum'=>$ComissaoCorum, 'votacao_comissao'=>$ComissaoOpnou, 'condicao_this_deliberacao'=>$Condicao]);
            
             $data_users =  users_ative_and_inative_cpp::where('user_id_your_status', 1);//colocar condição;    
             # @ @
 
             // return  $sidTableTotable[0];
-            return view('\CPP\Deliberacoes\index')->with([
+            return view('CPP.Deliberacoes.index')->with([
                 'deliberacao'=> $numeration_deliberation_deliberacao_,
                 'presidenteSecretario'=> $presidenteSecretario,
                 'sidTableTotable'=> $sidTableTotable,

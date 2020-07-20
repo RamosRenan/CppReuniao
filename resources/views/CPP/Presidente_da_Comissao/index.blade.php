@@ -8,64 +8,73 @@
 @yield('content')
 
 @section('content')         
-
-    <section style="position:relative;" > 
-        <div class="card">
+ 
+    <section style="position:relative; top:-20px;"> 
+        <div class="card" align="center">
             <div class="card-header">
-                <a href="#"> <u> <i class="fas fa-file-alt"></i> Visualizar Ata </u> </a>
-                <a href="#" style="margin-left: 15px;"> <u> <i class="fas fa-users"></i> Relatores </u> </a>
-                <a href="#" style="margin-left: 15px;"> <u> Etc </u> </a>
-            </div>
-        </div>
-    </section>
-    <!-- @ Sessao contem barra de notificacao @-->
-
-
-    <section style="position:relative;" > 
-        <div class="card">
-            <div class="card-header">
-                <a href="{{route('cpp.presidentecomissao.index')}}"> <u> Visualizar deliberção </u> </a>
+                <h4 class="card-title" style="color: #1971c2;"> Prévia do texto da deliberção. </h4>
             </div>
             <div class="card-body" style="min-height: auto;" >
-                <h5 class="card-title"> Prévia do texto da deliberção. </h5>
-                <textarea class="card-text" style="width: 100%;" rows="8">
+                <br>
+                <textarea class="card-text" style="width: 100%;" rows="5" readonly>
                     @if(isset($decodeDeliber))
                         {{$decodeDeliber}}
                         @else
                             Não há deliberação.
                     @endif
-                </textarea><br>
+                </textarea>
+                <br>
+            </div>
+
+            <div>
+                <form action="/cpp/registry_vote_presidente" method="get">
+                    @csrf
+                    @if(isset($return_to_vote_member[0]))
+                    <input type="hidden" name="eProtocolo" value="{{$return_to_vote_member[0]->eProtocolo}}" class="custom-control-input" id=" ">
+                    @endif
+
+                    <div style="width:100%; height: auto; display: flex;" align="center">
+                        <div class="form-check" style=" margin-left: 35px;">
+                            <input class="form-check-input" type="radio" name="Favoravel" id="exampleRadios1" value="option1">
+                            <label class="form-check-label" for="exampleRadios1" style="color:red;">
+                                Contra
+                            </label>
+                        </div>
+
+                        <div class="form-check" style=" margin-left: 35px;">
+                            <input class="form-check-input" type="radio" name="Contra" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2" style="color:blue;">
+                                Favoravel
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    @if(isset($decodeDeliber))
+                            <button type="submit"  class="btn btn-primary"> Desempatar </button>
+                        @else
+                            <button type="submit"  class="btn btn-primary" disabled> Desempatar </button>
+                    @endif
+
+
+                    <br> <br>
+
+                    <a href="#"> <u> <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> </a>
+
+                    <hr>
+
+                    <small> <i class="fas fa-info-circle"></i> OBS.: Botão só ativado quando existir uma deliberação para ser analisada </small>
+                </div>
             </div>
         </div>
     </section>
     <!-- @ Sessao contem barra de notificacao @-->
-
-
-    <section style="position:relative;" > 
-        <div class="card">
-            <div class="card-header">
-                <a href="#" style=""> <u> Desempatar Votação </u> </a>
-            </div>
-            <div class="card-body">
-                <label> Favorável </label>
-                <input type="radio" class=" ">
-                <label> Contra </label>
-                <input type="radio" class=" "> <br>
-                <a href="#" class="btn btn-primary"> Desempatar </a>
-            </div>
-        </div>
-    </section>
-    <!-- @ Sessao contem barra de notificacao @-->
-
-
-
-
 
 
     <!-- SCRPT'S -->
         <script> 
  
-   
 
 
         </script>

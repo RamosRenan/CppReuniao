@@ -7,28 +7,24 @@
 @yield('content')
 
 @section('content')
-    <section style="width: 100%; height: auto;"> 
-        <div class="alert alert-dark" align="center" >
-            <span style="color: white;  font-family: 'Montserrat', sans-serif;"> <strong> <u> Deliberações Postergadas </u> </strong> </span>    
-        </div>   
-    </section>
 
-
-   <div class="scrool_grid_salavotacao" style="position:relative; top: 0px; max-height: 600px; ">
-        @if(isset($allLastDeliberPostergados))
+   <div class="scrool_grid_salavotacao" style=" max-height: 500px; ">
+        @if(isset($allLastDeliberPostergados) && count($allLastDeliberPostergados) > 0)
             @foreach($allLastDeliberPostergados as $key => $value)
                 <div class="card card-default_sa" style=" ">
                     <div class="card-header">
                         <!-- @ SESSÃO QUAL RELATOR  @ -->
-                        <div class="row"  style="height: 18px;">
-                            <div class="col-sm-9" style=" position:relative; left: 20px; cursor: pointer;">
-                                <i class="fas fa-bars _more_info "  id="_more_info{{$key}}" onclick="moreInfo(this.id, event)" >  </i> <span style="margin-left: 15px;"> <u>  Mais informações </u> </span>
+                        <div class="row"  style="height: 18px; text-align:center;">
+                            <div class="col-sm-11" style=" position:relative; left: 20px; cursor: pointer;">
+                                <!-- <i class="fas fa-bars _more_info "  id="_more_info{{$key}}" onclick="moreInfo(this.id, event)" >  </i>  -->
+                                <span style="color: cian;  font-family: 'Montserrat', sans-serif; ">  <u> Deliberações Postergadas </u>  </span>    
                             </div>
                         </div>
-                        <!-- @    @ -->
+                        <!-- @ SESSÃO QUAL RELATOR  @ -->
                     </div>
 
-                    <div class="card-body" style="position: relative; top: -20px;">
+                    <!-- @ card-body  @ -->
+                    <div class="card-body" style="position: relative; top: -20px; height:auto;" align="center">
                         <form action=" {{route('cpp.pedidosPostergados.create')}} " method="put" >
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -92,7 +88,7 @@
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     {{ Form::label('CONTEUDO', 'CONTEUDO', array('class' => 'awesome')) }}
-                                    <textarea readonly name=contain_ddeliber class=form-control rows='4' value="{{$value->conteudo}}"  > {{$value->conteudo}} </textarea>
+                                    <textarea readonly name=contain_ddeliber class=form-control rows='2' value="{{$value->conteudo}}"  > {{$value->conteudo}} </textarea>
                                 </div>
                             </div>
 
@@ -136,86 +132,33 @@
 
                             <input type="hidden" name="eProtocolo" value=" {{ $value->eProtocolo }} ">
 
-                            <br>
 
-                            <div class="row" align="center">
+                            <div class="row" align="center" style="position:relative; top: 15px;">
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""><i class="fa fa-gavel"></i> Gerar Deliberação. </button>
+                                    <button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalBox" data-url="">
+                                        <i class="fa fa-gavel"></i> Gerar Deliberação. 
+                                    </button>
+
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalBox" data-url="">
+                                        <i class="fa fa-search"></i> Mais info. 
+                                    </button>   
                                 </div>
                             </div>
+
                         </form>
-                    </div><!-- card body -->
-                </div> <!-- card card-default -->
-
-                <hr> 
-
-                <!-- Cortina que contem mais informações -->
-                <!-- <section id="courtain_more_info" class="_more_info{{$key}}" name="_more_info" style=" width: 100%; height:auto; position: absolute; top: 50px; display: none;">
-                    <div style=" width: 100%; height: 100%; background: black; opacity: 0.9; " >  </div>
-
-                    <div style=" width: 100%; height:auto; position: absolute; top: 0px; " >
-                        <table class="table table-bordered table-dark" style="background: cian; ">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="color: #367fa9;">  Relator.:  </th>
-
-                                    <th scope="col">  -----. </th>
-
-                                    <th scope="col" style="color: #367fa9;">  Optou por.: </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="row" style="color: #367fa9;"> Parecer do Relator.:  </th>
-                                    <td style="text-align: justify;">
-                                        ---.
-                                    </td>
-
-                                    <td >
-                                        ----.
-                                    </td>
-                                <tr>
-
-                                <tr>
-                                    <th scope="row" style="color: #367fa9;"> ID_Membro.:  </th>
-
-                                    <td>
-                                        -----.
-                                    </td>
-                                <tr>
-                            </tbody>
-                        </table>
-
-
-                        <table class="table table-bordered table-dark" style="background: cian; ">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="color: #367fa9;">  Responsável pelo Cadastro.:  </th>
-
-                                    <th scope="col">  fghrhrehre hrh rehrehrehre rhe reherhre reh. </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="row" style="color: #367fa9;"> ID.:  </th>
-                                    <td style="text-align: justify;">
-                                    -----.
-                                    </td>
-                                <tr>
-                            </tbody>
-
-                        </table>
                     </div>
-                </section> -->
-                <!-- Cortina que contem mais informações -->
+                    <!-- card body -->
+                </div> 
+                <!-- card card-default -->
             @endforeach
-            @endif
+
+            @else   
+                <small style="color:gray;"> <i class="far fa-times-circle"></i> Não há pedidos postergados. </small>
+            
+        @endif
     </div> <!-- scrool_grid_salavotacao -->
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
-    
-
+ 
      <!-- @ Script's @  -->
      <script>
         var state = false;

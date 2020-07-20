@@ -6,12 +6,11 @@
 @yield('content')
 
 @section('content')
-   
         
-    <section style=" position: relative; top: -40px;" > 
+    <section style=" position: absolute; top: 80px;" > 
         <div style="display:flex;" >
             <i class="fas fa-project-diagram" style="font-size: 18px;" > </i> 
-            <h5 style="margin-left:15px;"> Sorteio de Pedidos. </h5> 
+            <small style="margin-left:15px;"> Sorteio de Pedidos. </small> 
         </div> 
     </section>
 
@@ -20,20 +19,25 @@
     <!-- Sessão header View(cadastro_eProtocolo.index) -->            
     <form method="PUT" action="{{route('cpp.novosexpedientes.index')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        <!--  card card-default  -->
         <div class="card card-default"> 
             <div class="card-header" style=" height: 72px; " align="center">
-                <h3> <i class="fas fa-filter"></i> Opções de filtros para sorteio dos pedidos. </h3>
+                <h5> <i class="fas fa-filter"></i> Opções de filtros para sorteio dos pedidos. </h5>
                 <h5 style="color: #b2b2b2;"> <small> Selecione a forma como deseja sortear. </small> </h5>
             </div>
 
-            <!-- @ card-body  @ -->
-            <div class="card-body">
-                <div class="container">
-                    <div class="row" >
+            <!--  card-body  -->
+            <div class="card-body" align="center">
+
+                <!-- container -->
+                <div class="container" align="center">
+                
+                    <div class="row" align="center">
 
                         <div class="col-md-2"> </div>
 
-                        <div class="col-md-8">  
+                        <div class="col-md-8" align="center">  
                             <label> Designar sorteio por pedido. </label>                                  
                             <select name="sorteio_tipo" required  class="form-control" onchange="keyped()"  id="pedido" name="pedido">
                                 <option> Selecione 	</option>
@@ -75,14 +79,14 @@
                     <div class="row" >
                         <div class="col-md-2"> </div>
 
-                        <div class="col-md-4">
-                        <label> Data Inicial </label>
+                        <div class="col-md-4" align="center">
+                            <label> Data Inicial </label>
                             <input name='sorteio_datai' style=" " type="date" class="form-control" placeholder=" Critério de sorteio por 'DATA'." aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
 
-                        <div class="col-md-4">
-                        <label>   Data Final </label>
+                        <div class="col-md-4" align="center">
+                            <label>   Data Final </label>
                             <input name='sorteio_dataf' style=" " type="date" class="form-control" placeholder=" Critério de sorteio por tipo de pedido." aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
@@ -90,29 +94,38 @@
                     </div>
                     <!-- @ row @ -->
 
+                    <div class="row" align="center">
+                        <div style=" margin: auto; width: 180px; height:auto; margin-top: 25px;" class=" " align="center">
+                            <span> Buscar todos. </span>
+                            <input name='search_all' style=" " type="checkbox" class=" " >
+                        </div>
+                    </div>
+
                     <br>
 
-                    <div class="row" > 
-                        <div class="col-md-5"> </div>
-
-                        <div class="col-md-2" align="center">
-                            <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i> PESQUISAR</button>                                    
+                    <div class="row" align="center"> 
+                        <div style="margin: auto;" class="col-md-2" >
+                            <button type="submit" class="btn btn-outline-primary"> <i class="fas fa-search"></i> Buscar.</button>                                    
                         </div>
-                        
-                        <div class="col-md-3"> </div>
                     </div>
 
                 </div>
-            <!-- @ @ -->
+                <!-- container -->
+
+
             </div>
+            <!-- card-body -->
             
         </div>
-    </form> <!-- @ form @ -->
+        <!--  card card-default  -->
+
+    </form> 
+    <!-- form  -->
 
 
             
     <div style="width: 100%; height: auto;" align="center"> 
-        <span style="color: #9e9e9e;"> <h4> Aviso ! Não há pedidos a serem sorteados. <br> <small style="font-size: 14px;"> Talvez procurar por período, quantidade, ou pedido. </small> </h4>  </span> 
+        <small style="color: gray; font-size: 14px;"> Procure por período, quantidade, ou pedido. </small> 
     </div>
 
                    

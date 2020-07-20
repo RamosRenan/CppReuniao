@@ -26,9 +26,7 @@
             <div class="card-body"  align="center" > 
                     <span style="font-size: 16px; color: red; float:left; " > <strong> Atenção ! </strong>  </span>
                     <br>
-                    <span style="font-size: 14px; color: blue; float:left; " >   1 - Caso acrescente ao texto é <strong> NECESSÁRIO  </strong> clicar em <strong> EDITAR </strong> para salvar com a alteração feita.  </span>
-                    <br>
-                    <span style="font-size: 14px; color: GRAY; float:left; " >   2 - Se não for necessário alterar o texto apenas clique em <strong> CONFIRMAR. </strong> </span>
+                    <span style="font-size: 14px; color: blue; float:left; " >    2 - Se não for necessário alterar o texto apenas clique em <strong> CONFIRMAR. </strong>  </span>
                     <br>
                     <!-- @ row @ -->
                     <div class="row" style=" " align="center" >                        

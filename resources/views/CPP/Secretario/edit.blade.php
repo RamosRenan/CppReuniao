@@ -10,20 +10,19 @@
 
  
     <!-- Sessão header View(cadastro_eProtocolo.index) -->
-    <section style="width: 100%; height: auto;" > 
-      
-        <strong>  <h5> <u> Deliebração Selecionada. </u> </h5> </strong>                  
-
+    <section style="width: 100%; height: auto;" align="center"> 
     </section >
     <!-- Sessão header View(cadastro_eProtocolo.index) -->
 
 
     <section> 
-        <div class="card" style="height: 330px;" align="center">
+        <div class="card" style="height: auto;" align="center">
             <br>
-            <textarea class='form-control' readonly style="margin:auto; max-width: 90%;" rows="9"> 
+            <span> <u> Deliebração Selecionada. </u> </span>              
+            <textarea readonly style="margin: auto; width: 98%; margin-bottom: 15px;" rows="9"> 
                 {{$turn_back_vote[0]->deliberacao}}
             </textarea>
+            <br>
         </div>
     </section>
     <!-- Script's -->

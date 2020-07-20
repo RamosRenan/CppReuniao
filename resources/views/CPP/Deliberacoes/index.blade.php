@@ -46,38 +46,49 @@
         </section>    
 
 
-
-
-
-        <!-- @ **** = graduacao         @ -->
-        <!-- @ !!!! = nome              @ -->
-        <!-- @ 0000 = cpf               @ -->
-        <!-- @ ¨¨¨¨ = unidade           @ -->
-        <!-- @ &&&& = conteudo          @ -->
-        <!-- @ +_+  = votacao_comissao  @ --> <!-- @ Aprovar | Desaprovar   @ -->
-        <!-- @ °°°° = ComissaoCorum     @ --> <!-- @ Maioria | Unanimidade  @ -->
-        <!-- @ %%%% = ComissaoOpnou     @ --> <!-- @ Deferimento | Indeferimento | Restituir | Postergar @ -->
-        <!-- @ #### = relator_opnou_por @ -->
-        <!-- @ @@@@ = eProtocolo        @ -->
+        <!--   **** = graduacao           -->
+        <!--   !!!! = nome                -->
+        <!--   0000 = cpf                 -->
+        <!--   ¨¨¨¨ = unidade             -->
+        <!--   &&&& = conteudo do pleito (descrição do pedido do policial)  -->
+        <!--   °°°° = ComissaoCorum       --> <!--   Maioria | Unanimidade    -->
+        <!--   +_+  = votacao_comissao    --> <!--   Aprovar | Desaprovar     -->
+        <!--   %%%% = ComissaoOpnou       --> <!--   Deferimento | Indeferimento | Restituir | Postergar   -->
+        <!--   #### = relator_opnou_por   -->
+        <!--   @@@@ = eProtocolo          -->
         <section style="width:99%; heigth:auto; position:relative; top: 5px;">
             <div align="center" style="text-align:justify;" >  
                <div style="width:94%; heigth:auto; margin:auto;" align="center">
                     <form action="{{ route('cpp.deliberacao.create') }}"  method="PUT"  >
                         <textarea name="contain_deli" maxlength="1550" style="font-family: 'Times New Roman', Times, serif; width:100%; resize:none; border:none; text-align:justify; overflow: hidden;" rows="12" cols="60">                        
-                            {{ 
-                                str_replace( 
-                                    array("****", "!!!!", "0000", "¨¨¨¨","&&&&",  "°°°°", "+_+", "####", "@@@@"),
-                                    array($sidTableTotable[0]->graduacao , $sidTableTotable[0]->nome , $sidTableTotable[0]->cpf ,
-                                    $sidTableTotable[0]->unidade, $sidTableTotable[0]->conteudo,  $ComissaoCorum ,  $sidTableTotable[0]->votacao_comissao, 
-                                    $sidTableTotable[0]->relator_opnou_por, $sidTableTotable[0]->eProtocolo),
-                                    __('globalDocsCpp.comissaoVotacao.pontosPositivos') 
-                                ) 
-                            }}                                    
+                            @if(isset($Condicao))
+                                @if($Condicao == "Postergado")
+                                {{ 
+                                    str_replace( 
+                                        array("****", "!!!!", "0000", "¨¨¨¨", "&&&&",  "°°°°", "@@@@"),
+                                        array($sidTableTotable[0]->graduacao, $sidTableTotable[0]->nome, $sidTableTotable[0]->cpf,
+                                        $sidTableTotable[0]->unidade, $sidTableTotable[0]->conteudo, $ComissaoCorum, $sidTableTotable[0]->eProtocolo),
+                                        __('globalDocsCpp.comissaoVotacao.textPadraoPostergado') 
+                                    ) 
+                                }} 
+
+                                @else
+                                    {{ 
+                                        str_replace( 
+                                            array("****", "!!!!", "0000", "¨¨¨¨", "&&&&",  "°°°°", "...", "####", "@@@@"),
+                                            array($sidTableTotable[0]->graduacao, $sidTableTotable[0]->nome, $sidTableTotable[0]->cpf,
+                                            $sidTableTotable[0]->unidade, $sidTableTotable[0]->conteudo, $ComissaoCorum, 
+                                            $ComissaoOpnou, $sidTableTotable[0]->relator_opnou_por, $sidTableTotable[0]->eProtocolo),
+                                            __('globalDocsCpp.comissaoVotacao.textPadrao') 
+                                        ) 
+                                    }}  
+                                @endif                                  
+                            @endif                                  
                         </textarea>
                         <input type="hidden" value="{{$sidTableTotable[0]->eProtocolo}}" name="eProtocolo">
                         <input type="hidden" value="{{$numeration_deliberation_deliberacao_ID}}" name="numeration_deliberation_deliberacao_ID">
-                        <button type="submit"  id="validar" class=" btn btn-outline-primary" style=" width:15%; height:auto; position: relative; top: 300px; box-shadow:0px 1px 5px gray; ">
-                            <span style=" color: gray; ">   Submeter aos relatores ...  </span>
+                        <button type="submit"  id="validar" class=" btn btn-outline-primary" style=" width:15%; height:auto; position: relative; top: 250px; box-shadow:0px 1px 5px gray; ">
+                            <span style=" color: gray; ">   Submeter aos relatores <i class="fas fa-paper-plane"></i> </span>
                         </button>
                     </form>
                 </div>

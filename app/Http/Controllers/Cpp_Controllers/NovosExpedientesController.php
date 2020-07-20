@@ -9,12 +9,15 @@ use App\Models\Policial\Policial;
 use Illuminate\Support\Facades\DB;
 use App\Models\eProtocoloSorteados\eProtocolosSorteados;
 use App\Models\Ative_Inative_Relator\users_ative_and_inative_cpp;
+use App\Models\Deliberacao\deliberacao;
+use  App\Models\Ata\ata;
 
 class NovosExpedientesController extends Controller
 {
 
     /*@  index()  @*/
     public function index(Request $request){
+        
         $sorteio_qtd    = $request->query  ('sorteio_qtd'   );
         $sorteio_tipo   = $request->query  ('keypedido'     );
         $sorteio_datai  = $request->query  ('sorteio_datai' ); 
@@ -23,6 +26,17 @@ class NovosExpedientesController extends Controller
         $searchall = users_ative_and_inative_cpp::where('users_ative_and_inative_cpp.user_id_your_status', true)
         ->join('users', 'users.id', '=', 'users_ative_and_inative_cpp.has_user_id')
         ->get();
+
+
+        if( $request->query ('search_all') == "on" ){
+
+            $totcadastrado = eProtocolo::join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+            ->where('eProtocolo.status', '=', 'Cadastrado')
+            ->orderBy('eProtocolo.created_at', 'asc')
+            ->get(); 
+
+            return  view('/CPP/NovosExpedientes.show')->with(['tot'=>$totcadastrado, 'searchall'=>$searchall]);
+        }
 
         if( !empty($sorteio_qtd) && !empty($sorteio_tipo) && !empty($sorteio_datai) && !empty($sorteio_dataf) ){
 
@@ -76,16 +90,16 @@ class NovosExpedientesController extends Controller
         $relator_id = $_GET['user_membro'];
         $ePotocolo  = $_GET['numero_sid' ];
 
-        $verify = eProtocolosSorteados::where('eProtocolo', $ePotocolo)->get();
+        $findeProtocolo = eProtocolosSorteados::where('eProtocolo', $ePotocolo)->get(); //verifica na tabela 'eProtocolosSorteados' se N. protocolo já foi sorteado 
         $searchall     = users_ative_and_inative_cpp::where('user_id_your_status', true)
-        ->where('is_president', false)->get();//colocar condição;       
+        ->get();//colocar condição;       
 
-        if(!count($verify) > 0 && !empty($relator_id) && !empty($ePotocolo)){
+        if(!count($findeProtocolo) > 0 && !empty($relator_id) && !empty($ePotocolo)){
             eProtocolo::where('eProtocolo', '=', $ePotocolo)->update(['status'=>'Sorteado']);
-            $sorteiomanual = new \App\Models\eProtocoloSorteados\eProtocolosSorteados;
-            $sorteiomanual->eProtocolo = $ePotocolo;
-            $sorteiomanual->id_membro = $relator_id;
-            $sorteiomanual->save(); 
+            $sorteioManual = new \App\Models\eProtocoloSorteados\eProtocolosSorteados;
+            $sorteioManual->eProtocolo = $ePotocolo;
+            $sorteioManual->id_membro = $relator_id;
+            $sorteioManual->save(); 
 
             $totcadastrado = eProtocolo::join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
             ->where('eProtocolo.status', '=', 'Cadastrado')
@@ -169,6 +183,16 @@ class NovosExpedientesController extends Controller
         ->join ('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
         ->join ('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')->get();
 
+        $allLastDeliberPostergados = deliberacao::where('numero_ata', '<',  ata::max('numero_ata'))
+        ->where('deliberacao.condicao_this_deliberacao', 'Postergado')
+        ->join('eProtocolo_sorteados', 'eProtocolo_sorteados.eProtocolo', '=', 'deliberacao.eProtocolo')
+        ->join('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
+        ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+        ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')
+        ->get(); 
+
+        $totPost = count($allLastDeliberPostergados);
+
         // return $verify;
 
         $searchall = users_ative_and_inative_cpp::join('users', 'users.id', '=', 'users_ative_and_inative_cpp.has_user_id')
@@ -178,9 +202,9 @@ class NovosExpedientesController extends Controller
         // return $searchall;
 
         if( count($verify) > 0 ){
-            return  view('/CPP/SalaVotacao.index')->with(['relatados'=>$verify, 'searchall'=>$searchall]);
+            return  view('/CPP/SalaVotacao.index')->with(['relatados'=>$verify, 'allLastDeliberPostergados'=>$totPost, 'searchall'=>$searchall]);
         }else{
-            return  view('/CPP/SalaVotacao.index')->with(['emptyrelatados'=>false, 'searchall'=>$searchall]);
+            return  view('/CPP/SalaVotacao.index')->with(['emptyrelatados'=>false, 'allLastDeliberPostergados'=>$totPost, 'searchall'=>$searchall]);
         }
 
     } /*@  show()  @*/

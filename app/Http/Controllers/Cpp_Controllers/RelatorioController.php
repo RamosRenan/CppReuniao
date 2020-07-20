@@ -20,7 +20,8 @@ class RelatorioController extends Controller
                         GROUP BY d.condicao_this_deliberacao, d.numero_ata, ata.created_at
                             ORDER BY d.numero_ata ASC');
         // return $legendrelatorio;
-        return view('\CPP\Relatorios\index')->with(['legendrelatorio'=>$legendrelatorio]);
+        return view('CPP.Relatorios.index')->with(['legendrelatorio'=>$legendrelatorio]);
+        
     }#index()
 
 

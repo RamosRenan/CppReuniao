@@ -15,7 +15,7 @@
 
     <body>
     <br>
-    <div style="width: 95%; height: auto; margin: auto; border: solid 1px black;">
+    <div id="exportContent" style="width: 95%; height: auto; margin: auto; border: solid 1px black;">
         <form  action="/cpp/atapdf" method="get"> 
         <!-- @ Barra com button ferar pdf  @ -->
         <section style=" "> 
@@ -27,15 +27,20 @@
                 <div class="col-md-1">   
                     <button type="submit" class=" " style="border: none; position:relative; top: 30px; left: 30px; background:transparent;" > 
                         <i class="fa fa-file-pdf-o" style="font-size:24px; color:blue;"></i> 
+                    </button>
+
+                     <button type="button" class=" " onclick="Export2Doc('exportContent', 'Ata')" style="border: none; position:relative; top: 30px; left: 30px; background:transparent;" > 
+                        <i style="font-size: 22px;"  class="fa fa-file-word-o" aria-hidden="true"></i> 
                     </button> 
                 </div>
+                
 
                 <div class="col-10"> </div>
 
 
                 <div class="col-1">  
                     <a href="{{route('cpp.salavotacao.index')}}" style=" color: blue; position:relative; top: 30px; right: 75px; float: right; text-decoration-line:underline; " > 
-                        <h3> Inicio </h3>    
+                        <h5> Inicio </h5>    
                     </a>
                 </div>                
             </div>
@@ -498,20 +503,7 @@
                 <!-- @ FIM DAS HOMOLOGAÇÕES DOS SD'S E CB'S  @ -->
 
 
-
-
-
-
-
-
                 <br><br><br>
-
-
-
-
-
-
-
 
 
                 <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
@@ -523,7 +515,7 @@
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Apreciado')
                                     <h5> 3.{{ $key += 1 }}.  <span> <u style=" color:black; "> DELIBERAÇÃO Nº {{ $value['num_deliberacao'] }} /2019 </u> </span> </h5> 
-                                    <div style="width:90%; height:auto; margin:auto; text-align:justify; font-weight: lighter; "> <span> {{ $value['deliberacao'] }} </span> </div> <br> <br> <br>
+                                    <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> {{ $value['deliberacao'] }} </span> </div> <br> <br> <br>
                                 @endif
                             @endforeach
                         @endif
@@ -601,7 +593,7 @@
                     <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 6. </strong>  <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4> </div>
                     <div style="width: 100%; height:auto;"> 
                         <br>
-                        <div style="text-align:justify;"> <span style="font-weight: lighter;"> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
+                        <div style="text-align:justify;"> <span style=""> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
                         <br> <br>
                     </div>                    
                 </section> 
@@ -645,7 +637,7 @@
 
 
                 <!-- @  footer @ -->
-                <footer style="width:100%; height:100%; margin-top:135px;"> 
+                <footer style="width:100%; height: 100%; margin-top:135px;"> 
                     <!-- @  footerMembros @ -->
                     <section style="height:100%;">  
                         <div style="width:100%; height:auto; text-align:center;"> 
@@ -702,7 +694,7 @@
             });
 
 
-            function Export2Doc(element, filename = 'AtaCpp'){
+            function Export2Doc(element, filename = ''){
                 var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
                 var postHtml = "</body></html>";
                 var html = preHtml+document.getElementById(element).innerHTML+postHtml;

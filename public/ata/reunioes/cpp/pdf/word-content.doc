@@ -1,0 +1,699 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>
+        <form action="/cpp/atapdf" method="get"> 
+        <!-- @ Barra com button ferar pdf  @ -->
+        <section style=" "> 
+            <div class="row" style=" position:fixed; top:0px; width: 99.9%; height: 35px; "> 
+
+                <input type="hidden" name="num_ata" value="318"> 
+
+                <!-- Este é icone PDF para gerar o doc PDF -->
+                <div class="col-md-1">   
+                    <button type="submit" class=" " style="border: none; position:relative; top: 30px; left: 30px; background:transparent;"> 
+                        <i class="fa fa-file-pdf-o" style="font-size:24px; color:blue;"></i> 
+                    </button>
+
+                     <button type="button" class=" " onclick="Export2Doc('exportContent', 'word-content')" style="border: none; position:relative; top: 30px; left: 30px; background:transparent;"> 
+                        <i style="font-size: 22px;" class="fa fa-file-word-o" aria-hidden="true"></i> 
+                    </button> 
+                </div>
+                
+
+                <div class="col-10"> </div>
+
+
+                <div class="col-1">  
+                    <a href="http://localhost:8000/cpp/salavotacao" style=" color: blue; position:relative; top: 30px; right: 75px; float: right; text-decoration-line:underline; "> 
+                        <h5> Inicio </h5>    
+                    </a>
+                </div>                
+            </div>
+        </section>
+        <!-- @  @ -->
+        </form>
+
+        <br>
+        
+        <section style="width:100%; height: 100%; " id="exportContent">
+            <div style="width:98%; height: 100%; margin:auto; margin-top:18px; ">
+ 
+                <br> 
+                                
+                <!-- @ POLÍCIA MILITAR DO PARANÁ COMANDO-GERALCOMISSÃO DE PROMOÇÃO DE PRAÇAS @ -->
+                 <header>
+                    <div style="width:100%; height:100%;">
+                        <div align="center"> <h4 style="font-family: 'Times New Roman', Times, serif; "> <strong> POLÍCIA MILITAR DO PARANÁ <br> COMANDO-GERAL <br> COMISSÃO DE PROMOÇÃO DE PRAÇAS </strong> </h4> </div>
+                        <hr style="width:96%; margin:auto; background-color:black;">
+                    </div>
+                </header>  
+                <!-- @   @ -->
+
+
+                <br>
+
+
+                <!-- @ Publique-se. Coronel ........., Comandante-Geral da PMPR. @ -->
+                <nav style="float:right; font-family: 'Times New Roman', Times, serif;  "> <span> <strong> Publique-se. <br> <br> Coronel QOPM Péricles de Matos, <br> Comandante-Geral da PMPR.  </strong> </span> </nav>
+                <!-- @   @ -->
+
+
+                <br> <br> <br>  
+
+
+
+                <!-- @ “Reunião Ordinária” ATA DA XXXXª REUNIÃO DA COMISSÃO DE PROMOÇÕES DE PRAÇAS @ -->
+                <div style="width:100%; height:auto;" align="center">
+                    <h4 style="font-family: 'Times New Roman', Times, serif; ">
+                        
+                        <br> <br> <br>
+                        <strong>
+                        <span> “Reunião Ordinária” </span>
+
+                        <br>
+                        
+                        ATA DA 318ª REUNIÃO DA COMISSÃO DE PROMOÇÃO DE PRAÇAS.   
+                        </strong>
+                    </h4>
+                </div> 
+                <!-- @  @ -->              
+
+                 
+
+                <!-- @ Trato dos assuntos @-->
+                <!-- @ REUNIÃO DA COMISSÃO DE PROMOÇÃO DE PRAÇAS. @-->
+                <section>
+                    <div style="width:100%; height:auto;">
+                        <div style="width:94%; height:auto; margin:auto; text-align:justify;"> 
+                            <span style="font-size:18px; font-family: 'Times New Roman', Times, serif; "> 
+                            Aos(ao) 17 dias(a) do  mês  de  Julho  do  ano  de  2020,  no  Quartel  do  Comando-Geral  da  Polícia  Militar  do  Paraná,  
+                            na  sala  de  reuniões  da  CPP, às  11h:24m',  reuniu-se  a  Comissão  de  Promoções  de  Praças,  sob  a  Presidência  do  
+                            Sr.  Omar Bail ,    RG: 212121 , portariaCG designado  pela  Portaria  do  CG  nº  981,  
+                            de  28 de  dezembro  de  2018, estando  presentes  na  reunião  os  senhores  membros: 
+                             
+                                 ERIVELTON RIBEIRO PINTO (Membro Suplente), RG: 9859544,  Portaria do CG nº 981, de 28 de dezembro de 2018 teste 01 
+                                 , Mauricio Rauchbach (Membro Suplente), RG:212121222, Portaria do CG nº 981, de 28 de dezembro de 2018 teste 05 
+                                 , JONATHAN FELIPE KRUPZAK DOS PASSOS (Membro Suplente), RG: 76755555, Portaria do CG nº 981, de 28 de dezembro de 2018 teste 05 
+                                 , Renan Barbosa Ramos da Silva (Membro Efetivo), RG: 8955556, Portaria do CG nº 981, de 28 de dezembro de 2018 teste 01   
+                                  .  
+                             
+                            O  Sr.  Presidente  declarou  aberto  os  trabalhos,  sendo  que,  em  seguida,  apresentou a pauta da reunião onde foram tratados os seguintes assuntos:                         
+                            </span> 
+                        </div>
+                    </div>
+                </section> 
+                <!-- @  @-->
+
+        
+                <br> <br>        
+
+
+                <!-- @ 1. SORTEIO DE NOVOS EXPEDIENTES  @ -->
+                 <section> 
+                    <div style="width: 100%; height:auto; display:flex;">                     
+                        <h4> <strong> 1. </strong>  <u style="margin-left:18px; color:black;  "> <strong>   SORTEIO DE NOVOS EXPEDIENTES </strong> </u> </h4>
+                    </div>   
+                    
+
+                    <br> <br> 
+                    
+
+                    <div style="width: 100%; height:auto; "> 
+                                                    <span> 
+                                <strong> 1. 1 </strong> 
+                                Requerimento impetrado pelo <strong>  fwfwe we dfsdfsd sdf sdf sdf dsfsd, 
+                                RG: 234234324 </strong>, pertencente ao <strong> dfd sdfsdfdsfsdwe </strong>, no qual solicita  
+                                Promoção à graduação  de Cb. QPM 1-0. 
+                                (Ref.: PID nº 23.456.777-7). 
+                            </span> 
+                            <br> <br>
+                                                    <span> 
+                                <strong> 1. 2 </strong> 
+                                Requerimento impetrado pelo <strong>  3SGT - QPMG1 FRANCISCO JANDER NETO, 
+                                RG: 47361940 </strong>, pertencente ao <strong> 25BPM PCS SEC ADM BPM GRUPO P/1 </strong>, no qual solicita  
+                                Promoção à graduação  de 1º Sgt. QPM 1-0. 
+                                (Ref.: PID nº 12.121.331-3). 
+                            </span> 
+                            <br> <br>
+                                                    <span> 
+                                <strong> 1. 3 </strong> 
+                                Requerimento impetrado pelo <strong>  SD1C - QPMG1 JOAREZ CAMARGO DE OLIVEIRA, 
+                                RG: 73532256 </strong>, pertencente ao <strong> 16BPM PCS SEC ADM GRUPO P/1 </strong>, no qual solicita  
+                                Reclassificação do Quadro. 
+                                (Ref.: PID nº 15.709.713-0). 
+                            </span> 
+                            <br> <br>
+                                                    <span> 
+                                <strong> 1. 4 </strong> 
+                                Requerimento impetrado pelo <strong>  CABO - QPMG2 DIVONSIL OLIVEIRA DE ALBUQUERQUE, 
+                                RG: 69624600 </strong>, pertencente ao <strong> 2GB 1SGB 1SEC BM - CENTRAL </strong>, no qual solicita  
+                                Reclassificação do Quadro. 
+                                (Ref.: PID nº 15.592.382-2). 
+                            </span> 
+                            <br> <br>
+                                                    <span> 
+                                <strong> 1. 5 </strong> 
+                                Requerimento impetrado pelo <strong>  SUBTEN - QPMG1 DOUGLAS EDUARDO GIMENEZ CRUZ, 
+                                RG: 41683546 </strong>, pertencente ao <strong> AJ GER CCS GC DIRETORIA DE PESSOAL </strong>, no qual solicita  
+                                Promoção à graduação  de Cb. QPM 1-0. 
+                                (Ref.: PID nº 75.687.988-9). 
+                            </span> 
+                            <br> <br>
+                                                    <span> 
+                                <strong> 1. 6 </strong> 
+                                Requerimento impetrado pelo <strong>  SD1C - QPMG1 CAIO AUGUSTO MORON, 
+                                RG: 68781434 </strong>, pertencente ao <strong> QUARTO BATALHAO DE POLICIA MILITAR </strong>, no qual solicita  
+                                Promoção à graduação  de 2º Sgt. QPM 1-0. 
+                                (Ref.: PID nº 56.756.765-7). 
+                            </span> 
+                            <br> <br>
+                                            </div>                    
+                </section> 
+                <!-- @    @ -->
+
+
+ 
+
+                 
+                <br> <br> <br> 
+
+
+
+
+
+                <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
+                 <section> 
+                    <div style="width: 100%; height:auto; display:flex;">                    
+                        <h4> <strong> 2. </strong> </h4> <h4> <u style="margin-left:18px; color:black; "> <strong>HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIMENTO</strong> </u> </h4>
+                    </div>                    
+                </section> 
+                <!-- @ @ -->
+
+                <br>
+
+ 
+                <!-- @ 2. 2.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
+                <section> 
+                    <div style="width: 100%; height:auto; text-align:justify; "> 
+                        <div align="center"> <span style="font-size: 14px;">  <strong> 2.1.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019  <br> <br> </strong> </span> </div>  
+                    </div> 
+                </section> 
+                <!-- @   @ -->
+
+
+
+                <!-- @ 2. Súmula comissaoVotacao.sumula.homologation.Sargentos.ata @ -->
+                <section> 
+                    <div style="width: 100%; height:auto; "> 
+                                        
+                        <span style=" text-align:justify; ">   
+                              Súmula: Dispõe sobre o deferimento de requerimentos e os respectivos registros de pontos positivos na ficha de merecimento dos Sargentos.  
+
+     A Comissão de Promoção   de Praças da PMPR, no uso de suas atribuições legais previstas no Art. 4º, inciso VIII, da Lei Estadual nº 5.940, de 8 de maio de 1969 (LPP), com fulcro no Art. 36, também da LPP e na Portaria do CG nº 635/1999, publicada no Boletim Geral nº 165/1999, considerando o cumprimento dos requisitos legais, resolve: 
+     
+     Art. 1º Deferir, por unanimidade de votos, os requerimentos impetrados pelos militares estaduais e protocolados na Secretaria da Comissão de Promoção de Praças, e conseqüentemente determinar ao respectivo Secretário que registre na Ficha de Merecimento dos Sargentos abaixo relacionados, conforme adiante se especifica:    
+                        </span>
+                        
+                        <br> <br>
+
+                    </div>                    
+                </section> 
+                <!-- @   @ -->
+
+
+                 
+
+                        
+                <!-- @ FICHA DE MERECIMENTO DOS *SARGENTOS*  @ -->
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u> I. Em conformidade com o inciso VII do Art. 36 da LPP (Curso de Nível Universitário): </u>  </strong> </span>
+                            
+                            <br><br><br>
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+
+                    <br>
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u> II.   03 (três) pontos positivos, com base na letra “a” do Inciso V do Art. 36 da LPP: </u>  </strong> </span>
+                            
+                            <br><br><br>
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+
+                    <br>
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u> III.  02 (dois) pontos positivos, com base na letra “b” do Inciso V do Art. 36 da LPP: </u>  </strong> </span>
+                            
+                            <br><br><br>
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+
+                    <br>
+
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u> IV. 01 (um) ponto positivo, com base na letra “c” do Inciso V do Art. 36 da LPP: </u>  </strong> </span>
+                            
+                            <br><br><br>
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+
+
+                    <br>
+
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u>  V. 0.5 (meio) ponto positivo, com base na letra “d” do Inciso V do Art. 36 da LPP: </u>  </strong> </span>
+                            
+                            <br><br> 
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+
+
+                    <br>
+
+
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                                                
+                            <span style=" "> <strong>  <u>  VI. Como Louvores, com base no inciso X do Art. 36 da LPP: </u>  </strong> </span>
+                           
+                            <br><br><br>
+
+                            
+                        </div>                    
+                    </section> 
+                    <!-- @   @ -->
+
+                <!-- @ FIM DAS HOMOLOGAÇÕES DOS SARGENTOS @ -->
+                
+
+
+
+
+                
+
+                <br><br>
+
+
+
+
+
+
+                
+                <!-- @ FICHA DE MERECIMENTO DOS * SD'S & CB'S*  @ -->
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.title.sumula.homologation.CB_&_SD.ata @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; text-align:justify; "> 
+                            <div align="center"> <span style="font-size: 14px;"> <strong> 2.2.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 002, DE 15 DE MARÇO DE 2019  <br> <br> </strong> </span> </div> 
+                        </div> 
+                    </section> 
+                    <!-- @   @ -->
+
+ 
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.sumula.homologation.CB_&_SD.ata @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                            <span style=" ">   
+                                                    Súmula: Dispõe sobre o deferimento de requerimentos e os respectivos registros de pontos positivos na ficha de merecimento dos Cabos e Soldados. 
+   
+     A Comissão de Promoção   de Praças da PMPR, no uso de suas atribuições legais previstas no Art. 4º, inciso VIII, da Lei Estadual nº 5.940, de 8 de maio de 1969 (LPP), com fulcro no Art. 36, também da LPP e na Portaria do CG nº 635/1999, publicada no Boletim Geral nº 165/1999, considerando o cumprimento dos requisitos legais, resolve: 
+   
+     Art. 1º Deferir, por unanimidade de votos, os requerimentos impetrados pelos militares estaduais e protocolados na Secretaria da Comissão de Promoção de Praças, e conseqüentemente determinar ao respectivo Secretário que registre na Ficha de Merecimento dos Cabos e Soldados abaixo relacionados, conforme adiante se especifica:    
+                            </span>  
+                        </div> 
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br> <br>
+
+                    <!-- @ TRECHO SE REFERE AOS INCISOS DOS CB'S E SD'S @ -->
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                            <span style=" "> <strong>  <u> I. Em conformidade com o inciso VII do Art. 36 da LPP (Curso de Nível Universitário): </u>  </strong> </span> <br> <br>
+                        </div>  
+                        
+                        
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br>
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                            <span style=" "> <strong>  <u> II.   03 (três) pontos positivos, com base na letra “a” do Inciso V do Art. 36 da LPP: </u>  </strong> </span> <br> <br>
+                        </div> 
+                        
+                                                
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br>
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                             <span style=" "> <strong>  <u> III.  02 (dois) pontos positivos, com base na letra “b” do Inciso V do Art. 36 da LPP: </u>  </strong> </span> <br> <br>
+                        </div>         
+                        
+                        
+
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br>
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; ">                         
+                            <span style=" "> <strong>  <u> IV. 01 (um) ponto positivo, com base na letra “c” do Inciso V do Art. 36 da LPP: </u>  </strong> </span> <br> <br>
+                        </div>  
+                        
+                                                
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br>
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                            <span style=" "> <strong>  <u>  V. 0.5 (meio) ponto positivo, com base na letra “d” do Inciso V do Art. 36 da LPP: </u>  </strong> </span> <br> <br>
+                        </div>  
+                        
+                        
+                    </section> 
+                    <!-- @   @ -->
+
+                    <br>
+
+
+                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <section> 
+                        <div style="width: 100%; height:auto; "> 
+                             <span style=" "> <strong>  <u>  VI. Como Louvores, com base no inciso X do Art. 36 da LPP: </u>  </strong> </span> <br> <br> <br>
+                        </div> 
+                        
+                                            </section> 
+                    <!-- @   @ -->
+
+
+                <!-- @ FIM DAS HOMOLOGAÇÕES DOS SD'S E CB'S  @ -->
+
+
+                <br><br><br>
+
+
+                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+                 <section> 
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 3. </strong>  <u style=" margin-left:18px; color: black; "> <strong>  <span> EXPEDIENTES APRECIADOS </span> </strong> </u> </h4> </div>
+                    <div style="width: 100%; height:auto;"> 
+                        <br> 
+                                                                                                                        <h5> 3.1.  <span> <u style=" color:black; "> DELIBERAÇÃO Nº 45 /2019 </u> </span> </h5> 
+                                    <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> A Comissão de Promoção de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo    SD1C - QPMG1    ANELIZE DE ANGELIS HUSS, CPF 05035631966, pertencente à 5BPM 4 CIA SEGUNDO PELOTAO, no qual pleiteia por Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of ty, deliberou por  unanimidade  de votos dos Senhores Oficiais Membros presentes em,  aprovar  o Parecer do Oficial Relator que opinou por  Indeferimento  do pleito, em face das razões expostas no relatório o qual o Colegiado adotou como arrazoado para decidir. (Ref.: SID nº  55.657.777-7).  sdsdsds </span> </div> <br> <br> <br>
+                                                                                                            <br> <br>
+                    </div>                    
+                </section> 
+                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+
+               
+                <br>
+
+
+
+                <!-- @ 4. RelatedExpedients @  -->
+                 <section> 
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 4. </strong>  <u style="margin-left:18px; color:black;   "> <strong>  EXPEDIENTES RELATADOS </strong> </u> </h4> </div>
+                    <div style="width: 100%; height:auto;"> 
+                        <div style="display: none;"> 0 </div>
+                        <br>
+                                                                                                                                         
+                                                                                    <div style="display:flex;"> <h5> 4.1. </h5> <h5> <u ustyle="   color:black; "> DELIBERAÇÃO Nº 46 /2019 </u> </h5> </div>
+                                <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> A Comissão de Promoção   de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo  GHJNH     FDGBFDBFDBFD, RG 565656656, pertencente a(ao) FGFVFB FV, no qual pleiteia a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of ty Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of ty,, com fulcro no Art. 44-A, da Lei Estadual nº 5.940, de 8 de maio de 1969, inserido pela Lei Estadual nº 15.946, de 9 de setembro de 2008, deliberou por aprovar aprovar a presente deliberação, opinando pelo Apreciado do pleito, o qual o colegiado adotou como arrazoado para decidir. Destarte, será encaminhada proposição ao Exmo. Sr. Comandante-Geral para que o militar estadual em questão seja promovido à graduação de ____________________ . (Ref.: SID 43.435.445-4 PID: _________ ). </span> </div> <br> <br> <br>
+                                                            <div style="display:flex;"> <h5> 4.2. </h5> <h5> <u ustyle="   color:black; "> DELIBERAÇÃO Nº 47 /2019 </u> </h5> </div>
+                                <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> A Comissão de Promoção   de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo  CABO - QPMG1     AGNALDO FERREIRA, RG 57254343, pertencente a(ao) 7BPM 2 CIA 1 PEL DPM QUARTO CENTENÁRIO, no qual pleiteia a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of ty,, com fulcro no Art. 44-A, da Lei Estadual nº 5.940, de 8 de maio de 1969, inserido pela Lei Estadual nº 15.946, de 9 de setembro de 2008, deliberou por aprovar aprovar a presente deliberação, opinando pelo Apreciado do pleito, o qual o colegiado adotou como arrazoado para decidir. Destarte, será encaminhada proposição ao Exmo. Sr. Comandante-Geral para que o militar estadual em questão seja promovido à graduação de ____________________ . (Ref.: SID 54.465.756-7 PID: _________ ). </span> </div> <br> <br> <br>
+                                                            <div style="display:flex;"> <h5> 4.3. </h5> <h5> <u ustyle="   color:black; "> DELIBERAÇÃO Nº 48 /2019 </u> </h5> </div>
+                                <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> A Comissão de Promoção   de Praças da PMPR, instituída pela Lei Estadual nº 5.940, de 8 de maio de 1969, no uso de suas atribuições legais, apreciando o requerimento impetrado pelo  3SGT - QPMG1     DILCEU GAZZANA, RG 42411310, pertencente a(ao) 14BPM 2CIA 2 PEL DPM SÃO MIGUEL DO IGUAÇU, no qual pleiteia a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of ty,, com fulcro no Art. 44-A, da Lei Estadual nº 5.940, de 8 de maio de 1969, inserido pela Lei Estadual nº 15.946, de 9 de setembro de 2008, deliberou por aprovar aprovar a presente deliberação, opinando pelo Apreciado do pleito, o qual o colegiado adotou como arrazoado para decidir. Destarte, será encaminhada proposição ao Exmo. Sr. Comandante-Geral para que o militar estadual em questão seja promovido à graduação de ____________________ . (Ref.: SID 32.324.444-4 PID: _________ ). </span> </div> <br> <br> <br>
+                                                                        </div>                    
+                </section> 
+                <!-- @ 4. RelatedExpedients @  -->
+
+
+
+
+
+                 
+                <br> <br> <br>
+
+
+
+
+
+
+                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+                <section> 
+                    <div style="width:100%; height: auto; display:flex;">  <h4> <strong> 5. </strong> <u style="margin-left:18px; color:black;   "> <strong>  EXPEDIENTES POSTERGADOS </strong> </u> </h4> </div>
+                    <div style="width: 100%; height:auto;"> 
+                        <div style="display: none;"> 0 </div>
+                        <br>
+                                                                                                                                                              </div>                    
+                </section> 
+                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+             
+                <br>
+
+
+
+                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+                <section> 
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 6. </strong>  <u style="margin-left:18px; color:black;  "> <strong>  NOTIFICAÇÕES E PRAZOS PARA RECURSOS </strong> </u> </h4> </div>
+                    <div style="width: 100%; height:auto;"> 
+                        <br>
+                        <div style="text-align:justify;"> <span style="">  <span style=" margin-left:30px; "> 6.1 A notificação das decisões consignadas na presente reunião se dará com a publicação da Ata da reunião no Boletim-Geral, contando-se a data de disponibilidade do Boletim-Geral na intranet, para fins de prazos recursais. <br> </span>
+
+   <span style=" margin-left:30px; ">  6.2	Nos termos do art. 57, inciso II, da Lei Estadual nº 19.583 de 05 de junho de 2018, os militares estaduais que tiveram seus pleitos apreciados na presente reunião, poderão solicitar reconsideração ou recurso, no prazo de 60 (sessenta) dias. <br> </span>
+   
+   <span style=" margin-left:30px; ">  6.3	Para fins de reconsideração ou recurso os relatórios expedidos estarão disponíveis na Secretaria da CCP após a publicação da presente Ata no Boletim-Geral. </span> </span> 
+                        <br> <br>
+                    </div>                    
+                </div></section> 
+                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+
+
+
+
+
+                 
+                <br> <br>               
+               
+
+
+
+
+
+                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  --> 
+                <section> 
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 7. </strong>  <u style="margin-left:18px; color:black;   "> <strong> ENCERRAMENTO DA REUNIÃO </strong> </u> </h4> </div>
+                    <div style="width: 100%; height:auto;">
+                        <br>
+                        <span name="encerramento_reuniao" style=" ">   
+                            Às 17hs do dia dezoito de março de dois mil e dezenove, o Sr. Presidente paralisou os trabalhos da Comissão e retornou com as atividades às 8h30min do dia vinte e cinco de março de dois mil e dezenove, declarando encerrada a reunião às 17hs do mesmo dia, e como nada mais foi deliberado, mandou que se lavrasse a presente Ata, a qual, constando 79 laudas numeradas, que depois de lidas e achadas conforme, seguem devidamente assinadas. Eu, *SECRETARIO - POST - NOME*, RG * *, Secretário da Comissão de Promoções de Praças, lavrei-a. 
+                        </span>
+                        <br> <br>
+                    </div>                    
+                </section> 
+                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  -->  
+                
+                
+
+
+
+
+                <br> <br> <br> <br>
+                
+
+
+
+
+
+                <!-- @  footer @ -->
+                <footer style="width:100%; height: 100%; margin-top:135px;"> 
+                    <!-- @  footerMembros @ -->
+                    <section style="height:100%;">  
+                        <div style="width:100%; height:auto; text-align:center;"> 
+                            <span>  
+                                Omar Bail 
+                                <br> 
+                                <strong> Presidente </strong> 
+                                <br> 
+                                <strong> Ata assinada digitalmente. </strong>
+                            </span>
+                            
+                            <br> <br> <br>  <br>  <br>  <br>  <br>
+
+                                                            <span>  
+                                    ERIVELTON RIBEIRO PINTO 
+                                    <br> 
+                                    <strong> Membro Suplente </strong>
+                                    <br> 
+                                <strong> Ata assinada digitalmente. </strong> 
+                                </span>
+                                
+                            <br> <br> <br> <br> <br> <br>  <br>
+                                                            <span>  
+                                    Mauricio Rauchbach 
+                                    <br> 
+                                    <strong> Membro Suplente </strong>
+                                    <br> 
+                                <strong> Ata assinada digitalmente. </strong> 
+                                </span>
+                                
+                            <br> <br> <br> <br> <br> <br>  <br>
+                                                            <span>  
+                                    JONATHAN FELIPE KRUPZAK DOS PASSOS 
+                                    <br> 
+                                    <strong> Membro Suplente </strong>
+                                    <br> 
+                                <strong> Ata assinada digitalmente. </strong> 
+                                </span>
+                                
+                            <br> <br> <br> <br> <br> <br>  <br>
+                                                            <span>  
+                                    Renan Barbosa Ramos da Silva 
+                                    <br> 
+                                    <strong> Membro Efetivo </strong>
+                                    <br> 
+                                <strong> Ata assinada digitalmente. </strong> 
+                                </span>
+                                
+                            <br> <br> <br> <br> <br> <br>  <br>
+                                                    </div>
+                    </section> 
+                    <!-- @  footerMembros @ -->                    
+                </footer> 
+                <!-- @  footer @ -->                
+                <br> <br>
+            </div> 
+            <!-- @ section filho margin @ -->
+        </section>
+        <!-- @ section pai @ -->
+
+
+   
+        <br> <br>  
+
+
+
+
+        <!-- @  PLACE FOR MANAGEMENT JAVASCRIPT AND JQUERY @ -->
+        <!-- @  href="/css/SalaVotacao/slavot.css"      @ -->
+        <script type="text/javascript"> 
+
+            $("#finalAta").on("click", function(){
+                $("#confirmeEndAta").slideToggle( "slow" );
+            });
+
+
+            $("#cancelEndAta").on("click", function(){
+                $("#confirmeEndAta").slideUp();
+            });
+
+
+            function Export2Doc(element, filename = ''){
+                var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+                var postHtml = "</body></html>";
+                var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+
+                var blob = new Blob(['\ufeff', html], {
+                    type: 'application/msword'
+                });
+                
+                // Specify link url
+                var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+                
+                // Specify file name
+                filename = filename?filename+'.doc':'document.doc';
+                
+                // Create download link element
+                var downloadLink = document.createElement("a");
+
+                document.body.appendChild(downloadLink);
+                
+                if(navigator.msSaveOrOpenBlob ){
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                }else{
+                    // Create a link to the file
+                    downloadLink.href = url;
+                    
+                    // Setting the file name
+                    downloadLink.download = filename;
+                    
+                    //triggering the function
+                    downloadLink.click();
+                }
+                
+                document.body.removeChild(downloadLink);
+            }
+
+
+            jQuery(document).ready(function($){
+
+                $(".word-export").click(function(event) {
+                    alert('olaaa');
+                    $(".export-content").wordExport();
+
+                });
+
+            });
+                            
+        </script>
+        <!-- @  PLACE FOR MANAGEMENT JAVASCRIPT AND JQUERY @ -->  
+    </body></html>

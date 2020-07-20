@@ -7,7 +7,6 @@
 
 @section('content')
 
-<h5 style="position:relative;  color: #34495e;">  Exclusivo para cadastro de 44a.  </h5>
 
 <div class="card text-center">
     <div class="card-footer text-muted">
@@ -137,12 +136,9 @@
 
 
 
-
-
                     <div class="col-md-6 form-group"  align="center">
                         <label class='awesome'> * Designar para Relator. </label>
-                        <select id="  " id="nome_do_policial" class='form-control' type="text"  name="relator_designado" style="" required>
-                            <option selected> Selecione o membro  </option>
+                        <select id="" placeholder="Selecione o relator." id="nome_do_policial" class='form-control' type="text"  name="relator_designado" style="" required>
                             @foreach( $CountIsertMembers as $key )
                                 <option value="{{$key->id}}">
                                     <span> ID.: {{$key->id}} - {{$key->name}} </span>
@@ -175,112 +171,105 @@
 </div>
 
 
-    <section>
-        @if( session('lackFields') == "false" )
-            <div class="p-3 mb-2 bg-danger text-white"> Por gentileza, preencha todos os campos. </div>
-        @endif
-    </section>
+<section>
+    @if( session('lackFields') == "false" )
+        <div class="p-3 mb-2 bg-danger text-white"> Por gentileza, preencha todos os campos. </div>
+    @endif
+</section>
 
 
-    <section>
-        @if( isset($successIsert44A) == 'success' )
-            <div class="alert alert-success" role="alert"> 44A Cadastrado com Sucesso. </div>
-        @endif
-    </section>
+<section>
+    @if( isset($successIsert44A) == 'success' )
+        <div class="alert alert-success" role="alert"> 44A Cadastrado com Sucesso. </div>
+    @endif
+</section>
 
-    <section>
-        @if( isset($ataVazia) )
-            <div class="alert alert-danger" role="alert"> Não há ata aberta. </div>
-        @endif
-    </section>
+<section>
+    @if( isset($ataVazia) )
+        <div class="alert alert-danger" role="alert"> Não há ata aberta. </div>
+    @endif
+</section>
 
-
-
-
-
-
-    <!-- Scripts -->
-    <script type="text/javascript">
-
-        function mascara(i){
-
-            var v = i.value;
-
-            if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-                i.value = v.substring(0, v.length-1);
-                return;
-            }
-
-            i.setAttribute("maxlength", "12");
-
-            if (v.length == 2 || v.length == 6) i.value += ".";
-            if (v.length == 10) i.value += "-";
-
-        } //mascara(i)
+<section> 
+    @if(session('alredy_existy_eProtocolo'))
+        <div class="alert alert-warning" role="alert"> Já existe este protocolo. </div>
+    @endif
+<section>
 
 
+<!-- Scripts -->
+<script type="text/javascript">
 
+    function mascara(i){
 
+        var v = i.value;
 
-
-
-
-        function data_police(){
-            var keyNOME      = document.getElementById("keyNOME"     ).value;
-            var keyCPF       = document.getElementById("keyCPF"      ).value;
-            var keyRG        = document.getElementById("keyRG"       ).value;
-            var keyUNIDADE   = document.getElementById("keyUNIDADE"  ).value;
-            var keyGRADUACAO = document.getElementById("keyGRADUACAO").value;
-
-            document.getElementById("GET_NOME"     ).value = keyNOME;
-            document.getElementById("GET_CPF"      ).value = keyCPF;
-            document.getElementById("GET_RG"       ).value = keyRG ;
-            document.getElementById("GET_UNIDADE"  ).value = keyUNIDADE;
-            document.getElementById("GET_GRADUACAO" ).value = keyGRADUACAO;
-
-            $("#contain_curtain_section").slideUp();
-            $("#curtain_register").delay(900).slideUp();
+        if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+            i.value = v.substring(0, v.length-1);
+            return;
         }
 
+        i.setAttribute("maxlength", "12");
+
+        if (v.length == 2 || v.length == 6) i.value += ".";
+        if (v.length == 10) i.value += "-";
+
+    } //mascara(i)
+
+
+    function data_police(){
+        var keyNOME      = document.getElementById("keyNOME"     ).value;
+        var keyCPF       = document.getElementById("keyCPF"      ).value;
+        var keyRG        = document.getElementById("keyRG"       ).value;
+        var keyUNIDADE   = document.getElementById("keyUNIDADE"  ).value;
+        var keyGRADUACAO = document.getElementById("keyGRADUACAO").value;
+
+        document.getElementById("GET_NOME"     ).value = keyNOME;
+        document.getElementById("GET_CPF"      ).value = keyCPF;
+        document.getElementById("GET_RG"       ).value = keyRG ;
+        document.getElementById("GET_UNIDADE"  ).value = keyUNIDADE;
+        document.getElementById("GET_GRADUACAO" ).value = keyGRADUACAO;
+
+        $("#contain_curtain_section").slideUp();
+        $("#curtain_register").delay(900).slideUp();
+    }
 
 
 
 
-        $("#closecurtain").click(function(){
-            // alert('olaaaa');
-            $("#contain_curtain_section").slideUp();
-            $("#curtain_register").delay(900).slideUp();
-        });
+
+    $("#closecurtain").click(function(){
+        // alert('olaaaa');
+        $("#contain_curtain_section").slideUp();
+        $("#curtain_register").delay(900).slideUp();
+    });
 
 
-        $(document).ready(function(){
+    $(document).ready(function(){
 
-            var getpolic = document.getElementById('policeman').value;
-
-
-            if (!getpolic){
-                alert("não existe mesmo");
-            }else{
-                $("#contain_curtain_section").css("display", "block");
-                $("#curtain_register").css("display", "block");
-            }
-
-        });
+        var getpolic = document.getElementById('policeman').value;
 
 
-        function closeModal(){
-            $("#contain_curtain_section").slideUp();
-            $("#curtain_register").delay(900).slideUp();
-            alert( 'OK ! Dados Inconsistentes ={' )
+        if (!getpolic){
+            alert("não existe mesmo");
+        }else{
+            $("#contain_curtain_section").css("display", "block");
+            $("#curtain_register").css("display", "block");
         }
 
+    });
+
+
+    function closeModal(){
+        $("#contain_curtain_section").slideUp();
+        $("#curtain_register").delay(900).slideUp();
+        alert( 'OK ! Dados Inconsistentes ={' )
+    }
 
 
 
-    </script>
 
-    <!-- Scripts -->
-
-
+</script>
+<!-- Scripts -->
 
 @endsection

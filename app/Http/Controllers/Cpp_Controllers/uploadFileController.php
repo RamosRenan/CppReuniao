@@ -29,7 +29,7 @@ class uploadFileController extends Controller
             try {
                 //code...
 
-                $file = '../public/ata/reunioes/cpp/pdf/' ;
+                $file = '../public/ata/reunioes/cpp/pdf/';
                 $uploadfile = $file . basename($_FILES['userfile']['name']);
                 if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
                     $newAta = new fileAta;

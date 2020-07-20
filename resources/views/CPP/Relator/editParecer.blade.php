@@ -14,7 +14,7 @@
         <div class="card text-center">
             <div class="card-footer text-mutedr" >
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar meu parecer  |  Faça uma busca com o número de protocolo" aria-label="Buscar parecer" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder=" Faça uma busca com o número de protocolo" aria-label="Buscar parecer" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button"> <i class="fas fa-search"></i> Buscar</button>
                     </div>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="card-body" style="max-height: 570px; overflow-y: scroll;" align="center">
-                <span class="card-title" style="color: magenta; font-size:16px;">Registros de parecer. É possível alterar somente pedidos que nãoforam votados pela comissão.</span>
+                <span class="card-title" style="color: cian; font-size:16px;">Registros de parecer. É possível alterar somente pedidos que não foram votados pela comissão.</span>
                 <p class="card-text" style="color: gray;">Listagem de todos os pareceres registrados que não foram votados.</p>
                 @if(isset($relatados) || !empty($relatados))
                     @foreach($relatados as $key => $value)

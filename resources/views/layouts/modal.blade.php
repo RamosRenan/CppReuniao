@@ -2,7 +2,7 @@
 <section class="content-header">
     <button type="button" class="close" data-dismiss="modal">
         <span aria-hidden="true">&times;</span>
-    </button>
+     </button>
     @yield('content_header')
 </section>
 <section class="content">

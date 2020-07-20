@@ -19,13 +19,13 @@
         <!-- Etapa 1 -->
         <!-- @ Barra com button ferar pdf  @ -->
         <section style=" "> 
-            <div class="row" style=" position:fixed; top:0px; width: 99.9%; height: 35px; "> 
-                <div class="col-1"> <span style="color:gray; font-size: 22px; position: relative; top:25px; left: 25px;">  Etapa 1 </span> </div>
+            <div class="row" style=" position:absolute; top:0px; width: 99.9%; height: 35px; "> 
+                <div class="col-3"> <span style="color: cian; font-size: 22px; position: relative; top:25px; left: 25px;">  Etapa 1 de 2 </span> </div>
                 
-                <div class="col-10"> </div>
+                <div class="col-8"> </div>
 
                 <div class="col-1">  
-                    <a href="{{route('cpp.salavotacao.index')}}" style="font-size: 24px; color: blue; position:relative; top:23px; right: 15px; text-decoration-line:underline; " > 
+                    <a href="{{route('cpp.salavotacao.index')}}" style="font-size: 18px; color: blue; position:relative; top:23px; right: 15px; text-decoration-line:underline; " > 
                           <u> Inicio </u>   
                     </a>
                 </div>                
@@ -73,16 +73,17 @@
                         
                         <br> <br> <br>
                         <strong>
-                        <span> “Reunião Ordinária” </span>
+                            <span> “Reunião Ordinária” </span>
 
-                        <br>
-                        
-                        {{
-                            $resp = str_replace ( 
-                                        array("XXXX"),
-                                        array($AtaContent[0]->numero_ata), __('globalDocsCpp.comissaoVotacao.title.ata') 
-                                    ) 
-                        }}  
+                            <br>
+                            
+                            {{
+                                $resp = str_replace ( 
+                                            array("XXXX"),
+                                            array($AtaContent[0]->numero_ata), __('globalDocsCpp.comissaoVotacao.title.ata') 
+                                        ) 
+                            }}  
+
                         </strong>
                     </h4>
                 </div> 
@@ -101,11 +102,17 @@
                             Aos(ao) {{date('d')}} dias(a) do  mês  de  <?php setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese"); date_default_timezone_set('America/Sao_Paulo');  
                             echo ucfirst( utf8_encode(strftime("%B", strtotime('today')))); ?>  do  ano  de  {{ date('Y') }},  no  Quartel  do  Comando-Geral  da  Polícia  Militar  do  Paraná,  
                             na  sala  de  reuniões  da  CPP, às  {{date('H'.'\h'.":".'i'.'\m'."'")}},  reuniu-se  a  Comissão  de  Promoções  de  Praças,  sob  a  Presidência  do  
-                            Sr. <strong> {{$ativePresidenteSecretario[1]->nome}} </strong>,   <strong> RG: {{$ativePresidenteSecretario[1]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  981,  
-                            de  28 de  dezembro  de  2018, estando  presentes  na  reunião  os  senhores  membros: <strong> {{$users_ative_and_inative_cpp[0]->nome}} ({{$users_ative_and_inative_cpp[0]->qualificacao}})</strong>, <strong>RG: {{$users_ative_and_inative_cpp[0]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  503,  de  20  de  
-                            julho  de  2017, <strong> {{$users_ative_and_inative_cpp[1]->nome}} ({{$users_ative_and_inative_cpp[1]->qualificacao}}) </strong>, <strong> RG:{{ $users_ative_and_inative_cpp[1]->rg}} </strong> ,  designado  pela  Portaria do CG nº 107, de 11 de fevereiro de 2019, <strong> {{$users_ative_and_inative_cpp[2]->nome}} ({{$users_ative_and_inative_cpp[0]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[2]->rg}} </strong>, designado pela Portaria do CG nº 616, 
-                            de 17 de agosto de 2018,  @if(isset($users_ative_and_inative_cpp[3])) <strong> {{$users_ative_and_inative_cpp[3]->nome}} ({{$users_ative_and_inative_cpp[3]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[3]->rg}} </strong>, designada pela Portaria do CG nº 098, de 22 de janeiro  de  2019, @endif  @if(isset($users_ative_and_inative_cpp[4])) <strong> {{$users_ative_and_inative_cpp[4]->nome}} ({{$users_ative_and_inative_cpp[4]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[4]->rg}} </strong>,  designada
-                            pela  Portaria  do  CG  nº  098,  de  22  de  janeiro  de  2019  e @endif @if(isset($users_ative_and_inative_cpp[5])) <strong> {{$users_ative_and_inative_cpp[5]->nome}} ({{$users_ative_and_inative_cpp[5]->qualificacao}}) </strong>, <strong> RG: {{$users_ative_and_inative_cpp[5]->rg}} </strong>,  designado  pela  Portaria  do  CG  nº  107,  de  11  de  fevereiro  de  2019 @endif.  
+                            Sr. <strong> {{$ativePresidenteSecretario[1]->nome}} </strong>,   <strong> RG: {{$ativePresidenteSecretario[1]->rg}} </strong>, portariaCG designado  pela  Portaria  do  CG  nº  981,  
+                            de  28 de  dezembro  de  2018, estando  presentes  na  reunião  os  senhores  membros: 
+                            <strong> 
+                                @if(isset($users_ative_and_inative_cpp[0])) {{$users_ative_and_inative_cpp[0]->nome}} ({{$users_ative_and_inative_cpp[0]->qualificacao}}), RG: {{$users_ative_and_inative_cpp[0]->rg}},  {{$users_ative_and_inative_cpp[0]->portariaCG}} 
+                                @endif @if(isset($users_ative_and_inative_cpp[1])), {{$users_ative_and_inative_cpp[1]->nome}} ({{$users_ative_and_inative_cpp[1]->qualificacao}}), RG:{{ $users_ative_and_inative_cpp[1]->rg}}, {{$users_ative_and_inative_cpp[1]->portariaCG}} 
+                                @endif @if(isset($users_ative_and_inative_cpp[2])), {{$users_ative_and_inative_cpp[2]->nome}} ({{$users_ative_and_inative_cpp[2]->qualificacao}}), RG: {{$users_ative_and_inative_cpp[2]->rg}}, {{$users_ative_and_inative_cpp[2]->portariaCG}} 
+                                @endif @if(isset($users_ative_and_inative_cpp[3])), {{$users_ative_and_inative_cpp[3]->nome}} ({{$users_ative_and_inative_cpp[3]->qualificacao}}), RG: {{$users_ative_and_inative_cpp[3]->rg}}, {{$users_ative_and_inative_cpp[3]->portariaCG}}   
+                                @endif @if(isset($users_ative_and_inative_cpp[4])), {{$users_ative_and_inative_cpp[4]->nome}} ({{$users_ative_and_inative_cpp[4]->qualificacao}}), RG: {{$users_ative_and_inative_cpp[4]->rg}}, {{$users_ative_and_inative_cpp[4]->portariaCG}} e 
+                                @endif @if(isset($users_ative_and_inative_cpp[5])), {{$users_ative_and_inative_cpp[5]->nome}} ({{$users_ative_and_inative_cpp[5]->qualificacao}}), RG: {{$users_ative_and_inative_cpp[5]->rg}}, {{$users_ative_and_inative_cpp[5]->portariaCG}}   
+                                @endif.  
+                            </strong> 
                             O  Sr.  Presidente  declarou  aberto  os  trabalhos,  sendo  que,  em  seguida,  apresentou a pauta da reunião onde foram tratados os seguintes assuntos:   
                         </span> 
                     </div>
@@ -512,7 +519,25 @@
                                 @endif
                             @endforeach
                         @endif
+
                         <br> <br>
+                        <div style="display:none;"> {{ $cont = 0}} </div>
+                        @if(isset($Ata44A))
+                            @foreach($Ata44A as $key => $val)
+                                <form action="\cpp\editDeliberInAta44a" method="post"> <!-- # -->
+                                    @csrf
+                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                    <div style="width:90%; height:auto; margin:auto; text-align:justify; "> 
+                                        <input name="editdeliberinata44a" type="hidden" value="{{$val['id']}}">
+                                        <textarea class="form-control"  type="text" name="contentDeliber44A"  style="width: 100%; " rows="7"> 
+                                            {{ $val['contain_delibercao'] }} 
+                                        </textarea> 
+                                        <button type="submit" class="btn btn-warning">Alterar</button>
+                                    </div> 
+                                    <br> <br> <br>
+                                </form> 
+                            @endforeach
+                        @endif
                     </div>                    
                 </section> 
                 <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
@@ -546,24 +571,6 @@
                                 @endif
                                 </form>
                              @endforeach
-                        @endif
-
-
-                        @if(isset($Ata44A))
-                            @foreach($Ata44A as $key => $val)
-                                <form action="\cpp\editDeliberInAta44a" method="post"> <!-- # -->
-                                    @csrf
-                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
-                                    <div style="width:90%; height:auto; margin:auto; text-align:justify; "> 
-                                        <input name="editdeliberinata44a" type="hidden" value="{{$val['id']}}">
-                                        <textarea class="form-control"  type="text" name="contentDeliber44A"  style="width: 100%; " rows="7"> 
-                                            {{ $val['contain_delibercao'] }} 
-                                        </textarea> 
-                                        <button type="submit" class="btn btn-warning">Alterar</button>
-                                    </div> 
-                                    <br> <br> <br>
-                                </form> 
-                            @endforeach
                         @endif
                     </div>                    
                 </section> 
@@ -613,7 +620,7 @@
                     <h4> <strong> 6. </strong>  <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4>  
                     <div style="width: 100%; height:auto;"> 
                         <br>
-                        <div style="text-align:justify;"> <span style="font-weight: lighter;"> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
+                        <div style="text-align:justify;"> <span style=" "> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
                         <br> <br>
                     </div>                    
                 </section> 
@@ -631,7 +638,7 @@
                     <div style="width: 100%; height:auto;">
                         <br>
                         <textarea class="encerramento_reuniao" id="encerramento_reuniao" name="encerramento_reuniao" style=" width:100%; border:solid 1px #dc3545; " rows="7" required>  
-                            Às 17hs do dia dezoito de março de dois mil e dezenove, o Sr. Presidente paralisou os trabalhos da Comissão e retornou com as atividades às 8h30min do dia vinte e cinco de março de dois mil e dezenove, declarando encerrada a reunião às 17hs do mesmo dia, e como nada mais foi deliberado, mandou que se lavrasse a presente Ata, a qual, constando 79 laudas numeradas, que depois de lidas e achadas conforme, seguem devidamente assinadas. Eu, _____________ 2º Ten. QEOPM Wilbeer Clovis Gomes Mendes, RG 4.926.619-7, Secretário da Comissão de Promoções de Praças, lavrei-a.
+                            Às 17hs do dia dezoito de março de dois mil e dezenove, o Sr. Presidente paralisou os trabalhos da Comissão e retornou com as atividades às 8h30min do dia vinte e cinco de março de dois mil e dezenove, declarando encerrada a reunião às 17hs do mesmo dia, e como nada mais foi deliberado, mandou que se lavrasse a presente Ata, a qual, constando 79 laudas numeradas, que depois de lidas e achadas conforme, seguem devidamente assinadas. Eu, *SECRETARIO - POST - NOME*, RG * *, Secretário da Comissão de Promoções de Praças, lavrei-a.
                         </textarea>
                         <br> <br>
                     </div>                    

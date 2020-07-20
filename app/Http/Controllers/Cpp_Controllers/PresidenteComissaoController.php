@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Ata\ata;
 use App\Models\Notification\notification;
 use App\Http\Controllers\Cpp_Controllers\SecretarioController;
-
+use App\Models\Deliberacao\deliberacao;
+use App\Models\Relation_Vote_Deliber\relation_vote_each_deliberacao;
+use App\Models\secretario_e_presidente\secretario_e_presidente;
 
 
 class PresidenteComissaoController extends Controller
@@ -32,19 +34,87 @@ class PresidenteComissaoController extends Controller
  
         $notifyNewDeliber = notification::where('read_at', null)->get();
 
+        
         if(empty( $notifyNewDeliber) || count($notifyNewDeliber) == 0){
             $notifyDeliber = null;
+            $return_to_vote_member = null;
         }else{
             $notifyDeliber = $notifyNewDeliber[0]->data;
+
+            $return_to_vote_member = deliberacao::where('id_notification', $notifyNewDeliber[0]->id_notification)
+            ->join('eProtocolo_sorteados', 'eProtocolo_sorteados.eProtocolo', '=', 'deliberacao.eProtocolo')
+            ->paginate(1);
         }
+
+        // return $return_to_vote_member;
  
         $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(1);
 
         return view('/CPP/Presidente_da_Comissao/index')
         ->with(['allUser'=> $allUser, 'lastAta'=>$lastAta, 
         'notifyNewDeliber'=>$notifyNewDeliber, 
-        'decodeDeliber'=>$notifyDeliber]);
+        'decodeDeliber'=>$notifyDeliber,
+        'return_to_vote_member'=>$return_to_vote_member
+        ]);
     }#index()
+
+
+    public function registry_vote_presidente(){
+
+        $eProtoc = $_GET['eProtocolo'];
+         
+        if(empty($_GET['Favoravel']) && empty($_GET['Contra'])){
+            return "voto vazio";
+        }elseif(!empty($_GET['Favoravel']) && !empty($_GET['Contra'])){
+            return "Selecione apenas um campo";
+        }
+
+        //pego o atual presidente
+        $president = secretario_e_presidente::where('status', true)->where('qualificacao', 'Presidente')->get();
+
+        //pego o atual secretario
+        $secretario = secretario_e_presidente::where('status', true)->where('qualificacao', 'Secretaria(o)')->get();
+        
+        //verifico se presidente ja votou este protocolo
+        $verify_has_voted = relation_vote_each_deliberacao::where('eProtocolo', $eProtoc)->where('id_membro', $president[0]->id)->get();
+
+        $id_deliberacao = deliberacao::select('id')->where('eProtocolo', $eProtoc)->get();
+
+        // return $id_deliberacao;
+
+        if(!empty($_GET['Favoravel'])){
+            if( count($verify_has_voted) > 0 ) return "Você já votou esta deliberação";
+            $NewVote = new relation_vote_each_deliberacao;
+            $NewVote->id_deliberacao                    = $id_deliberacao[0]->id;
+            $NewVote->eProtocolo                        = $eProtoc;
+            $NewVote->presidente_desta_deliberacao      = $president[0]->id;
+            $NewVote->secretario_desta_deliberacao      = $secretario[0]->id;
+            $NewVote->id_membro                         = $president[0]->id;
+            $NewVote->was_voted                         = "true";
+            $NewVote->votou_favoravel                   = "true";
+            $NewVote->save();
+
+            return redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            if( count($verify_has_voted) > 0 ) return "Você já votou esta deliberação";
+            $NewVote = new relation_vote_each_deliberacao;
+            $NewVote->id_deliberacao                    = $id_deliberacao[0]->id;
+            $NewVote->eProtocolo                        = $eProtoc;
+            $NewVote->presidente_desta_deliberacao      = $president[0]->id;
+            $NewVote->secretario_desta_deliberacao      = $secretario[0]->id;
+            $NewVote->id_membro                         = $president[0]->id;
+            $NewVote->was_voted                         = "true";
+            $NewVote->votou_contra                      = "true";
+            $NewVote->save();
+
+            return redirect($_SERVER['HTTP_REFERER']);
+        }
+
+        
+
+        
+    }
+    // registry_vote_presidente
 
 
     public function create(Request $request){
@@ -130,7 +200,7 @@ class PresidenteComissaoController extends Controller
         $verifyAtaOpen = ata::where('ata_finalizada', '=', null)->get();
 
         if(count($verifyAtaOpen) > 0 ){
-            return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'DangerAtaFinalized'=>'DangerAtaFinalized']);
+            return redirect($_SERVER['HTTP_REFERER'])->with(['allUser'=> $allUser, 'DangerAtaFinalized'=>true]);
         }elseif(empty($novAta)){
             $biggerNumAta = ata::orderBy('numero_ata', 'Desc')->paginate(1);
             if(count($biggerNumAta) == 0){
@@ -139,9 +209,9 @@ class PresidenteComissaoController extends Controller
                 $newAta->data_inicio = date('d/m/Y H:i:s');
                 $newAta->save();
                 $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
-                $callIndexSec = new SecretarioController();
-                return $callIndexSec->index();
-                return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
+                return redirect($_SERVER['HTTP_REFERER']);
+                // $callIndexSec = new SecretarioController();
+                // return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
             }else{
                 // return $biggerNumAta;
                 $newAta = new ata;
@@ -149,9 +219,9 @@ class PresidenteComissaoController extends Controller
                 $newAta->data_inicio = date(' Y-m-d H:i:s ');
                 $newAta->save();
                 $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
-                $callIndexSec = new SecretarioController();
-                return $callIndexSec->index();
-                return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
+                return redirect($_SERVER['HTTP_REFERER']);
+                // $callIndexSec = new SecretarioController();
+                // return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
             }
         }else{
             $newAta = new ata;
@@ -159,9 +229,9 @@ class PresidenteComissaoController extends Controller
             $newAta->data_inicio = date(' Y-m-d H:i:s ');
             $newAta->save();
             $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
-            $callIndexSec = new SecretarioController();
-            return $callIndexSec->index();
-            return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
+            return redirect($_SERVER['HTTP_REFERER']);
+            // $callIndexSec = new SecretarioController();
+            // return view('/CPP/Presidente_da_Comissao/index')->with(['allUser'=> $allUser, 'lastAta'=>$lastAta]);
         }
     }
 

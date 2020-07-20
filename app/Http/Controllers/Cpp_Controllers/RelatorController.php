@@ -16,13 +16,20 @@ use App\Models\secretario_e_presidente\secretario_e_presidente;
 use App\Models\Policial\Policial;
 use App\Models\Relation_Each_44A\relation_vote_each_44A;
 use App\Models\Members_Relatores_President\Members_Relatores_and_President;
-
-
-
+use App\Models\Ative_Inative_Relator\users_ative_and_inative_cpp;
 
 
 class RelatorController extends Controller
 {
+
+    public function findAllRel(){
+        $searchallMembersAtive = users_ative_and_inative_cpp::join('users', 'users.id', '=', 'users_ative_and_inative_cpp.has_user_id')
+        ->where('user_id_your_status', '=', 1)->get();
+
+        return $searchallMembersAtive;
+    }
+
+
     /*@  index()  @*/
     public function index(){
         // echo "<a href=".$_COOKIE['url_dliber'].">"."click here"."</a>";
@@ -84,6 +91,7 @@ class RelatorController extends Controller
         $resp = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')
         ->paginate(1); 
+
         if(count($resp)>0){
             $turn_back_vote = deliberacao::where('id_notification', $resp[0]->id_notification)
             ->join('relation_vote_each_deliberacao', 'relation_vote_each_deliberacao.id_deliberacao', '=', 'deliberacao.id')
@@ -104,9 +112,14 @@ class RelatorController extends Controller
     } /*@  show()  @*/
 
 
+    public function votardeliberacao(){
+        return view('CPP.Relator.votardeliberacao');
+    }
+
 
     /*@  create()  @*/
     public function create(){
+
         $resp = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')
         ->paginate(1);  
@@ -139,7 +152,7 @@ class RelatorController extends Controller
                     return RelatorController::index();
                 }# @ if()@ #
                 else{
-                    return view('/CPP/Relator/index')
+                    return view('CPP.Relator.votardeliberacao')
                     ->with(['usename'=>$usename, 
                             'Usorteados'=>$Usorteados, 
                             'return_to_vote_member'=>$return_to_vote_member, 
@@ -172,7 +185,8 @@ class RelatorController extends Controller
     /*@  edit()  @*/
     public function edit(Request $request, $var){
 
-        if(count(Members_Relatores_and_President::where('id_membro', Auth::user()->id)->get()) == 0 ){
+        //return Auth::user()->id;
+        if(count(Members_Relatores_and_President::where('id', Auth::user()->id)->get()) == 0 ){
             return redirect($_SERVER['HTTP_REFERER'])->with('itNotRelator', true);
         }
 
@@ -215,10 +229,9 @@ class RelatorController extends Controller
                     ->where('was_voted', "true")
                     ->update(['votou_favoravel'=>null, 'votou_contra'=>"true"]);
                     return RelatorController::index();
-
                 }
             }else{
-                return "Error.: O filho é do suporte técnico.";
+                return "Error.: RelatorController/edit - Consultar o suporte técnico.";
             }
         }
         #Corrcao dos votos
@@ -234,10 +247,27 @@ class RelatorController extends Controller
             ->where('id_membro', Auth::user()->id)
             ->get();
 
+            //pego o atual presidente
+            $president = secretario_e_presidente::where('status', true)->where('qualificacao', 'Presidente')->get();
+            //pego o atual secretario
+            $secretario = secretario_e_presidente::where('status', true)->where('qualificacao', 'Secretaria(o)')->get();
+
+            //verifico na tabela eProtocolosSorteados para saber se o relator em questao é o relator da deliberacao
+            $get_eProtoc_sorteado = eProtocolosSorteados::where('eProtocolo', $request->input('eProtoc'))->get();
+
+            if($get_eProtoc_sorteado[0]->id_membro == Auth::user()->id){
+                $yes_relator_this_deliber = "true";
+            }else{
+                $yes_relator_this_deliber = "false";
+            }
+
             $NewVote = new relation_vote_each_deliberacao;
             if( count($isRelatorThisDeliber) > 0 ) $NewVote->is_relator_from_this_pedido = "true";
             $NewVote->id_deliberacao = $idDelieberacao[0]->id;
             $NewVote->eProtocolo     = $request->input('eProtoc');
+            $NewVote->presidente_desta_deliberacao     = $president[0]->id;
+            $NewVote->secretario_desta_deliberacao     = $secretario[0]->id;
+            $NewVote->is_relator_from_this_pedido      = $yes_relator_this_deliber;
             $NewVote->id_membro      = $request->input('id_membro');
             $NewVote->was_voted      = "true";
             $NewVote->votou_favoravel = "true";
@@ -251,11 +281,28 @@ class RelatorController extends Controller
             $isRelatorThisDeliber = eProtocolosSorteados::where('eProtocolo',  $request->input('eProtoc'))
             ->where('id_membro', Auth::user()->id)
             ->get();
+
+            //pego o atual presidente
+            $president = secretario_e_presidente::where('status', true)->where('qualificacao', 'Presidente')->get();
+            //pego o atual secretario
+            $secretario = secretario_e_presidente::where('status', true)->where('qualificacao', 'Secretaria(o)')->get();
+
+            //verifico na tabela eProtocolosSorteados para saber se o relator em questao é o relator da deliberacao
+            $get_eProtoc_sorteado = eProtocolosSorteados::where('eProtocolo', $request->input('eProtoc'))->get();
+
+            if($get_eProtoc_sorteado[0]->id_membro == Auth::user()->id){
+                $yes_relator_this_deliber = "true";
+            }else{
+                $yes_relator_this_deliber = "false";
+            }
             
             $NewVote = new relation_vote_each_deliberacao;
             if( count($isRelatorThisDeliber) > 0 ) $NewVote->is_relator_from_this_pedido = "true";
             $NewVote->id_deliberacao = $idDelieberacao[0]->id;
             $NewVote->eProtocolo     = $request->input('eProtoc');
+            $NewVote->presidente_desta_deliberacao     = $president[0]->id;
+            $NewVote->secretario_desta_deliberacao     = $secretario[0]->id;
+            $NewVote->is_relator_from_this_pedido      = $yes_relator_this_deliber;
             $NewVote->id_membro      = $request->input('id_membro');
             $NewVote->was_voted      = "true";
             $NewVote->votou_contra   = "true";
@@ -290,10 +337,10 @@ class RelatorController extends Controller
         // return  $ativePresidenteSecretario[0];
         foreach ($ativePresidenteSecretario as $key) {
             # code...
-            if( $key->qualificacao == 'Secretario'){
+            if( $key->qualificacao == 'Secretaria(o)'){
                 $ativeSecretario = $key->id;
             }
-            elseif ( $key->qualificacao == 'Presidente') {
+            elseif ($key->qualificacao == 'Presidente') {
                 # code...
                 $ativePresident = $key->id;
             }else{
@@ -302,33 +349,41 @@ class RelatorController extends Controller
             }
         }
  
-        $toVote44A = notification::where( 'notifications.read_at', null )
+        $toVote44A = notification::where('notifications.read_at', null)
         ->join('A_44_A', 'A_44_A.id_notification', '=', 'notifications.id_notification')->get();
+
         if(count( $toVote44A) == 0 || empty( $toVote44A)){
-            return redirect($_SERVER['HTTP_REFERER'])->with('emptyToVote44A', true);
+            return view('CPP/Relator/votar44A')->with('emptyToVote44A', false);
         }
         // $decode44A = json_decode( $toVote44A[0]['data'] );
         // return $decode44A->{'dados'};
  
         /*@ Verifica se existe voto do relator referente ao mesmo e-Protocolo. @*/
-        $verifyExistsVote = relation_vote_each_44A::where('id_membro',  Auth::user()->id)
+        $verifyExistsVote = relation_vote_each_44A::where('relation_vote_each_44A.id_membro',  Auth::user()->id)
+        ->where('relation_vote_each_44A.id', $toVote44A[0]->id)
         ->join('A_44_A', 'A_44_A.id', '=', 'relation_vote_each_44A.id')->get();
 
         if(count($verifyExistsVote) > 0){
-            return view('CPP/Relator/create');
+            return view('CPP/Relator/votar44A');
         }else{
-            $decode44A = json_decode( $toVote44A[0]['data'] );
-            return view('CPP/Relator/create')
-            ->with(['vote44AData'=>$decode44A->{'dados'}, 
-            'responseRelator'=>$toVote44A[0]->id_response_relator, 
-            'userLoged'=>Auth::user()->id, 
-            'ativeSecretario'=>$ativeSecretario, 
-            'ativePresident'=>$ativePresident, 
-            'id44A'=>$toVote44A[0]->id, 
-            'id44ANotification'=>$toVote44A[0]->id_notification]);
-        }        
-    }# votar44A
 
+            $decode44A = json_decode( $toVote44A[0]['data'] );      /* separa conteúdo da deliberação */
+            
+            return view('CPP/Relator/votar44A')                     /* retorna dados para view 'CPP/Relator/votar44A' */
+            ->with([
+                'vote44AData'=>$decode44A->{'dados'},                   /* conteúdo da deliberação */
+                'responseRelator'=>$toVote44A[0]->id_response_relator,  /* id relator responsavel pela deliberação */
+                'userLoged'=>Auth::user()->id,                          /* usuario logado */
+                'ativeSecretario'=>$ativeSecretario,                    /* id do secretario ativo */ 
+                'ativePresident'=>$ativePresident,                      /* id do presidente ativo */
+                'id44A'=>$toVote44A[0]->id,                             /* id do pedido 44A */
+                'id44ANotification'=>$toVote44A[0]->id_notification,    
+                'emptyToVote44A'=>true  
+            ]);
+            
+        }        
+
+    }# votar44A
 
     
     public function update44_A(Request $request){
@@ -338,24 +393,26 @@ class RelatorController extends Controller
         $referer44A = $request->input('eProtocolo_referer_44A');        
         $parecer    = $request->input('opnouPor');        
         $myParecer  = $request->input('myParecer'); 
-        
+
         _A44A::where('eProtocolo', $referer44A)->update(['descricao_parecer'=>$myParecer, 'relator_opnou_por'=> $parecer]);
-        return view('CPP/Relator/edit')->with(['usename'=>$usename, 'updateSuccess'=>'true']);
+        
+        $my44A = _A44A::where( 'A_44_A.id_response_relator', Auth::user()->id )
+        ->where('relator_opnou_por', null)
+        ->join('policial', 'policial.cpf', '=', 'A_44_A.id_policial')->get();
+        
+
+        return view('CPP/Relator/edit')->with(['usename'=>$usename, 'updateSuccess'=>'true', 'my44A'=>$my44A]);
 
     }# update44_A
 
 
-    /*@  destroy()  @*/
-    public function destroy(){
- 
-    } /*@  destroy()  @*/
-
-
-
-
     public function registre_Vote44A(Request $request){
+        
+        /* Test retorno request se chegou todos os dados */
+        // return $request;
+
         if(empty($request->input('vote'))){
-            return "Error: Voto NULLO !";
+            return "<b> Não </b> é possível votar em branco. Volte a página e <b> insira </b> seu voto ! ";
         }
         
         try {
@@ -365,7 +422,7 @@ class RelatorController extends Controller
             $newRelationVote44A->id_membro = $request->input('id_membro');
             $newRelationVote44A->secretario_desta_deliberacao = $request->input('secretario_desta_deliberacao');
             $newRelationVote44A->presidente_desta_deliberacao = $request->input('presidente_desta_deliberacao');
-            $newRelationVote44A->was_voted = true;
+
             if($request->input('vote') == 'contra'){
                 $newRelationVote44A->votou_contra = true;
                 $newRelationVote44A->votou_favoravel = false;
@@ -373,10 +430,12 @@ class RelatorController extends Controller
                 $newRelationVote44A->votou_favoravel = true;
                 $newRelationVote44A->votou_contra = false;
             }
+
             $newRelationVote44A->is_relator_from_this_pedido = false;
+            
             $newRelationVote44A->save();
 
-            return view('CPP/Relator/create')->with('Success', true);
+            return view('CPP/Relator/votar44A')->with('Success', true);
 
         } catch (\Throwable $th) {
             throw $th;
@@ -384,19 +443,25 @@ class RelatorController extends Controller
     }# registre_Vote44A
 
 
+    /*@  destroy()  @*/
+    public function destroy(){
+ 
+    } /*@  destroy()  @*/
+
+
+
     public function searcheParecer(){
         $relatados = eProtocolosSorteados::where( 'id_membro', Auth::user()->id )
-        ->where('condicao_this_deliber', null)
+        // ->where('condicao_this_deliberacao', null)
         ->where('relator_votou', 'true')->get();
         return view('CPP/Relator/editParecer')->with('relatados', $relatados);
-        return  $relatados;
-        return "oooi";
+        // return  $relatados;
     }
 
 
     public function editParecer(Request $request){
         $foundEditParecer = eProtocolosSorteados::where( 'id_membro', Auth::user()->id )
-        ->where('condicao_this_deliber', null)
+        // ->where('condicao_this_deliberacao', null)
         ->where('eProtocolo', $request->get('eProtocolo'))
         ->where('relator_votou', 'true')->get();
         // return $foundEditParecer;
@@ -426,8 +491,6 @@ class RelatorController extends Controller
         // return $postergados;
         return view('CPP/Relator/showParerPostergados')->with(['postergados'=>$postergados]);
     }
-
-
 
 }# final class
 

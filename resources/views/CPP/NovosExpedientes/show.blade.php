@@ -7,113 +7,85 @@
 
 @section('content')
      
-    <div class="scrool_grid" style="position: relative; top: -10px;" >
+    <div class="scrool_grid" style="position: relative; top: -10px; height: 500px; overflow-y: scroll;" >
             @if(isset($tot) && !empty($tot) && !count($tot) <= 0)
             @foreach($tot as $key)
-            <div class="card card-default">
-                <div class="card-footer text-muted" align="center">
-                    <!-- @ SESSÃO CONTEM OS WIDGETS DOS RELATORES ATIVOS @  # SESSÃO WIDGETS #-->
-                    <section style="margin-top: 10px; display:flex; height: 30px;" >
-                            <div class="col-lg-0 col-2" >
-                                <div class=" " >
-                                    <div class=" " style="max-height: auto;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[0]))
-                                                <a style="color:cian;" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[0]->id, 'numero_sid'=>$key->eProtocolo])}} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[0]->name}} </u>
-                                                </a>
-                                                @else <i class="fas fa-user-slash"></i> Não há relator 6.
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="card card-default" style="">
+                <!-- barra contem os relatores --> 
+                <div class="card-header" align="center" style="height: 80px;">
+                    <!-- SESSÃO CONTEM OS WIDGETS DOS RELATORES ATIVOS  # SESSÃO WIDGETS # -->
+                    <div class="row" align="center" style="position:relative; ">
+                        <div class="col-4" align="center">
+                            <p style=" cursor: pointer;"  >
+                                @if(isset($searchall[0]))
+                                    <a class="badge badge-secondary"  style="color:cian; font-size: 12px;"  href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[0]->id, 'numero_sid'=>$key->eProtocolo])}} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[0]->name}} </u>
+                                    </a>
+                                    @else <i class="fas fa-user-slash"></i> Não há relator.
+                                @endif
+                            </p>
+                        </div>
 
-                            <div class="col-lg-0 col-2" >
-                                <div class=" " >
-                                    <div class=" " style="max-height: 58px;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[1]))
-                                                <a style="color:cian ;" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[1]->id, 'numero_sid'=>$key->eProtocolo])}} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[1]->name}} </u>
-                                                </a>
-                                                @else <i class="fas fa-user-slash"></i> Não há relator 6.
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-4" align="center">
+                            <p style="  cursor: pointer;"  >
+                                @if(isset($searchall[1]))
+                                    <a style="color:cian; font-size: 12px;" class="badge badge-primary" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[1]->id, 'numero_sid'=>$key->eProtocolo])}} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[1]->name}} </u>
+                                    </a>
+                                    @else <i class="fas fa-user-slash"></i> Não há relator.
+                                @endif
+                            </p>
+                        </div>
 
+                        <div class="col-4" align="center">
+                            <p style="  cursor: pointer;"  >
+                                @if(isset($searchall[2]))
+                                    <a style="color:cian; font-size: 12px;" class="badge badge-success" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[2]->id, 'numero_sid'=>$key->eProtocolo])}} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[2]->name}} </u>
+                                    </a>
 
-                            <div class="col-lg-0 col-2" >
-                                <div class=" " >
-                                    <div class="" style="max-height: 58px;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[2]))
-                                                <a style="color:cian;" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[2]->id, 'numero_sid'=>$key->eProtocolo])}} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[2]->name}} </u>
-                                                </a>
+                                    @else  <i class="fas fa-user-slash"></i> Não há relator.
 
-                                                @else  <i class="fas fa-user-slash"></i> Não há relator 6.
+                                @endif
+                            </p>
+                        </div>
 
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-4" style="max-height: 58px;" align="center">
+                            <p style="  cursor: pointer;"  >
+                                @if(isset($searchall[3]))
+                                    <a style="color:cian; font-size: 12px;" class="badge badge-warning" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[3]->id, 'numero_sid'=>$key->eProtocolo])}} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[3]->name}} </u>
+                                    </a>
+                                    @else <i class="fas fa-user-slash"></i> Não há relator.
+                                @endif
+                            </p>
+                        </div>
 
+                        <div class="col-4" style="max-height: 58px; text-align:center;" align="center">
+                            <p style="  cursor: pointer;"  >
+                                @if(isset($searchall[4]))
+                                    <a style="color:cian; font-size: 12px;" class="badge badge-secondary" href="{{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[4]->id, 'numero_sid'=>$key->eProtocolo])}} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[4]->name}} </u>
+                                    </a>
+                                    @else <i class="fas fa-user-slash"></i> Não há relator. 
+                                @endif
+                            </p>
+                        </div>
 
-                            <div class="col-lg-0 col-2" >
-                                <div class=" " >
-                                    <div class=" " style="max-height: 58px;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[3]))
-                                                <a style="color:cian;" href=" {{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[3]->id, 'numero_sid'=>$key->eProtocolo])}} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[3]->name}} </u>
-                                                </a>
-                                                @else <i class="fas fa-user-slash"></i> Não há relator 6.
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-0 col-2" >
-                                <div class="" >
-                                    <div class=" " style="max-height: 58px; text-align:center;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[4]))
-                                                <a style="color:cian;" href="{{route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[4]->id, 'numero_sid'=>$key->eProtocolo])}} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[4]->name}} </u>
-                                                </a>
-                                                @else <i class="fas fa-user-slash"></i> Não há relator 6. 
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-0 col-2" align="center" >
-                                <div class=" " >
-                                    <div class="" style="max-height: 58px; text-align:center;" align="center">
-                                        <p style="margin-top: -10px; cursor: pointer;"  >
-                                            @if(isset($searchall[5]))
-                                                <a style="color:cian;" href=" {{ route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[5]->id, 'numero_sid'=>$key->eProtocolo]) }} ">
-                                                    <i class="fas fa-user"></i> <u> {{$searchall[5]->name}} </u>
-                                                </a>
-                                                @else <i class="fas fa-user-slash"></i> Não há relator 6.
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
+                        <div class="col-4" style="max-height: 58px; text-align:center;" align="center">
+                            <p style="  cursor: pointer;"  >
+                                @if(isset($searchall[5]))
+                                    <a style="color:cian; font-size: 12px;" class="badge badge-info" href=" {{ route('cpp.novosexpedientes.create', ['user_membro'=>$searchall[5]->id, 'numero_sid'=>$key->eProtocolo]) }} ">
+                                        <i class="fas fa-user"></i> <u> {{$searchall[5]->name}} </u>
+                                    </a>
+                                    @else <i class="fas fa-user-slash"></i> Não há relator.
+                                @endif
+                            </p>
+                        </div>
+                    </div>
                 </div>
+                <!-- barra contem os relatores --> 
                 <!-- @ SESSÃO CONTEM OS WIDGETS DOS RELATORES ATIVOS @  # SESSÃO WIDGETS #-->
-
-
 
 
 

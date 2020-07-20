@@ -16,6 +16,15 @@
 
     <!-- body -->
     <body>
+
+        @if(session('empate')!= null)
+            @if(session('empate'))
+                <div class="alert alert-warning" role="alert">
+                    Deliberação identificada com empate. Solicite ao Presidente que vote esta deliberação para prosseguir.
+                </div>
+            @endif
+        @endif
+
         <header style="width: 100%; height: auto;">            
             <div style="width: 100%; height: 100px;"> 
                 @lang('globalDocsCpp.header.deliberacao')
@@ -58,8 +67,6 @@
 
 
 
-
-
         <!--@ Tabela Carregada com Ajax com votos dos relatores @-->         
         <section style="width:99%; heigth:auto; ">
             <table align="center"  style="text-align:justify;">
@@ -73,12 +80,27 @@
                     </tr>
                 </thead>
                 
-
                 <!-- @ body table @ -->
                 <tbody>
                     <tr> 
-                        <td>    </td>
-                        <td>    </td>
+                        <td>   
+                            @if(session('empate')!= null)
+                                @if(isset( session('vote_president')[0]))
+                                    @if( session('vote_president')[0]->votou_contra == 'true')
+                                        <span class="glyphicon glyphicon-ok" id="glyphicon-ok2"   style=""></span> 
+                                    @endif
+                                @endif
+                            @endif
+                        </td>
+                        <td>  
+                            @if(session('empate')!= null)
+                                @if(isset( session('vote_president')[0]))
+                                    @if( session('vote_president')[0]->votou_favoravel == 'true')
+                                        <span class="glyphicon glyphicon-ok" id="glyphicon-ok2"   style=""></span> 
+                                    @endif                                 
+                                @endif
+                            @endif
+                        </td>
                         <td>                              
                             @if( isset( session('presidente')[0] ) )
                                 <strong> Presidente: </strong>  {{session('presidente')[0]->nome}}.                                  
@@ -86,7 +108,15 @@
                                     <p> NÃO HÁ PRESIDENTE </p>                                   
                             @endif                        
                         </td> 
-                        <td>    </td> 
+                        <td>    
+                            @if(session('empate')!= null)
+                                @if(session('empate'))
+                                    <span> 
+                                        Nome: {{session('presidente')[0]->nome}} Assinado digitalmente.: <strong> {{ date('d/m/Y \à\s H:i:s') }}. </strong>
+                                    </span>                                  
+                                @endif 
+                            @endif 
+                        </td> 
                     </tr>
 
                     <!-- @ Referencia cada linha com nome único. @ -->
@@ -157,19 +187,16 @@
         <!--@ Final Sessão: Tabela Carregada com Ajax com votos dos relatores @-->
 
 
-      
-
         <!-- @ Button update votos @ -->
         <!-- @ Carrega membros que ja votaram @ -->
         <section style="width:99%; heigth:auto; " > 
             <div align="center" style=" position:relative; top: 15px;" >
                 <a href=" {{ route('cpp.deliberacao.show', $redirect_this_page[0]->eProtocolo ) }} "> 
                     <span class="glyphicon glyphicon-repeat" style=" font-size: 22px; color: darkgrey; border-radius: 22px; box-shadow: 0px 2px 3px 1px #b5c3c9; cursor:pointer; " > </span> 
+                    <u> Atualizar votor </u>
                 </a>
             </div>
         </section> 
-
-
 
         
 
@@ -181,7 +208,6 @@
         
 
         <br> <br>               
-        
 
         
         <section style="width:100%; heigth:auto; ">
@@ -194,8 +220,6 @@
         <br> <br> <br>               
 
 
-
-
         <section style="width:100%; heigth:auto;">
             <div align="center"> 
                 <span> <strong> Assinado digitalmente em: </strong> {{$redirect_this_page[0]->created_at}} <strong> </strong>
@@ -204,10 +228,8 @@
             </div>
         </section> 
             
-            
 
         <br> <br> <br> 
-
 
             
         <section style="width:100%; heigth:auto; position:relative; ">
@@ -219,19 +241,27 @@
             </div>
         </section> 
 
-
-
         <br> <br> 
-
 
 
         <section style="width:100%; heigth:auto; position:relative; ">
             <div style=" " align="center"> 
                 <form action="{{ route('cpp.deliberacao.edit',0) }}" method="get"> 
                     <input type="hidden" value=" {{ $id_notification }} " name="id_notification">
-                    <button type="submit"  id="validar" class=" btn btn-outline-primary" style=" width:18%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; ">
-                        <span style=" color:  #34495e ; "> Finalizar Deliberação. </span>
-                    </button>
+                    @if(session('empate')!= null)
+                        @if(session('empate'))
+                        <button type="button"  id="validar" class=" btn btn-outline-primary" style=" width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; " disabled>
+                            <span style=" color:  #34495e ; "> Finalizar Deliberação. (Peça ao presidente que vote).  </span>
+                        </button>  
+                    
+                        @endif
+
+                        @else
+                        <button type="submit"  id="validar" class=" btn btn-outline-primary" style=" width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; ">
+                            <span style=" color:  #34495e ; "> Finalizar Deliberação. </span>
+                        </button>
+                    
+                    @endif
                 </form>
             </div>
         </section> 
@@ -239,7 +269,6 @@
         <br> <br> 
 
         <input type="hidden" value=" {{$redirect_this_page[0]->id}} " id="facultyeProtoc" class="facultyeProtoc">
-
 
 
         <!-- @ Style @ -->
@@ -293,7 +322,6 @@
                                 }//for01
                             }//for02
                         } //for03
-                         
 
                         console.log(data[0][0]);              
                 
@@ -309,15 +337,10 @@
 
 
 
-
-
-
             function hiddenvalidar(){
                 alert('Realmente deseja inserir esta deliberação na ATA ?');
                 document.getElementById('validar').style.display = 'none';
             }//hiddenvalidar
-
-
 
 
 
@@ -330,9 +353,6 @@
                 }                        
 
             }//Click_glyphicon_ok
-           
-
-
 
 
             function hasclicked_voto_user(i){
@@ -346,7 +366,6 @@
 
         </script>
         <!-- Script's -->
-            
     </body>
 </html>
         

@@ -17,7 +17,7 @@ class Deliberacao extends Migration
         Schema::create('deliberacao', function(Blueprint $table){
 
             $table->Increments ('id'              );
-            $table->bigIncrements('id_notification'              )->nullable();
+            $table->integer('id_notification');
             $table->string     ('eProtocolo', 12  )->unsigned();
             $table->foreign    ('eProtocolo'      )->references('eProtocolo')->on('eProtocolo_sorteados')->onDelete('Cascade');
             $table->integer    ('numero_ata'      )->unsigned();

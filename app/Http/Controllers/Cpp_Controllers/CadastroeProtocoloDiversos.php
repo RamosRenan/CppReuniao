@@ -11,7 +11,7 @@ use App\Models\M4PRO\POLICE_OPM;
 use Illuminate\Support\Facades\ Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Mail\Message;
-
+use Illuminate\Support\Facades\Validator;
 
 
 class CadastroeProtocoloDiversos extends Controller
@@ -47,10 +47,28 @@ class CadastroeProtocoloDiversos extends Controller
 
 
 
-    /*@  store()  @*/
+    /*@  store() REsponsável por inserir os pedidos  dos policiais @*/
     public function store(Request $request){
 
+        //valida os campos ...
+        $validatedData = $request->validate([
+            'Nome'      =>  ['required', 'max:55', 'string', 'not_regex:/[0-9]/i'],
+            'Unidade'   =>  ['required', 'max:95', 'string'],
+            'Graduacao' =>  ['required', 'max:30', 'string'],
+            'rg'        =>  ['required', 'max:15', 'string', 'not_regex:/[A-z]/i'],
+            'cpf'       =>  ['required', 'max:11', 'string'],
+            'situacao'  =>  ['required', 'max:12', 'string'],
+            'pedido'    =>  ['required', 'max:80', 'string'],
+            'sid'       =>  ['required', 'max:12', 'string'],
+            'keypedido' =>  ['required', 'max:12', 'string'],
+            'data_sid'  =>  ['required', 'max:80', 'date'  ],
+        ]);
+
+        // teste ...
+        // return $validatedData;
+
         $eProtocolo = new eProtocolo;
+
         $Policial   = new Policial;
 
         $Policial->nome        = $request->input ('Nome'        );
@@ -70,33 +88,35 @@ class CadastroeProtocoloDiversos extends Controller
         $eProtocolo->id_responsavel_cadastro   = Auth::user()->id;
 
         /*
-        * @ Bloco responsável por validar os dados do formulário     
-        *  Verificar se já existe no banco o mesmo numero de S.I.D
+        * Bloco responsável por validar os dados do formulário     
+        * Verificar se já existe no banco o mesmo numero de S.I.D
         */      
-        $IfExisteProtocolo = eProtocolo::where('eProtocolo', $eProtocolo->eProtocolo)->get();
-        $qtdDBeProtocolo = count($IfExisteProtocolo); 
+        if(eProtocolo::where('eProtocolo', $eProtocolo->eProtocolo)->count() > 0)
+            return view('CPP.CadastroEprotocolos.index')->with(['qtdDBeProtocolo'=>1]);
 
-        $IfExistePolicial = Policial::where('cpf', $eProtocolo->cpf)->get();
-        $qtdDBePolicial = count($IfExistePolicial); 
 
-        if($qtdDBePolicial == 0){
+        // if necessário somente para o caso em que não existe o policial.
+        if(Policial::where('cpf', $eProtocolo->cpf)->count() == 0){
+
             $Policial->save();
-            if($qtdDBeProtocolo == 0){
-                $eProtocolo->save();
-                $id = Auth::user();
-                Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
-                return view('/CPP/CadastroEprotocolos/index')->with(['succes'=>'succes']);
-            }else{
-                return view('/CPP/CadastroEprotocolos/index')->with(['qtdDBeProtocolo'=>$qtdDBeProtocolo]);
-            }
-        }elseif($qtdDBeProtocolo == 0){            
-                $eProtocolo->save();
-                Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
-                return view('/CPP/CadastroEprotocolos/index')->with(['succes'=>'succes']);
-        }else{
-                return view('/CPP/CadastroEprotocolos/index')->with(['qtdDBeProtocolo'=>$qtdDBeProtocolo]);
-        }
+
+            $eProtocolo->save();
+
+            $id = Auth::user();
+
+            Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
+            
+            return view('CPP.CadastroEprotocolos.index')->with(['succes'=>'succes']);
         
+        // se o policial já existe, apenas insiro o novo eProtocolo.
+        }else{ 
+
+            $eProtocolo->save();
+
+            Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
+            
+            return view('CPP.CadastroEprotocolos.index')->with(['succes'=>'succes']);
+        }
     } /*@  store()  @*/
 
 

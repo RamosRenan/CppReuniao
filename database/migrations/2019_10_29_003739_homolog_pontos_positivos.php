@@ -21,18 +21,18 @@ class HomologPontosPositivos extends Migration
             $blueprint->foreign     ('id_policial')->references('cpf')->on('policial');
             $blueprint->string      ('key_inciso', 5);
             $blueprint->string      ('eProtocolo', 12);
-            $blueprint->string     ('qtd_pontos');
+            $blueprint->string      ('qtd_pontos');
             $blueprint->integer     ('pertence_ata');
             $blueprint->integer     ('identifier_in_ata');
             $blueprint->string      ('universidade', 100);
             $blueprint->string      ('curso', 100);
             $blueprint->string      ('distincao', 18);
-            $blueprint->date      ('data_do_registro_eProtocolo');
-            $blueprint->date      ('inicio_do_curso');
-            $blueprint->date      ('termino_do_curso');
-            $blueprint->text      ('contain_oficial_homolocao');
-            $blueprint->text      ('descricao_da_homologacao');
-            $blueprint->text      ('cursos_e_participacoes');
+            $blueprint->date        ('data_do_registro_eProtocolo');
+            $blueprint->date        ('inicio_do_curso');
+            $blueprint->date        ('termino_do_curso');
+            $blueprint->text        ('contain_oficial_homolocao');
+            $blueprint->text        ('descricao_da_homologacao');
+            $blueprint->text        ('cursos_e_participacoes');
                         
 
 

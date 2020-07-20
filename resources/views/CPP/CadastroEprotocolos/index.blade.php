@@ -8,54 +8,80 @@
 @section('content')
     
     <!-- @ section @ -->
-    <section>       
+    <section> 
 
-        <form method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}">    
-            <div class="card card-default" style="position: relative; bottom:-14.3px;"> 
+        <!-- form  Busca militar informado no campo - url(/cpp/cadastroE-protocolo) -->
+        <form method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}"> 
+                
+            <!-- card card-default -->
+            <div class="card card-default" style="position: relative; top:-20px;">
+
+                <!-- card-header -->
                 <div class="card-header" style=" height: 63px; ">
-                    <!-- @  @ -->                
+
+                    <!-- row -->
                     <div class="row">
 
+                        <!-- col-md-4 -->
                         <div class="col-md-4"> 
-                            <i class="fa fa-id-card" style="font-size:32px; margin-right: 18px;" aria-hidden="true"></i>
+                            <i class="fa fa-id-card" style="font-size:32px; margin-right: 18px; color:#1864ab;" aria-hidden="true"></i>
                         </div>
+                        <!-- col-md-4 -->
 
+                        <!-- col-md-4 -->
                         <div class="col-md-4" style="display:flex;">
                             <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' do militar. " >
                             <button style="background: #757575;" id="button_search_cpf_police" class="btn btn-outline-secondary" type="submit"> 
                                 <i class="fas fa-search" style="color: white;"></i>
                             </button>
                         </div>
+                        <!-- col-md-4 -->
 
                         <div class="col-md-4">  </div>                   
 
                     </div>                
-                    <!-- @  @ -->
+                    <!-- row -->
+                     
                 </div>
+                <!-- row -->
+
             </div>
-        </form> <!-- @ form @ -->
+            <!-- card card-default -->
+
+        </form> 
+        <!-- form -->
 
 
-
-
-
+        <!-- form - Cadastra realemnte um novo pedido -->
         <form method="POST" action=" {{ route('cpp.cadastroE-protocolo.store') }} "> 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">       
-            <div class="card card-default"> 
+            
+            <!--  csrf_token() //Campo escodido que garante segunça no envio do form. Obs.: Ver Doc do Laravel 'csrf' -->
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">   
+
+            <!-- card card-default - contem campos do formulário -->
+            <div class="card card-default" style="margin-top: -25px;"> 
+
+                <!-- card-body - corpo do form -->
                 <div class="card-body"> 
                     
+                    <!-- section - cortina escondida mostra o militar buscado no campo de busca acima -->
                     <section> 
                         <div class=" curtain_register " align="center" id="curtain_register"> <div> 
-                    </section> 
+                    </section>
+                    <!-- /section -->
 
-                    <!-- @ SESSÃO CORTINA DE CORFIRMAÇÃO DE DADOS        @ -->
-                    <!-- @ Daddos retornados do meta4 para confirmação.  @ -->
+
+                    <!-- section CORTINA DE CORFIRMAÇÃO DE DADOS  Dados retornados do meta4 para confirmação. -->
                     <section> 
+
+                        <!-- contain_curtain -->
                         <div class="contain_curtain" id="contain_curtain_section" > 
+
+                            <!-- sun_contain_curtain -->
                             <div class="sun_contain_curtain" align="center"> 
+
                                 <h5 style="position: relative; top: 8px;"> 
-                                    <i class="fas fa-user-circle"></i> 
-                                    Confirme os dados do Militar. 
+                                    <i class="fas fa-user-circle"> Confirme os dados do Militar. </i>   
                                     <a  id="closecurtain" > 
                                         <i class="fas fa-times"style=" cursor:pointer; float:right; margin-right: 8px; margin-top: 2px; color: #c6c6c6; font-size: 19px;"></i> 
                                     </a> 
@@ -63,179 +89,209 @@
                                 
                                 <hr> <br>
 
+                                <!-- sintaxe blade(laravel) verifica se foi encontrado o militar informado -->
                                 @if(isset($result_search))
-                                <form >                                        
+                                    <form>                                        
                                         <input type="hidden" id="policeman"  value="{{$result_search[0]->NOME}}">
                                         <label > <h5> NOME: </h5> </label> 
                                         <input id="keyNOME" type="text" style=" color:#7c7c7c; border:none; font-size: 15px;  min-width: 350px;" value="{{$result_search[0]->NOME}}">
-    
-                                    <div style="display: block;"> 
-                                        <label > <h5>  UNIDADE:  </h5> </label> 
-                                        <input id="keyUNIDADE"  type="text" style=" color:#7c7c7c;  border:none; border:none; font-size: 15px;  min-width: 350px;" value=" {{ $result_search[0]->OPM_DESCRICAO }} ">
-                                    </div>
+        
+                                        <div style="display: block;"> 
+                                            <label > <h5>  UNIDADE:  </h5> </label> 
+                                            <input id="keyUNIDADE"  type="text" style=" color:#7c7c7c;  border:none; border:none; font-size: 15px;  min-width: 350px;" value=" {{ $result_search[0]->OPM_DESCRICAO }} ">
+                                        </div>
 
-                                    <div style="display: block;"> 
-                                        <label >  <h5> GRADUAÇÃO: </h5>  </label> 
-                                        <input id="keyGRADUACAO"  type="text" style="  color:#7c7c7c; border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->CARGO}} - {{$result_search[0]->QUADRO}} ">
-                                    </div> 
+                                        <div style="display: block;"> 
+                                            <label >  <h5> GRADUAÇÃO: </h5>  </label> 
+                                            <input id="keyGRADUACAO"  type="text" style="  color:#7c7c7c; border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->CARGO}} - {{$result_search[0]->QUADRO}} ">
+                                        </div> 
 
-                                    <div> 
-                                        <label > <h5>  CPF:  </h5> </label> 
-                                        <input id="keyCPF"  type="text" style="  color:#7c7c7c; border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->CPF}} ">
-                                    </div> 
-                                        
-                                    <div style="display: block;"> 
-                                        <label > <h5>  RG:  </h5> </label> 
-                                        <input id="keyRG" type="text" style=" color:#7c7c7c;  border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->RG}} ">
-                                    </div> 
-                                    <br>
-                                        <button type="button" onclick="data_police()" class="btn btn-primary"> <i class="fas fa-thumbs-up"></i> Confirmar.</button> 
-                                        <button type="button" onclick="closeModal()" class="btn btn-danger"><i class="fas fa-thumbs-down"></i> Inconsistente.</button>
+                                        <div> 
+                                            <label > <h5>  CPF:  </h5> </label> 
+                                            <input id="keyCPF"  type="text" style="  color:#7c7c7c; border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->CPF}} ">
+                                        </div> 
+                                            
+                                        <div style="display: block;"> 
+                                            <label > <h5>  RG:  </h5> </label> 
+                                            <input id="keyRG" type="text" style=" color:#7c7c7c;  border:none; border:none; font-size: 15px; min-width: 350px ;" value=" {{$result_search[0]->RG}} ">
+                                        </div> 
+                                        <br>
+                                            <button type="button" onclick="data_police()" class="btn btn-primary"> <i class="fas fa-thumbs-up"></i> Confirmar.</button> 
+                                            <button type="button" onclick="closeModal()" class="btn btn-danger"><i class="fas fa-thumbs-down"></i> Inconsistente.</button>
 
-                                </form>
-                                    @else
-                                        <h3 style="color: #c9c9c9;"> Info ! <small> Dados do policial não encontrado. </small> </h3>
-                                        <i style="color: #c9c9c9; font-size: 30px;" class="fas fa-frown-open"></i>
+                                    </form>
+                                        @else
+                                            <h3 style="color: #c9c9c9;"> Info ! <small> Dados do policial não encontrado. </small> </h3>
+                                            <i style="color: #c9c9c9; font-size: 30px;" class="fas fa-frown-open"></i>
                                 @endif
+                                <!-- final if -->
+
                             </div>
+                            <!-- sun_contain_curtain -->
+
                         </div>
+                        <!-- contain_curtain -->
+
                     </section> 
-                    <!-- @ SESSÃO CORTINA DE CORFIRMAÇÃO DE DADOS  @ -->
+                    <!-- /section -->
+
+
+                    <!-- row - Aqui separo o form em q cada row(linha) representa uma faixa com varios campos. Existem pelo menos 3 rwos -->
+                    <div class="row">
+
+                        <!-- col-md-3 form-group -->
+                        <div class="col-md-3 form-group">
+                            <label class='awesome'> * Numero do E-Protocolo. </label>
+                            <input class='form-control' required minlength = "12" oninput="mascara(this)" pattern="\([0-9]{2}\)\.([0-9]{3}\)\.([0-9]{3}\)\-([0-9]{1}\)$" placeholder="Ex.: 	11.111.111-1" name="sid" type="text">
+                        </div>
+                        <!-- col-md-3 form-group -->
+
+                        <!-- col-md-3 form-group -->
+                        <div class="col-md-3 form-group">
+                            <label class='awesome'> * Pedido. </label>
+                            <select   class="form-control" onchange="keyped()"  id="pedido" name="pedido" required>
+                                <option value="">  </option>
+
+                                <option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPM 1-0</option>
+
+                                <option value="Promoção à graduação  de 1º Sgt. QPM 1-0">Promoção à graduação  de 1º Sgt. QPM 1-0</option>
+
+                                <option value="Promoção à graduação  de 2º Sgt. QPM 1-0">Promoção à graduação  de 2º Sgt. QPM 1-0</option>
+
+                                <option value="Promoção à graduação  de 3º Sgt. QPM 1-0" >Promoção à graduação  de 3º Sgt. QPM 1-0</option>
+
+                                <option value="Promoção à graduação  de Cb. QPM 1-0">Promoção à graduação  de Cb. QPM 1-0</option>									
+
+                                <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
+
+                                <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
+                                
+                                <option value="Retificação de publicação">Retificação de publicação</option>
+
+                                <option value="Reconsideração de Ato">Reconsideração de Ato</option>
+
+                                <option value="Pontos positivos">Pontos positivos</option>
+
+                                <option value="Ato de Bravura" >Ato de Bravura</option>
+
+                                <option value="Sub-Judice">Sub-Judice</option>
+                            </select>
+
+                            <!--
+                                * Obs.:
+                                * No final do código, scrpit responsável por pegar 'value' de 'option' 
+                                * e inserir no '<input type="hidden" name="keypedido">'.
+                                * Verificar o motivo no aquivo "App\Http\Controllers\Presidente\PresidenteController" 
+                            -->  
+                            <input type="hidden" name="keypedido" id="keyp" value=" ">
+
+                        </div>
+                        <!-- col-md-3 form-group -->
+
+                        <!-- col-md-2 form-group -->
+                        <div class="col-md-2 form-group">                
+                            <label class='awesome'> * Data do eProtocolo. </label>
+                            <input name="data_sid" required type='date' class='form-control'>
+
+                        </div>
+                        <!-- col-md-2 form-group -->
+
+                        <!-- col-md-2 form-group -->
+                        <div class="col-md-2 form-group">
+                            <label class='awesome'> * Status. </label>
+                            <input name="situacao" required type='text' class='form-control' readonly value='Cadastrado'>                            
+                        </div>
+                        <!-- col-md-2 form-group -->
+
+
+                        <!-- col-md-2 form-group -->
+                        <div class="col-md-2 form-group">
+                            <label class='awesome'> * CPF </label>
+                            <input id="GET_CPF" maxlength="11" class='form-control' type="text"  name="cpf"  style="" required>
+                        </div>
+                        <!-- col-md-2 form-group -->
+                        
+                    </div>
+                    <!-- /row -->
 
 
 
-                        <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label class='awesome'> * Numero do E-Protocolo. </label>
-                                <input class='form-control' required minlength = "12" oninput="mascara(this)" pattern="\([0-9]{2}\)\.([0-9]{3}\)\.([0-9]{3}\)\-([0-9]{1}\)$" placeholder="Ex.: 	11.111.111-1" name="sid" type="text">
-                            </div>
-
-                            <div class="col-md-3 form-group">
-                                <label class='awesome'> * Pedido. </label>
-                                <select   class="form-control" onchange="keyped()"  id="pedido" name="pedido" required>
-                                    <option value="">  </option>
-
-                                    <option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPM 1-0</option>
-
-                                    <option value="Promoção à graduação  de 1º Sgt. QPM 1-0">Promoção à graduação  de 1º Sgt. QPM 1-0</option>
-
-                                    <option value="Promoção à graduação  de 2º Sgt. QPM 1-0">Promoção à graduação  de 2º Sgt. QPM 1-0</option>
-
-                                    <option value="Promoção à graduação  de 3º Sgt. QPM 1-0" >Promoção à graduação  de 3º Sgt. QPM 1-0</option>
-
-                                    <option value="Promoção à graduação  de Cb. QPM 1-0">Promoção à graduação  de Cb. QPM 1-0</option>									
-
-                                    <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
-
-                                    <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
-                                    
-                                    <option value="Retificação de publicação">Retificação de publicação</option>
-
-                                    <option value="Reconsideração de Ato">Reconsideração de Ato</option>
-
-                                    <option value="Pontos positivos">Pontos positivos</option>
-
-                                    <option value="Ato de Bravura" >Ato de Bravura</option>
-
-                                    <option value="Sub-Judice">Sub-Judice</option>
-                                </select>
-                                <input type="hidden" name="keypedido" id="keyp" value=" ">
-                                <!-- @ No final do código, scrpit responsável por pegar 'value' de 'option' 
-                                        e inserir no '<input type="hidden" name="keypedido">'.
-                                        Verificar o motivo no aquivo " 
-                                        App\Http\Controllers\Presidente\PresidenteController " 
-                                @-->                    
-                            </div>
-
-                            <div class="col-md-2 form-group">                
-                                <label class='awesome'> * Data do eProtocolo. </label>
-                                <input name="data_sid" required type='date' class='form-control'>
-
-                            </div>
-
-                            <div class="col-md-2 form-group">
-                                <label class='awesome'> * Status. </label>
-                                <input name="situacao" required type='text' class='form-control' readonly value='Cadastrado'>                            
-                            </div>
-
-
-
-                            <div class="col-md-2 form-group">
-                                <label class='awesome'> * CPF </label>
-                                <input id="GET_CPF" maxlength="11" class='form-control' type="text"  name="cpf"  style="" required>
-                            </div>
-                            
+                    <!-- row 2 -->
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label class='awesome'> * Nome </label>
+                            <input id="GET_NOME" id="nome_do_policial" class='form-control' type="text"  name="Nome" style="" required>                        
                         </div>
 
+                        
 
+                        <div class="col-md-3 form-group">
+                            <label class='awesome'> * Graduacao </label>
+                            <input id="GET_GRADUACAO"  class='form-control' type="text"  name="Graduacao"  style="" required>
+                        </div>
 
+                        <div class="col-md-2 form-group">
+                            <label class='awesome'> * RG </label>
+                            <input id="GET_RG"  class='form-control' type="text"  name="rg"  style="" required>
+                        </div>
 
-                        <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label class='awesome'> * Nome </label>
-                                <input id="GET_NOME" id="nome_do_policial" class='form-control' type="text"  name="Nome" style="" required>                        
+                        
+                        <div class="col-md-4 form-group">
+                            <label class='awesome'> * Unidade </label>
+                            <input id="GET_UNIDADE" class='form-control' type="text"  name="Unidade"  style="" required>                        
+                        </div>
+
+                    </div> 
+                    <!-- row 2-->
+
+                    <!-- row 3 -->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label class='awesome'> * Descrição. </label>
+                            <textarea rows='4' class='form-control' placeholder=" 0h0h0h0h0h " name="descricao" type="text" style="" required>  
+                                Exemplo.: Requerimento impetrado pelo Sd. QPM 1-0 Nome do Policial(Bombeiro) Militar, RG 0.000.000-0, pertencente ao UNIDADE, requer análise da sua condição “sub-judice” para medidas pertinentes. (Ref.: SID nº 00.000.000-0).
+                            </textarea>
+                        </div>                   
+                        
+                    </div> 
+                    <!-- row 3-->
+
+                    <!-- container -->
+                    <div class="container" >
+
+                        <!-- row 4 -->
+                        <div class="row" align="center" >
+                            <div class="col-4"> </div>
+                            <div class="col-4">
+                                <button href="" class="btn btn-success" type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar. </button> 
+                                <a href="{{ route('cpp.cadastroE-protocolo.show', 0) }}" class="btn btn-info" style="margin-left:25px;" > 
+                                    <i class="fa fa-users" aria-hidden="true"></i> Últimos Cadastros 
+                                </a>
                             </div>
+                            <div class="col-4"> </div>
+                        </div> 
+                        <!-- row 4-->
 
-                         
+                    </div> 
+                    <!-- container -->
 
-                            <div class="col-md-3 form-group">
-                                <label class='awesome'> * Graduacao </label>
-                                <input id="GET_GRADUACAO"  class='form-control' type="text"  name="Graduacao"  style="" required>
-                            </div>
+                </div> 
+                <!-- <div class="card-body"> -->
 
-                            <div class="col-md-2 form-group">
-                                <label class='awesome'> * RG </label>
-                                <input id="GET_RG"  class='form-control' type="text"  name="rg"  style="" required>
-                            </div>
-
-                          
-                            <div class="col-md-4 form-group">
-                                <label class='awesome'> * Unidade </label>
-                                <input id="GET_UNIDADE" class='form-control' type="text"  name="Unidade"  style="" required>                        
-                            </div>
-
-                        </div> <!--@ row @-->
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <label class='awesome'> * Descrição. </label>
-                                <textarea rows='6' class='form-control' placeholder=" 0h0h0h0h0h " name="descricao" type="text" style="" required>  
-                                    Exemplo.: Requerimento impetrado pelo Sd. QPM 1-0 Nome do Policial(Bombeiro) Militar, RG 0.000.000-0, pertencente ao UNIDADE, requer análise da sua condição “sub-judice” para medidas pertinentes. (Ref.: SID nº 00.000.000-0).
-                                </textarea>
-                            </div>                   
-                            
-                        </div> <!--@ row @-->
-
-
-
-                        <div class="container" >
-                            <div class="row" align="center" >
-                                <div class="col-4"> </div>
-                                <div class="col-4">
-                                    <button href="" class="btn btn-success" type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar. </button> 
-                                    <a href="{{ route('cpp.cadastroE-protocolo.show', 0) }}" class="btn btn-info" style="margin-left:25px;" > 
-                                        <i class="fa fa-users" aria-hidden="true"></i> Últimos Cadastros 
-                                    </a>
-                                </div>
-                                <div class="col-4"> </div>
-                            </div> <!--@ row @-->
-                        </div> <!--@ container @-->
-
-                </div> <!-- <div class="card-body"> -->
-            </div> <!-- card default -->
+            </div> 
+            <!-- card default -->
                     
-        </form> <!-- Final Form -->
+        </form> 
+        <!-- Final Form -->
+
     </section>
     <!-- @ section @ -->
 
 
-
-
-
+    <!-- contém todos os avisos caso ocorram as excecoes -->
     <div style="width:100%; heigth: 50px; position:relative; top: -30px;">
+
+        <!-- inside -->
         <div style="width:100%; heigth: 30px; background-color:green;">
             
             @if( isset($qtdDBeProtocolo))
@@ -276,17 +332,21 @@
             @endif
             
         </div>
+        <!-- inside -->
+
     </div>
+    <!-- -->
 
                                                                 
 
     <!-- Script's  -->
     <script>
         /*
-        @select option chama esta função
-        @Insere na tabela:'sid' coluna:'codigo pedido' uma string única para cada tipo de pedido
+        * select option chama esta função
+        * Insere na tabela:'sid' coluna:'codigo pedido' uma string única para cada tipo de pedido
         */
         function keyped(){
+
             //var run = document.getElementById("pedido").length;
             var val = document.getElementById("pedido").value;
 
@@ -375,8 +435,7 @@
         }//keyped();
 
 
-
-
+        //insere caracteres no campo eProtocolo;
         function mascara(i){
 
             var v = i.value;
@@ -391,12 +450,11 @@
             if (v.length == 2 || v.length == 6) i.value += ".";
             if (v.length == 10) i.value += "-";
 
-        } //mascara(i)
+        } 
+        //mascara(i)
 
 
-
-
-
+        // insere auto no campos os valores encontrados da busca pelo policial
         function data_police(){
             var keyNOME      = document.getElementById("keyNOME"     ).value;
             var keyCPF       = document.getElementById("keyCPF"      ).value;
@@ -408,20 +466,19 @@
             document.getElementById("GET_CPF"      ).value = keyCPF;
             document.getElementById("GET_RG"       ).value = keyRG ;
             document.getElementById("GET_UNIDADE"  ).value = keyUNIDADE;
-            document.getElementById("GET_GRADUACAO" ).value = keyGRADUACAO;
+            document.getElementById("GET_GRADUACAO").value = keyGRADUACAO;
 
             $("#contain_curtain_section").slideUp();
             $("#curtain_register").delay(900).slideUp();
         }
-
-
         
     </script>
 
 
-
+    <!-- Scripts -->
     <script>
     
+        //jquery up cortina 
         $("#closecurtain").click(function(){
             // alert('olaaaa');
             $("#contain_curtain_section").slideUp();
@@ -433,7 +490,6 @@
 
             var getpolic = document.getElementById('policeman').value;
 
-
             if (!getpolic){
                 alert("não existe mesmo");
             }else{
@@ -443,19 +499,15 @@
 
         });
 
-
+        //fecha modal cortina do polical encontrado, se clicado no x
         function closeModal(){
             $("#contain_curtain_section").slideUp();
             $("#curtain_register").delay(900).slideUp();
             alert( 'OK ! Dados Inconsistentes ={' )
         }
-
     
     </script>
-
-
-<!-- Script's -->
-
+    <!-- /Scripts -->
 
 @endsection
 

@@ -1,10 +1,9 @@
 @extends('adminlte::master')
 
 @section('adminlte_css')
-<!--
-    <link rel="stylesheet"
-          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
--->
+    <!--
+        <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+    -->
     @stack('css')
     @yield('css')
 @stop
@@ -14,6 +13,14 @@
     'fixed' => 'fixed',
     'top-nav' => 'layout-top-nav'
 ][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
+
+<?php
+    use App\Http\Controllers\Cpp_Controllers\RelatorController;
+
+    $findAllRel = new RelatorController;
+    $relatores = $findAllRel->findAllRel();
+?>
+
 
 @section('body')
     <div class="wrapper">
@@ -31,67 +38,46 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                @can('@@ superadmin @@')
+                <!-- can -->
                 <li class="nav-item dropdown">
+
+                    <!-- icone users da barra superior -->
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="fa fa-comments"></i>
+                        <span> Relatores da comissão. </span>
+                        <i class="fa fa-users"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
+
+                    <!-- dropdown-menu dropdown-menu-lg dropdown-menu-right -->
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="min-width: 400px;">
+                        @if(isset($relatores))
+                        @foreach($relatores as $key)
+                        <a href="#" class="dropdown-item" >
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                    <span class="float-right text-sm text-danger"><i class="fa fa-user"></i></span>
                                 <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
+                                    <span class="dropdown-item-title" style="color: blue; margin-left:15px;">
+                                        {{$key->name}}
                                         <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+                                    </span>
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                        @endforeach
+                        @endif
+                        <a href="#" class="dropdown-item dropdown-footer">Ver todos os relatores.</a>
                     </div>
+                    <!-- dropdown-menu dropdown-menu-lg dropdown-menu-right -->
                 </li>
+
+
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
+                        <span> Pedidos postergados. </span>
                         <i class="fa fa-bell"></i>
                         <span class="badge badge-warning navbar-badge">15</span>
                     </a>
@@ -116,7 +102,7 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                @endcan
+                <!-- endcan -->
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">

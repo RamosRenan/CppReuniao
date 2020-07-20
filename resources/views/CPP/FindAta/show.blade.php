@@ -26,8 +26,7 @@
                         <th scope="col"> <i class="fas fa-archive"></i> </th>
                     </tr>
                 </thead>
-                    
-                    
+                                        
                 <tbody align="center" >
                     @foreach($allAtas as $key)
                         <tr>
@@ -40,6 +39,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+                
             </table>
  
         </div>

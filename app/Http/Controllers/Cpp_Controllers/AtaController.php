@@ -39,6 +39,10 @@ class AtaController extends Controller{
         ->orderBy('deliberacao.num_deliberacao', 'Asc')
         ->get();
 
+        if(count($AtaContent) == 0){
+            return view('CPP.Sala44A.index');
+        }
+
         $ataOpen = ata::where('ata.ata_finalizada', null)->get();
 
         if(!empty($ataOpen)){
@@ -76,7 +80,7 @@ class AtaController extends Controller{
  
         $userLoged = User::where('id', Auth::user()->id)->get();        
 
-        return view('CPP\Ata\index')
+        return view('CPP.Ata.index')
         ->with(['AtaContent'=>$AtaContent, 
                 'HomlogAtaContent'=>$hpp, 
                 'Ata44A'=>$Ata44A,
@@ -142,7 +146,7 @@ class AtaController extends Controller{
             'ativePresidenteSecretario'=> $ativePresidenteSecretario,
         ];
 
-        $pdf = PDF::loadView('/CPP/TesteView/index', $data);
+        $pdf = PDF::loadView('CPP.TesteView.index', $data);
 
         return $pdf->setPaper('a4')->stream('invoice.pdf');
          
@@ -361,7 +365,7 @@ class AtaController extends Controller{
 
         $userLoged = User::where('id', Auth::user()->id)->get();
 
-        return view('CPP\Ata\create')
+        return view('CPP.Ata.create')
                 ->with(['AtaContent'=>$AtaContent, 
                         'HomlogAtaContent'=>$HomlogAtaContent, 
                         'Ata44A'=>$Ata44A, 'userLoged'=>$userLoged[0]->name, 
@@ -450,7 +454,7 @@ class AtaController extends Controller{
 
         $pdf = PDF::loadView('/CPP/TesteView/index', $data);
 
-        return $pdf->setPaper('a4')->stream("Ata".$request->input('num_ata').".pdf");
+        return $pdf->setPaper('a4')->stream("Ata".$request->input('num_ata').date('Y').".pdf");
     }//generatePdf()
      
 

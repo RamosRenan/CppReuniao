@@ -8,7 +8,7 @@ class secretario_e_presidente extends Model
 {
     //
     protected $table = ('secretario_e_presidente');
-    protected $fillable = ['id', 'nome', "posto", 'rg', 'cpf', 'qualificacao', 'id_membro', 'created_at'];
+    protected $fillable = ['id', 'nome', "posto", 'rg', 'cpf', 'qualificacao', 'id_membro', 'status', 'created_at'];
 
      
 }

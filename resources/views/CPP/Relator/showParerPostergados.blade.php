@@ -14,12 +14,12 @@
     <section style=" width:100%; height:auto;"> 
         <div class="card text-center">
             <div class="card-footer text-muted">
-                <i class="fas fa-user-clock" style="font-size: 28px; color: magenta;"></i>
-                <span style="color: magenta; margin-left: 15px;"> Seus pedidos postergados. </span>
+                <i class="fas fa-user-clock" style="font-size: 28px; color: cian;"></i>
+                <span style="color: cian; margin-left: 15px;"> Seus pedidos postergados. </span>
                 <span> Total: {{count($postergados)}} </span>
             </div>
             <div class="card-body" style="max-height: 385px; overflow-y: scroll;">
-                <h2 class=" " style="color:  #eb984e ; font-family: 'Tajawal', sans-serif;">Não deixe seus pedidos acumularem.</h2>
+                <h4 class=" " style="color:  #eb984e ; font-family: 'Tajawal', sans-serif;">Não deixe seus pedidos acumularem.</h4>
                 <p class="card-text" style="color: gray;">Aqui você tem acesso aos seus pedidos que foram postergados.</p>
                 <hr>
                 @if(isset($postergados))

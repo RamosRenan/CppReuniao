@@ -13,7 +13,6 @@
         border-collapse: collapse;
         }
     </style>
-    
 
     <h4> Relatórios. </h4>
 

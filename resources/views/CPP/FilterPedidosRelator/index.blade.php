@@ -15,13 +15,13 @@
         <!-- @ card-header @ -->
         <div class="card-footer text-muted" style="height: 38px; " align="center"> 
             <!-- @ row @ -->
-                <div class="col-4" > <i class="fas fa-bars"> </i> Selecione o pedido.  </div>
+                <div class="col-4" > Selecione o pedido.  </div>
             <!-- @ row @ -->         
         </div>
 
 
         <!-- @ scrool_grid_relator @ -->
-        <div class="scrool_grid_relator" style="max-height: 620px; border-top: solid 1px #ffbf00; "> 
+        <div class="scrool_grid_relator" style="max-height: 620px;"> 
             <div class="card-body " style="max-height: auto;"> 
                 <form action="{{route('cpp.relatorFilterPedidos.create')}}" method="put">
                     @csrf
@@ -58,7 +58,7 @@
 
                             <option value="Sub-Judice">Sub-Judice</option>
                         </select>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted"> Busque apenas peidos específicos. </small>
                         <br>
                         <button type="submit" class="btn btn-primary">Buscar</button>
                     </div>
@@ -69,7 +69,7 @@
         <!-- @ scrool_grid_relator @ -->
 
         <div class="card-footer text-muted">
-            Pedidos.
+            
         </div>
     </div> 
     <!-- @ card card-default @ -->

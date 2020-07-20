@@ -12,22 +12,37 @@
     <div class="card text-center">
         <div class="card-footer text-muted">
             Últimos cadastrados.<br>
-            <small> Clique sobre o pedido para editá-lo </small>
         </div>
         <div class="card-body" style="max-height: 400px; overflow-y: scroll;">
-            @foreach($homologP as $key => $value)
             <form action="/cpp/editPontos" method="post">
                 @csrf
+
+                <table class="table">
+                    <thead align="center">
+                        <tralign="center">
+                            <th scope="col">eProtocolo.     </th>
+                            <th scope="col">Grupo.          </th>
+                            <th scope="col">Rg.             </th>
+                            <th scope="col">Inciso.         </th>
+                            <th scope="col">Data cadastro.  </th>
+                        </tr>
+                    </thead>
+                    <tbody align="center">
+                        @foreach($homologP as $key => $value)
+                            <tr align="center">
+                                <td> <a href="#"> {{$value->eProtocolo}} </a> </td>
+                                <td>{{$value->distincao}}   </td>
+                                <td>{{$value->id_policial}} </td>
+                                <td>{{$value->key_inciso}}  </td>
+                                <td>{{$value->created_at}}  </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @if(isset($value->eProtocolo))
                 <input type="hidden" name="eProtocolo" value="{{$value->eProtocolo}}">
-                <button type="submit" class="alert alert-dark" role="alert">
-                    <span style="color:white;"> eProtocolo: {{$value->eProtocolo}} </span> &nbsp;  &nbsp;  &nbsp;
-                    <span style="color:white;"> Distinção: {{$value->distincao}} </span> &nbsp;  &nbsp;  &nbsp;
-                    <span style="color:white;"> Rg: {{$value->id_policial}} </span> &nbsp;  &nbsp;  &nbsp;
-                    <span style="color:white;"> Inciso: {{$value->key_inciso}} </span> &nbsp;  &nbsp;  &nbsp;
-                    <span style="color:white;"> Data de Cadastro {{$value->created_at}} </span> &nbsp;  &nbsp;  &nbsp;
-                </button>
+                @endif
             </form>
-            @endforeach
         </div>
         <div class="card-footer text-muted">
             Pontos positivos.

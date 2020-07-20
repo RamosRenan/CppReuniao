@@ -15,7 +15,7 @@ class EProtocolo extends Migration
     {
         //
         Schema::create('eProtocolo', function(Blueprint $table){
-            $table->increments  ('id');
+            $table->integer('id');
             $table->string      ('cpf', 14)->unsigned();
             $table->foreign     ('cpf')->references('cpf')->on('policial')->onDelete('cascade');
 
