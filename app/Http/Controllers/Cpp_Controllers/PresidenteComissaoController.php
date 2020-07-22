@@ -206,7 +206,7 @@ class PresidenteComissaoController extends Controller
             if(count($biggerNumAta) == 0){
                 $newAta = new ata;
                 $newAta->numero_ata = 1;
-                $newAta->data_inicio = date('d/m/Y H:i:s');
+                $newAta->data_inicio = date('Y-m-d');
                 $newAta->save();
                 $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
                 return redirect($_SERVER['HTTP_REFERER']);
@@ -216,7 +216,7 @@ class PresidenteComissaoController extends Controller
                 // return $biggerNumAta;
                 $newAta = new ata;
                 $newAta->numero_ata = $biggerNumAta[0]->numero_ata+1;
-                $newAta->data_inicio = date(' Y-m-d H:i:s ');
+                $newAta->data_inicio = date('Y-m-d');
                 $newAta->save();
                 $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
                 return redirect($_SERVER['HTTP_REFERER']);
@@ -226,7 +226,7 @@ class PresidenteComissaoController extends Controller
         }else{
             $newAta = new ata;
             $newAta->numero_ata = $novAta;
-            $newAta->data_inicio = date(' Y-m-d H:i:s ');
+            $newAta->data_inicio = date('Y-m-d');
             $newAta->save();
             $lastAta = ata::orderBy('numero_ata', 'Desc')->paginate(5);
             return redirect($_SERVER['HTTP_REFERER']);

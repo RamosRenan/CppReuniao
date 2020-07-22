@@ -9,7 +9,7 @@
 
 <!-- crio nova ata -->        
 <section style="position: relative; top: 10px;">
-    <div class="card card-default"  style="position:relative;top: -18px;">
+    <div class="card card-default"  style="position:relative;top: -18px; max-height: 470px; overflow-y:scroll;">
 
         <div class="card-header" style="height: 38px; " align="center"> 
             <span style="color:gray;"> Iniciar Nova Ata. </span> 
@@ -18,7 +18,7 @@
         <div class="card-body" id="card__body4" style=""> 
             <div style="width:100%; height: 100%; " > 
                 <div class="row" style="" align="center"> 
-                    <h5 style="margin-left:8px;"> Total: {{count($lastAta)}}. </h5>  
+                    <span style="margin-left:8px; color:magenta;"> Total: {{count($lastAta)}}. </span>  
                     <div class="col-12" >                                 
                         <table class="table" style=" ">
                             <thead>

@@ -91,10 +91,6 @@ class AtaController extends Controller{
     }// final index();
 
 
-
-
-
-
     function create(){
 
         $AtaContent = ata::where('ata.ata_finalizada', null)
@@ -151,10 +147,6 @@ class AtaController extends Controller{
         return $pdf->setPaper('a4')->stream('invoice.pdf');
          
     }// final create();
-    
-
-
-
 
 
     # funcao recursiva q realiza divisoes sucessivas ate q seja menor q 26
@@ -183,8 +175,6 @@ class AtaController extends Controller{
         } 
 
     }# searchWords();
-
-    
     
     
     
@@ -324,7 +314,7 @@ class AtaController extends Controller{
         ->update([
             'ata_finalizada'=>'true', 
             'response_finalized_ata'=>Auth::user()->id, 
-            'data_termino'=>date('d-m-Y H:i:s'), 'TERMO_ENCERRAMENTO_REUNIAO'=>$encerramento_reuniao, 
+            'data_termino'=>date('Y-m-d'), 'TERMO_ENCERRAMENTO_REUNIAO'=>$encerramento_reuniao, 
             'INTRODUCAO_REAUNIAO_ORDINARIA'=>$introducao_reuniao 
             ]);        
 
