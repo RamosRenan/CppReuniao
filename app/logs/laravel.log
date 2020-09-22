@@ -788,3 +788,98 @@
   
 [2020-07-20 14:10:13] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$HDq.WoebWJYdG3cqXZGI3eTyf7FvFdC7EONnmAGGmntjC76BsGhia - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: ANTONIO CARLOS FELIX - RG: 
   
+[2020-09-18 10:31:51] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$6ngAO0tTzgDFJ0R6iMJtUu/ea3kztquFxdzhPbuP2EveOeWu8lv4y - Permission Accesss: @@ superadmin @@
+  
+[2020-09-18 18:42:15] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: JEAN CARLO PEDROSO TENFEN - RG: 
+  
+[2020-09-18 19:02:50] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: IURI ROBERT MALANOWSKI - RG: 
+  
+[2020-09-18 19:21:10] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: ARNALDO TIMOTEO DE ANDRADE - RG: 
+  
+[2020-09-18 19:21:56] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: EDUARDO DE FREITAS BRILL - RG: 
+  
+[2020-09-18 19:23:06] local.NOTICE: Acessou Url: http://localhost:8000/cpp/HomologP - Renan Barbosa Ramos da Silva Realizou um novo cadastro de policial - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: LUIZ CARLOS MARTINS DA SILVA - RG: 
+  
+[2020-09-18 23:45:24] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@
+  
+[2020-09-18 23:45:31] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@
+  
+[2020-09-18 23:45:47] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$IUdmeWEipCeiA/jcYjiJseimoPim/UkDktXNDhmGdmDlrO1YwZyLa - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: NIVALDO PEDRINI - RG: 34760446
+  
+[2020-09-19 10:42:43] local.NOTICE: Acessou Url: http://localhost:8000/cpp/__44a/create - Renan Barbosa Ramos da Silva Realizou um cadastro 44A - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: MARCOS MARIANO PIRES - RG: 
+  
+[2020-09-19 12:26:31] local.NOTICE: Acessou Url: http://localhost:8000/cpp/__44a/create - Renan Barbosa Ramos da Silva Realizou um cadastro 44A - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: JAIR NONATO FERREIRA - RG: 
+  
+[2020-09-19 13:10:50] local.NOTICE: Acessou Url: http://localhost:8000/cpp/__44a/create - Renan Barbosa Ramos da Silva Realizou um cadastro 44A - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: GILMAR DE FREITAS PADILHA - RG: 
+  
+[2020-09-19 13:14:45] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:14:50] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:14:56] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:15:12] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: EDUARDO CESAR QUERO JUNIOR - RG: 96550219
+  
+[2020-09-19 13:15:51] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:15:55] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:16:10] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: GLENN JOELSON MELCHIOR FERREIRA PRESTES - RG: 44484927
+  
+[2020-09-19 13:16:18] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:16:22] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:16:37] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: ERNANE LENOIR SCHUMACHER - RG: 53444210
+  
+[2020-09-19 13:23:33] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:23:40] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:24:00] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: TIAGO DOS SANTOS - RG: 93755987
+  
+[2020-09-19 13:24:06] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 13:24:31] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: CLAUDIO PRUS - RG: 48878385
+  
+[2020-09-19 16:27:56] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 16:28:12] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 23:45:16] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-19 23:45:20] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-20 02:21:04] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-20 02:21:11] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-20 02:21:17] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-20 02:21:34] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: DAILANE DOLL DOS SANTOS - RG: 105468334
+  
+[2020-09-20 02:21:38] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@
+  
+[2020-09-20 02:21:56] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$YPFsDMj2Gi8EjL5dKhsD7OXn34YHt2ScdX4EkkVRDoSf.XxcNwDeW - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: ELISEU FERNANDES APOLINARIO - RG: 39616874
+  

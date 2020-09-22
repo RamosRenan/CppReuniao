@@ -14,7 +14,7 @@
         <!-- @  @ -->
         <div style="width: 100%; height: auto; display: flex; position: relative; top: -50px;" align="center">
             <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
-            <button style="background: #757575;" id="button_search_cpf_police" class="btn btn-outline-secondary" type="submit"> 
+            <button style="background: #4dabf7;" id="button_search_cpf_police" class="btn btn-primary" type="submit"> 
                 <span style="color: white;"> Buscar </span> 
             </button>
         </div>
@@ -27,8 +27,11 @@
         <div class="card card-default" style="position: relative; top: -40px;">
             <div class="card-body" align="center" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                <small style=" color: gray;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </small> <hr>
+                
+                <div style="width: 100%; height:auto;  ">
+                    <h5> <small style=" color: black;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </small> </h5> 
+                </div>
+                <hr>
 
                 <section>
                     <div class=" curtain_register " align="center" id="curtain_register"> <div>
@@ -236,8 +239,8 @@
 
 
                 <!--@ row @-->
-                <div class="row" >
-                    <p> <button href="" class="btn btn-success" type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar. </button> </p>
+                <div align="center">
+                    <button href="" class="btn btn-success" type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar. </button>
                 </div>
                 <!--@ row @-->
             </div> <!-- <div class="card-body"> -->

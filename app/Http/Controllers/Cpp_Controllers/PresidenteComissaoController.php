@@ -61,15 +61,18 @@ class PresidenteComissaoController extends Controller
 
     public function registry_vote_presidente(){
 
-        $eProtoc = $_GET['eProtocolo'];
-         
-        if(empty($_GET['Favoravel']) && empty($_GET['Contra'])){
-            return "voto vazio";
-        }elseif(!empty($_GET['Favoravel']) && !empty($_GET['Contra'])){
-            return "Selecione apenas um campo";
-        }
-
-        //pego o atual presidente
+        $response_method = $_SERVER['REQUEST_METHOD'] == 'GET' ? 
+            (int)(isset($_GET['gender']) && isset($_GET['eProtocolo'])) : 
+                0;
+        
+        //teste de retorno para --> $response_method
+        // return $response_method;
+        if($response_method){}
+            else {
+                return redirect($_SERVER['HTTP_REFERER']);
+            }
+        
+        //pego o atual presidente;
         $president = secretario_e_presidente::where('status', true)->where('qualificacao', 'Presidente')->get();
 
         //pego o atual secretario
@@ -82,7 +85,7 @@ class PresidenteComissaoController extends Controller
 
         // return $id_deliberacao;
 
-        if(!empty($_GET['Favoravel'])){
+        if(!empty($_GET['gender']) &&  $_GET['gender'] == 'Favoravel'){
             if( count($verify_has_voted) > 0 ) return "Você já votou esta deliberação";
             $NewVote = new relation_vote_each_deliberacao;
             $NewVote->id_deliberacao                    = $id_deliberacao[0]->id;

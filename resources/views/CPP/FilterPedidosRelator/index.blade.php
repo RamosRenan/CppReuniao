@@ -11,21 +11,20 @@
 
 @section('content')
          
-    <div class="card card-default" style=" position:relative; top:-50px; ">
+    <div class="card card-default" style=" position:relative;  ">
         <!-- @ card-header @ -->
-        <div class="card-footer text-muted" style="height: 38px; " align="center"> 
+        <div class="card-header " style="height: 38px; " align="center"> 
             <!-- @ row @ -->
-                <div class="col-4" > Selecione o pedido.  </div>
+                <div class="col-4" > <h5> Selecione o pedido.  </h5> </div>
             <!-- @ row @ -->         
         </div>
-
 
         <!-- @ scrool_grid_relator @ -->
         <div class="scrool_grid_relator" style="max-height: 620px;"> 
             <div class="card-body " style="max-height: auto;"> 
                 <form action="{{route('cpp.relatorFilterPedidos.create')}}" method="put">
                     @csrf
-                    <div class="form-group" >
+                    <div class="form-group" align="center">
                         <input type="hidden" name="keypedido" id="keyp" >
                         <!-- @ No final do código, scrpit responsável por pegar 'value' de 'option' 
                                 e inserir no '<input type="hidden" name="keypedido">'.

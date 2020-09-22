@@ -16,10 +16,12 @@
     <!-- @ card card-default @ -->
     <div class="card card-default"  style=""> 
         <!-- @ card-header @ -->
-        <div class="card-footer text-muted" style="height: auto;" align="center" > 
+        <div class="card-header " style="height: auto;" align="center" > 
             <!-- @ row @ -->
-            <i class="fas fa-user-clock"> </i> 
-            <span style="color: #343a40;"> Deliberações <b> 44A </b> que estão sendo votadas no momento. </span> 
+            <i class="fas fa-user-clock"> </i> <br>
+            <h5 style="color: #2A4B7C;"> 
+                <small> Deliberações <b> 44A </b> que estão sendo votadas no momento. </small>
+            </h5> 
             <!-- @ row @ --> 
         </div>
         <!-- @ card-header @ -->
@@ -84,11 +86,13 @@
                                 <div class="row" style=" width: 100%; heigth: auto; position:relative; top: 45px; ">
                                     <div class=" col-4 "> </div>
                                     <div class=" col-4 " style=" width: 50%; heigth: auto; " align="center">
-                                        <i class="fas fa-info-circle" style="position:relative; top:-45px; color:#ced4da; font-size: 300px;"></i>
+                                        <i class="fas fa-info-circle" style="position:relative; top:-45px; color: #f8f9fa; font-size: 400px;"></i>
                                         <div style="position:absolute; top: 5px;">
-                                            <h5 style="color: #339af0"> Não há deliberação <b> 44A </b> no momento. </h5> 
+                                            <h5 style="color: #2A4B7C"> Não há deliberação <b> 44A </b> no momento. </h5> 
                                             <br>
-                                            <h5 style="color: #339af0;"> <br>  <b> Atenção ! </b> <small> Fique atento a novas deliberações a serem enviadas pelo Secretário. <b> <u> Certifique-se </u> </b> quanto ao número do eProtocolo. </small> </h5>   
+                                            <h5 style="color: #2A4B7C;"> <br>  <b> Atenção ! </b>  <br>
+                                                <small> Fique atento a novas deliberações a serem enviadas pelo Secretário. <b> <u> Certifique-se </u> </b> quanto ao número do eProtocolo. </small> 
+                                            </h5>   
                                             <br>
                                         </div> 
                                     <div class=" col-4 "> </div>

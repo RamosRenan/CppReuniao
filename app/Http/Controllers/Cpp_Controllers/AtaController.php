@@ -367,12 +367,17 @@ class AtaController extends Controller{
     }// final show();  
 
 
-
-
-
-    function store(){
+    /* -----------------------------------------|
+    |   Função para buscar uma ata específica   |
+    |   e apresenta-la para visualização.       |
+    |-------------------------------------------|
+    |         Mostra ata selecionada            |
+    -------------------------------------------*/ 
+    public function findAtaToViewstore(){
+        
          
     }// final store();  
+
 
 
     public function generatePdf(Request $request){
@@ -449,7 +454,9 @@ class AtaController extends Controller{
      
 
     function update(){
+        return "okokokokok";
     }// final update();  
+
 
 
     public function editDeliberAta(Request $request){
@@ -461,6 +468,7 @@ class AtaController extends Controller{
     }
 
 
+
     public function editDeliberAtaRelatado(Request $request){
         $idThisDeliber = $request->post('editdeliberinatarelatado');
         $contentThisDeliberInAta = $request->post('contentDeliberRel');
@@ -469,6 +477,7 @@ class AtaController extends Controller{
         return $reCall->index();
     }
     
+
 
     public function editDeliberAta44a(Request $request){
         $idThisDeliber = $request->post('editdeliberinata44a');
@@ -479,6 +488,7 @@ class AtaController extends Controller{
     }
 
 
+
     public function editDeliberAtaPostergado(Request $request){
         $idThisDeliber = $request->post('editDeliberInAtaPost');
         $contentThisDeliberInAta = $request->post('contentDeliberPost');
@@ -487,12 +497,10 @@ class AtaController extends Controller{
         return $reCall->index();
     }
 
-
+    
 
     function destroy(){
-
+        return "okokokokoko";
     }// final destroy(); 
-    
-    
 
 }//final class Ata;

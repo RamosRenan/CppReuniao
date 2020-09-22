@@ -11,29 +11,29 @@
     <section style="position: relative; top: -15px;">
         <div class="card card-default"  style="position:relative;top: 0px;"> 
 
-            <div class="card-header" style="height: 38px; "> 
-                <span> <strong> <i class="fas fa-clipboard"></i> Cadastrar Membros Relatores. </strong> </span> 
+            <div class="card-header" style="height: 40px; " align="center"> 
+                <h5 style="color: #009acd;"> 
+                    <i class="fas fa-clipboard"></i> Cadastrar Membros Relatores. 
+                </h5> 
             </div>
 
             <!-- card body -->
             <div class="card-body" id="card__body5" style="height: auto; " align="center"> 
 
-                <h4> <u> Membros Relatores Ativos atualmente. </u> </h4>
+                <h5> <small> Membros Relatores Ativos atualmente. </small> </h5>
                 
                 <!-- table -->
                 <section>
-
                     <table class="table">
                         <thead class="thead-dark">
-                            <tr>
-                                <th scope="col"> ID </th>
+                            <tr align="center">
                                 <th scope="col"> Nome </th>
                                 <th scope="col"> Posto </th>
                                 <th scope="col"> RG </th>
                                 <th scope="col"> CPF </th>
                                 <th scope="col"> <div> Qualificação. </div> </th>
                                 <th scope="col"> Status. </th>
-                                <th scope="col"> Habilitar | Desabilitar | Del </th>
+                                <th scope="col"> <span style="color: green;"> H </span> | <span style="color: gray;"> D </span> | <span style="color: red;"> Del </span> </th>
                             </tr>
                         </thead>
 
@@ -41,7 +41,6 @@
                             @if(isset($Members_Relatores_and_President))
                                 @foreach($Members_Relatores_and_President as $key)
                                     <tr>
-                                        <th scope="row"> {{$key->id}} </th>
                                         <td> {{$key->nome}}          </td>
                                         <td> {{$key->posto}}        </td>
                                         <td> {{$key->rg}}           </td>
@@ -95,8 +94,9 @@
                 </section>
                 <!-- table -->
 
+                <hr>
 
-                <h4 style="position:relative; top:-5px;"> <u> Cadastrar Membros Relatores. </u> </h4> 
+                <h5 style="position:relative; top:-5px; color:  #009acd;"> <i class="fas fa-plus"></i> &nbsp Cadastre um novo membro relator. </h5> 
 
                 <!-- @ -->
                 <div style="width:100%; auto;" > 
@@ -170,5 +170,7 @@
         <div> 
     </section>
     <!-- @ Cadastrar Membros Relatores.  @ -->
+
+    <br>
 
 @endsection

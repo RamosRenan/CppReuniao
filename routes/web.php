@@ -119,11 +119,11 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::resource('/findeliberacao', 'Cpp_Controllers\FindDeliberacaoController'      );
     Route::resource('/relatorios', 'Cpp_Controllers\RelatorioController'                );
     Route::resource('/secretario', 'Cpp_Controllers\SecretarioController'               );
-    Route::resource('/ata', 'Cpp_Controllers\AtaController'                             );
     Route::resource('/relatorFilterPedidos', 'Cpp_Controllers\FilterPedidosRelatorController'  );
     Route::resource('/pedidosPostergados', 'Cpp_Controllers\PostergadosController'  );
     Route::resource('/gestaocontrole', 'Cpp_Controllers\ChartRelatorioRelator'  );
     Route::resource('/uploadFile', 'Cpp_Controllers\uploadFileController'  );
+    Route::resource('/historyDeliberRelator', 'Cpp_Controllers\HistoryDeliberRelatoController'  );
     
     Route::post('/getPolice', 'Cpp_Controllers\__44AController@getPolicial');                
     Route::post('/create44A', 'Cpp_Controllers\__44AController@create44A');                
@@ -139,6 +139,7 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::post('/editPontos', 'Cpp_Controllers\HomologPontosController@editPontos'              );
     Route::post('/efetiveAlterPontos', 'Cpp_Controllers\HomologPontosController@efetiveAlterPontos'              );
     
+    Route::get('/storedHomologP', 'Cpp_Controllers\HomologPontosController@storedHmologPointing'              );
     Route::get('/atapdf', 'Cpp_Controllers\AtaController@generatePdf'                     );
     Route::get('/editParecer', 'Cpp_Controllers\RelatorController@searcheParecer'                     );
     Route::get('/editarParecer', 'Cpp_Controllers\RelatorController@editParecer'                     );

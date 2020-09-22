@@ -13,58 +13,69 @@
         <div class="card" align="center">
             <div class="card-header">
                 <h4 class="card-title" style="color: #1971c2;"> Prévia do texto da deliberção. </h4>
+                <h5 class="card-title" style="color: #1971c2;"> <small> Reunião deliberativa. </small> </h5>
             </div>
             <div class="card-body" style="min-height: auto;" >
-                <br>
+                <h5 class="card-title" style="color: black;"> <small> Deliberação. </small> </h5>
                 <textarea class="card-text" style="width: 100%;" rows="5" readonly>
                     @if(isset($decodeDeliber))
                         {{$decodeDeliber}}
                         @else
-                            Não há deliberação.
+                            Não há deliberação no momento. Aqui você tem acesso ao texto da deliberação.
                     @endif
                 </textarea>
                 <br>
             </div>
 
             <div>
-                <form action="/cpp/registry_vote_presidente" method="get">
+                <form action="/cpp/registry_vote_presidente" method="get" >
                     @csrf
                     @if(isset($return_to_vote_member[0]))
                     <input type="hidden" name="eProtocolo" value="{{$return_to_vote_member[0]->eProtocolo}}" class="custom-control-input" id=" ">
                     @endif
 
-                    <div style="width:100%; height: auto; display: flex;" align="center">
-                        <div class="form-check" style=" margin-left: 35px;">
-                            <input class="form-check-input" type="radio" name="Favoravel" id="exampleRadios1" value="option1">
-                            <label class="form-check-label" for="exampleRadios1" style="color:red;">
-                                Contra
-                            </label>
-                        </div>
-
-                        <div class="form-check" style=" margin-left: 35px;">
-                            <input class="form-check-input" type="radio" name="Contra" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2" style="color:blue;">
-                                Favoravel
-                            </label>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <input type="radio" id="exampleRadios1" name="gender" value="Contra">
+                                &nbsp<label for="exampleRadios1"><h5>Contra <i class="far fa-thumbs-down"></i></h5></label>
+                            </div>
+                            <div class="col-sm">
+                             
+                            </div>
+                            <div class="col-sm">
+                                <input type="radio" id="exampleRadios2" name="gender" value="Favoravel">
+                                &nbsp<label for="exampleRadios2"><h5> Favorável <i style="color:blue;" class="far fa-thumbs-up"></i> </h5></label>
+                            </div>
                         </div>
                     </div>
 
-                    <hr>
+                     
+                        <!-- <input  type="radio" name="Favoravel" id="exampleRadios1" value="option1" >
+                        <label  for="exampleRadios1" style="color:red;">
+                            <h5> Contra </h5>
+                        </label>
+
+                        <br><br>
+
+                        <input type="radio" name="Contra" id="exampleRadios2" value="option2">
+                        <label for="exampleRadios2" style="color:blue;">
+                            <h5> Favoravel </h5>
+                        </label> -->
+
+                    <br>
 
                     @if(isset($decodeDeliber))
                             <button type="submit"  class="btn btn-primary"> Desempatar </button>
                         @else
-                            <button type="submit"  class="btn btn-primary" disabled> Desempatar </button>
-                    @endif
+                            <button type="button"  class="btn btn-dark" disabled> Desempatar  <small> (desativado) </small> </button>
+                            <h5 style="color: dark; font-size: 12px;"> <i class="fas fa-info-circle"></i> Obs.: Botão é ativado quando existir uma deliberação para ser analisada </h5>
+                        @endif
 
-
-                    <br> <br>
-
-                    <a href="#"> <u> <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> </a>
+                    <a href="#" style="color:red;"> <u> <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> </a>
 
                     <hr>
 
-                    <small> <i class="fas fa-info-circle"></i> OBS.: Botão só ativado quando existir uma deliberação para ser analisada </small>
                 </div>
             </div>
         </div>

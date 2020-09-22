@@ -46,8 +46,15 @@ class RelatorController extends Controller
 
 
     public function editParecerPostergados(Request $request){
-        $Usorteados = eProtocolosSorteados::where('eProtocolo', $request->get('eProtocolo'))->get();
+        $Usorteados = eProtocolosSorteados::where('eProtocolo_sorteados.eProtocolo', $request->get('eProtocolo'))
+        ->join('eProtocolo', 'eProtocolo.eProtocolo', '=', 'eProtocolo_sorteados.eProtocolo')
+        ->where('eProtocolo.eProtocolo', '=', $request->get('eProtocolo'))
+        ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+        ->get();
+
+        //teste de retorno
         // return  $Usorteados;
+        
         return view('/CPP/Relator.editParecerPostergados')->with(['Usorteados'=>$Usorteados]);
     }
 
@@ -452,7 +459,7 @@ class RelatorController extends Controller
 
     public function searcheParecer(){
         $relatados = eProtocolosSorteados::where( 'id_membro', Auth::user()->id )
-        // ->where('condicao_this_deliberacao', null)
+        ->where('condicao_this_deliberacao', null)
         ->where('relator_votou', 'true')->get();
         return view('CPP/Relator/editParecer')->with('relatados', $relatados);
         // return  $relatados;
@@ -461,10 +468,16 @@ class RelatorController extends Controller
 
     public function editParecer(Request $request){
         $foundEditParecer = eProtocolosSorteados::where( 'id_membro', Auth::user()->id )
-        // ->where('condicao_this_deliberacao', null)
-        ->where('eProtocolo', $request->get('eProtocolo'))
-        ->where('relator_votou', 'true')->get();
+        ->where('eProtocolo_sorteados.condicao_this_deliberacao', null)
+        ->where('eProtocolo_sorteados.eProtocolo', $request->get('eProtocolo'))
+        ->where('eProtocolo_sorteados.relator_votou', 'true')
+        ->join('eProtocolo', 'eProtocolo.eProtocolo', '=', 'eProtocolo_sorteados.eProtocolo')
+        ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+        ->get();
+        
+        //teste retorno
         // return $foundEditParecer;
+
         return view('CPP/Relator/foundEditParecer')->with('foundEditParecer', $foundEditParecer);
     }
 

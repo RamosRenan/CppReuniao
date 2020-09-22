@@ -117,8 +117,8 @@
             @if(isset($naoAlanisadosPorComissao) && count($naoAlanisadosPorComissao) > 0)
                 @else
                     <div class="row" align="center" style="height: auto; max-width:100%;">
-                        <div class="col-sm-12">  <i style=" font-size: 40px; color: gray;" class="fas fa-history"></i>   </div>
-                        <div class="col-sm-12">  <strong> <small style="color: gray;"> <h5> Não há deliberações para serem votadas no momento ! </h5> </small> </strong>   </div>
+                        <div class="col-sm-12">  <i style=" font-size: 20px; color: gray;" class="fas fa-history"></i>   </div>
+                        <div class="col-sm-12"> <h5  style="color: gray;"> <small> Não há deliberações para serem votadas no momento !  </small>  </h5></div>
                     </div>
     @endif
 

@@ -9,27 +9,28 @@
 @yield('content')
 
 @section('content')
- 
-     
     <section style=" width:100%; height:auto;"> 
         <div class="card text-center">
-            <div class="card-footer text-muted">
-                <i class="fas fa-user-clock" style="font-size: 28px; color: cian;"></i>
-                <span style="color: cian; margin-left: 15px;"> Seus pedidos postergados. </span>
-                <span> Total: {{count($postergados)}} </span>
+            <div class="card-header ">
+                <i class="fas fa-user-clock" style="font-size: 28px; color: #ff3300;"></i><br>
+                <h5 style="color: cian; margin-left: 15px;"> Seus pedidos postergados. <small> Total: {{count($postergados)}} </small> </h5>
             </div>
-            <div class="card-body" style="max-height: 385px; overflow-y: scroll;">
-                <h4 class=" " style="color:  #eb984e ; font-family: 'Tajawal', sans-serif;">Não deixe seus pedidos acumularem.</h4>
-                <p class="card-text" style="color: gray;">Aqui você tem acesso aos seus pedidos que foram postergados.</p>
+
+            <div class="card-body" style="max-height: 400px; overflow-y: scroll;">
+                <h5 class=" " style="color:  #eb984e ;">
+                    <i class="fas fa-info"></i> <br>
+                    Não deixe seus pedidos acumularem. <br>
+                    <small style="color: #577284;"> Aqui você tem acesso aos seus pedidos que foram postergados. </small>
+                </h5>
                 <hr>
                 @if(isset($postergados))
                     @foreach($postergados as $key => $value)
                         <a href="/cpp/editParerPostergados?eProtocolo={{$value->eProtocolo}}" >
                         <div class="alert alert-danger" role="alert">
-                            <i class="far fa-clock" style="float: left; font-size: 28px;"> </i>
+                            <i class="far fa-clock" style="color: blue; float: left; font-size: 28px;"> </i>
                             <span> <strong> e-Protocolo: </strong> {{$value->eProtocolo}} </span> &nbsp;  &nbsp;
                             <span> <strong> Data: </strong> {{$value->created_at}} </span> &nbsp;  &nbsp; &nbsp;
-                            <span> <strong> votado ? </strong> @if($value->relator_votou == 'true') Sim @else Não @endif </span> &nbsp; &nbsp;  &nbsp;
+                            <span> <strong> Foi votado: </strong> @if($value->relator_votou == 'true') Sim @else Não @endif </span> &nbsp; &nbsp;  &nbsp;
                             <span> <strong> Opnou:  </strong> {{ $value->relator_opnou_por }} </span>
                         </div>
                         </a>

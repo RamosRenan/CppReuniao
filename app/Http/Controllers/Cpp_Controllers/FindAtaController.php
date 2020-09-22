@@ -92,4 +92,8 @@ class FindAtaController extends Controller
         header('Content-Transfer-Encoding; binary');
         readfile($file);
     }
+
+    public function store(){
+        return "okokokokoatata";
+    }
 }#FindAta

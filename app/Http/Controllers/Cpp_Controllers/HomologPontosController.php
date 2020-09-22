@@ -187,7 +187,6 @@ class HomologPontosController extends Controller
 
          }# else
 
-
      } /*@  store()  @*/
  
  
@@ -200,7 +199,6 @@ class HomologPontosController extends Controller
         // return $homologP ;
         return view('CPP.Homolog_Pontos.edit')->with(['homologP'=>$homologP]);
      } /*@  show()  @*/
- 
  
  
  
@@ -232,7 +230,6 @@ class HomologPontosController extends Controller
  
  
  
- 
      /*@  editPontos()  @*/
      public function editPontos(Request $request){
         $eProtocolo = $request->input('eProtocolo');
@@ -253,7 +250,6 @@ class HomologPontosController extends Controller
             throw $th;
         }
     } /*@  efetiveAlterPontos()  @*/
-
 
 
  
@@ -285,9 +281,19 @@ class HomologPontosController extends Controller
  
  
  
- 
      /*@  destroy()  @*/
      public function destroy(){
          
      } /*@  destroy()  @*/
+
+     public function storedHmologPointing(){
+        
+        $selectedHom = homolog_pontos_positivos::where('homlog_pontos_positivos.eProtocolo', $_GET['eProtocolo'])
+        ->join('policial', 'policial.cpf', '=', 'homlog_pontos_positivos.id_policial')
+        ->get();
+        
+        // return $selectedHom;
+        
+        return view('CPP.Homolog_Pontos.create')->with('selectedHom', $selectedHom);
+    }
 }

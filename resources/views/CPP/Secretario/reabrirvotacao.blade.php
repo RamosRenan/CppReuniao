@@ -6,44 +6,32 @@
 @yield('content')
 
 @section('content')
-
+    <br>
     <!-- @ Reabrir Votação.  @ -->
     <section style="position: relative; "> 
         <div class="card card-default"  style="position:relative; top:-30px;"> 
-            <div class="card-header" style="height: 38px; " align="center"> 
-                <span style="color: cian;"> <strong> <i class="fas fa-lock-open"></i>  Reabrir Votação. </strong> </span> 
+            <div class="card-header" style="height: 40px; " align="center"> 
+                <h5 style="color: #009acd;">  
+                    <i class="fas fa-lock-open"></i>  Reabrir Votação.  
+                </h5> 
             </div>
                 
             <!-- @ card__body7 @ -->
-            <div class="card-body" id="card__body7" style="height: 580px; "> 
-                        
-                <div class="row"  align="center"> 
-                    <div class="col-4"> </div>
-                    <div class="col-4"> 
-                        <i class="fas fa-info-circle"></i>
-                        <span style="color: #dc3545;">                                      
-                            ! Atenção. Reabrir constantemente deliberações, poderá causar inconsistências no banco de dados. 
-                            <hr>
-                            <span style="color:lightslategray;"> Ultimas deliberações. </span>
-                        </span>
-                    </div>
-                    <div class="col-4"> </div>
-                </div> 
-
-
+            <div class="card-body" id="card__body7" style="height: auto; "  align="center"> 
+                <h5 style="color: #4c566a;"> <small> Ultimas deliberações. </small> </h5>
                 <table class="table" style="border-radius: 9px; box-shadow: 0px 0px 5px 2px gray;">
                     <thead style=" border-radius: 9px; ">
-                        <h5> <strong> Total.: </strong> <span style="color:magenta;"> {{ count($LastDeliberacao) }} </span> Deliberações. </h5>
+                        <h5 style="float: right; color: #004B8D;"> <small> Total.:  {{ count($LastDeliberacao) }} </small> </h5>
+                        <br>
                         <tr style="background: #494949; "  align="center">
-                            <th scope="col" style="max-width: 55px; color: #dbdbdb;" > Em aberto. </th>
-                            <th scope="col" style="color: #dbdbdb;"> ID. </th>
+                            <th scope="col" style="max-width: 55px; color: #dbdbdb;" > Open. </th>
                             <th scope="col" style="color: #dbdbdb;">eProtocolo.</th>
                             <th scope="col" style="color: #dbdbdb;">Pertence  ATA.</th>
                             <th scope="col" style="color: #dbdbdb;">Número Deliberação.</th>
                             <th scope="col" style="color: #dbdbdb;">Data Criação.</th>
                             <th scope="col" style="color: #dbdbdb;">Visualizar Deliberação.</th>
                             <th scope="col-1" style="color: #ed4754; max-width: 25px;">Reabrir.</th>
-                            <th scope="col-1" style="color: #dbdbdb; max-width: 25px;">Fechar.</th>
+                            <th scope="col-1" style="color: green; max-width: 25px;">Fechar.</th>
                         </tr>
                     </thead>
 
@@ -52,7 +40,6 @@
                             @foreach($LastDeliberacao as $key)
                                 <tr align="center">                                            
                                     <td> @if($key->read_at == null) <i style="color: orange; font-size: 25px;" class="fas fa-exclamation-triangle"></i> @endif </td>
-                                    <td> {{ $key->id }} </td>
                                     <td>{{ $key->eProtocolo }}          </td>
                                     <td>{{ $key->numero_ata }}          </td>
                                     <td>{{ $key->num_deliberacao }}     </td>
@@ -63,14 +50,27 @@
                                 </tr>
                             @endforeach
                         @endif
-                        
                     </tbody>
-                </table>    
+                </table> 
+                <br>
+                <div class="row"  align="center"> 
+                    <div class="col-2"> </div>
+                        <div class="col-8"> 
+                            <i style="color: orange;" class="fas fa-info-circle"></i>
+                            <span style="color: #4c566a;">                                      
+                                ! Atenção. Reabrir constantemente deliberações, poderá causar inconsistências no banco de dados. 
+                                <hr>
+                            </span>
+                        </div>
+                    <div class="col-2"> </div>
+                </div> 
 
             </div>
             <!-- @ card__body7 @ -->
         </div>
     </section>
     <!-- @ Reabrir Votação.  @ -->
+
+    <br>
 
 @endsection

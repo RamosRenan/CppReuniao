@@ -12,9 +12,8 @@ html, body{
  
 
 .scrool_grid_salavotacao{
-    max-height: 680px;
-    overflow-y: scroll;
-}
+    height: auto;
+ }
 
 
 .hands_papaer{
@@ -76,6 +75,9 @@ html, body{
     padding: 10px;
 }
 
+ #piu{
+     font-weight: lighter;
+ }
 
 
 .grid-item {
@@ -93,6 +95,12 @@ html, body{
     overflow-y: scroll;
 }
 
+
+input[type="radio"] {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+}
 
 
 

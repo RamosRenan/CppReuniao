@@ -62,8 +62,8 @@ class SalaVotacaoController extends Controller
 
     /*@  store()  @*/
     public function store(Request $request){
-        $allLastDeliberPostergados = deliberacao::where('numero_ata', '<',  ata::max('numero_ata'))
-        ->where('condicao_this_deliberacao', 'Postergado')
+        $allLastDeliberPostergados = deliberacao::where('deliberacao.numero_ata', '<',  ata::max('numero_ata'))
+        ->where('deliberacao.condicao_this_deliberacao', 'Postergado')
         ->join('eProtocolo_sorteados', 'eProtocolo_sorteados.eProtocolo', '=', 'deliberacao.eProtocolo')
         ->join('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
         ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')

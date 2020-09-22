@@ -13,21 +13,27 @@
     <section>
         <div class="row" style="position: relative ; top: -40px;"> 
             <i class="fas fa-university" style="font-size: 20px;" ></i>
-            <h5 style="">    Conteúdo da Homologação.  </h5>
+            <h5>    Conteúdo da Homologação. </h5>
+        </div>
+
+        <div class="row" style="position: relative ; top: -40px;"> 
+            <span> 
+                <b style="color: red;" > Atenção as orientações ! </b>  
+                <br>
+                1 - Se não for necessário alterar o texto apenas clique em <b> CONFIRMAR. </b>  
+                <br>
+                2 - Caso necessaŕio, você poderá corrigir o texto. Basta clicar no campo para isso. E então, clique em confirmar. 
+            </span>
         </div>
     </section>
 
- 
-
+    
  
     <form method="GET" action=" {{ route('cpp.HomologP.edit', 0) }} "> 
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">       
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">   
+         
         <div class="card card-default"> 
             <div class="card-body"  align="center" > 
-                    <span style="font-size: 16px; color: red; float:left; " > <strong> Atenção ! </strong>  </span>
-                    <br>
-                    <span style="font-size: 14px; color: blue; float:left; " >    2 - Se não for necessário alterar o texto apenas clique em <strong> CONFIRMAR. </strong>  </span>
-                    <br>
                     <!-- @ row @ -->
                     <div class="row" style=" " align="center" >                        
                         <div class="col-md-12 form-group" style=" " id="cursosEParticip" class="cursosEParticip">

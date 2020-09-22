@@ -6,25 +6,41 @@
 @yield('content')
 
 @section('content')
+<div class="card" style="height: 58px;">
+    <div style="background: white;" class="card-header" >
+        <div class="container" align="center" style="height: 38px;">
+            <div class="row" align="center">
+                <div class="col-sm">
+                    <!-- @ form @ -->
+                    <form action="/cpp/getPolice"  method="POST" >
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <!-- @  @ -->
+                        <div style="width: 100%; height: auto; display: flex; position: relative;" align="center">
+                            <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
+                            <button style=" " id="button_search_cpf_police" class="btn btn-primary" type="submit"> <span style="color: white;"> <i class="fas fa-search"></i> </span> </button>
+                        </div>
+                        <!-- @  @ -->
+                    </form>
+                    <!-- @ form @ -->
+                </div>
+
+                <div class="col-sm">
+                    <h5 style="color: #009acd;"> Formulário para Cadastro de <br> <small> 44A. </small> </h5>  
+                </div>
+
+                <div class="col-sm">
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <div class="card text-center">
-    <div class="card-footer text-muted">
-        <form action="/cpp/getPolice"  method="POST" >
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <!-- @  @ -->
-            <div style="width: 100%; height: auto; display: flex; position: relative;" align="center">
-                <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
-                <button style="background: #757575;" id="button_search_cpf_police" class="btn btn-outline-secondary" type="submit"> <span style="color: white;"> Buscar </span> </button>
-            </div>
-        </form>
-        <!-- @ form @ -->
-    </div>
-
-     
     <form action="{{route('cpp.__44a.create')}}" method="get" >
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="card card-default" style=" "> 
             <div class="card-body">
                 <section>
                     <div class=" curtain_register " align="center" id="curtain_register"> <div>
@@ -85,17 +101,13 @@
                 <!-- @ SESSÃO CORTINA DE CORFIRMAÇÃO DE DADOS  @ -->
 
 
-
-
-
                 <!-- @ row @ -->
                 <div class="row">
 
                     <div class="col-md-3 form-group"  align="center">
                         <label class='awesome'> * N° eProtocolo. </label>
-                            <input class='form-control' required minlength = "12" oninput="mascara(this)" pattern="\([0-9]{2}\)\.([0-9]{3}\)\.([0-9]{3}\)\-([0-9]{1}\)$" placeholder="Ex.: 11.111.111-1" name="eProtocolo" type="text">
+                        <input class='form-control' required minlength = "12" oninput="mascara(this)" pattern="\([0-9]{2}\)\.([0-9]{3}\)\.([0-9]{3}\)\-([0-9]{1}\)$" placeholder="Ex.: 11.111.111-1" name="eProtocolo" type="text">
                     </div>
-
 
 
                     <div class="col-md-5 form-group"  align="center">
@@ -104,12 +116,10 @@
                     </div>
 
 
-
                     <div class="col-md-4 form-group"  align="center">
                         <label class='awesome'> * Unidade. </label>
                         <input id="GET_UNIDADE"  class='form-control' type="text" name="Unidade"  style="text-transform: uppercase;" required>
                     </div>
-
 
 
                     <div class="col-md-2 form-group"  align="center">
@@ -118,14 +128,10 @@
                     </div>
 
 
-
-
                     <div class="col-md-2 form-group"  align="center">
                         <label class='awesome'> * CPF. </label>
                         <input id="GET_CPF" maxlength="11" id="nome_do_policial" class='form-control' type="text"  name="CPF" style="" required>
                     </div>
-
-
 
 
                     <div class="col-md-2 form-group"  align="center">
@@ -134,14 +140,12 @@
                     </div>
 
 
-
-
                     <div class="col-md-6 form-group"  align="center">
                         <label class='awesome'> * Designar para Relator. </label>
                         <select id="" placeholder="Selecione o relator." id="nome_do_policial" class='form-control' type="text"  name="relator_designado" style="" required>
                             @foreach( $CountIsertMembers as $key )
                                 <option value="{{$key->id}}">
-                                    <span> ID.: {{$key->id}} - {{$key->name}} </span>
+                                    <span> ID.: {{$key->id}} - {{$key->nome}} </span>
                                 </option>
                             @endforeach
                         </select>
@@ -157,16 +161,11 @@
                 </div>
                 <!-- @ row @ -->
 
-                <div class="row">
-
-                    <div class="col-md-2 form-group">
-                        <button type="submit" class="btn btn-primary"> <i class="fas fa-paper-plane"></i> Cadastrar. </button>
-                    </div>
-
+                <div class=" " align="center">
+                    <button type="submit" class="btn btn-success"> <i class="fas fa-paper-plane"></i> Cadastrar. </button>
                 </div>
 
             </div> <!-- <div class="card-body"> -->
-        </div> <!-- card default -->
     </form> <!-- Final Form -->
 </div>
 
@@ -196,6 +195,7 @@
     @endif
 <section>
 
+<br> 
 
 <!-- Scripts -->
 <script type="text/javascript">

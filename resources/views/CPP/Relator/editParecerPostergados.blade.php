@@ -13,56 +13,101 @@
 
     <section style="width: 100%; height:auto;"> 
         <div class="card text-center">
-            <div class="card-footer text-mutedr" style="background:  #FF5733 ; height: 40px;" >
-                <span style="color: white;"> <i class="far fa-clock"></i> Este pedido está na condição de Postergado. </span>
+            <div class="card-header " style=" " >
+                <h5 style="color: black;"> 
+                    <i style="color: #ff3300; font-size: 28px;" class="far fa-clock"></i> <br>
+                    <small> Este pedido está na condição de Postergado. </small>
+                </h5>
             </div>
 
-            <div class="card-body" style="max-height: auto; " align="center">
+            <div class="card-body" style="max-height: auto; ">
                 @if(isset($Usorteados))
                 <form action="/cpp/updateParecerPostergados" method="post" >
                     @csrf
                     <div style="width: 100%; height: auto; display: flex;">
-                        <div style="width: calc(100%/3); " class="form-group">
+                        <div style="width: calc(100%/5); " class="form-group">
                             <label for="exampleInputEmail1" style="font-weight: lighter; float: left;">eProtocolo</label>
                             <input type="text" class="form-control" name="eProtocolo" id=" " value="{{$Usorteados[0]->eProtocolo}}" aria-describedby=" " placeholder="" readonly>
                         </div>
-                        <div style="width: calc(100%/3); " class="form-group">
+                        &nbsp
+                        <div style="width: calc(100%/5); " class="form-group">
                             <label for="exampleInputPassword1" style="font-weight: lighter; float: left;">Opnou por</label>
                             <input type="text" class="form-control" id="opnou" value="{{$Usorteados[0]->relator_opnou_por}}" name="opnou" placeholder=" " readonly>
                         </div>
-                        <div style="width: calc(100%/3); " class="form-group">
+                        &nbsp
+                        <div style="width: calc(100%/5); " class="form-group">
                             <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">Data</label>
                             <input type="text" name="data" class="form-control"  value="{{$Usorteados[0]->created_at}}" id=" " readonly>
                         </div>
+                        &nbsp
+                        <div style="width: calc(100%/5); " class="form-group">
+                            <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">Nome</label>
+                            <input type="text" name="nome" class="form-control"  value="{{$Usorteados[0]->nome}}" id=" " readonly>
+                        </div>
+                        &nbsp
+                        <div style="width: calc(100%/5); " class="form-group">
+                            <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">RG</label>
+                            <input type="text" name="rg" class="form-control"  value="{{$Usorteados[0]->rg}}" id=" " readonly>
+                        </div>
+                        &nbsp
+                        <div style="width: calc(100%/5); " class="form-group">
+                            <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">CPF</label>
+                            <input type="text" name="cpf" class="form-control"  value="{{$Usorteados[0]->cpf}}" id=" " readonly>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" style="font-weight: lighter; float: left;">Alterar para</label>
-                        <select name="voto_relator" class="custom-select" id="inputGroupSelect02">
-                            <option > Deliberar Por.:                       </option>
-                            <option vlaue="Indeferimento">  Indeferimento   </option>
-                            <option value="deferimento">    deferimento     </option>                                
-                            <option value="restituir">      restituir       </option>                                
-                            <option value="postergar">      postergar       </option>
-                        </select>  
+                    <!-- form-row -->
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="exampleInputPassword1" style="font-weight: lighter; float: left;">Alterar para</label>
+                            <select name="voto_relator" class="custom-select" id="inputGroupSelect02">
+                                <option vlaue="Indeferimento">  Indeferimento   </option>
+                                <option value="deferimento">    deferimento     </option>                                
+                                <option value="restituir">      restituir       </option>                                
+                                <option value="postergar">      postergar       </option>
+                            </select>  
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label  style="font-weight: lighter; float: left;" for="inputEmail4">Relator pnou por</label>
+                            <input readonly type="text" class="form-control" id=" " value="{{$Usorteados[0]->relator_opnou_por}}">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label  style="font-weight: lighter; float: left;" for=" ">Relator votou</label>
+                            <input readonly type="text" class="form-control" id=" " value="Sim">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label  style="font-weight: lighter; float: left;" for=" ">Data registro</label>
+                            <input readonly type="text" class="form-control" id=" " value="{{$Usorteados[0]->created_at}}">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label  style="font-weight: lighter; float: left;" for=" ">Pedido</label>
+                            <input readonly type="text" class="form-control" id=" " value="{{$Usorteados[0]->pedido}}">
+                        </div>
+                        
                     </div>
-                    
+                    <!-- form-row -->
+                                    
                     <div class="form-group">
                         <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">Parecer</label>
                         <textarea type="text" name="parecer" class="form-control" value="" rows="3" id=" "> 
                             {{$Usorteados[0]->parecer_relator}}
                         </textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Alterar</button>
+
+                    <button type="submit" class="btn btn-primary"> <i class="far fa-edit"></i> &nbsp Alterar</button>
+                    &nbsp&nbsp
+                    <button type="button" class="btn btn-warning"><i class="fas fa-paperclip"></i> &nbspArquivos anexados</button>
                 </form>
                 @endif
             </div>
-            
-            <div class="card-footer text-muted" style=" ">
-                <small> Edição de parecer. </small>
-            </div>
         </div>
     </section>
+
+    <br>
 
     @if(isset($updateok))
         <div class="alert alert-primary" role="alert">

@@ -7,32 +7,18 @@
 @yield('content')
 
 @section('content')
-
-    <section style="text-align: right;">
-        <div class="card card-default" align="center">
-            <span> <i class="fas fa-file-word"></i> Atas encontradas. </span>
-            <small style="margin-left: 25px; color:blue;"> Para encontrar uma ata, informe o número da ata seguido de um espaço e depois o ano da ata. Ex.: 5 2020 (NESTE formato).  </small>
-        </div>
-
-        <form style="float:left;">
-            <input class="form-group" type="text" name="findAta" required>
-            <button class="btn btn-outline-primary" type="submit"> Encontrar. </button>
-        </form>
-        @if(isset($allAtas) && count($allAtas) > 0)
-            <span style="color: blue;"> <b> <u> Total: {{count($allAtas)}} </br> </u> </span>
-        @endif
-    </section>
-
-    <br>
+    <hr>
+    <div class="row" align="center">
+        <h5 style="padding-bottom: 12px; margin: auto;color: #2A4B7C;"> <i class="fas fa-briefcase"></i> <br>Atas arquivadas. </h5>
+    </div>
 
     <table class="table" align="center" >
-        <thead align="center">
-            <tr>
-                <th>#</th>
-                <th scope="col">ID</th>
+        <thead align="center" style=" ">
+            <tr style="color: #2A4B7C; font-wweight: light">
+                <th>PDF</th>
                 <th scope="col">Nome do Arquivo.</th>
                 <th scope="col">Data do envio.</th>
-                <th scope="col">Tamanho.</th>
+                <th scope="col">Tamanho. <small> (bytes) </small></th>
                 <th scope="col">Responsável pelo envio.</th>
             </tr>
         </thead>
@@ -42,10 +28,9 @@
             @foreach($allAtas as $key)
             <tr>
                 <td> <i class="far fa-file-pdf" style="font-size: 25px; color:red;"></i> </td>
-                <td>{{$key->id}}</td>
                 <td> <a href="/cpp/presentingAta?nameata={{$key->name}}"> <u> {{$key->name}} </u> </a> </td>
                 <td>{{$key->created_at}}</td>
-                <td>{{$key->size}}</td>
+                <td>{{$key->size}} &nbsp bytes</td>
                 <td>{{$key->responsavel}}</td>
              <tr>
              @endforeach
@@ -53,9 +38,8 @@
         </tbody>
     </table>
 
-    <div class="card card-default" align="center"> 
-        
-    </div>
+    <div class="card card-default" align="center"> </div>
 
+    <br>
      
 @endsection

@@ -16,15 +16,17 @@
     <!-- @ card card-default @ -->
     <div class="card card-default"  style=""> 
         <!-- @ card-header @ -->
-        <div class="card-footer text-muted" style="height: auto;" align="center" > 
+        <div class="card-header " style="height: auto;" align="center" > 
             <!-- @ row @ -->
-            <i class="fas fa-user-clock"> </i> Aqui você tem acesso as deliberações que estão sendo votadas no momento.  
+            <i class="fas fa-info"></i> <br>
+            Aqui você tem acesso as deliberações que estão sendo votadas no momento.  
             <!-- @ row @ --> 
 
             <br>
 
-            <a class=" " href="{{ route('cpp.relator.create', 0) }}" style="font-size: 13px; color: blue; "> 
-                <i class="fas fa-user-clock"> </i> <span style=" border-bottom: solid 1px   #34495e; " > Votar deliberação. </span>
+            <a class=" " href="{{ route('cpp.relator.create', 0) }}" style="color: blue; "> 
+                <i style="font-size: 18px; color: orange;" class="fas fa-mouse-pointer"></i> 
+                &nbsp <u> <small> Clique aqui para votar deliberação. </small></u>
             </a> 
 
          </div>
@@ -33,17 +35,12 @@
  
         <!-- @ card-body @ -->
         <div class="card-body-Votar" id="card-body-Votar" style="height: auto; "> 
-
             <!-- @ Contem deliberacao a ser votada @ -->
             <div style="width:100%; max-height: auto;" align="center"> 
-
                 <div style="width:100%; height:auto;" align="center">
-
                     <section> 
                         @if(isset($return_to_vote_member))
-
                             <br>
-
                             <textarea class="form-control contain_data_deliber" value=" " id="contain_data_deliber"  style=" background: #f7f9fc; " rows="9" readonly>
                                 {{$return_to_vote_member[0]->deliberacao}}
                             </textarea>
@@ -87,15 +84,17 @@
                                 @else
                                 <div class="row" style=" width: 100%; heigth: auto; position:relative; top: 45px; ">
                                     <div class=" col-4 "> </div>
-                                    <div class=" col-4 " style=" width: 50%; heigth: auto; " align="center">
-                                        <i class="fas fa-info-circle" style="position:relative; top:-45px; color:#f9f9f9; font-size:400px;"></i>
-                                        <div style="position:absolute; top: 5px;">
-                                        <h5 style="color: #a0a0a0"> Não há deliberação no momento. </h5> 
-                                        <br>
-                                        <h5 style="color: #a0a0a0;"> <br>  Atenção ! <small> Fique atento a novas deliberações a serem enviadas pelo Secretário. Certifique-se quanto ao número do eProtocolo. </small> </h5>   
-                                        <br>
-                                        <h5 style="color: #a0a0a0;"> <small> Para saber se há novas deliberaçoẽs clique basta clicar em " Visualizar Deliberação. ". </small> </h5>  
-                                        </div> 
+                                        <div class=" col-4 " style=" width: 50%; heigth: auto; " align="center">
+                                            <i class="fas fa-info-circle" style="position:relative; top:-45px; color:#f9f9f9; font-size:400px;"></i>
+                                            <div style="position:absolute; top: 5px;">
+                                                <h5 style="color: #ff3300"> <i class="fas fa-info"></i> &nbsp Orientações </h5> 
+                                                <h5 style="color: #2A4B7C"> Não há deliberação no momento. </h5> 
+                                                <br>
+                                                <h5 style="color: #2A4B7C;"> <br>  Atenção ! <small> Fique atento a novas deliberações a serem enviadas pelo Secretário. Certifique-se quanto ao número do eProtocolo. </small> </h5>   
+                                                <br>
+                                                <h5 style="color: #2A4B7C;"> <small> Para saber se há novas deliberaçoẽs basta clicar no link acima. </small> </h5>  
+                                                <h5 style="color: #2A4B7C;"> <small> <u> Relatores NÂO votam. </u> </small> </h5>  
+                                            </div> 
                                         </div>
                                     <div class=" col-4 "> </div>
                                 </div>

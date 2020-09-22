@@ -6,6 +6,25 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 @yield('content')
 
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-weight: lighter;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
 @section('content')
     @if(isset($allLastDeliberPostergados))
         <!-- <section style="position: absolute; top: 70px; margin-bottom: 10px;"> 
@@ -28,134 +47,38 @@
     @endif
 
     @if(isset($relatados) && count($relatados) > 0)
-        <!-- @ SESSÃO CONTEM OS WIDGETS DOS RELATORES ATIVOS @  # SESSÃO WIDGETS # -->
-        <section style=" display:flex; background: white; border-radius: 3px; box-shadow: 0px 0px 4px 2px #c4c4c4; text-align:center;" align="center">
-
-            <div class=" " style="margin-left: 8px; width:calc(100%/6); max-height:auto;" align="center">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[0]))
-                        <a style="color: cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[0]->id ])}} ">
-                            <span class="badge badge-primary"> {{$searchall[0]->name}} </span>
-                        </a>
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-                    @endif
-                </span>
-            </div>
-
-
-            <div class=" " style="margin-left: 0px;  width:calc(100%/6); max-height: auto;">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[1]))
-                        <a style="color: cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[1]->id ])}} ">
-                            <span class="badge badge-success">{{$searchall[1]->name}} </span>
-                        </a>
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-                    @endif
-                </span>
-
-            </div>
-
-
-
-            <div class=" " style="margin-left: 5px; width:calc(100%/6); max-height: auto;">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[2]))
-                        <a style="color:cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[2]->id ])}} ">
-                            <span class="badge badge-info">{{$searchall[2]->name}} </span>
-                        </a>
-
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-
-                    @endif
-                </span>
-            </div>
- 
-
-            <div class=" " style="margin-left: 5px; width:calc(100%/6); max-height: auto; ">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[3]))
-                        <a style="color: cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[3]->id ])}} ">
-                            <span class="badge badge-dark">{{$searchall[3]->name}}</span>
-                        </a>
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-                    @endif
-                </span>
-            </div>
-
-
-
-            <div class=" " style="margin-left: 5px; width:calc(100%/6); max-height: auto;">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[4]))
-                        <a style="color:cian; font-size: 13.56px" href="{{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[4]->id ])}} ">
-                            <span class="badge badge-warning">{{$searchall[4]->name}}</span>
-                        </a>
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-                    @endif
-                </span>
-            </div>
- 
-
-            <div class=" " style="margin-left: 5px; width:calc(100%/6); max-height: auto;">
-                <i class="far fa-user-circle"></i>
-                <span style="margin-top: -10px; cursor: pointer;"  >
-                    @if(isset($searchall[5]))
-                        <a style="color:cian; font-size: 13.56px" href=" {{ route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[5]->id ]) }} ">
-                            <span class="badge badge-light">{{$searchall[5]->name}}</span>
-                        </a>
-                        @else   <span class="badge badge-secondary"> "NÃO HÁ RELATOR" </span>
-                    @endif
-                </span>
-            </div>
-        </section>
-
-        <section style="margin-left: 5px; width: 100%; height: auto; margin-top: 10px;">
-            <div class="card text-center" style="height: 60px;">
-                <div class="card-footer text-muted">
-                    <form action="{{route('cpp.salavotacao.store')}}" method="post">
-                        @csrf 
-                        <div class="form-group" style="display: flex; position: relative;">
-                            <input type="text" class="form-control" name="numeProtocolo" id="numeProtocolo" placeholder="Procurar por eProtocolo." required>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- @ @ -->
         @else
             <div class="row" align="center" style="height: 18px;">
-                <div class="col-sm-12">  <i style=" font-size: 50px; color: gray;" class="fas fa-history"></i>   </div>
-                <div class="col-sm-12">  <strong> <small style="color: gray;"> <h5> Não há deliberações para serem votadas no momento ! </h5> </small> </strong>   </div>
+                <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i>   </div>
+                <div class="col-sm-12"> <h5 style="color: gray;"> <small > Não há deliberações para serem votadas no momento ! </small> </h5>  </div>
             </div>
     @endif
 
 
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
     <!-- Sessão header View(cadastro_eProtocolo.index) -->
-        <div class="scrool_grid_salavotacao" style="position:relative; top: -8px; max-height: 500px; ">
+        <div style="position:relative; top: -8px; ">
             @if(isset($relatados))
                 @foreach($relatados as $key => $value)
                     <div class="card card-default_sa" style=" ">
                         <div class="card-header">
                             <!-- @ SESSÃO QUAL RELATOR  @ -->
                             <div class="row"  style="height: 18px;">
-                                <div class="col-sm-9" style=" position:relative;  cursor: pointer;">
-                                    <a href="#" style=" " id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > <u>  Mais informações </u> </a>
+                                <div class="col-sm-3" style=" position:relative;  cursor: pointer;">
+                                    <a href="#" style=" " id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > 
+                                        <u> <h5> <i class="fas fa-mouse-pointer"></i>  &nbsp <small> Mais informações clique aqui </small> </h5> </u> 
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-4" style=" position:relative;  cursor: pointer;">
                                     <a href="{{route('cpp.salavotacao.index')}}" style="margin-left: 35px;"> <u> Todos </u> </a>
-                                    <a href="#" style="margin-left: 35px;"> <u style="color: magenta;"> Total: {{count($relatados)}} </u> </a>
+                                    <a href="#" style="margin-left: 35px;"> <u style="color: black;"> Total: {{count($relatados)}} </u> </a>
                                 </div>
                             </div>
                             <!-- @ @ -->
                         </div>
 
-                        <div class="card-body" style="position: relative; top: -20px;">
+                        <div class="card-body  scrool_grid_salavotacao"  style="position: relative; top: -20px; max-height: 500px; ">
                             <form action=" {{route('cpp.salavotacao.create')}} " method="put" >
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -223,6 +146,124 @@
                                     </div>
                                 </div>
 
+                                <!-- dropdown -->
+                                <div class="dropdown">
+                                    <button style="border:none; background: transparent;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span style="color: blue;"> 
+                                            Selecione um relator para filtrar eProtocolos, respectivos ao relator. &nbsp 
+                                            <i class="fas fa-caret-down"></i> 
+                                        </span>
+                                    </button>
+
+                                    <!-- dropdown-menu -->
+                                    <div style="width: 50%;" class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                                        <div class="card">
+                                            <div class="card-header" align="center">
+                                                <h5> <i class="far fa-id-card"></i> &nbsp Selecione o relator. </h5>
+                                            </div>
+                                        </div>
+                                    
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[0]))
+                                                <a style="color: cian; " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[0]->id ])}} ">
+                                                    <h5 class=" ">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp 
+                                                        {{$searchall[0]->name}} 
+                                                    </h5>
+                                                </a>
+                                                @else   
+                                                    <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+                                        
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[1]))
+                                                <a style="color: cian;" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[1]->id ])}} ">
+                                                    <h5 class=" ">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp
+                                                        {{$searchall[1]->name}} 
+                                                    </h5>
+                                                </a>
+                                                @else   
+                                                    <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[2]))
+                                                <a style="color:cian; " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[2]->id ])}} ">
+                                                    <h5 class="">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp
+                                                        {{$searchall[2]->name}}
+                                                    </h5>
+                                                </a>
+                                                @else   
+                                                    <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[3]))
+                                                <a style="color: cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[3]->id ])}} ">
+                                                    <h5 class="">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp
+                                                        {{$searchall[3]->name}}
+                                                    </h5>
+                                                </a>
+                                                @else   <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[4]))
+                                                <a style="color:cian; " href="{{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[4]->id ])}} ">
+                                                    <h5 class=" ">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp
+                                                        {{$searchall[4]->name}}
+                                                    </h5>
+                                                </a>
+                                                @else   
+                                                    <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+
+                                        <!-- dropdown-item linha -->
+                                        <span class="dropdown-item">
+                                            @if(isset($searchall[5]))
+                                                <a style="color:cian;  " href=" {{ route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[5]->id ]) }} ">
+                                                    <h5 class=" ">
+                                                        <i class="far fa-user-circle"></i>
+                                                        &nbsp &nbsp &nbsp{{$searchall[5]->name}}
+                                                    </h5>
+                                                </a>
+                                                @else   
+                                                    <span class=" "> "NÃO HÁ RELATOR" </span>
+                                            @endif
+                                        </span>
+                                        <!-- dropdown-item linha -->
+                                    </div>
+                                    <!-- dropdown-menu -->
+                                </div>
+                                <!-- dropdown -->
+
+                                <br>
+
+                                <!-- row -->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <span> <strong> Comissão opnou por.: </strong> </span>
@@ -261,6 +302,7 @@
                                         </select>
                                     </div>
                                 </div>
+                                <!-- row -->
 
                                 <input type="hidden" name="eProtocolo" value=" {{ $value->eProtocolo }} ">
 
@@ -279,31 +321,81 @@
 
                         <!-- Cortina que contem mais informações -->
                         <section id="" class="{{$value->eProtocolo}}" value="false" name="" style=" width: 100%; height:auto; position: absolute; top: 40px; display: none;">
-                            <div style=" width: 100%; height: 370px; background-color: #434c5e; position: absolute; top: 0px; text-align: center; " align="center">
+                            <div style="border-radius: 5px; box-shadow: 0px 2px 2px 0px gray; max-height: 70vh; overflow-y: scroll; background-color: white; position: absolute; top: 4px; text-align: center; " align="center">
+                                <!-- <div class="card" style="">
+                                    <div class="card-header" align="center">
+                                        Sobre a deliberação
+                                    </div>
+                                </div> -->
                                 <br>
-                                <h4 style="color: white;"> Relator: </h4> 
-                                <h5> {{$value->name}} </h5>
-                                <hr>
-                                <h4 style="color: white;"> Parecer do relator: </h4> 
-                                <h5 style="width: 100%; border: none;" rows="4" readonly> {{$value->parecer_relator}} </h5>
-                                <hr>
-                                <h4 style="color: white;"> ID responsável pelo cadastro: </h4> 
-                                <h5> {{$value->id_responsavel_cadastro}} </h5>
-                                <hr>
+                                <div class="card" style="margin: auto; width: 100%;">
+                                    <div class="card-header" align="center">
+                                        <h5 style="color: #004B8D;"> <i style="float: left; font-size: 26px;" class="far fa-id-card"></i> Sobre a deliberação. Mais informações. </h5>
+                                    </div>
 
+                                    <!-- card-body -->
+                                    <div class="card-body" style=">
+                                        <h5 style="color: #004B8D;" class="card-title">
+                                            <i class="far fa-user-circle"></i> 
+                                            &nbsp Relator: &nbsp &nbsp {{$value->name}} 
+                                        </h5>
+                                        <br>
+                                        
+                                        <!-- table -->
+                                        <table>
+                                            <tr>
+                                                <th>ID Relator</th>
+                                                <th>{{$value->id_membro}}</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>ID eProtocolo sorteado</th>
+                                                <th>{{$value->id_eProtocolo_sorteados}}</th>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <th>Data do eProtocolo</th>
+                                                <th>{{$value->entry_system_data}}</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Última atualização</th>
+                                                <th>{{$value->updated_at}}</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Relator votou</th>
+                                                <th>Sim</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Relator opnou por</th>
+                                                <th>{{$value->relator_opnou_por}}</th>
+                                            </tr> 
+
+                                            <tr>
+                                                <th>Parecer do relator</th>
+                                                <th>{{$value->parecer_relator}}</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Status</th>
+                                                <th>{{$value->status}}</th>
+                                            </tr>
+                                        </table>
+                                        <!-- table -->
+                                        <br>
+                                     </div>
+                                     <!-- card-body -->
+                                </div>
                             </div>
                         </section> 
                         <!-- Cortina que contem mais informações -->
-
                     </div> 
                     <!-- card card-default -->
-
                     <hr>  
-
                 @endforeach
-
             @endif
-
         </div>
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
 
@@ -316,7 +408,6 @@
             </div>
         @endif
 
-
         @if(session('is_not_has_president_or_secretary') == 'exxced')
             <div class="alert alert-danger" role="alert">
                 <i class="fas fa-info-circle"></i>
@@ -326,15 +417,16 @@
 
         @if(isset($emptyrelatados))
             @if($emptyrelatados == false)
-                <div class="alert alert-danger" role="alert">
-                    Nada encontrado para este relator.
+                <br> <br>
+                <div style=" " class="alert alert-warning" role="alert" align="center">
+                    <h5> <i style="float: left;" class="fas fa-user-alt-slash"></i> </h5>
+                    <h4> <small> Nada encontrado para este relator. </small> </h4>
                 </div>
             @endif
         @endif
-
     </section>
 
-
+    <br>
 
     <!-- @ Script's @  -->
     <script>

@@ -11,14 +11,14 @@
     <section style="position: relative; top: -30px;">
         <!-- @ card card-default @ -->
         <div class="card card-default"  style="position:relative;top: 8px;"> 
-            <div class="card-header" style="height: 38px; "> 
-                <span> <strong> <i class="fas fa-headset"></i> | <i class="fas fa-crown"></i> Cadastrar Presidente & Secretario. </strong> </span> 
+            <div class="card-header" style="height: 40px; " align="center"> 
+                <h5 style="color: #009acd;"> <i class="fas fa-crown"></i> Cadastrar Presidente & Secretario. </h5 style="color ;"> 
             </div>
 
             <!-- @ card-body @ -->
             <div class="card-body" id="card__body55" style="height: auto; " align="center"> 
 
-                <h4> <u> Presidente & Secretario. </u> </h4>
+                <h5> <small> Presidente & Secretario. </small> </h5>
                 
                 <section>
                     <table class="table">
@@ -80,7 +80,7 @@
                     <hr>
                 </section>
 
-                <h4 style="position:relative; top:-5px;"> <u> Cadastrar Presidente & Secretario. </u> </h4> 
+                <h5 style="color: #009acd;">  Cadastrar Presidente & Secretario. </h5> 
 
                 <div style="width:100%; auto;" > 
                     <div style="width:100%; height: auto;"> 
@@ -89,7 +89,7 @@
 
                             <div class="row" style="width: 99.9%;"> 
                                 <div class="col-4"> 
-                                    <label> Nome Completo <small style="color: #66afff;"> ou nome. </small> </label>
+                                    <label> Nome Completo <small style="color: #66afff;"> ou nome parcial. </small> </label>
                                     <input type="text" class="form-control" required name="presidenteSecretario_name"> 
                                 </div>
 
@@ -130,7 +130,7 @@
                             </div>
 
                             <br>
-                            <button type="submit" class="btn btn-success"> Cadastrar. </button>
+                            <button type="submit" class="btn btn-success"> <i class="fas fa-plus"></i> &nbsp Cadastrar. </button>
 
                         </form>
 

@@ -10,202 +10,168 @@
 @yield('content')
 
 @section('content')
-     
-    <section style="display: flex; position: relative;"> 
-        <!-- @ card card-default @ -->
-        <div class="card card-default"  style="background: lightgray; width: 100%; position:relative;top:-45px;"> 
-            <div class="card-header" style="height:auto; background:whitesmoke;" align="center">  
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-cogs"></i> &nbsp Gerênciamento e controle. <b> Relator.</b>
+        </div>
+    </div>
 
-                <a href="#" style="float:left; color:  #34495e; font-size: 17px; " > 
-                    <i class="fas fa-external-link-alt"></i>
-                    Links rápidos.    
-                </a>  
-
-                <a class="  " href="/cpp/__44A"  style=" color:  blue;  font-size: 13px; margin-left:55px; " > 
-                    <i class="fas fa-external-link-alt"  style="color:  blue" ></i>  
-                    <span style=" border-bottom: solid 1px   blue; " > Registrar parecer 44-A. </span>
-                </a> 
-
-                <a class="  " href="{{ route('cpp.relator.show', 0) }}"  style=" color:  blue;  font-size: 13px; margin-left:55px; " > 
-                    <i class="fas fa-radiation-alt"  style="color:  blue" ></i>  
-                    <span style=" border-bottom: solid 1px   blue; " > Alterar (corrigir) meu voto. </span>
-                </a> 
-                    
-                <a class=" " href="\cpp\showParerPostergados" style="font-size: 13px; color:  blue; margin-left:55px;"> 
-                    <i class="far fa-clock" style=" "></i> 
-                    <span style=" border-bottom: solid 1px   blue; " > Postergados. </span> 
-                </a>  
-                
-                <a class=" " href="#" style="font-size: 13px; color:  blue; margin-left:55px;"> 
-                    <i class="fas fa-history"></i> 
-                    <span style=" border-bottom: solid 1px   blue; " > Meu histórico. </span> 
-                </a>  
-                
-                <a class=" " href="\cpp\editParecer" style="font-size: 13px; color:  blue; margin-left:55px;"> 
-                    <i class="far fa-edit"></i> 
-                    <span style=" border-bottom: solid 1px   blue; " > Alterar meu parecer. </span> 
-                </a> 
-
-                <a class=" " href="#" style="font-size: 13px; color:  blue; margin-left:55px;"> 
-                    <i class="fab fa-autoprefixer"></i> 
-                    <span style=" border-bottom: solid 1px   blue; " > Meus 44A. </span> 
-                </a> 
-                </div> 
-            <!-- @ card-header @ -->
-        </div> 
-        <!-- @ card card-default @ -->
-    </section>
-
-
-    <!-- card-default -->
-    <div class="card card-default" style=" position:relative; top:-50px; ">
-
-        <!-- @ scrool_grid_relator @ -->
-        <div class="scrool_grid_relator" style="max-height: 520px; "> 
-
-            <!-- card-body -->
-            <div class="card-body " style="max-height: auto;"> 
-                @if(isset($Usorteados) )
-                @if(count($Usorteados) > 0 )
-                @foreach($Usorteados as $key)                    
-                    <!--@ row @-->
-                <div class="row">
-                    <div class="col-2 form-group">
-                        <label class='awesome'> Numero do E-Protocolo. </label>
-                        <input class='form-control' readonly required minlength = "12"   value="{{ $key->eProtocolo }}" name="sid" type="text">
-                        
-                    </div>
-
-                    <div class="col-4 form-group">
-                        <label class='awesome'> Pedido. </label>
-                        <input class='form-control' required minlength = "12" readonly value="{{ $key->pedido }}"  name="pedido" type="text">
-
-                    </div>
-
-                    <div class="col-2 form-group">                
-                        <label class='awesome'> Data do eProtocolo. </label>
-                        <input name="data_sid" readonly value="{{ $key->entry_system_data }}"  name="entry_system_data" type='text' class='form-control'>
-
-                    </div>
-
-                    <div class="col-2 form-group">
-                        <label class='awesome'> Status. </label>
-                        <input name="situacao" readonly value="{{ $key->status }}"  name="status" type='text' class='form-control' readonly value='Cadastrado'>
-                    
-                    </div>  
-                    
-                    <div class="col-2 form-group">
-                        <label class='awesome'> RG </label>
-                        <input  class='form-control' type="text"  name="rg"  style="" readonly value="{{ $key->rg }}" >
-                    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="fas fa-external-link-alt"  style="color:  #495057;" ></i> </h4>  
+                    <h5 class="card-title" style=" "> Registrar 44-A </h5>
+                    <a style=" " class=" "  href="/cpp/__44A" role=" " aria-controls="parecer44_A" aria-selected="true"> 
+                        Exclusivo para 44A. Registro de parecer referente a 44a.
+                    </a>
+                    <br>
+                    <a href="/cpp/__44A" class="btn btn-primary">Parecer 44a.</a>
                 </div>
-                <!--@ row @-->
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="fas fa-radiation-alt"  style="color:  orange;" ></i> </h4>  
+                    <h5 class="card-title" style=" "> Corrigir voto </h5>
+                    <a style=" " class=" "  href="{{ route('cpp.relator.show', 0) }}" role=" " aria-controls="parecer44_A" aria-selected="true"> 
+                        Corrigir voto anteriormente registrado.
+                    </a>
+                    <br>
+                    <a href="{{ route('cpp.relator.show', 0) }}" class="btn btn-primary">Corrigir voto.</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="far fa-clock" style="color:  #495057; "></i> </h4>  
+                    <h5 class="card-title" style=" "> Postergados </h5>
+                    <a style="color: #324AB2;" class=" "  href="\cpp\showParerPostergados" role="tab" aria-controls="Postergados">
+                        Pareceres postergados.
+                    </a>
+                    <br>
+                    <a href="\cpp\showParerPostergados" class="btn btn-primary">Postergados.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="fas fa-history"  style="color:  #495057;" ></i> </h4>  
+                    <h5 class="card-title" style=" "> Histórico de pareceres </h5>
+                    <a style="color: #324AB2;"  href="{{route('cpp.historyDeliberRelator.index')}}" role="tab" aria-controls="Meu_historico" >
+                        Meu histórico. Acessar meus resgistros. Pareceres.
+                    </a>
+                    <br>
+                    <a href="{{route('cpp.historyDeliberRelator.index')}}" class="btn btn-primary">histórico.</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="far fa-edit"  style="color:  #495057;" ></i> </h4>  
+                    <h5 class="card-title" style=" "> Editar Parecer </h5>
+                    <a style="color: #324AB2;" href="\cpp\editParecer" role="tab" aria-controls="Alterar_meu_parecer">
+                        Alterar parecer. Aqui você poderá alterar(corrigir pareceres).
+                    </a>
+                    <br>
+                    <a href="\cpp\editParecer" class="btn btn-primary">Editar parecer.</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4> <i class="fab fa-autoprefixer"  style="color:  #495057;" ></i> </h4>  
+                    <h5 class="card-title" style=" "> Histórico 44-A </h5>
+                    <a style="color: #324AB2;"  href="#contact" role="tab" aria-controls="Meus_44A">
+                        Meus 44A
+                    </a>
+                    <br>
+                    <a href=" " class="btn btn-primary">Histórico 44a.</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body" style="background: transparent;">
+                    <!-- container -->
+                        <!-- row -->
+                        <div class="row"  style="background: transparent;">
+                            <div class="col-sm-4" style="background: transparent;">
+                                <h2> <i class="far fa-list-alt"></i> Encaminhamentos de eprocolos da secretaria </h2>  
+                                <h5 class="card-title" style=" "> <b> Meus pedidos encaminhados pela secretaria. </b> </h5>
+                                <a style="color: #324AB2;"  href="#contact" role="tab" aria-controls="Meus_44A">
+                                    eProtocolos emcaminhados. Atuais.
+                                </a>
+                                <br> <br>
+                                <a href=" " class="btn btn-success"> <i class="far fa-address-book"></i> &nbsp eProtocolos </a>
+                            </div>
+
+                            <div class="col-sm-4" align="center"> 
+                                <h4> Pedidos a serem análisados. </h4>
+                                <h5> 
+                                    @if(isset($Usorteados) )
+                                        @if(count($Usorteados) > 0 ) 
+                                        <i class="fas fa-inbox" style="font-size: 35px;"></i> &nbsp <b style="color: #00BFFF;"> Total {{count($Usorteados)}} </b>
+                                        @endif
+                                    @endif
+                                </h5>
+                            </div>
+                            
+                            <!-- col-sm-3 -->
+                            <div class="col-sm-4" align="center">
+                                <!-- DONUT CHART -->
+                                <div class="card card-info" style="width: 400px;">
+                                    <div class="card-header" >
+                                        <span style=" ">
+                                            <h5> <i class="far fa-chart-bar"></i> &nbsp <small> Gerênciamento e controle. </small> </h5>
+                                        </span>
+                                    </div>
+                                    <div class="card-body" align="center">
+                                        <canvas id="myChart" style="min-height: 150px; height: 150px; max-height: 150px;  width: auto;"></canvas>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                             <!-- col-sm-3 -->
+                        </div>
+                        <!-- row -->
+                    <!-- container -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informa se os pedidos acabaram -->
+    @if(!isset($Usorteados) )
+        @if(count($Usorteados) == 0 )
+            <div style="width: 100%; height: auto; color: #4c566a;" align="center"> 
+                <i class="fas fa-hourglass-end"></i> <br>
+                <span > Seus pedidos acabaram.  </span> <br>
+                <span> Aguarde novos sorteios de expedientes. </span>   
+            </div>
+        @endif
+    @endif
 
 
-
-                <!-- @ Final Form @ -->
-                <form action="{{ route('cpp.relator.store') }}" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <!--@ row @-->
-                <div class="row">
-                    <div class="col-md-3 form-group">
-                        <label class='awesome'> Nome </label>
-                        <input class='form-control' type="text"  name="Nome" style="" readonly value="{{ $key->nome }}"  >                        
-                    </div>
-
-                    <div class="col-md-3 form-group">
-                        <label class='awesome'> Unidade </label>
-                        <input class='form-control' type="text"  name="Unidade"  style="" readonly value="{{ $key->unidade }}" >                        
-                    </div>
-
-                    <div class="col-md-2 form-group">
-                        <label class='awesome'> Graduacao </label>
-                        <input  class='form-control' type="text"  name="Graduacao"  style="" readonly value="{{ $key->graduacao }}" >
-                    </div>
-                    
-                    <div class="col-md-2 form-group">
-                        <label class='awesome'> CPF </label>
-                        <input  class='form-control' type="text"  name="cpf"  style="" readonly value="{{ $key->cpf }}" >
-                    </div>
-
-                    <div class="col-md-2 form-group">
-                        <label class='awsome' style="color: gray;"> Resolvo opnar por.: </label>
-                        <input type="hidden" value=" {{ $key->eProtocolo }} " name="num_sid">
-                        <!--@ row @-->
-                        <div class="">
-                            <select name="voto_relator" class="custom-select" id="inputGroupSelect02">
-                                <option > Deliberar Por.:                       </option>
-                                <option vlaue="Indeferimento">  Indeferimento   </option>
-                                <option value="deferimento">    deferimento     </option>                                
-                                <option value="restituir">      restituir       </option>                                
-                                <option value="postergar">      postergar       </option>
-                            </select>                                
-                        </div>                                          
-                        <!--@ row @-->
-                    </div>
-                </div> 
-                <!--@ row @-->
-
-
-
-                <!--@ row @-->
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label class='awesome'> Descrição. </label>
-                        <textarea  class='form-control'   name="descricao" type="text" style="" placeholder="{{ $key->conteudo }}" readonly value="{{ $key->conteudo }}"></textarea>
-                    </div>                   
-                </div> 
-                <!--@ row @-->
-
-
-
-                    <!--@ row @-->
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label class='awesome' style="color: gray;"> Descrição do meu parecer. </label>
-                            <textarea rows='2' class='form-control' placeholder="Sua descrição" name="parecer" type="text" style="" required></textarea>
-                        </div>                   
-                        
-                    </div> 
-                    <!--@ row @--> 
-
-                    
-                    <!--@ row @-->
-                    <div class="row" align="center">
-                        <div class="col-12" align="center"> <button href="" class="btn btn-danger" type="submit"> <i class="fa fa-gavel" aria-hidden="true"></i> REGISTRAR MEU PARECER. </button> </div>                   
-                    </div> 
-                    <!--@ row @-->
-                </form> 
-                <!-- @ Final Form @ -->   
-
-                <hr>  
-
-                @endforeach
-
-                    @else
-                        <div style="width: 100%; height: auto; color:lightslategray;" align="center"> 
-                            <span > Seus pedidos acabaram.  </span> <br>
-                            <span> Aguarde novos sorteios de expedientes. </span>   
-                        </div> 
-
-                @endif
-                @endif
-                    
-            </div> 
-            <!--  card-body -->
-
-        </div> 
-        <!-- @ scrool_grid_relator @ -->
-
-    </div> 
-    <!-- @ card card-default @ -->
-
-
-    <!-- @ Alerts @ -->
+    <!-- @ Todos os Alerts @ -->
     <section> 
         @if(session('nothen_turnback_deliber'))
             <div class="alert alert-danger" role="alert">
-                NÃO HÁ DELIBERARAÇÃO DISPONÍVEL PARA ALTERAÇÃO DE VOTO.  SOLICITE AO SECRETÁRIO LIBERAÇÃO.  
+                Não há deliberação disponível para ser alterada. Solicite ao secretário(a) liberação.  
             </div>
         @endif
     </section>
@@ -229,11 +195,77 @@
     </section>
     <!-- @ Alerts @ -->
 
+    <br>
 
-    <!-- Script's -->
-    <script type="text/javascript">
-        
+
+
+    <!-- ### BLOCO RESPONSÁVEL POR javascript ## -->
+    <!-- ### javascript ## -->
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Promoção à graduação  de Sub.Tenente QPM 1-0', 'Promoção à graduação  de 1º Sgt. QPM 1-0', 'Promoção à graduação  de 2º Sgt. QPM 1-0', 
+                        'Promoção à graduação  de 3º Sgt. QPM 1-0', 'Promoção à graduação  de Cb. QPM 1-0', 'Ressarcimento de Preterição', 'Reclassificação do Quadro', 
+                        'Retificação de publicação', 'Reconsideração de Ato', 'Pontos positivos', 'Ato de Bravura', 'Sub-Judice'],
+                datasets: [{
+                    data: [55, 33, getisset('PROM2ºSGT'), getisset('PROM3ºSGT'),  
+                    getisset('PROM00CB'), getisset('RESS00P'), getisset('RECLA00Q'), 4, 
+                    getisset('RECON00A'), getisset('PON00P'),10, getisset('SUB00J')],
+                    backgroundColor: [
+                        'black',
+                        ' #dc7633 ',
+                        ' orange ',
+                        ' #58d68d ',
+                        ' #1864ab',
+                        ' #2874a6 ',
+                        '  pink ',
+                        ' green',
+                        ' magenta ',
+                        '  yellow ',
+                        ' red ',
+                        ' #4a235a ',
+                    ],
+                    borderColor: [
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                        'white',
+                    ],
+                    borderWidth: 6
+                }]
+            },
+            options: {
+                legend: {
+                    display: false,
+                    labels: {
+                        fontColor: 'cian',
+                    }
+                }
+            }
+        });
+
+        function getisset(e){
+
+            if(document.getElementById(e) === null){
+                return 0;
+            }else{
+                return document.getElementById(e).value;
+            }
+            return 0;
+        }
+
     </script>
+
 
 @endsection
 
