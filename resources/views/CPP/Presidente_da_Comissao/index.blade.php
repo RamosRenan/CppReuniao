@@ -8,8 +8,23 @@
 @yield('content')
 
 @section('content')         
- 
-    <section style="position:relative; top:-20px;"> 
+    <ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="#" style="color:red;">
+            <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> 
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    </ul>
+    <section style="position:relative;  "> 
         <div class="card" align="center">
             <div class="card-header">
                 <h4 class="card-title" style="color: #1971c2;"> Prévia do texto da deliberção. </h4>
@@ -68,12 +83,11 @@
                     @if(isset($decodeDeliber))
                             <button type="submit"  class="btn btn-primary"> Desempatar </button>
                         @else
+                            <br>
                             <button type="button"  class="btn btn-dark" disabled> Desempatar  <small> (desativado) </small> </button>
+                            <br> <br>
                             <h5 style="color: dark; font-size: 12px;"> <i class="fas fa-info-circle"></i> Obs.: Botão é ativado quando existir uma deliberação para ser analisada </h5>
                         @endif
-
-                    <a href="#" style="color:red;"> <u> <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> </a>
-
                     <hr>
 
                 </div>
