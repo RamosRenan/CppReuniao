@@ -46,18 +46,38 @@ tr:nth-child(even) {
         </div>
     @endif
 
-    @if(isset($relatados) && count($relatados) > 0)
-        @else
-            <div class="row" align="center" style="height: 18px;">
-                <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i>   </div>
-                <div class="col-sm-12"> <h5 style="color: gray;"> <small > Não há deliberações para serem votadas no momento ! </small> </h5>  </div>
+     
+    <!-- card -->
+    <div class="card" style="">
+        <div class="card-body">
+            <div class="row" align="center">
+                <div class="col-4">
+                    <div class="input-group col-8" style="float:left;">
+                        <input type="text" class="form-control" placeholder="eProtocolo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="#"><i class="fas fa-search"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <h4> <i class="far fa-address-card"></i> &nbsp Sala de votação principal </h4>
+                </div>
+
+                <div class="col-4" align="center">
+                    @if(isset($relatados))
+                        <h5 style="float:right;"> <small>Total cadastrado: <br> <i class="fas fa-inbox"></i> &nbsp {{count($relatados)}} </small></h5>
+                    @endif
+                </div>
             </div>
-    @endif
+        </div>
+    </div>
+    <!-- card -->
 
 
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
     <!-- Sessão header View(cadastro_eProtocolo.index) -->
-        <div style="position:relative; top: -8px; ">
+        <div style="position:relative;">
             @if(isset($relatados))
                 @foreach($relatados as $key => $value)
                     <div class="card card-default_sa" style=" ">
@@ -77,8 +97,9 @@ tr:nth-child(even) {
                             </div>
                             <!-- @ @ -->
                         </div>
-
-                        <div class="card-body  scrool_grid_salavotacao"  style="position: relative; top: -20px; max-height: 500px; ">
+                        
+                        <div class="card-body  scrool_grid_salavotacao"  style="position: relative; top: -20px; max-height: auto; ">
+                            <br>
                             <form action=" {{route('cpp.salavotacao.create')}} " method="put" >
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -400,6 +421,15 @@ tr:nth-child(even) {
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
 
     <section>
+
+        @if(isset($relatados) && count($relatados) > 0)
+            @else
+                <div class="row" align="center" style="height: 18px;">
+                    <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i>   </div>
+                    <div class="col-sm-12"> <h5 style="color: gray;"> <small > Não há deliberações para serem votadas no momento ! </small> </h5>  </div>
+                </div>
+        @endif
+        
         @if(session('excedeu'))
             <div class="alert alert-danger" role="alert">
                 <i class="fas fa-info-circle"></i>

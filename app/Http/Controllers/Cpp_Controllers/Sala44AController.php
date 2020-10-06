@@ -105,15 +105,27 @@ class Sala44AController extends Controller
 
     public function show(Request $request){
 
+        /*-------------------------------------------| 
+        |      Pega o contéudo da deliberação        |      
+        |      Pega eProtocolo da deliberação        |
+        |-------------------------------------------*/
         $eProtocolo44_A = $request->input('eProtocolo44_A');
         $data = $request->input('contain_deli');
 
-        // verifico se há alguma notificação com 'read_at' null. 
-        // Isso significa que se houver, então pego o id desta notificação e a vinculo com o pedido 44A.
-        $respis = notification::where('read_at', null)
+        
+       /*-------------------------------------------------------------------| 
+        |   verifica se há alguma notificação com 'read_at' null.           |
+        |   Se não existe, então cria nova notificação                      |
+        |------------------------------------------------------------------*/
+        $getNotificationNull = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')->paginate(1);
 
-        if(count( $respis) == 0){
+
+        /*------------------------------------------------------------------| 
+        |   Foi gerada uma nova deliberção 44a;                             |
+        |   Cria uma nova notificação para esta deliberao;                  |
+        |------------------------------------------------------------------*/
+        if(count($getNotificationNull) == 0){
                 
             $resp    = User::find(Auth::user()->id);
             $resp->notify(new InvoicePaid($data));
@@ -124,31 +136,41 @@ class Sala44AController extends Controller
             $votoRelatoresDeliber44A = new DeliberController;
             
             return $votoRelatoresDeliber44A->votoRelatoresDeliber44A($eProtocolo44_A);
-    
-        }else{
 
-            // Se entrar no else há notificação com 'read_at' null
-            // Atualizo eProtocolo com novo conteúdo da deliberação.
+        /*-------------------------------------------------------------------| 
+        |   Se entrar no else há notificação com 'read_at' null;             |
+        |   Atualiza table eProtocolo e table notification com               |
+        |   novo conteúdo da deliberação.;                                   |
+        |-------------------------------------------------------------------*/
+        }else{
+            //Update table notification
+            // return $getNotificationNull[0]->id_notification;
+            notification::where('id_notification', $getNotificationNull[0]->id_notification)->update(['data'=>$data]);
+            
+            // Update table 44a
             _A44A::where('eProtocolo', $eProtocolo44_A)->update(['contain_delibercao'=>$data]);
             $votoRelatoresDeliber44A = new DeliberController;
 
+            //return to view
             return  $votoRelatoresDeliber44A->votoRelatoresDeliber44A($eProtocolo44_A);
-            
-        }# else
-
-    }# show()
+        }
+        // else 
+    }
+    // show()
 
 
 
     public function edit(Request $request){
 
-    }# edit()
+    }
+    // edit()
 
 
 
     public function update(){
 
-    }# update()
+    }
+    // update()
 
-
-}# 
+}
+//Sala44AController 

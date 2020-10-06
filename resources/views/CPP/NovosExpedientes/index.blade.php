@@ -111,28 +111,17 @@
 
                 </div>
                 <!-- container -->
-
-
             </div>
             <!-- card-body -->
-            
         </div>
         <!--  card card-default  -->
-
     </form> 
     <!-- form  -->
-
 
             
     <div style="width: 100%; height: auto;" align="center"> 
         <small style="color: gray; font-size: 14px;"> Procure por período, quantidade, ou pedido. </small> 
     </div>
-
-                   
- 
-
-
-                
  
 
     <!-- Script's  -->

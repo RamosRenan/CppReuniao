@@ -220,9 +220,26 @@ class NovosExpedientesController extends Controller
     } /*@  update()  @*/
 
 
-
-
     
+
+    /*@  newExpedienteProtocolSelected()  @*/
+    public function newExpedienteProtocolSelected(Request $request){   
+
+        // return $request->all();
+        
+        if($request->isMethod('post')){
+
+            $req = json_encode($request->all());
+
+            // return $req;
+
+            return view('/CPP/NovosExpedientes/create')->with(['showSelected'=>$request->all()]);
+
+        }else{
+            return redirect($_SERVER['HTTP_REFERER']);
+        }
+        
+    } /*@  newExpedienteProtocolSelected()  @*/
 
 
 

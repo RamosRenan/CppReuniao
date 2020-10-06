@@ -34,7 +34,7 @@
                         </form>
                     </div>
                     <div class="col-sm">
-                       <h5 style="color: #00BFFF;"> 
+                       <h5 style="color: #223A5E;"> 
                             Pedidos 44A à serem análisados. <br>
                             <small style="color: #495057; font-size: 12px;"> <i class="fas fa-info"></i> &nbspTodos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
                         </h5>
@@ -54,10 +54,10 @@
             </div>
         </div>
         <!-- card-body -->
-        <div class="card-body" style="max-height: 400px; overflow-y: scroll;">
-
+        <div class="card-body" style="height: auto; overflow-y: scroll;">
             @if(isset($my44A) && !empty($my44A))
                 @foreach($my44A as $key)
+                <br> <br>
                 <form method="POST" action="update44A" align="center">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -91,6 +91,7 @@
                         </div>
                     </div>
 
+                    <br>
                     <!-- primeira linha do form -->
                     <div class="form-group row">
                         <div class="col-md-4" style=" " align="left">
@@ -133,11 +134,13 @@
                         </div>
                     </div>
 
+                    <br>
                     <!-- terceira linha do form -->
                     <div class="form-group row" align="center">
                         <div class="col-md-12" style=" " align="center">
                             <h5> <i class="far fa-copy"></i> Descrição do pedido do militar. </h5>  
-                            <textarea style="background: transparent; border:none; width: 100%; margin-top: -12px;"  readonly value=" {{ $key->descricao_pedido }} " rows="3"> 
+                            <br>
+                            <textarea style="background: transparent; border:none; width: 100%; margin-top: -12px;"  readonly value=" {{ $key->descricao_pedido }} " rows="8"> 
                                 {{$key->descricao_pedido}}
                             </textarea>
                         </div>
@@ -146,13 +149,16 @@
 
                     <!-- terceira linha do form -->
                     <div class="form-group row" align="center">
-                        <div class="col-md-12" style=" " align="center">
-                            <h5> <i class="fas fa-paperclip"></i> &nbsp Anexar doc. </h5>  
-                            <input style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" type="file" class="form-control" id="formGroupExampleInput" placeholder="Example Anexo para doc">
+                        <div class="col-md-12" style=" " align="left">
+                            <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo]) }}" class="btn btn-outline-primary  btn-sm"> 
+                                <i class="fas fa-paperclip"></i>  &nbsp Visualizar Anexo.  
+                            </a>  
+                            <!-- <input style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" type="file" class="form-control" id="formGroupExampleInput" placeholder="Example Anexo para doc"> -->
                         </div>
                     </div>
                     <!-- terceira linha do form -->
 
+                    <br>
 
                     <!-- @ type="hidden" name="eProtocolo_referer_44A" @
                             --------------------------------------------

@@ -167,6 +167,7 @@ return array(
     'App\\Http\\Controllers\\Cpp_Controllers\\FilterPedidosRelatorController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/FilterPedidosRelatorController.php',
     'App\\Http\\Controllers\\Cpp_Controllers\\FindAtaController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/FindAtaController.php',
     'App\\Http\\Controllers\\Cpp_Controllers\\FindDeliberacaoController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/FindDeliberacaoController.php',
+    'App\\Http\\Controllers\\Cpp_Controllers\\HistoryDeliberRelatoController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/HistoryDeliberRelatoController.php',
     'App\\Http\\Controllers\\Cpp_Controllers\\HomologPontosController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/HomologPontosController.php',
     'App\\Http\\Controllers\\Cpp_Controllers\\NovosExpedientesController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/NovosExpedientesController.php',
     'App\\Http\\Controllers\\Cpp_Controllers\\PostergadosController' => $baseDir . '/app/Http/Controllers/Cpp_Controllers/PostergadosController.php',

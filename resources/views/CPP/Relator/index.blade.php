@@ -116,7 +116,9 @@
                                     eProtocolos emcaminhados. Atuais.
                                 </a>
                                 <br> <br>
-                                <a href=" " class="btn btn-success"> <i class="far fa-address-book"></i> &nbsp eProtocolos </a>
+                                <a href="\cpp\listPedidosRelator" class="btn btn-success"> 
+                                    <i class="far fa-address-book"></i> &nbsp eProtocolos 
+                                </a>
                             </div>
 
                             <div class="col-sm-4" align="center"> 

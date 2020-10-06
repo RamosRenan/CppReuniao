@@ -16,6 +16,9 @@ use App\Models\M4PRO\POLICE_OPM;
 use App\Models\Members_Relatores_President\Members_Relatores_and_President;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\ Auth;
+use App\Models\anexo_eProtocolos\files_anexo_eProtocolos_refence_pedidos;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\UploadedFile;
 
 
 class __44AController extends Controller
@@ -96,92 +99,15 @@ class __44AController extends Controller
 
 
     /*@  create() Resposável por criar pedidos 44A @*/
-    public function create(Request $request){
-
-        $verify_has_ata_open  = ata::where('ata_finalizada', null)->get();
- 
-        // necessário verificar se existe ata aberta para serem inseridos 44A.
-        if(count($verify_has_ata_open) == 0 || empty( $verify_has_ata_open )){
-
-            $CountIsertMembers = Members_Relatores_and_President::select('*')->get();
-
-            return view('CPP.44A.index')->with(['CountIsertMembers'=>$CountIsertMembers, 'ataVazia'=>false]);
-        }
-        // if
-
-        if(_A44A::where('eProtocolo', $request->input('eProtocolo'))->count() > 0)
-            return redirect($_SERVER['HTTP_REFERER'])->with(['alredy_existy_eProtocolo'=>true]); 
-
-        // Validação dos campos ...
-        $validatedData = $request->validate([
-            'eProtocolo'        =>  ['required', 'max:12', 'string'],
-            'Nome'              =>  ['required', 'max:60', 'string', 'not_regex:/[0-9]/i'],
-            'Unidade'           =>  ['required', 'max:100', 'string'],
-            'RG'                =>  ['required', 'max:15', 'string', 'not_regex:/[A-z]/i'],
-            'CPF'               =>  ['required', 'max:11', 'string', 'not_regex:/[A-z]/i'],
-            'Graduacao'         =>  ['required', 'max:15', 'string'],
-            'relator_designado' =>  ['required', 'max:120','string'],
-            'descricao_pedido'  =>  ['required', 'string'],
-        ]);
-        // teste return...
-        // return $validatedData;
- 
-
-        // se foi encontrado policial não insiro novo policial, apenas crio novo 44A.
-        if(Policial::where('cpf', $request->input('CPF'))->orWhere('rg', $request->input('RG'))->count() > 0 ){
-
-            #Insere novo 44-A
-            $insert44A = new _A44A;
-            $insert44A->eProtocolo       = $request->input('eProtocolo');            
-            $insert44A->id_policial      = $request->input('CPF');
-            $insert44A->descricao_pedido = $request->input('descricao_pedido');
-            $insert44A->id_response_relator = $request->input('relator_designado');
-            $insert44A->condicao                = 'Cadastrado';
-            $insert44A->pertence_ata_num_ata = $verify_has_ata_open[0]->numero_ata;
-            $insert44A->save();
-
-            $id = Auth::user();
-
+    public function create(){
+         
             //log do cadastro ... 
-            Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro 44A - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
- 
-            //busca membros ativos
-            $CountIsertMembers = Members_Relatores_and_President::select('*')->get();
-
-            return view('CPP.44A.index')->with(['successIsert44A'=>"success",'CountIsertMembers'=>$CountIsertMembers]);
-
-        }else{
-
-            #Se policial não esxiste, então crio um novo policial.
-            $insertPolicial             = new Policial;
-            $insertPolicial->cpf        = $request->input('CPF');
-            $insertPolicial->rg         = $request->input('RG');
-            $insertPolicial->nome       = $request->input('Nome');
-            $insertPolicial->graduacao  = $request->input('Graduacao').' '.$request->input('Quadro');
-            $insertPolicial->unidade    = $request->input('Unidade');
-            $insertPolicial->save();
-            
-            #Insere novo 44A.
-            $insert44A                          = new _A44A;
-            $insert44A->eProtocolo              = $request->input('eProtocolo');            
-            $insert44A->id_policial             = $request->input('CPF');
-            $insert44A->descricao_pedido        = $request->input('descricao_pedido');
-            $insert44A->id_response_relator     = $request->input('relator_designado');
-            $insert44A->condicao                = 'Cadastrado';
-            $insert44A->pertence_ata_num_ata    = $verify_has_ata_open[0]->numero_ata;
-            $insert44A->save();
-
-            $id = Auth::user();
- 
-            //log do cadastro ... 
-            Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro 44A - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
+            // Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro 44A - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
 
             //busca membros ativos
             $CountIsertMembers = Members_Relatores_and_President::select('*')->get();
  
             return view('CPP.44A.index')->with(['successIsert44A'=>"success",'CountIsertMembers'=>$CountIsertMembers]);
- 
-        }#else
 
     } /*@ create() @*/
 

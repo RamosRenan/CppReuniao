@@ -94,16 +94,16 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body" style="text-align: justify;">
                     <div class="card-footer">
-                        <h4 style="color: #7442C8;"> <b> Nº <u>{{$key->numero_ata}}</u> </b>  
+                        <h4 style="color: #1A4876;"> <b> Ata Nº <u>{{$key->numero_ata}}</u> </b>  
                             @if(empty($key->data_termino))
                                 <a href="{{ route('cpp.deliberacao.index') }}">
-                                    <button style="float: right;" type="button" class="btn btn-outline-danger"> 
+                                    <button style="float: right;" type="button" class="btn btn-outline-primary"> 
                                         <i class="far fa-eye"></i>                                
                                     </button>
                                 </a>
                                 @else   
                                     <a href="/cpp/findata">
-                                        <button style="float: right;" type="button" class="btn btn-warning"> 
+                                        <button style="float: right;" type="button" class="btn btn-info"> 
                                             <i class="far fa-eye"></i>                                 
                                         </button>
                                     </a>
@@ -116,7 +116,7 @@
                         &nbsp &nbsp &nbsp
                         <b>Finalizada por:</b> 
                         @if(empty($key->data_termino))
-                            <i style="color: magenta;" class="far fa-folder-open"> <small> Is open </small></i> <br>
+                            <i style="color: blue;" class="far fa-folder-open"> <small> Aberta </small></i> <br>
                             @else
                             {{$key->response_finalized_ata}} <br>
                         @endif

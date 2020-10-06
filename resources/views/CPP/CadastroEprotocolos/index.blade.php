@@ -9,57 +9,62 @@
     
     <!-- @ section @ -->
     <section> 
-
         <!-- form  Busca militar informado no campo - url(/cpp/cadastroE-protocolo) -->
-        <form method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}"> 
+        <form class="form-inline" method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}"> 
                 
             <!-- card card-default -->
-            <div class="card card-default" style="position: relative; top:-20px;">
+            <div class="card"  style="width: 100%; height: auto; ">
 
                 <!-- card-header -->
-                <div class="card-header" style=" height: 63px; ">
-
+                <div class="card-header" style="width: 100%; height: auto; ">
                     <!-- row -->
-                    <div class="row">
-
+                    <div class="row" style="width: 100%;">
                         <!-- col-md-4 -->
                         <div class="col-md-4"> 
-                            <i class="fa fa-id-card" style="font-size:32px; margin-right: 18px; color:#1864ab;" aria-hidden="true"></i>
+
                         </div>
                         <!-- col-md-4 -->
 
                         <!-- col-md-4 -->
-                        <div class="col-md-4" style="display:flex;">
-                            <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' do militar. " >
-                            <button style="background: #757575;" id="button_search_cpf_police" class="btn btn-outline-secondary" type="submit"> 
-                                <i class="fas fa-search" style="color: white;"></i>
-                            </button>
-                        </div>
+                        <div class="col-md-4" style=" " align="center">
+                            <h4 style="color: #2A4B7C;"> 
+                                <i class="fa fa-id-card" style="font-size:32px; " aria-hidden="true">  </i> 
+                                &nbsp Registro de eProtocolo 
+                            </h4>
+                        </div> 
                         <!-- col-md-4 -->
-
-                        <div class="col-md-4">  </div>                   
+                        
+                        <div class="col-md-4" >  
+                            <div class="form-group mx-sm-4 mb-2" style="float:right;">
+                                <label for="inputPassword2" class="sr-only">Password</label>
+                                <input type="text" class="form-control" name="search_cpf_police" id="inputPassword2" placeholder="Insira o 'NOME' ou 'RG' do militar.">
+                                <button type="submit" class="btn btn-primary mb-2 btn-sm" style=" position: relative; top: 3px;">
+                                    <i class="fas fa-search" style=""></i> &nbsp  
+                                </button>
+                            </div>
+                        </div>                   
 
                     </div>                
                     <!-- row -->
                      
                 </div>
-                <!-- row -->
+                <!-- card-header -->
 
             </div>
-            <!-- card card-default -->
+            <!-- card  -->
 
         </form> 
         <!-- form -->
 
 
         <!-- form - Cadastra realemnte um novo pedido -->
-        <form method="POST" action=" {{ route('cpp.cadastroE-protocolo.store') }} "> 
+        <form method="POST" action=" {{ route('cpp.cadastroE-protocolo.store') }} " enctype="multipart/form-data"> 
             
             <!--  csrf_token() //Campo escodido que garante segunça no envio do form. Obs.: Ver Doc do Laravel 'csrf' -->
             <input type="hidden" name="_token" value="{{ csrf_token() }}">   
 
             <!-- card card-default - contem campos do formulário -->
-            <div class="card card-default" style="margin-top: -25px;"> 
+            <div class="card card-default" style="margin-top: -10px;"> 
 
                 <!-- card-body - corpo do form -->
                 <div class="card-body"> 
@@ -118,7 +123,6 @@
                                         <br>
                                             <button type="button" onclick="data_police()" class="btn btn-primary"> <i class="fas fa-thumbs-up"></i> Confirmar.</button> 
                                             <button type="button" onclick="closeModal()" class="btn btn-danger"><i class="fas fa-thumbs-down"></i> Inconsistente.</button>
-
                                     </form>
                                         @else
                                             <h3 style="color: #c9c9c9;"> Info ! <small> Dados do policial não encontrado. </small> </h3>
@@ -215,15 +219,12 @@
                     <!-- /row -->
 
 
-
                     <!-- row 2 -->
                     <div class="row">
                         <div class="col-md-3 form-group">
                             <label class='awesome'> * Nome </label>
                             <input id="GET_NOME" id="nome_do_policial" class='form-control' type="text"  name="Nome" style="" required>                        
                         </div>
-
-                        
 
                         <div class="col-md-3 form-group">
                             <label class='awesome'> * Graduacao </label>
@@ -234,7 +235,6 @@
                             <label class='awesome'> * RG </label>
                             <input id="GET_RG"  class='form-control' type="text"  name="rg"  style="" required>
                         </div>
-
                         
                         <div class="col-md-4 form-group">
                             <label class='awesome'> * Unidade </label>
@@ -243,6 +243,11 @@
 
                     </div> 
                     <!-- row 2-->
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Anexar doc. eProtocolo do militar <small style="color: #364fc7;"> &nbsp ( Tamanho MAX. 100MB ) </small> </label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="FormControlFile1">
+                    </div>
 
                     <!-- row 3 -->
                     <div class="row">
@@ -256,9 +261,9 @@
                     </div> 
                     <!-- row 3-->
 
-                    <!-- container -->
-                    <div class="container" >
 
+                    <!-- container -->
+                    <div class="container">
                         <!-- row 4 -->
                         <div class="row" align="center" >
                             <div class="col-4"> </div>
@@ -271,16 +276,12 @@
                             <div class="col-4"> </div>
                         </div> 
                         <!-- row 4-->
-
                     </div> 
                     <!-- container -->
-
                 </div> 
                 <!-- <div class="card-body"> -->
-
             </div> 
             <!-- card default -->
-                    
         </form> 
         <!-- Final Form -->
 
@@ -311,6 +312,13 @@
                 @endif	
             @endif	
 
+            @if (\Session::has('errorAnexo'))
+                <div class="alert alert-warning">
+                    <ul>
+                        <li>São aceitos apenas formatos: 'pdf'. Certifique-se de que anexou um aquivo. </li>
+                    </ul>
+                </div>
+            @endif
 
             @if( isset($permitionchar))
                 @if($permitionchar == "false")
@@ -337,7 +345,7 @@
     </div>
     <!-- -->
 
-                                                                
+    <br>                                                  
 
     <!-- Script's  -->
     <script>

@@ -13,8 +13,12 @@ class eProtocolo extends Model
         return $this->belongsTo('App\Models\Policial\Policial', 'cpf');
     }
 
-
     public function sorteados(){
         return $this->hasMany(' App\Models\TableSorteados\sorteados', 'numero_sid');
     }
+
+
+    public function eProtocolo(){
+        return $this->hasOne('App\Models\E_Protocolo\eProtocolo');
+     }
 }

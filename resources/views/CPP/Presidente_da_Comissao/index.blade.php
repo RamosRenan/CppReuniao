@@ -7,95 +7,114 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"> </script>
 @yield('content')
 
-@section('content')         
+@section('content')  
+    <!-- nav nav-tabs -->
     <ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" href="#" style="color:red;">
-            <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> 
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#" style="color:red;">
+                <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
     </ul>
-    <section style="position:relative;  "> 
+    <!-- nav nav-tabs -->
+
+
+    <section style="position:relative;"> 
+        <!-- card -->
         <div class="card" align="center">
+            <!-- card-header -->
             <div class="card-header">
-                <h4 class="card-title" style="color: #1971c2;"> Prévia do texto da deliberção. </h4>
+                <h4 class="card-title" style="color: black;"> Prévia do texto da deliberação. <br> <small style="color: #1971c2;"> Texto que está em votação no momento. </small> </h4>
                 <h5 class="card-title" style="color: #1971c2;"> <small> Reunião deliberativa. </small> </h5>
             </div>
+            <!-- card-header -->
+
+            <!-- card-body -->
             <div class="card-body" style="min-height: auto;" >
-                <h5 class="card-title" style="color: black;"> <small> Deliberação. </small> </h5>
-                <textarea class="card-text" style="width: 100%;" rows="5" readonly>
-                    @if(isset($decodeDeliber))
-                        {{$decodeDeliber}}
+                <h4  style="color: black;">  Deliberação.  </h4>
+                <textarea class="card-text" style="width: 100%; border:none; text-align:justify;" rows="6" readonly>
+                    @if(isset($containDeliberOrdinaria) || isset($containDeliber44a))
+                        @if(isset($containDeliberOrdinaria) && $containDeliberOrdinaria!=null)
+                            {{$containDeliberOrdinaria}}
+                            @elseif(isset($containDeliber44a) && $containDeliber44a!=null)
+                                {{$containDeliber44a}}
+                        @endif
+
                         @else
                             Não há deliberação no momento. Aqui você tem acesso ao texto da deliberação.
                     @endif
                 </textarea>
+
                 <br>
-            </div>
 
-            <div>
-                <form action="/cpp/registry_vote_presidente" method="get" >
-                    @csrf
-                    @if(isset($return_to_vote_member[0]))
-                    <input type="hidden" name="eProtocolo" value="{{$return_to_vote_member[0]->eProtocolo}}" class="custom-control-input" id=" ">
-                    @endif
+                <!-- se todos os relatores já votaram verificxa se houve empate -->
+                @if(isset($empateVotacaoOrdinaria) || isset($empateVotacao44a))
+                    <form action="/cpp/registry_vote_presidente" method="get" >
+                        @csrf
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm">
-                                <input type="radio" id="exampleRadios1" name="gender" value="Contra">
-                                &nbsp<label for="exampleRadios1"><h5>Contra <i class="far fa-thumbs-down"></i></h5></label>
-                            </div>
-                            <div class="col-sm">
-                             
-                            </div>
-                            <div class="col-sm">
-                                <input type="radio" id="exampleRadios2" name="gender" value="Favoravel">
-                                &nbsp<label for="exampleRadios2"><h5> Favorável <i style="color:blue;" class="far fa-thumbs-up"></i> </h5></label>
+                        @if(isset($eProtocoloOrdinaria))
+                            <input type="hidden" name="eProtocolo" value="{{$eProtocoloOrdinaria}}" class="custom-control-input" id=" ">
+                            @else
+                                <input type="hidden" name="eProtocolo" value="{{$eProtocolo44a}}" class="custom-control-input" id=" ">
+                        @endif
+                        <br>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <input type="radio" id="exampleRadios1" name="gender" value="Contra">
+                                    &nbsp<label for="exampleRadios1"><h5>Contra <i class="far fa-thumbs-down"></i></h5></label>
+                                </div>
+                                <div class="col-sm">
+                                
+                                </div>
+                                <div class="col-sm">
+                                    <input type="radio" id="exampleRadios2" name="gender" value="Favoravel">
+                                    &nbsp<label for="exampleRadios2"><h5> Favorável <i style="color:blue;" class="far fa-thumbs-up"></i> </h5></label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                     
-                        <!-- <input  type="radio" name="Favoravel" id="exampleRadios1" value="option1" >
-                        <label  for="exampleRadios1" style="color:red;">
-                            <h5> Contra </h5>
-                        </label>
+                        <br>
 
-                        <br><br>
+                        <button type="submit"  class="btn btn-primary"> Desempatar </button>
+                        <br> <br>
+                        <span style="color: dark;"> 
+                            <i class="fas fa-info-circle"></i> Obs.: Botão é ativado quando existir uma deliberação para ser analisada. 
+                        </span>
+                    </form>
+                @endif
+                <!-- end elseif() -->
 
-                        <input type="radio" name="Contra" id="exampleRadios2" value="option2">
-                        <label for="exampleRadios2" style="color:blue;">
-                            <h5> Favoravel </h5>
-                        </label> -->
-
+                @if(isset($falta_Voto_Relatores_desta_deliber) || isset($falta_Voto_Relatores_44a))
                     <br>
-
-                    @if(isset($decodeDeliber))
-                            <button type="submit"  class="btn btn-primary"> Desempatar </button>
-                        @else
-                            <br>
-                            <button type="button"  class="btn btn-dark" disabled> Desempatar  <small> (desativado) </small> </button>
-                            <br> <br>
-                            <h5 style="color: dark; font-size: 12px;"> <i class="fas fa-info-circle"></i> Obs.: Botão é ativado quando existir uma deliberação para ser analisada </h5>
-                        @endif
-                    <hr>
-
-                </div>
+                    <div class="alert alert-info" role="alert">
+                        <a href="#" class="">                         
+                            <i class="fas fa-info-circle"></i> 
+                            &nbsp &nbsp &nbsp 
+                            Todos os relatores ainda não votaram. Falta algum relator votar.
+                        </a>
+                    </div>
+                @endif
+                
             </div>
+            <!-- card-body -->
+
+            <div class="card-footer" align="center"> Presidente da comissão de promoção de praças. </div>
         </div>
+        <!-- card -->
     </section>
     <!-- @ Sessao contem barra de notificacao @-->
 
+    <br>
 
     <!-- SCRPT'S -->
         <script> 

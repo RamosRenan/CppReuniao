@@ -26,8 +26,8 @@
                 @if(isset($postergados))
                     @foreach($postergados as $key => $value)
                         <a href="/cpp/editParerPostergados?eProtocolo={{$value->eProtocolo}}" >
-                        <div class="alert alert-danger" role="alert">
-                            <i class="far fa-clock" style="color: blue; float: left; font-size: 28px;"> </i>
+                        <div class="alert alert-warning" role="alert">
+                            <i class="far fa-clock" style=" float: left; font-size: 28px;"> </i>
                             <span> <strong> e-Protocolo: </strong> {{$value->eProtocolo}} </span> &nbsp;  &nbsp;
                             <span> <strong> Data: </strong> {{$value->created_at}} </span> &nbsp;  &nbsp; &nbsp;
                             <span> <strong> Foi votado: </strong> @if($value->relator_votou == 'true') Sim @else Não @endif </span> &nbsp; &nbsp;  &nbsp;

@@ -73,21 +73,40 @@
     </div>
     <!-- @ card__body3 @ -->
 
-    <div class="card-header" style="height: auto;" align="center"> 
+    <hr>
+
+    <div class=" " style="height: auto;" align="left"> 
         <span style="color:#4c566a;"> 
-            <small>
-            <i class="fas fa-info-circle"></i> 
+            <i class="fas fa-info-circle"></i> <br>
             OBS.: Atenção ! Habilitar ou Desabilitar, significa que este relator pode ou não receber pedidos. 
             É <b> NECESSÁRIO </b> ir ate a pagina <a href="#" style="font-size:19px;"> <u> Cadastrar novo relator </u> </a> 
             para que de fato este relator conste nas votações das deliberações. 
-            Caso contrário o sistema não o considera como relator. Desta forma o mesmo não poderá votar !
-</small>
+            Caso contrário o sistema não o considera como relator APTO a receber pedidos. Desta forma o mesmo não poderá votar !
         </span>
+
+        <br>
+        <br>
+        
+        <button style="float: left;" type="button" class="btn btn-lg btn-warning" data-toggle="popover" title="Peeega o bizu !!!" 
+        data-content="Pense a seguinte situação.: No momento que você define um relator(a), e para ele(a) são destinados eProtocolos, esse relator 
+        passa a ter um histórico no sistema. Portanto é extremamente importante que este relator NÂO seja exluído do sistema, pois ele ainda poderá acessa-lo
+        para consultar seus registros. Isso não significa que, uma vez, esse relator desabilitado, ainda estando cadastro como relator irá receber eProtocolos.
+        Pois, para que o mesmo os receba, é necessário cadastrá-lo na sua area 'Inserir relator'.
+        Quando um relator não pertencer mais á CPP, siga os passos: 1- Exclua o relator na sua área 'Inserir relator';  2- Apenas desabilite o relator nesta área.">
+            <i class="fas fa-exclamation-triangle"></i> &nbsp Atenção clique aqui </u>
+        </button>
     </div>
 
+    <br>
 
     <!-- @ SCRPT'S @ -->
     <script type="text/javascript"> 
+
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+
+         
 
         function disableEnableUser(e, id, i){
             // var es = "esc".concat(i);

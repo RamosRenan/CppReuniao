@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers\Cpp_Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Models\E_Protocolo\eProtocolo;
 use App\Models\Policial\Policial;
+use App\Models\anexo_eProtocolos\files_anexo_eProtocolos_refence_pedidos;
 use App\Models\M4PRO\POLICE;
 use App\Models\M4PRO\POLICE_OPM;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\ Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Hash;
+use Exception;
+use App\Exceptions\Handler;
+use App\Exceptions\CustomException;
 
 class CadastroeProtocoloDiversos extends Controller
 {
@@ -49,7 +56,8 @@ class CadastroeProtocoloDiversos extends Controller
 
     /*@  store() REsponsável por inserir os pedidos  dos policiais @*/
     public function store(Request $request){
-
+        // return  $_SERVER['DOCUMENT_ROOT'].'/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/';
+        
         //valida os campos ...
         $validatedData = $request->validate([
             'Nome'      =>  ['required', 'max:55', 'string', 'not_regex:/[0-9]/i'],
@@ -62,40 +70,96 @@ class CadastroeProtocoloDiversos extends Controller
             'sid'       =>  ['required', 'max:12', 'string'],
             'keypedido' =>  ['required', 'max:12', 'string'],
             'data_sid'  =>  ['required', 'max:80', 'date'  ],
+            'FormControlFile1'  =>  ['required', 'max:10000000'],
         ]);
-
-        // teste ...
+        // teste de retorno $validatedData ...
         // return $validatedData;
 
+
+        //-------------------------------------
+        // Instancia de eProtocolo & Policial  
         $eProtocolo = new eProtocolo;
-
         $Policial   = new Policial;
+        //-------------------------------------
 
-        $Policial->nome        = $request->input ('Nome'        );
-        $Policial->unidade     = $request->input ('Unidade'     );
-        $Policial->graduacao   = $request->input ('Graduacao'   );
-        $Policial->rg          = $request->input ('rg'          );
-        $Policial->cpf         = $request->input ('cpf'         );
 
-        $eProtocolo->cpf           = $request->input ('cpf'         );
-        $eProtocolo->status        = $request->input ('situacao'    );
-        $eProtocolo->conteudo      = $request->input ('descricao'   );
-        $eProtocolo->pedido        = $request->input ('pedido'      );
-        $eProtocolo->eProtocolo    = $request->input ('sid'         );
-        $eProtocolo->codigopedido  = $request->input ('keypedido'   );
-        $eProtocolo->entry_system_data = date('Y/m/d');
-        $eProtocolo->data_eProtocolo   = $request->input('data_sid');
-        $eProtocolo->id_responsavel_cadastro   = Auth::user()->id;
-
-        /*
-        * Bloco responsável por validar os dados do formulário     
-        * Verificar se já existe no banco o mesmo numero de S.I.D
-        */      
-        if(eProtocolo::where('eProtocolo', $eProtocolo->eProtocolo)->count() > 0)
+        /*----------------------------------------------------------------------------
+        * Bloco responsável por validar o campo eProtocolo     
+        * Verificar se já existe no banco o mesmo numero de S.I.D.
+        --------------------------------------------------------------------------------
+        *///return ;
+        if( count(eProtocolo::where('eProtocolo', $request->input('sid'))->get())  > 0)
             return view('CPP.CadastroEprotocolos.index')->with(['qtdDBeProtocolo'=>1]);
+        // ------------------------------------------------------------------------------
 
 
+        // validacao do arquivo
+        if ($request->hasFile('FormControlFile1') && $request->file('FormControlFile1')->isValid() && $request->file('FormControlFile1')->extension() == "pdf") {
+            
+            // cria hash com base no nome do arquivo e tempo
+            $hashedNameArq = Hash::make($request->file('FormControlFile1')->getClientOriginalName().time('H:i:s'), [
+                'memory'    => 1,
+                'time'      => 2,
+                'threads'   => 2,
+            ]);
+
+            // return  $hashedNameArq;
+
+            try {
+                //code...
+                //instancia para novo anexo
+                $newAnexoeProtcolo = new files_anexo_eProtocolos_refence_pedidos;
+                $newAnexoeProtcolo->nome_arquivo        = $request->file('FormControlFile1')->getClientOriginalName();
+                $newAnexoeProtcolo->path                = "teste/teste/";
+                $newAnexoeProtcolo->eprotocolo_foreign  = $request->input ('sid');
+                $newAnexoeProtcolo->PK_cpf__policial    = $request->input ('cpf');
+                
+                $file =  '/home/pmpr/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/';
+                
+                $hashSplit = str_split($hashedNameArq);
+
+                for($i=0; $i < strlen($hashedNameArq); $i++) {
+                    # code...
+                    if($hashSplit[$i] == '/')
+                        $hashSplit[$i] = '%';
+                }
+
+                $newAnexoeProtcolo->hash = implode('', $hashSplit);
+                $newAnexoeProtcolo->save();
+ 
+                move_uploaded_file($_FILES['FormControlFile1']['tmp_name'], $file.implode('', $hashSplit));
+
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+        }else{
+            return redirect()->back()->with('errorAnexo', 'Error no Arquivo enviado'); 
+        }
+
+
+        //-----------------------------------------------------------------------
+        // Popula campos da tabela policial
+        //-----------------------------------------------------------------------
+        $Policial->nome                         = $request->input ('Nome'        );
+        $Policial->unidade                      = $request->input ('Unidade'     );
+        $Policial->graduacao                    = $request->input ('Graduacao'   );
+        $Policial->rg                           = $request->input ('rg'          );
+        $Policial->cpf                          = $request->input ('cpf'         );
+        $eProtocolo->cpf                        = $request->input ('cpf'         );
+        $eProtocolo->status                     = $request->input ('situacao'    );
+        $eProtocolo->conteudo                   = $request->input ('descricao'   );
+        $eProtocolo->pedido                     = $request->input ('pedido'      );
+        $eProtocolo->eProtocolo                 = $request->input ('sid'         );
+        $eProtocolo->codigopedido               = $request->input ('keypedido'   );
+        $eProtocolo->entry_system_data          = date('Y/m/d');
+        $eProtocolo->data_eProtocolo            = $request->input('data_sid');
+        $eProtocolo->id_responsavel_cadastro    = Auth::user()->id;
+
+
+        //--------------------------------------------------------------------
         // if necessário somente para o caso em que não existe o policial.
+        //--------------------------------------------------------------------
         if(Policial::where('cpf', $eProtocolo->cpf)->count() == 0){
 
             $Policial->save();
@@ -108,16 +172,35 @@ class CadastroeProtocoloDiversos extends Controller
             
             return view('CPP.CadastroEprotocolos.index')->with(['succes'=>'succes']);
         
-        // se o policial já existe, apenas insiro o novo eProtocolo.
-        }else{ 
 
+        //------------------------------------------------------------
+        // se o policial já existe, apenas insiro o novo eProtocolo.
+        // neste else apenas salvo novo eProtocolo
+        //-------------------------------------------------------------
+        }else{ 
+            // novo eProtocolo apenas
             $eProtocolo->save();
+
+            //pego id do usuario loigado
+            $id = Auth::user();
 
             Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou um cadastro - '.'id: '.$id->id.' - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Policial Cadastrado: '.$request->input ('Nome').' - RG: '.$request->input ('rg')."\n");
             
             return view('CPP.CadastroEprotocolos.index')->with(['succes'=>'succes']);
         }
     } /*@  store()  @*/
+
+
+     /**
+     * Render the exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    static function render($request)
+    {
+        return response("ooooooeeeeeee");
+    }
 
 
 

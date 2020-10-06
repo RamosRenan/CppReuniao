@@ -640,6 +640,7 @@ class ComposerStaticInit61f882aec06c0ba51e9346c5d7e3bc41
         'App\\Http\\Controllers\\Cpp_Controllers\\FilterPedidosRelatorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/FilterPedidosRelatorController.php',
         'App\\Http\\Controllers\\Cpp_Controllers\\FindAtaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/FindAtaController.php',
         'App\\Http\\Controllers\\Cpp_Controllers\\FindDeliberacaoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/FindDeliberacaoController.php',
+        'App\\Http\\Controllers\\Cpp_Controllers\\HistoryDeliberRelatoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/HistoryDeliberRelatoController.php',
         'App\\Http\\Controllers\\Cpp_Controllers\\HomologPontosController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/HomologPontosController.php',
         'App\\Http\\Controllers\\Cpp_Controllers\\NovosExpedientesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/NovosExpedientesController.php',
         'App\\Http\\Controllers\\Cpp_Controllers\\PostergadosController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cpp_Controllers/PostergadosController.php',

@@ -48,16 +48,18 @@ class HistoryDeliberRelatoController extends Controller
             $verifyIsAtivo = users_ative_and_inative_cpp::where('has_user_id', $getRelator[0]->model_id)
             ->where('users_ative_and_inative_cpp.user_id_your_status', '=', 1)
             ->get();
-        }if (count($verifyIsAtivo)>0){
-            # code...
+        }
+        
+        if (isset($verifyIsAtivo) && count($verifyIsAtivo)>0){
+            # code ...
             $registersDeliber = eProtocolosSorteados::where('eProtocolo_sorteados.id_membro', $idRelator->id)
             ->join('eProtocolo', 'eProtocolo.eProtocolo', '=', 'eProtocolo_sorteados.eProtocolo')
             ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
             ->join('deliberacao', 'deliberacao.eProtocolo', '=', 'eProtocolo.eProtocolo')
-            ->get();
- 
+            ->get(); 
         }else{
-            return "Relator não esta ativo, ou não é rlator";
+            return redirect($_SERVER['HTTP_REFERER']);
+            // return "Relator não esta ativo, ou não é relator";
         }
 
         return view('CPP.HistoryDeliberRelator.index')

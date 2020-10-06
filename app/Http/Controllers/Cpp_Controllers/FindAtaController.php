@@ -86,7 +86,7 @@ class FindAtaController extends Controller
 
 
     public function presentingAta(){
-        $file = '../public/ata/reunioes/cpp/pdf/'.$_GET['nameata'].'' ;
+        $file = '../public/ata/reunioes/cpp/pdf/'.$_GET['nameata'].'';
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="' .$_GET['nameata']. '"');
         header('Content-Transfer-Encoding; binary');

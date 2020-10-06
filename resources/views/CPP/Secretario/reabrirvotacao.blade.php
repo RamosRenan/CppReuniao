@@ -19,7 +19,7 @@
             <!-- @ card__body7 @ -->
             <div class="card-body" id="card__body7" style="height: auto; "  align="center"> 
                 <h5 style="color: #4c566a;"> <small> Ultimas deliberações. </small> </h5>
-                <table class="table" style="border-radius: 9px; box-shadow: 0px 0px 5px 2px gray;">
+                <table class="table" style="border-radius: 9px; ">
                     <thead style=" border-radius: 9px; ">
                         <h5 style="float: right; color: #004B8D;"> <small> Total.:  {{ count($LastDeliberacao) }} </small> </h5>
                         <br>

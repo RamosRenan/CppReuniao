@@ -19,6 +19,8 @@ class uploadFileController extends Controller
 
     public function store(Request $request){
 
+        // return $request->all();
+
         $id = Auth::user();
         Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou Upload de um documento - '.'id: '.$id->id.' 
         - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Doc name: '.$_FILES['userfile']['name']."\n");

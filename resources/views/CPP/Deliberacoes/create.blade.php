@@ -227,10 +227,8 @@
                 <span> <strong> Presidente da CPP. </strong> <span>
             </div>
         </section> 
-            
 
         <br> <br> <br> 
-
             
         <section style="width:100%; heigth:auto; position:relative; ">
             <div style="margin-left:18px;"> 
@@ -242,34 +240,32 @@
         </section> 
 
         <br> <br> 
-
-
-        <section style="width:100%; heigth:auto; position:relative; ">
-            <div style=" " align="center"> 
-                <form action="{{ route('cpp.deliberacao.edit',0) }}" method="get"> 
-                    <input type="hidden" value=" {{ $id_notification }} " name="id_notification">
-                    @if(session('empate')!= null)
-                        @if(session('empate'))
-                        <button type="button"  id="validar" class=" btn btn-outline-primary" style=" width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; " disabled>
-                            <span style=" color:  #34495e ; "> Finalizar Deliberação. (Peça ao presidente que vote).  </span>
-                        </button>  
-                    
+        
+        @if(session('empate'))
+            <section style="width:100%; heigth:auto;  position:relative;">
+                <div style="width:100%; heigth:auto;" align="center"> 
+                    <form action="{{ route('cpp.deliberacao.edit', 0) }}" method="get"> 
+                        <input type="hidden" value=" {{ $id_notification }} " name="id_notification">
+                        @if(isset(session('vote_president')[0]))
+                            <button type="submit"  id="validar" class="" style="width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; background: #034F84;">
+                                <span style=" color:  white ; "> Finalizar Deliberação. </span>
+                            </button>
                         @endif
 
                         @else
-                        <button type="submit"  id="validar" class=" btn btn-outline-primary" style=" width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; ">
-                            <span style=" color:  #34495e ; "> Finalizar Deliberação. </span>
-                        </button>
-                    
-                    @endif
-                </form>
-            </div>
-        </section> 
+                            <div class="row" align="center" style="width: 99.9%;">
+                                <button type="button"  id="validar" class="" style="width:30%; height:auto; position: relative;  box-shadow:0px 1px 5px gray; background: #034F84;" disabled>
+                                    <span style=" color:  white ; "> Finalizar Deliberação. (Peça ao presidente que vote).  </span>
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </section> 
+        @endif
 
         <br> <br> 
 
         <input type="hidden" value=" {{$redirect_this_page[0]->id}} " id="facultyeProtoc" class="facultyeProtoc">
-
 
         <!-- @ Style @ -->
         <style>
@@ -281,8 +277,6 @@
            
         </style>
         <!-- Style -->
-
-
             
         <!-- @ Script's @ -->
         <script  type="text/javascript"> 

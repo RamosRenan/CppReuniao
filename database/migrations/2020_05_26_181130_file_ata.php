@@ -22,6 +22,7 @@ class FileAta extends Migration
             $table->bigInteger('responsavel')->nullable();
             
             $table->timestamps();
+        });
     }
 
     /**

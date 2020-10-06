@@ -18,15 +18,15 @@
         <!-- @ card-header @ -->
         <div class="card-header " style="height: auto;" align="center" > 
             <!-- @ row @ -->
-            <i class="fas fa-info"></i> <br>
+            <i class="fas fa-info"></i> &nbsp &nbsp
             Aqui você tem acesso as deliberações que estão sendo votadas no momento.  
             <!-- @ row @ --> 
 
             <br>
 
             <a class=" " href="{{ route('cpp.relator.create', 0) }}" style="color: blue; "> 
-                <i style="font-size: 18px; color: orange;" class="fas fa-mouse-pointer"></i> 
-                &nbsp <u> <small> Clique aqui para votar deliberação. </small></u>
+                <i style="  " class="fas fa-mouse-pointer"></i> 
+                &nbsp <u> <small> Clique aqui para atualizar. </small></u>
             </a> 
 
          </div>
@@ -40,11 +40,13 @@
                 <div style="width:100%; height:auto;" align="center">
                     <section> 
                         @if(isset($return_to_vote_member))
-                            <br>
+
+                            <a href="#" style="float: left; margin-left: 30px; margin-top: 8px; margin-bottom: 8px;"> <i style="font-size: 25px;" class="fas fa-paste"></i> &nbsp <u> Visualizar Relatório </u> </a>
+
                             <textarea class="form-control contain_data_deliber" value=" " id="contain_data_deliber"  style=" background: #f7f9fc; " rows="9" readonly>
                                 {{$return_to_vote_member[0]->deliberacao}}
                             </textarea>
-                            
+
                             @if($return_to_vote_member[0]->id_membro != $logedUser)
 
                                 <form action = "{{route('cpp.relator.edit', 0)}}" method="GET"  style="margin:0 auto; ">
@@ -116,6 +118,7 @@
 </section>
 <!-- @ Sessao contem barra de notificacao @-->
 
+<br>
 
 @if(session('itNotRelator'))
     

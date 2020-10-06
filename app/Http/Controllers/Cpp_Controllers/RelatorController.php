@@ -358,6 +358,7 @@ class RelatorController extends Controller
  
         $toVote44A = notification::where('notifications.read_at', null)
         ->join('A_44_A', 'A_44_A.id_notification', '=', 'notifications.id_notification')->get();
+        // return $toVote44A[0]->data;
 
         if(count( $toVote44A) == 0 || empty( $toVote44A)){
             return view('CPP/Relator/votar44A')->with('emptyToVote44A', false);
@@ -378,7 +379,7 @@ class RelatorController extends Controller
             
             return view('CPP/Relator/votar44A')                     /* retorna dados para view 'CPP/Relator/votar44A' */
             ->with([
-                'vote44AData'=>$decode44A->{'dados'},                   /* conteúdo da deliberação */
+                'vote44AData'=>$toVote44A[0]->data,                   /* conteúdo da deliberação */
                 'responseRelator'=>$toVote44A[0]->id_response_relator,  /* id relator responsavel pela deliberação */
                 'userLoged'=>Auth::user()->id,                          /* usuario logado */
                 'ativeSecretario'=>$ativeSecretario,                    /* id do secretario ativo */ 
@@ -503,6 +504,38 @@ class RelatorController extends Controller
         ->get();
         // return $postergados;
         return view('CPP/Relator/showParerPostergados')->with(['postergados'=>$postergados]);
+    }
+
+
+    public function listPedidosRelator(){
+        $usename    = User::where('id',  Auth::user()->id)->get();
+
+        $Usorteados = eProtocolosSorteados::where('id_membro', '=',  Auth::user()->id)
+        ->where('parecer_relator', null)
+        ->where('relator_votou', null)
+        ->join ('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
+        ->join ('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+        ->get();
+
+        // return $Usorteados;
+
+        return view('CPP/Relator/listPedidosRelator')->with(['Usorteados'=> $Usorteados]);
+    }
+
+    public function showPedidoSelectedToRelator(){
+        $usename    = User::where('id',  Auth::user()->id)->get();
+
+        $Usorteados = eProtocolosSorteados::where('id_membro', '=',  Auth::user()->id)
+        ->where('parecer_relator', null)
+        ->where('relator_votou', null)
+        ->join ('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
+        ->where('eProtocolo.eProtocolo', $_GET['eProtoclo'])
+        ->join ('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
+        ->get();
+
+        // return $Usorteados;
+
+        return view('CPP/Relator/showPedidoSelectedToRelator')->with(['Usorteados'=> $Usorteados]);
     }
 
 }# final class

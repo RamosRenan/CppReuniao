@@ -10,125 +10,141 @@
         th{
             font-size: 14px;
         }
-
-		 
     </style>
 
-	<div class="panel-body table-responsive">
+
+	
+	<div class="card">
+		<!-- card-header -->
+		<div class="card-header"> 
+			<h4 style="color: #364fc7;"> <i class="fas fa-user-edit"></i> &nbsp Edição de Cadastro. </h4>
+		</div>
+
+		<div class="card-body" align="center">
+		<!-- Verifica se exite registro para editar -->
         @if( !count($editSid) <= 0 )
-        {!! Form::open(['method'=>'PUT', 'route'=>['cpp.cadastroE-protocolo.update', $editSid[0]->eProtocolo]]) !!}  
-                    
-            @if(isset($editSid))
-                
-            <input type="hidden" value=" {{ $editSid[0]->eProtocolo }} " name="findSid">
+			<!-- form open -->
+			{!! Form::open(['method'=>'PUT', 'route'=>['cpp.cadastroE-protocolo.update', $editSid[0]->eProtocolo]]) !!}  
+				<!-- vericica se exite registro na request -->
+				@if(isset($editSid))
+					<!-- campos escondidos que armazenam cpf & protocolo para posterior identificação -->
+					<input type="hidden" value=" {{ $editSid[0]->eProtocolo }} " name="findSid">
+					<input type="hidden" value=" {{ $editSid[0]->cpf }} " name="findcpf">
+					<!--  -->
 
-            <input type="hidden" value=" {{ $editSid[0]->cpf }} " name="findcpf">
+					<!-- row -->
+					<div class="row">
+						<div class="col-3" style="">
+							<label> Nome </label> 
+							<input class="form-control" value=" {{ $editSid[0]->nome }} " name="nome" type="text" placeholder="" style="  background: white;">							
+						</div>
 
-			<div style="display:inline-block; width:calc(100% / 3)">
-				<label> Nome </label> 
-				<input class="form-control" value=" {{ $editSid[0]->nome }} " name="nome" type="text" placeholder="" style="  background: white;">							
-			</div>
+						<div class="col-3" style="">
+							<label> Rg </label> 
+							<input class="form-control" value=" {{ $editSid[0]->rg }} " name="rg" type="text" placeholder="" style="  background: white;">
+						</div>
 
-			<div style="display:inline-block; width:calc(100% / 3)">
-				<label> Rg </label> 
-				<input class="form-control" value=" {{ $editSid[0]->rg }} " name="rg" type="text" placeholder="" style="  background: white;">
-			</div>
+						<div class="col-3" style="">
+							<label> Pedido </label> 
+							<select required style="border: 1px solid #d9dce0;  background: white; width:100%; height:34px;" onchange="keyped()"  id="pedido" name = "pedido">
 
-			<div style="display:inline-block; width:calc(98% / 3)">
-			<label> Pedido </label> 
-            <select required style="border: 1px solid #d9dce0;  background: white; width:100%; height:34px;" onchange="keyped()"  id="pedido" name = "pedido">
+								<option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPM 1-0</option>
 
-                <option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPM 1-0</option>
+								<option value="Promoção à graduação  de 1º Sgt. QPM 1-0">Promoção à graduação  de 1º Sgt. QPM 1-0</option>
 
-                <option value="Promoção à graduação  de 1º Sgt. QPM 1-0">Promoção à graduação  de 1º Sgt. QPM 1-0</option>
+								<option value="Promoção à graduação  de 2º Sgt. QPM 1-0">Promoção à graduação  de 2º Sgt. QPM 1-0</option>
 
-                <option value="Promoção à graduação  de 2º Sgt. QPM 1-0">Promoção à graduação  de 2º Sgt. QPM 1-0</option>
+								<option value="Promoção à graduação  de 3º Sgt. QPM 1-0" >Promoção à graduação  de 3º Sgt. QPM 1-0</option>
 
-                <option value="Promoção à graduação  de 3º Sgt. QPM 1-0" >Promoção à graduação  de 3º Sgt. QPM 1-0</option>
+								<option value="Promoção à graduação  de Cb. QPM 1-0">Promoção à graduação  de Cb. QPM 1-0</option>
 
-                <option value="Promoção à graduação  de Cb. QPM 1-0">Promoção à graduação  de Cb. QPM 1-0</option>
+								<option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
 
-                <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
+								<option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
 
-                <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
+								<option value="Retificação de publicação">Retificação de publicação</option>
 
-                <option value="Retificação de publicação">Retificação de publicação</option>
+								<option value="Reconsideração de Ato">Reconsideração de Ato</option>
 
-                <option value="Reconsideração de Ato">Reconsideração de Ato</option>
+								<option value="Pontos positivos">Pontos positivos</option>
 
-                <option value="Pontos positivos">Pontos positivos</option>
+								<option value="Ato de Bravura" >Ato de Bravura</option>
 
-                <option value="Ato de Bravura" >Ato de Bravura</option>
+								<option value="Sub-Judice">Sub-Judice</option>
+							</select>
+						</div>
 
-                <option value="Sub-Judice">Sub-Judice</option>
-            </select>
-			</div>
-                    
-            <input type="hidden" name="keypedido" id="keyp" value="  "> <!-- No final do código, scrpit responsável por pegar 'value' de 'option' e inserir no '<input type="hidden" name="keypedido">'. Verificar o motivo no aquivo " App\Http\Controllers\Presidente\PresidenteController "  -->
-            
+						<div class="col-3" style="">
+							<label> Data. </label>
+							<input required class="form-control" value=" {{ $editSid[0]->entry_system_data }} " name="entry_system_date" type="date" placeholder="" style="background: #f4f6f9;">
+						</div>
+					</div>  
+					<!-- row -->
+						<!-- No final do código, scrpit responsável por pegar 'value' de 'option' e inserir no '
+						<input type="hidden" name="keypedido">'. Verificar o motivo no aquivo " 
+						App\Http\Controllers\Presidente\PresidenteController "  -->
+						<input type="hidden" name="keypedido" id="keyp" value="  "> 
+					
+					<div style="display:inline-block; width:calc(100% / 2)">
+						<label> CPF </label>
+						<input required class="form-control" value=" {{ $editSid[0]->cpf }} " name="cpf" type="text" placeholder="" style="background: #f4f6f9;">	
+					</div>
+
+					<div style="display:inline-block; width:calc(98% / 2)">
+						<label> Unidade. </label>
+						<input required class="form-control" value= " {{ $editSid[0]->unidade }} " name="unidade" type="text" placeholder="" style="background: #f4f6f9;">	
+					</div>
+
+					<div class="row">
+						<div class="col-4" style=" ">
+							<label> Graduação </label>
+							<input required class="form-control" value=" {{ $editSid[0]->graduacao }} " name="graduacao" type="text" placeholder="" style="background: white;">
+						</div>
+
+						<div class="col-4" style="">
+							<label> eProtocolo </label>
+							<input required class="form-control" value=" {{ $editSid[0]->eProtocolo }} " name="eProtocolo" type="text" placeholder="" style="background: white;">
+						</div>
+						
+						<div class="col-4" style=" ">
+							<label> Status. </label>
+							<input required readonly class="form-control" name="status" value=" {{ $editSid[0]->status }} " type="text" placeholder="" style="background: #f4f6f9;">
+						</div>
+					</div>
+        		@endif						
  
-			<div style="display:inline-block; width:calc(100% / 2)">
-				<label> CPF </label>
-				<input required class="form-control" value=" {{ $editSid[0]->cpf }} " name="cpf" type="text" placeholder="" style="background: #f4f6f9;">	
-			</div>
+				<br>
 
-			<div style="display:inline-block; width:calc(98% / 2)">
-				<label> Unidade. </label>
-				<input required class="form-control" value= " {{ $editSid[0]->unidade }} " name="unidade" type="text" placeholder="" style="background: #f4f6f9;">	
-			</div>
-
-			<div style="display:inline-block; width:calc(100% / 2)">
-				<label> Graduação </label>
-            	<input required class="form-control" value=" {{ $editSid[0]->graduacao }} " name="graduacao" type="text" placeholder="" style="background: white;">
-			</div>
-
-			<div style="display:inline-block; width:calc(98% / 2)">
-				<label> eProtocolo </label>
-            	<input required class="form-control" value=" {{ $editSid[0]->eProtocolo }} " name="eProtocolo" type="text" placeholder="" style="background: white;">
-			</div>
-
-             
-			<div style="display:inline-block; width:calc(99% / 2)">
-				<label> Status. </label>
-				<input required readonly class="form-control" name="status" value=" {{ $editSid[0]->status }} " type="text" placeholder="" style="background: #f4f6f9;">
-			</div>
-
-			<div style="display:inline-block; width:calc(98% / 2)">
-				<label> Data. </label>
-				<input required class="form-control" value=" {{ $editSid[0]->entry_system_data }} " name="entry_system_date" type="date" placeholder="" style="background: #f4f6f9;">
-			</div>
-
-            @endif						
- 
- 
- 
-
-        <table> 
-            <tbody> 
-                <tr align="center">
-                    <label> <strong> DESCRIÇÃO. </strong>  </label>
-                    <textarea value=" "  class="form-control"  type="text" name="conteudo" style=" min-width:100%; overflow: hidden; background: white;" rows="6" cols="60"> 
-                        {{ $editSid[0]->conteudo }} 
-                    </textarea>
-                </tr>
-            </tbody>
-        </table>
+				<table> 
+					<tbody> 
+						<tr align="center">
+							<label> <strong> DESCRIÇÃO. </strong>  </label>
+							<textarea value=" "  class="form-control"  type="text" name="conteudo" style=" min-width:100%; overflow: hidden; background: white;" rows="6" cols="60"> 
+								{{ $editSid[0]->conteudo }} 
+							</textarea>
+						</tr>
+					</tbody>
+				</table>
+				
+				<br>
+        	
+				<button type="submit" class="btn btn-warning">  <i class="fa fa-edit" style="font-size: 22px"></i> Confirmar edição. </button>
         
-		<br>
-        <button type="submit" class="btn btn-warning">  <i class="fa fa-edit" style="font-size: 22px"></i> Confirmar edição. </button>
-        
-        {!! Form::close() !!} <!-- form -->
-        
-            @else
-                <div style="width: 100%; height: auto;" align="center"> 
-                    <span > <h3 style="color: #5b5b5b;"> Info ! <small style="font-size: 16px; color: #9e9e9e;" > eProtocolos que já foram SORTEADOS não podem ser alterados. </small> </h3>  </span> 
-                    <i class="fas fa-ban" style="font-size: 40px; color: #5b5b5b; "></i>
-                </div>
-
+			{!! Form::close() !!} 
+			<!-- form end -->
+			
+			@else
+				<div style="width: 100%; height: auto;" align="center"> 
+					<span > <h3 style="color: #5b5b5b;"> Info ! <small style="font-size: 16px; color: #9e9e9e;" > eProtocolos que já foram SORTEADOS não podem ser alterados. </small> </h3>  </span> 
+					<i class="fas fa-ban" style="font-size: 40px; color: #5b5b5b; "></i>
+				</div>
         @endif
-    </div><!-- panel-body table-responsive -->    
+		</div>
+		<!-- card-body -->
 
-    <div class="panel-footer text-center"> </div>
+		<div class="card-footer"> </div>
+    </div>
+	<!-- card -->    
     
 
 

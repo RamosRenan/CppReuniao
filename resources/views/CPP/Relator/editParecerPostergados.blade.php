@@ -14,10 +14,10 @@
     <section style="width: 100%; height:auto;"> 
         <div class="card text-center">
             <div class="card-header " style=" " >
-                <h5 style="color: black;"> 
-                    <i style="color: #ff3300; font-size: 28px;" class="far fa-clock"></i> <br>
+                <h4 style="color: black;"> 
+                    <i style="color: #ff3300;" class="far fa-clock"></i>
                     <small> Este pedido está na condição de Postergado. </small>
-                </h5>
+                </h4>
             </div>
 
             <div class="card-body" style="max-height: auto; ">
@@ -90,6 +90,11 @@
                         
                     </div>
                     <!-- form-row -->
+
+                    <button style="float:left;" type="button" class="btn btn-info"><i class="fas fa-paperclip"></i> &nbspArquivos anexados</button>
+
+                    <br>
+                    <br>
                                     
                     <div class="form-group">
                         <label class=""  for="exampleCheck1" style="font-weight: lighter; float: left;">Parecer</label>
@@ -100,7 +105,6 @@
 
                     <button type="submit" class="btn btn-primary"> <i class="far fa-edit"></i> &nbsp Alterar</button>
                     &nbsp&nbsp
-                    <button type="button" class="btn btn-warning"><i class="fas fa-paperclip"></i> &nbspArquivos anexados</button>
                 </form>
                 @endif
             </div>

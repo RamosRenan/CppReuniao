@@ -86,7 +86,7 @@ tr:nth-child(even) {
                 <td>{{$registersDeliber[0]->votacao_comissao}}</td>
             </tr>
             <tr>
-                <td><b> Contúdo </b></td>
+                <td><b> Conteúdo </b></td>
                 <td style="text-align:justify;">{{$registersDeliber[0]->conteudo}}</td>
             </tr>
         </table>

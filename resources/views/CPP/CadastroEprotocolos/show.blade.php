@@ -4,113 +4,119 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"> </script> 
 @yield('content')
 
-@section('content')          
- 
-        <div class="card text-center">
-        <form method="PUT" action="route('cpp.cadastroE-protocolo.show', 0)"> 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div class="card-footer text-muted">
-                <div class="row" style=" ">
-                    <div class="col-4" style="display: flex;">
-                        <input class="form-control" type="text" NAME="search_pedido" placeholder="'  RG | CPF | NOME | N° eProtocolo  ' " style=" background: white; max-width: 430px; ">
-                        <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i>  </button>
-                    </div>
+@section('content')    
+        <!-- card -->
+        <div class="card">
+            <form method="PUT" action="route('cpp.cadastroE-protocolo.show', 0)"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <div class="col-4"> </div>
+                <!-- card-header -->
+                <div class="card-header">
+                    <div class="row" style=" ">
+                        <div class="col-4" style="display: flex;">
+                            <input class="form-control" type="text" NAME="search_pedido" placeholder="'  RG | CPF | NOME | N° eProtocolo  ' " style=" background: white; max-width: 430px; ">
+                            <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i>  </button>
+                        </div>
 
-                    <div class="col-4">
-                        <h5 style="float: right; margin-left: 26px; color: #2874a6;"> Total: <u style="color: magenta;"> {{count($Police_Together_eProtocolo)}} </u> </h5>
-                    <div >
-                </div>       
-            </div>
-            
-            <div class="card-body" style="max-height: 460px; overflow-y: scroll; background-color:white;">
-                <table class="table">
-                    <thead style="">
-                        <tr style=" color:black;">
-                            <th scope="col" style=" font-weight: normal;">
-                                nome 
-                            </th>
+                        <div class="col-4" align="center"> 
+                            <h4> <i class="far fa-address-card"></i> &nbsp Protocolos Cadastrados </h4>
+                        </div>
 
-                            <th scope="col" style=" font-weight: normal;"> 
-                                rg 
-                            </th>
+                        <div class="col-4" align="center">
+                            <h5 style="float: right; color: #364fc7;"> <small> Total cadastrados. <br>  <i class="fas fa-inbox"> {{count($Police_Together_eProtocolo)}} </i> </small> </h5>
+                        </div>
+                    </div>       
+                </div>
+                <!-- card-header -->
 
-                            <th scope="col" style=" font-weight: normal;">
-                                cpf                     
-                            </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                eProtocolo                     
-                            </th>
+                <!-- card-body -->
+                <div class="card-body" style="max-height: 460px; overflow-y: scroll; background-color:white;">
+                    <table class="table">
+                        <thead style="">
+                            <tr style=" color:black;">
+                                <th scope="col" style="">
+                                    nome 
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                unidade                     
-                            </th>
+                                <th scope="col" style=""> 
+                                    rg 
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                graduação                     
-                            </th>
+                                <th scope="col" style="">
+                                    cpf                     
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                pedido                     
-                            </th>
+                                <th scope="col" style="">
+                                    eProtocolo                     
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                status                         
-                            </th>
+                                <th scope="col" style="">
+                                    unidade                     
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;" >
-                                cadastro                         
-                            </th>
+                                <th scope="col" style="">
+                                    graduação                     
+                                </th>
 
-                            <th scope="col" style=" font-weight: normal;">
-                                descricao.                       
-                            </th>
-                            <th scope="col" style=" font-weight: normal;">
-                                editar.                         
-                            </th>
+                                <th scope="col" style="">
+                                    pedido                     
+                                </th>
 
-                        </tr>
-                    </thead>
+                                <th scope="col" style="">
+                                    status                         
+                                </th>
 
-                    <tbody>
-                        @foreach($Police_Together_eProtocolo as $key => $value)
-                            @if(isset($Police_Together_eProtocolo))
-                                <tr>
-                                    <td> {{ $value->nome }}                </td>
-                                    <td> {{ $value->rg }}                  </td>
-                                    <td> {{ $value->cpf }}                 </td>
-                                    <td> {{ $value->eProtocolo }}          </td>
-                                    <td> {{ $value->unidade }}             </td>
-                                    <td> {{ $value->graduacao }}           </td>
-                                    <td> {{ $value->pedido }}              </td>
-                                    <td> {{ $value->status }}              </td>
-                                    <td align="center"> {{ $value->entry_system_data }}  </td>    
-                                    <td align="center"> 
-                                        <i style="cursor:pointer;" onclick="slideDescription(this)" id="{{$key}}" class="far fa-list-alt"></i> 
-                                    </td>
-                                    <td align="center"> 
-                                        <a style="  "  href="{{ route('cpp.cadastroE-protocolo.edit', $value->cpf ) }}"> 
-                                            <i class="fas fa-edit" style="color: #36a2eb; cursor: pointer; font-size: 19px; "></i>             
-                                        </a> 
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td colspan="11" type="hidden" id="description{{$key}}" class="description{{$key}}" style="border: solid 1px #38afff; box-shadow: 0px 0px 4px 2px #a8a8a8; display:none;">
-                                        {{  $value->conteudo }}
-                                    </td>
-                                </tr>   
-                            @endif
-                        @endforeach
+                                <th scope="col" style="" >
+                                    cadastro                         
+                                </th>
 
-                    </tbody>  
+                                <th scope="col" style="">
+                                    descricao.                       
+                                </th>
+                                <th scope="col" style="">
+                                    editar.                         
+                                </th>
 
-                </table>
-            </div>
-            <!-- table table-bordered table-striped -->
-        </form> 
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach($Police_Together_eProtocolo as $key => $value)
+                                @if(isset($Police_Together_eProtocolo))
+                                    <tr>
+                                        <td> {{ $value->nome }}                </td>
+                                        <td> {{ $value->rg }}                  </td>
+                                        <td> {{ $value->cpf }}                 </td>
+                                        <td> {{ $value->eProtocolo }}          </td>
+                                        <td> {{ $value->unidade }}             </td>
+                                        <td> {{ $value->graduacao }}           </td>
+                                        <td> {{ $value->pedido }}              </td>
+                                        <td> {{ $value->status }}              </td>
+                                        <td align="center"> {{ $value->entry_system_data }}  </td>    
+                                        <td align="center"> 
+                                            <i style="cursor:pointer;" onclick="slideDescription(this)" id="{{$key}}" class="far fa-list-alt"></i> 
+                                        </td>
+                                        <td align="center"> 
+                                            <a style="  "  href="{{ route('cpp.cadastroE-protocolo.edit', $value->cpf ) }}"> 
+                                                <i class="fas fa-edit" style="color: #36a2eb; cursor: pointer; font-size: 19px; "></i>             
+                                            </a> 
+                                        </td>
+                                    </tr> 
+                                    <tr>
+                                        <td colspan="11" type="hidden" id="description{{$key}}" class="description{{$key}}" style="border: solid 1px #38afff; box-shadow: 0px 0px 4px 2px #a8a8a8; display:none;">
+                                            {{  $value->conteudo }}
+                                        </td>
+                                    </tr>   
+                                @endif
+                            @endforeach
+                        </tbody>  
+                    </table>
+                </div>
+                <!-- card-body -->
+            </form> 
         </div>
+        <!-- card -->
 
 
         <script type="text/javascript"> 

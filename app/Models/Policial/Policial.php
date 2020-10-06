@@ -12,4 +12,10 @@ class Policial extends Model
     public function eProtocolo(){
         return $this->hasMany(' App\Models\E_Protocolo\eProtocolo');
     }
+
+
+    public function policial(){
+        return $this->hasOne('App\Models\Policial\Policial');
+     }
+ 
 }
