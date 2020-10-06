@@ -20,36 +20,32 @@
     </section>
     
     <div class="card" >
-        <div class="card-header" align="center" style="max-height: 60px;">
-            <div class="container">
-                <div class="row" align="center">
-                    <div class="col-sm">
-                        <form class="form-inline">
-                            <div class="form-group mx-sm-3 mb-2">
-                                <input style="height: 33px;" type="text" class="form-control"  placeholder="Procurar">
-                                <button style="position: relative;  top: 5px;" type="submit" class="btn btn-primary mb-2"> 
-                                    <i style="font-size: 18px;" class="fas fa-search"></i> 
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-sm">
-                       <h5 style="color: #223A5E;"> 
-                            Pedidos 44A à serem análisados. <br>
-                            <small style="color: #495057; font-size: 12px;"> <i class="fas fa-info"></i> &nbspTodos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
-                        </h5>
-                    </div>
-                    <div class="col-sm" align="right">
-                        <h5 style="color: #009ACD;"> 
-                            Total: 
-                                @if(isset($my44A))
-                                    {{count($my44A)}} 
+        <div class="card-header"  style="max-height: 60px;">
+            <div class="row" align="center">
+                <div class="col-sm">
+                    <form class="form-inline" >
+                        <input style="height: 33px; " type="text" class="form-control"  placeholder="Procurar">
+                        <button style="position: relative;  top: 5px;" type="submit" class="btn btn-primary mb-2"> 
+                            <i style="font-size: 18px;" class="fas fa-search"> </i> 
+                        </button>
+                    </form>
+                </div>
+                <div class="col-sm">
+                    <h5 style="color: #223A5E;"> 
+                        Pedidos 44A à serem análisados. <br>
+                        <small style="color: #495057; font-size: 12px;"> <i class="fas fa-info"></i> &nbspTodos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
+                    </h5>
+                </div>
+                <div class="col-sm" align="right">
+                    <h5 style="color: #009ACD;"> 
+                        Total: 
+                            @if(isset($my44A))
+                                {{count($my44A)}} 
 
-                                    @else
-                                        0
-                                @endif
-                        </h5> 
-                    </div>
+                                @else
+                                    0
+                            @endif
+                    </h5> 
                 </div>
             </div>
         </div>
@@ -135,6 +131,15 @@
                     </div>
 
                     <br>
+
+                    <div class="row"> 
+                        <div class="form-group">
+                            <label for="fileRelatorRelatorio"> Insira seu relatório aqui </label> <span> (Tamanho max. <b>10MB</b>) &nbsp; (Type: &nbsp; <b>pdf</b>) </span>  
+                            <input type="file" name="fileRelatorRelatorio" class="form-control-file" id="fileRelatorRelatorio"> 
+                        </div>
+                    </div>
+
+                    <br>
                     <!-- terceira linha do form -->
                     <div class="form-group row" align="center">
                         <div class="col-md-12" style=" " align="center">
@@ -161,11 +166,11 @@
                     <br>
 
                     <!-- @ type="hidden" name="eProtocolo_referer_44A" @
-                            --------------------------------------------
-                            Não deve ser retirado enviado com 
-                            form  para posterior uso identifica 
-                            qual o 44a 
-                            ---------------------------------------------
+                        --------------------------------------------
+                        |    Não deve ser retirado enviado com      |
+                        |   form  para posterior uso identifica     |
+                        |   qual o 44a                              |
+                        ---------------------------------------------
                     -->
                     <input type="hidden" name="eProtocolo_referer_44A" value="{{ $key->eProtocolo }}">
                 </form>
