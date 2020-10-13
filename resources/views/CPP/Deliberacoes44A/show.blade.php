@@ -15,7 +15,6 @@
         <title style="float:rigth;"> Deliberação </title>
     </head>
 
-
     
     <body style="width:100%; max-height: 300px; ">
         <header>            
@@ -24,22 +23,20 @@
             </div>
         </header>
 
-
         <section style="width:99%; heigth:auto; position:relative; top:50px;">
             <div align="center"> 
                 <span style="position: relative; top: -15px;"> <strong> <u> {{ $currentAta }} ª Reunião da Comissão de Promoções de Parças </u> </strong> </span>
                 <h4> 
                     <strong>   
-                        D E L I B E R A Ç Ã O Nº ____ / 2019
+                        DELIBERAÇÃO Nº ____ / {{date('Y')}}
                     </strong>                
                 </h4>
             </div>
         </section>    
 
-
         <section style="width:99%; heigth:auto; position:relative; top: 40px;">
             <div align="center" style="text-align:justify;">  
-            <div style="width:94%; heigth:auto; margin:auto;">
+                <div style="width:94%; heigth:auto; margin:auto;">
                     <textarea readonly maxlength="1550" style="border:solid 1px #a5d8ff; width:100%; text-align:justify; " rows="8" cols="60">                        
                         {{ $dataThis44A }}
                     </textarea>
@@ -47,13 +44,10 @@
             </div> 
         </section> 
 
-
         <!--@ Tabela Carregada com Ajax com votos dos relatores @-->         
         <section style="width:99%; heigth:auto; position:relative; top: 50px;">
-
             <!-- Table com mebros e seus votos -->
             <table align="center"  style="text-align:justify;">
-
                 <thead> 
                     <tr>
                         <th style="font-size: 10px; min-width: 60px;"    >  <div align="center"> Voto<br>Contra.    </div>  </th>
@@ -64,8 +58,7 @@
                 </thead>                    
 
                 <!-- @ body table @ -->
-                <tbody>
-
+                <tbody>                   
                     <!-- tr exclusivo para presidente -->
                     <tr> 
                         <td></td>
@@ -82,7 +75,16 @@
                         <td></td> 
                     </tr>
                     <!-- /tr exclusivo para presidente -->
-                    
+
+                    @if(isset($realtorThisDeliber))
+                    <tr> 
+                        <td align="center">-</td>
+                        <td align="center">-</td>
+                        <td align="center">{{$realtorThisDeliber[0]->posto}} {{$realtorThisDeliber[0]->nome}} &nbsp; &nbsp; <b>{{$realtorThisDeliber[0]->qualificacao}}</b></td> 
+                        <td align="center"><b>**  Relator  **</b></td> 
+                    </tr>
+                    @endif
+
                     <!-- verifica se votou contra ou a favor -->
                     @if(isset($relationVote44A))
                         @foreach( $relationVote44A as $key )
@@ -98,7 +100,7 @@
                                     @endif 
                                 </td>
                                 <td> 
-                                    {{$key->posto}} {{$key->nome}} 
+                                    {{$key->posto}} {{$key->nome}} &nbsp; &nbsp; <b>{{$key->qualificacao}}</b>
                                 </td> 
                                 <td> 
                                     <b> Assinado digitalmente. </b> 
@@ -110,13 +112,10 @@
                         @endforeach
                     @endif
                     <!-- @ Referência cada linha com nome único. @ -->
-                    
                 </tbody> 
                 <!-- @ And body table @ -->
-
             </table>
             <!-- Table com mebros e seus votos -->
-
         </section>          
         <!--@ Final Sessão: Tabela Carregada com Ajax com votos dos relatores @-->
     
@@ -127,7 +126,7 @@
                 <!--  Carga de membros que ja votaram -->
                 <a href="/cpp/updateVotoRelatoresDeliber44A?this44AeProtocolo={{$this44AeProtocolo}}"> 
                     <!-- ícone Atualiza os votos dos Relatores -->                        
-                    <span class="glyphicon glyphicon-repeat" style=" font-size: 22px; color: gray; border-radius: 22px; box-shadow: 0px 2px 3px 1px #b5c3c9; cursor:pointer; " >  </span> 
+                    <h3 class="glyphicon glyphicon-repeat" style=" color: gray; border-radius: 22px; box-shadow: 0px 2px 3px 1px #b5c3c9; cursor:pointer; " >  </h3> 
                     Atualizar votos.
                 </a>
             </div>

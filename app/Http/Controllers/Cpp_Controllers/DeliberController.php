@@ -16,6 +16,7 @@ use App\Models\Relation_Vote_Deliber\relation_vote_each_deliberacao;
 use App\Models\secretario_e_presidente\secretario_e_presidente;
 use App\Models\_A44A\_A44A;
 use  App\Models\Ata\ata;
+use  App\Models\Members_Relatores_President\Members_Relatores_and_President;
 use App\Http\Controllers\Cpp_Controllers\AtaController;
 use App\Models\eProtocoloSorteados\eProtocolosSorteados;
 
@@ -243,19 +244,22 @@ class DeliberController extends Controller
         ->orWhere('qualificacao', 'Presidente')
         ->where('status', true)->get();
  
-        $this44A = _A44A::where('eProtocolo', $eProtocolo44_A)
+        $relationVote44Athis44A = _A44A::where('eProtocolo', $eProtocolo44_A)
         ->join('notifications', 'notifications.id_notification', '=', 'A_44_A.id_notification' )
         ->join('relation_vote_each_44A', 'relation_vote_each_44A.id', '=', 'A_44_A.id')
         ->join('Members_Relatores_and_President', 'Members_Relatores_and_President.id', '=', 'relation_vote_each_44A.id_membro')
         ->get();
 
-        if(count($this44A) > 0){
-            return view('CPP.Deliberacoes44A.show')->with(['this44A'=>$this44A, 
-            'this44AeProtocolo'     =>  $this44A[0]->eProtocolo,
-            'dataThis44A'           =>  $this44A[0]->contain_delibercao,
+        $realtorThisDeliber = Members_Relatores_and_President::where('id', $relationVote44Athis44A[0]->id_response_relator)->get();
+
+        if(count($relationVote44Athis44A) > 0){
+            return view('CPP.Deliberacoes44A.show')->with(['this44A'=>$relationVote44Athis44A, 
+            'this44AeProtocolo'     =>  $relationVote44Athis44A[0]->eProtocolo,
+            'dataThis44A'           =>  $relationVote44Athis44A[0]->contain_delibercao,
             'presidenteSecretario'  =>  $presidenteSecretario,
             'currentAta'            =>  $currentAta[0]->numero_ata,
-            'relationVote44A'       =>  $this44A        
+            'relationVote44A'       =>  $relationVote44Athis44A ,       
+            'realtorThisDeliber'    =>  $realtorThisDeliber        
             ]);
         }else{
             return redirect($_SERVER['HTTP_REFERER']);

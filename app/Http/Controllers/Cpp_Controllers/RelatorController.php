@@ -471,11 +471,11 @@ class RelatorController extends Controller
         
         try {
             //code...
-            $newRelationVote44A = new relation_vote_each_44A;
-            $newRelationVote44A->id = $request->input('id44A');
-            $newRelationVote44A->id_membro = $request->input('id_membro');
-            $newRelationVote44A->secretario_desta_deliberacao = $request->input('secretario_desta_deliberacao');
-            $newRelationVote44A->presidente_desta_deliberacao = $request->input('presidente_desta_deliberacao');
+            $newRelationVote44A                                 = new relation_vote_each_44A;
+            $newRelationVote44A->id                             = $request->input('id44A');
+            $newRelationVote44A->id_membro                      = $request->input('id_membro');
+            $newRelationVote44A->secretario_desta_deliberacao   = $request->input('secretario_desta_deliberacao');
+            $newRelationVote44A->presidente_desta_deliberacao   = $request->input('presidente_desta_deliberacao');
 
             if($request->input('vote') == 'contra'){
                 $newRelationVote44A->votou_contra = true;

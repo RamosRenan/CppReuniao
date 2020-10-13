@@ -23,7 +23,7 @@
         <header>            
             <div> 
                 @lang('globalDocsCpp.header.deliberacao')
-            </div>
+            </div> 
         </header>
 
 

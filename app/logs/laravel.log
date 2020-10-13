@@ -1502,3 +1502,6 @@
 [2020-10-08 16:31:14] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
         - Token: $2y$10$XF7ajnPNtouetl7KXwxJceyfceClPLtkZVSXwCHKDESkdU825myoS - Permission Accesss: @@ superadmin @@
   
+[2020-10-13 10:50:36] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$uqL1DKZIqyOXu6upBtz6jOrb.vlaWJdyjyxAbLG2Xv6Dkh8ZZBOV. - Permission Accesss: @@ superadmin @@
+  

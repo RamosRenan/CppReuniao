@@ -14,33 +14,42 @@
 <div class="card" style=" ">
     <div class="card-body">
         <h3 class=" ">Votação 44a</h3>
+
         <h6 class="card-subtitle mb-2 text-muted">Aqui você tem acesso a deliberação 44a em votação no momento.</h6>
+
         <h6 class="card-subtitle mb-2 text-muted" >
-            <i class="fas fa-info-circle"></i> 
-            <span style="color: blue;">
-                &nbsp Se não é disponibilizado o botão para que você registre seu voto, 
+            &nbsp; &nbsp;<i class="fas fa-info-circle"></i> 
+            <span style="">
+                &nbsp; &nbsp; Se não é disponibilizado o botão para que você registre seu voto, 
                 certifique-se que de não seja o relator.
             </span>
         </h6>
-        <br>
-        <h4 class="" style="color: #00BFFF;"><u>Texto da deliberação</u></h4>
+
+        <br/>
+
+        <div class="row" style="width: 100%; ">
+            <h5 style="margin: 0 auto;"> Texto da deliberação </h5> 
+        </div>
+
+        <br/>
 
         <!-- conteudo da deliberacao -->
         <p class="card-text" style="text-align: justify;">
             @if(isset($emptyToVote44A) && $emptyToVote44A)
                 {{$vote44AData}}
                 @else
-                    <h6 class="card-subtitle mb-2 text-muted">
+                    <h4 class="card-subtitle mb-2 text-muted">
                         Não há deliberação no momento.
-                    </h6>
+                    </h4>
             @endif
         </p>
         <!-- conteudo da deliberacao -->
 
+        <hr/>
         <!-- Confirma relator que votou e concorda com texto-->
         <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck1">
-        <label style="color: #00539C;" class="custom-control-label" for="customCheck1">Eu, concordo com o texto desta deliberção. </label>
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label style="color: #00539C;" class="custom-control-label" for="customCheck1">Eu, concordo com o texto desta deliberção. </label>
         </div>
 
         <!-- se não é relator, então mostra o form  -->
