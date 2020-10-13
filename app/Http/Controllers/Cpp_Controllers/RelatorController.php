@@ -17,6 +17,11 @@ use App\Models\Policial\Policial;
 use App\Models\Relation_Each_44A\relation_vote_each_44A;
 use App\Models\Members_Relatores_President\Members_Relatores_and_President;
 use App\Models\Ative_Inative_Relator\users_ative_and_inative_cpp;
+use Illuminate\Support\Facades\Validator;
+use App\Exceptions\CustomException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Exceptions\Handler;
+use App\Http\Controllers\Cpp_Controllers\RegistryRelatorioRelatorController;
 
 
 class RelatorController extends Controller
@@ -71,6 +76,29 @@ class RelatorController extends Controller
 
     /*@  store()  @*/
     public function store(Request $request){
+
+        // return $request;
+
+        $validator=Validator::make($request->all(),[
+            'parecer'=>'required|string'
+        ]);
+
+        if($validator->fails()){
+            return redirect($_SERVER['HTTP_REFERER'])
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $usename    = User::where('id',  Auth::user()->id)->get();
+
+        if($request->file('fileRelatRelat')->isValid() && $request->hasFile('fileRelatRelat') && $request->file('fileRelatRelat')->getClientOriginalExtension() == 'pdf' && ($request->file('fileRelatRelat')->getMaxFilesize() / 1000000) <= 10){
+            $registryRelatorio = new RegistryRelatorioRelatorController($request, $usename[0]->username);
+            echo  $registryRelatorio->store();
+        }else{
+            return redirect($_SERVER['HTTP_REFERER'])
+                        ->withErrors("Algo de errado com o arquivo. Verifique-o.")
+                        ->withInput();
+        }
     
         $num_sid      = $request->input('num_sid'     );
         $parecer      = $request->input('parecer'     );
@@ -87,7 +115,6 @@ class RelatorController extends Controller
         ->update(['status'=>'Relatado']);
 
         return redirect()->route('cpp.relator.index');
-
     } /*@  store()  @*/
 
 
@@ -126,6 +153,8 @@ class RelatorController extends Controller
 
     /*@  create()  @*/
     public function create(){
+        //teste
+        // return "teste de retorno";
 
         $resp = notification::where('read_at', null)
         ->orderBy('id_notification', 'Desc')
@@ -159,6 +188,8 @@ class RelatorController extends Controller
                     return RelatorController::index();
                 }# @ if()@ #
                 else{
+                    //teste ...
+                    // return $return_to_vote_member;
                     return view('CPP.Relator.votardeliberacao')
                     ->with(['usename'=>$usename, 
                             'Usorteados'=>$Usorteados, 
@@ -394,9 +425,25 @@ class RelatorController extends Controller
     }# votar44A
 
     
+    /*Registro do parecer do relator referente a pedidos 44a*/
     public function update44_A(Request $request){
 
+        //teste de retorno $request
+        // return $request;
+        
+        $request->validate([
+            'opnouPor'                  =>  ['bail', 'required', 'string'],
+            'myParecer'                 =>  ['bail', 'required', 'string']
+        ]);
+
         $usename    = User::where('id',  Auth::user()->id)->get();
+        
+        if($request->file('fileRelatRelat')->isValid() && $request->hasFile('fileRelatRelat') && $request->file('fileRelatRelat')->getClientOriginalExtension() == 'pdf' && ($request->file('fileRelatRelat')->getMaxFilesize() / 1000000) <= 10){
+            $registryRelatorio = new RegistryRelatorioRelatorController($request, $usename[0]->username);
+            echo  $registryRelatorio->store();
+        }else{
+            return redirect($_SERVER['HTTP_REFERER'])->with('wrongClip', true);
+        }
 
         $referer44A = $request->input('eProtocolo_referer_44A');        
         $parecer    = $request->input('opnouPor');        
@@ -407,7 +454,6 @@ class RelatorController extends Controller
         $my44A = _A44A::where( 'A_44_A.id_response_relator', Auth::user()->id )
         ->where('relator_opnou_por', null)
         ->join('policial', 'policial.cpf', '=', 'A_44_A.id_policial')->get();
-        
 
         return view('CPP/Relator/edit')->with(['usename'=>$usename, 'updateSuccess'=>'true', 'my44A'=>$my44A]);
 

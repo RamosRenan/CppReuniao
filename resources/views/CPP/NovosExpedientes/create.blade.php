@@ -11,7 +11,6 @@
     <div class="card text-center">
         <div class="card-header">
             <h4 class=" "><i class="far fa-address-card"></i> &nbsp Pedido selecionado </h4>
-
         </div>
     
         <!-- card-body -->

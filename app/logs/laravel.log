@@ -1491,3 +1491,14 @@
 [2020-10-06 11:17:31] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
         - Token: $2y$10$9czGNRZ7PE45HPtMP3c.ou4/ROTXUoxJ1Oxuipec3bd2n2WaVI7pO - Permission Accesss: @@ superadmin @@
   
+[2020-10-08 14:55:00] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$XF7ajnPNtouetl7KXwxJceyfceClPLtkZVSXwCHKDESkdU825myoS - Permission Accesss: @@ superadmin @@
+  
+[2020-10-08 14:55:04] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$XF7ajnPNtouetl7KXwxJceyfceClPLtkZVSXwCHKDESkdU825myoS - Permission Accesss: @@ superadmin @@
+  
+[2020-10-08 14:55:18] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 1 - Token: $2y$10$XF7ajnPNtouetl7KXwxJceyfceClPLtkZVSXwCHKDESkdU825myoS - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: AUGUSTO CESAR ALVINO DA SILVA - RG: 49532660
+  
+[2020-10-08 16:31:14] local.NOTICE: Acessou Url: http://localhost:8000/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 1 
+        - Token: $2y$10$XF7ajnPNtouetl7KXwxJceyfceClPLtkZVSXwCHKDESkdU825myoS - Permission Accesss: @@ superadmin @@
+  

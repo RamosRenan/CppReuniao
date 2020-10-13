@@ -9,12 +9,25 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 @yield('content')
 
+<style> 
+    .card-body:nth-of-type(even) {
+    background: #f8f9fa;
+    }
+     
+</style>
+
 @section('content')
 
     <section> 
         @if(isset($updateSuccess) == 'true')
             <div class="alert alert-success" role="alert" style="margin-top: 22px;">
                 Parecer registrado. Atualizado com Sucesso.
+            </div>
+        @endif
+
+        @if(\Session::has('wrongClip'))
+            <div class="alert alert-danger" role="alert" style="margin-top: 22px;">
+                Algo de errado com o arquivo. Verifique o anexo.
             </div>
         @endif
     </section>
@@ -50,28 +63,30 @@
             </div>
         </div>
         <!-- card-body -->
-        <div class="card-body" style="height: auto; overflow-y: scroll;">
             @if(isset($my44A) && !empty($my44A))
                 @foreach($my44A as $key)
+                <div class="card-body" style="height: auto; overflow-y: scroll;">
                 <br> <br>
-                <form method="POST" action="update44A" align="center">
+                <form method="POST" action="update44A" align="center" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="form-group row">
-                        <div class="col-sm-4" style=" ">
-                            <i style="font-size: 45px; color: #00BFFF;" class="far fa-user-circle"></i>
+                        <div class="col-5" style=" ">
+                            <i style="font-size: 30px; color: #00BFFF;" class="far fa-user-circle"></i>
                             &nbsp
-                            <input style=" margin-top: -35px; font-weight: bold; background: transparent; border: none;" name="Nome"  type="text" readonly  value="{{$key->nome}}">
+                            <input style="width:100%; background: transparent; border: none;  font-weight: bold;" name="Nome"  type="text" readonly value="{{ $key->nome }}">
                         </div>
 
-                        <div class="col-sm-4" style="width: 100%; height:100%;">
-                            <textarea placeholder="Sua descrição do parecer" name="myParecer" style="background: transparent; border: none; border-bottom: solid 1px black; width: 100%; heihgt:100%;" rows="1" required>
-                                Sua descrição do parecer
-                            </textarea>
+                        <div class="col-4" style="width: 100%; height:100%;">
+                            <label> Meu parecer &nbsp; <small>(descrição)</small></label>
+                            <textarea rows="1" class="form-control is-invalid" name="myParecer" style="background: transparent; border: none; border-bottom: solid 1px black; width: 100%;"  required> </textarea>
                         </div>
 
-                        <div class="col-sm-3" style=" ">
+                        <div class="col-3" style=" ">
+                        <label> Selecione sua decisão &nbsp; <i class="fas fa-sort-down"></i> </label>
+
                             <select style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" class="custom-select" id="inputGroupSelect02" name="opnouPor" required>
+                                <option vlaue="default">                              </option>
                                 <option vlaue="Indeferimento">  Indeferimento   </option>
                                 <option value="deferimento">    deferimento     </option>                                
                                 <option value="restituir">      restituir       </option>                                
@@ -79,31 +94,26 @@
                                 <option value="postergar">      encaminhamento  </option>
                             </select> 
                         </div>
-
-                        <div class="col-sm-1" style="" align="right">
-                            <button style="margin:0 auto;" class="btn btn-danger" type="submit"> 
-                                <i class="fa fa-gavel" aria-hidden="true"></i>  
-                            </button>                  
-                        </div>
+                         
                     </div>
 
                     <br>
                     <!-- primeira linha do form -->
                     <div class="form-group row">
                         <div class="col-md-4" style=" " align="left">
-                            <label class=' '> <h5> e-Protocolo: </h5> </label>
+                            <label class=' '> <h5> <b>e-Protocolo:</b> </h5> </label>
                             &nbsp &nbsp
-                            <input style="background: transparent; border:none;" class=' ' readonly name="Nome" value="{{ $key->eProtocolo }}">                        
+                            <input style="background: transparent; border:none;" class=' ' readonly name="eProtocolo" value="{{ $key->eProtocolo }}">                        
                         </div>
 
                         <div class="col-md-4" style=" " align="left">
-                            <label class=' '> <h5> Data do registro: </h5> </label>
+                            <label class=' '> <h5> <b>Data do registro:</b> </h5> </label>
                             &nbsp &nbsp
                             <input style="background: transparent; border:none;" class=' ' readonly name="data_sid" value=" {{$key->created_at}} ">                        
                         </div>
 
                         <div class="col-md-4" style=" " align="left">
-                            <label class=' '> <h5> Unidade: </h5> </label>
+                            <label class=' '> <h5> <b>Unidade:</b> </h5> </label>
                             &nbsp &nbsp
                             <input style="background: transparent; border:none; width: 70%;" class=' '   name="Unidade" value=" {{$key->unidade}}">                        
                         </div>
@@ -112,19 +122,19 @@
                     <!-- segunda linha do form -->
                     <div class="form-group row">
                         <div class="col-md-4" style=" " align="left">
-                            <label class='awesome'> <h5> CPF</h5>  </label>
+                            <label class='awesome'> <h5> <b>CPF</b> </h5>  </label>
                             &nbsp &nbsp
                             <input style="background: transparent; border:none;" readonly name="cpf"   value=" {{$key->cpf}} ">
                         </div>
 
                         <div class="col-md-4" style=" " align="left">
-                            <label class=' '> <h5> RG</h5>  </label>
+                            <label class=' '> <h5> <b>RG</b> </h5>  </label>
                             &nbsp &nbsp
                             <input style="background: transparent; border:none;"  readonly name="rg"    value=" {{$key->rg}} ">
                         </div>
 
                         <div class="col-md-4" style=" " align="left">
-                            <label class=' '> <h5> Graduacão</h5>  </label>
+                            <label class=' '> <h5> <b>Graduacão</b> </h5>  </label>
                             &nbsp &nbsp
                             <input style="background: transparent; border:none;" readonly name="Graduacao"  value=" {{$key->graduacao}} ">
                         </div>
@@ -133,13 +143,17 @@
                     <br>
 
                     <div class="row"> 
-                        <div class="form-group">
-                            <label for="fileRelatorRelatorio"> Insira seu relatório aqui </label> <span> (Tamanho max. <b>10MB</b>) &nbsp; (Type: &nbsp; <b>pdf</b>) </span>  
-                            <input type="file" name="fileRelatorRelatorio" class="form-control-file" id="fileRelatorRelatorio"> 
-                        </div>
+                        <label for="fileRelatorRelatorio"> Insira seu relatório aqui </label> <span> (Tamanho max. <b>10MB</b>) &nbsp; (Type: &nbsp; <b>pdf</b>) </span>  
+                        <input type="file" name="fileRelatRelat" class="form-control-file" id="fileRelatorRelatorio" required> 
                     </div>
 
                     <br>
+
+                    <button style="margin:0 auto;" class="btn btn-success" type="submit"> 
+                        <i class="fa fa-gavel" aria-hidden="true"></i>  &nbsp; Registrar parecer.
+                    </button> 
+
+                    <br>  <br>
                     <!-- terceira linha do form -->
                     <div class="form-group row" align="center">
                         <div class="col-md-12" style=" " align="center">
@@ -153,17 +167,15 @@
                     <!-- terceira linha do form -->
 
                     <!-- terceira linha do form -->
-                    <div class="form-group row" align="center">
-                        <div class="col-md-12" style=" " align="left">
+                    <div class="row" align="center" style="position: relative; top: -30px;">
+                        <div class="col-12" style=" " align="left">
                             <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo]) }}" class="btn btn-outline-primary  btn-sm"> 
-                                <i class="fas fa-paperclip"></i>  &nbsp Visualizar Anexo.  
+                                <i class="fas fa-paperclip"></i>  &nbsp Visualizar Anexo do pedido do militar.  
                             </a>  
                             <!-- <input style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" type="file" class="form-control" id="formGroupExampleInput" placeholder="Example Anexo para doc"> -->
                         </div>
                     </div>
                     <!-- terceira linha do form -->
-
-                    <br>
 
                     <!-- @ type="hidden" name="eProtocolo_referer_44A" @
                         --------------------------------------------
@@ -175,7 +187,8 @@
                     <input type="hidden" name="eProtocolo_referer_44A" value="{{ $key->eProtocolo }}">
                 </form>
 
-                <hr>
+                </div>
+                <!-- card-body -->
                 @endforeach
             @endif
 
@@ -198,10 +211,9 @@
                             </div>
                         </div>
                     </div>
+           
                 @endif
             @endif
-        </div>
-        <!-- card-body -->
         <div class="card-footer" align="center" style="color: #869c98;">
             Listagem 44a
         </div>

@@ -396,7 +396,7 @@ tr:nth-child(even) {
 
                                             <tr>
                                                 <th>Parecer do relator</th>
-                                                <th>{{$value->parecer_relator}}</th>
+                                                <th>{{$value->parecer_relator}}ddfdfdf</th>
                                             </tr>
 
                                             <tr>

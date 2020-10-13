@@ -25,7 +25,7 @@ class eProtocoloAnexoControllerService extends Controller
 
         $file = '/home/pmpr/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/'.$objectFile[0]->hash;
         header('Content-type: application/pdf');
-        header('Content-Disposition: inline; filename="papo.pdf"');
+        header('Content-Disposition: inline; filename="teste.pdf"');
         header('Content-Transfer-Encoding; binary');
 
         try {

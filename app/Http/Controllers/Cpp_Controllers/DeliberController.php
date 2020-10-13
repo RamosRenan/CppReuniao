@@ -17,11 +17,14 @@ use App\Models\secretario_e_presidente\secretario_e_presidente;
 use App\Models\_A44A\_A44A;
 use  App\Models\Ata\ata;
 use App\Http\Controllers\Cpp_Controllers\AtaController;
+use App\Models\eProtocoloSorteados\eProtocolosSorteados;
 
 
 class DeliberController extends Controller
 {
     //
+
+    public $empate = null;
 
     public function index(){
 
@@ -31,7 +34,7 @@ class DeliberController extends Controller
     }# index()
 
 
-
+    # Cria deliebração ordinária primeira vez
     public function create(Request $request){
 
         $eProtocolo = $request->input('eProtocolo');        
@@ -42,7 +45,7 @@ class DeliberController extends Controller
 
         # Abre uma nova notificacao
         # Se  $respis maior que 0 significa que a deliberacao em questao esta aberta
-        # Se esta aberta e usuario clicou em 'Submeter aos relatores' na view cpp.deliebracao.index significa q ele editou
+        # Se esta aberta e usuario clicou em 'Submeter aos relatores' na view cpp.deliebracao.index significa q ele editou ou nao
         # Se usuario editou então envio novamente delibercao editada para os membros votarem,
         # Tal edicao ocorre no 'else' pois $respis > 0;
         if(count($respis ) == 0 ){
@@ -126,6 +129,13 @@ class DeliberController extends Controller
         $president  =  secretario_e_presidente::where('qualificacao', 'Presidente')
         ->where('status', true)->get();
 
+        $relatorThis = eProtocolosSorteados::where('eProtocolo_sorteados.eProtocolo', $request)
+        ->join('Members_Relatores_and_President', 'Members_Relatores_and_President.id', '=', 'eProtocolo_sorteados.id_membro')
+        ->get();
+
+        //teste
+        // return $relatorThis;
+
         // retorno para mesma requisicao, redireciono requisicao para mesma pagina de solicitacao,
         // com a relacao de votos dos membros de para deliebracao em questao
         $all_memebers_voted_deliber =  relation_vote_each_deliberacao::where('eProtocolo',  $request)
@@ -152,22 +162,19 @@ class DeliberController extends Controller
 
         // return $vote_president[0];
 
-        if($tot_vote_contra ==  $tot_vote_favoravel ){
-            $empate = true;
-        }else{
-            $empate = null;
-        }
+        if($tot_vote_contra ==  $tot_vote_favoravel )
+            $this->empate = true;
 
         // return $empate;
-
-        
 
         // return $all_memebers_voted_deliber;
         return redirect($_SERVER['HTTP_REFERER'])->with([
             'all_memebers_voted_deliber'    =>$all_memebers_voted_deliber, 
             'presidente'                    =>$president,
-            'empate'                        =>$empate,
-            'vote_president'                =>$vote_president
+            'empate'                        =>$this->empate,
+            'vote_president'                =>$vote_president,
+            'relatorThis'                   =>$relatorThis
+            
         ]);
         
     } #show()

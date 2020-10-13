@@ -125,6 +125,7 @@ class CadastroeProtocoloDiversos extends Controller
                 }
 
                 $newAnexoeProtcolo->hash = implode('', $hashSplit);
+                
                 $newAnexoeProtcolo->save();
  
                 move_uploaded_file($_FILES['FormControlFile1']['tmp_name'], $file.implode('', $hashSplit));

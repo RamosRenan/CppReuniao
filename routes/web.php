@@ -126,6 +126,7 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::resource('/historyDeliberRelator', 'Cpp_Controllers\HistoryDeliberRelatoController'  );
     Route::resource('/eProtocoloAnexoController', 'Cpp_Controllers\eProtocoloAnexoController'                     );
     Route::resource('/registry44A', 'Cpp_Controllers\registry44A'                     );
+    Route::resource('/viewRelatorio', 'Cpp_Controllers\showAnexoRelatorioRelatorController'                     );
 
     Route::post('/getPolice', 'Cpp_Controllers\__44AController@getPolicial');                
     Route::post('/create44A', 'Cpp_Controllers\__44AController@create44A');                

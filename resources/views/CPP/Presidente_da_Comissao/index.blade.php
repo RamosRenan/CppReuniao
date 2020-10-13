@@ -97,10 +97,10 @@
                 @if(isset($falta_Voto_Relatores_desta_deliber) || isset($falta_Voto_Relatores_44a))
                     <br>
                     <div class="alert alert-info" role="alert">
-                        <a href="#" class="">                         
+                        <a class="">                         
                             <i class="fas fa-info-circle"></i> 
                             &nbsp &nbsp &nbsp 
-                            Todos os relatores ainda não votaram. Falta algum relator votar.
+                            Todos os relatores ainda não votaram.
                         </a>
                     </div>
                 @endif
