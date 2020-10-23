@@ -23,8 +23,8 @@
         <div class="card" style="height: auto" align="center">
             <form action="{{ route('cpp.relator.edit', 1) }}" method="GET"> 
                 <br>
-                <h3 style="color: #dc3545"> <u> Deliberação: Alteração de voto.  </u> </h3>
-                <h5 style="color: #dc3545"> <u> <i class="fas fa-skull-crossbones"></i> <i class="fas fa-info-circle"></i> Atenção.: Você pode estar causando conflitos no banco. Aferir muitos votos errados poderá causar pejuízos na integridade dos dados.  </u> </h5>
+                <h3 style=""> Deliberação: Alteração de voto.  </u> </h3>
+                <h5 style=""> Atenção: Aferir muitos votos errados poderá causar pejuízos na integridade dos dados.  </u> </h5>
                 <textarea class='form-control' readonly style="margin:auto; max-width: 90%;" rows="7"> 
                     {{$turn_back_vote[0]->deliberacao}}
                 </textarea>

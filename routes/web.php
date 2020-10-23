@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Console\MiddlewareMakeCommand;
+use Illuminate\Http\Request;
 
 Route::redirect('/', '/login');
 
@@ -132,16 +133,18 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::post('/create44A', 'Cpp_Controllers\__44AController@create44A');                
     Route::post('/registre_Vote44A', 'Cpp_Controllers\RelatorController@registre_Vote44A');
     Route::post('/alterParecer', 'Cpp_Controllers\RelatorController@alterParecer'                     );
-    Route::post('/update44A', 'Cpp_Controllers\RelatorController@update44_A');
+    Route::post('/update44A', 'Cpp_Controllers\RelatorController@update44_A', ['as'=>'update44A', function(){
+
+    }]);
     Route::post('/novoSecretarioPresidente', 'Cpp_Controllers\SecretarioController@novoSecretarioPresidente');
     Route::post('/editDeliberInAta', 'Cpp_Controllers\AtaController@editDeliberAta'                             );
-    Route::post('/editDeliberInAtaRelatado', 'Cpp_Controllers\AtaController@editDeliberAtaRelatado'                             );
-    Route::post('/editDeliberInAta44a', 'Cpp_Controllers\AtaController@editDeliberAta44a'                             );
-    Route::post('/editDeliberInAtaPost', 'Cpp_Controllers\AtaController@editDeliberAtaPostergado'                             );
-    Route::post('/updateParecerPostergados', 'Cpp_Controllers\RelatorController@updateParecerPostergados'                             );
-    Route::post('/editPontos', 'Cpp_Controllers\HomologPontosController@editPontos'              );
+    Route::post('/editDeliberInAtaRelatado', 'Cpp_Controllers\AtaController@editDeliberAtaRelatado');
+    Route::post('/editDeliberInAta44a', 'Cpp_Controllers\AtaController@editDeliberAta44a');
+    Route::post('/editDeliberInAtaPost', 'Cpp_Controllers\AtaController@editDeliberAtaPostergado');
+    Route::post('/updateParecerPostergados', 'Cpp_Controllers\RelatorController@updateParecerPostergados');
+    Route::post('/editPontos', 'Cpp_Controllers\HomologPontosController@editPontos');
     Route::post('/efetiveAlterPontos', 'Cpp_Controllers\HomologPontosController@efetiveAlterPontos'              );
-    Route::post('/newExpedienteProtocolSelected', 'Cpp_Controllers\NovosExpedientesController@newExpedienteProtocolSelected'                     );
+    Route::post('/newExpedienteProtocolSelected', 'Cpp_Controllers\NovosExpedientesController@newExpedienteProtocolSelected');
     
     Route::get('/storedHomologP', 'Cpp_Controllers\HomologPontosController@storedHmologPointing'              );
     Route::get('/atapdf', 'Cpp_Controllers\AtaController@generatePdf'                     );
@@ -149,7 +152,9 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::get('/editarParecer', 'Cpp_Controllers\RelatorController@editParecer'                     );
     Route::get('/showParerPostergados', 'Cpp_Controllers\RelatorController@parecerPostergados'                     );
     Route::get('/editParerPostergados', 'Cpp_Controllers\RelatorController@editParecerPostergados'                     );
-    Route::get('/__44A', 'Cpp_Controllers\RelatorController@__44A');                
+    Route::get('/__44A', 'Cpp_Controllers\RelatorController@__44A', ['as'=>'__44A', function(){
+
+    }]);                
     Route::get('/votar44A', 'Cpp_Controllers\RelatorController@votar44A');
     Route::get('/editRegistryRelator', 'Cpp_Controllers\SecretarioController@editRegistryRelator');
     Route::get('/editRegistryPresidentSecretario', 'Cpp_Controllers\SecretarioController@editRegistryPresidentSecretario');

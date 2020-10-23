@@ -177,18 +177,21 @@ class __44AController extends Controller
                 $result_search = array_merge(json_decode($result_search_police), json_decode($result_search_police_opm));
          
                 # Busco todos os relatores
-                $CountIsertMembers = roles::where('roles.name', 'like', '%Relator%')
+                $CountIsertMembers = roles::where('roles.name', '@Relator@')
                 ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-                ->join('users', 'users.id', '=', 'model_has_roles.model_id')
+                ->join('Members_Relatores_and_President', 'Members_Relatores_and_President.id', '=', 'model_has_roles.model_id')
+                ->join('users_ative_and_inative_cpp', 'users_ative_and_inative_cpp.has_user_id', '=', 'Members_Relatores_and_President.id')
+                ->where('user_id_your_status', 1)
                 ->get();
         
-                return view('CPP.44A.index')->with(['result_search' => $result_search, 'CountIsertMembers' => $CountIsertMembers]);
+                return view('CPP.44A.index')
+                ->with(['result_search'=>$result_search, 'CountIsertMembers'=>$CountIsertMembers]);
             }
         } catch (\Throwable $th) {
              //throw $th;
-             return  redirect()->route('cpp.__44a.index');
+            return  redirect()->route('cpp.__44a.index');
 
-             return __44AController::index();
+            return __44AController::index();
         }
     }
 

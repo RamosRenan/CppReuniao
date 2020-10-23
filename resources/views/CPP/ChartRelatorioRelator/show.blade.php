@@ -51,7 +51,7 @@
             <tbody>
                 @foreach($Usorteados as $key)      
                 <tr align="center">
-                    <th scope="row"><a href="#"><u>{{$key->eProtocolo}}</u></a></th>
+                    <th scope="row"> {{$key->eProtocolo}} </th>
                     <td>{{$key->nome}}</td>
                     <td>{{$key->rg}}</td>
                     <td>{{$key->unidade}}</td>

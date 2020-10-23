@@ -26,15 +26,15 @@ class HistoryDeliberRelatoController extends Controller
     public function index(){
 
         //Pego id do relator, se relator de fato.
-        $idRelator = Auth::user();
+        // return $idRelator = Auth::user()->id;
 
         //verfico se é relator **ativo**(ATIVO)
         //na table role pego todos os users definidos como relatores.
         try {
             //code...
-            $getRelator = roles::where('roles.name', 'like', '%Relator%')
+            $getRelator = roles::where('roles.name', 'like', '%@Relator@%')
             ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-            ->where('model_has_roles.model_id',  '=', $idRelator->id)
+            ->where('model_has_roles.model_id',  '=', Auth::user()->id)
             ->get();
         } catch (\Throwable $th) {
             throw $th;
@@ -52,19 +52,21 @@ class HistoryDeliberRelatoController extends Controller
         
         if (isset($verifyIsAtivo) && count($verifyIsAtivo)>0){
             # code ...
-            $registersDeliber = eProtocolosSorteados::where('eProtocolo_sorteados.id_membro', $idRelator->id)
+            $registersDeliber = eProtocolosSorteados::where('eProtocolo_sorteados.id_membro', Auth::user()->id)
             ->join('eProtocolo', 'eProtocolo.eProtocolo', '=', 'eProtocolo_sorteados.eProtocolo')
             ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
             ->join('deliberacao', 'deliberacao.eProtocolo', '=', 'eProtocolo.eProtocolo')
             ->get(); 
+
+            // return $registersDeliber;
         }else{
             return redirect($_SERVER['HTTP_REFERER']);
             // return "Relator não esta ativo, ou não é relator";
         }
 
         return view('CPP.HistoryDeliberRelator.index')
-        ->with(['registersDeliber'=>$registersDeliber, 
-         ]);
+            ->with(['registersDeliber'=>$registersDeliber, 
+        ]);
     }
     // index()
 

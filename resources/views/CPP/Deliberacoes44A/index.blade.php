@@ -31,7 +31,9 @@
                     </strong>                
                  </h4>
             </div>
-        </section>    
+        </section> 
+
+        <br>   
 
         <!-- @ **** = graduacao         @ -->
         <!-- @ !!!! = nome              @ -->
@@ -44,10 +46,13 @@
         <!-- @ #### = relator_opnou_por @ -->
         <!-- @ @@@@ = eProtocolo        @ -->
         <section style="width:99%; heigth:auto; position:relative; top: 40px;">
-            <div align="center" style="text-align:justify;">  
-               <div style="width:94%; heigth:auto; margin:auto;" align="center">
+            <div  style="text-align:justify;">  
+               <div style="width: 98%; heigth:auto; margin:auto;" align="center">
                     <form action="{{ route('cpp.sala44A.show', 0) }}"  method="PUT"  >
-                        <textarea name="contain_deli" maxlength="1550" style="font-family: 'Times New Roman', Times, serif; width:100%; resize:none; border:none; text-align:justify; overflow: hidden;" rows="12" cols="60">                        
+                        @csrf
+                        <input type="hidden" value="{{$this44A[0]->eProtocolo}}" name="eProtocolo44_A">
+
+                        <textarea class="form-control" name="contain_deli" maxlength="1550" style=" width:100%;  text-align:justify; overflow: hidden;" rows="12" cols="60">                        
                             {{ 
                                 str_replace( 
                                             array("****", "!!!!", "0000", "¨¨¨¨", "&&&&",  "%%%%", "°°°°", "(())", "@@@@"),
@@ -61,10 +66,10 @@
                             }}                                    
                         </textarea>
 
-                        <input type="hidden" value="{{$this44A[0]->eProtocolo}}" name="eProtocolo44_A">
+                        <br> <br>
  
-                        <button type="submit"  id="validar" class="btn btn-primary btn-sm" style="  position: relative; box-shadow:0px 1px 5px gray; width: 200px;">
-                            <span class=" " style="color: white; " >  Submeter aos relatores </span>
+                        <button type="submit"  id="validar" class="btn btn-primary btn-sm" style=" ">
+                            <span class=" " style="color: white; "> <b>Submeter aos relatores</b> </span>
                         </button>
 
                     </form>
@@ -91,6 +96,8 @@
                 <span> <strong> Presidente da CPP. </strong> <span>
             </div>
         </section> 
+
+        <br>
             
         <section style="width:100%; heigth:auto; position:relative; top: 150px;">
             <div style="margin-left:18px;"> 

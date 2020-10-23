@@ -100,7 +100,7 @@ class registry44A extends Controller
             }
 
         }else{
-            return redirect()->back()->with('errorAnexo', 'Error no Arquivo enviado'); 
+            return redirect()->route('cpp.__44a.index')->with(['errorFile'=>true]); 
         }
 
         // se foi encontrado policial não insiro novo policial, apenas crio novo 44A.
@@ -156,7 +156,5 @@ class registry44A extends Controller
         return $returnCreate44A->create();
     }
     //store()
-
-
 
 }# class PresidenteComissao

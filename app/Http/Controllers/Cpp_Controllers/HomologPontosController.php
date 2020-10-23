@@ -207,28 +207,37 @@ class HomologPontosController extends Controller
         $search_cpf_police = $request->input('search_cpf_police');
         $arr = array(".", "-");
         $subs = str_replace($arr, "", $search_cpf_police);
-        // return $subs;
+        // return var_dump($subs);
         try {
              //code...
-            if(!empty( $subs)){
+            if(!empty($subs)){
 
-                $result_search_police = POLICE::where('RG', 'like', '%' . $subs . '%')->orWhere('CPF', 'like', '%' . $subs . '%')->orWhere('NOME', 'like', '%' . $subs . '%')->get();
-        
+                
+                $result_search_police = POLICE::where('RG', 'like', '%'.$subs.'%')->orWhere('CPF', 'like', '%'.$subs.'%')->orWhere('NOME', 'like', '%'.$subs.'%')->get();
+                // return $result_search_police;
                 $result_search_police_opm = POLICE_OPM::where('META4', '=', $result_search_police[0]->OPM_META4)->get();
-        
+                
                 $result_search = array_merge(json_decode($result_search_police), json_decode($result_search_police_opm));
-         
+                
                 return view('CPP.Homolog_Pontos.index')->with(['result_search' => $result_search ]);
             }
-
-        } catch (\Throwable $th) {
-             //throw $th;
-             return __44AController::index();
+            
+        } catch (\Exception $th) {
+            /* Print error message. */
+            return self::thr();
+            //  echo __44AController::index();
         }
     } 
     /*@  create()  @*/
  
- 
+    private function thr(){
+        try {
+            //code...
+            throw new \Exception("Não foi possível realizar a busca. &nbsp; <a href='/cpp/HomologP'> <u>Voltar aqui</u> </a> ");
+        } catch (\Exception $th) {
+            return $th->getMessage();
+        }
+    }
  
      /*@  editPontos()  @*/
      public function editPontos(Request $request){

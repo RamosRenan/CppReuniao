@@ -19,7 +19,7 @@
                         <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
                         <button style=" " id="button_search_cpf_police" class="btn btn-primary" type="submit"> 
                             <span style="color: white;"> <i class="fas fa-search"></i> </span> 
-                            Buscar
+                             
                         </button>
                     </div>
                     <!-- @  @ -->
@@ -144,8 +144,8 @@
                     <label class='awesome'> * Designar para Relator. </label>
                     <select id="" placeholder="Selecione o relator." id="nome_do_policial" class='form-control' type="text"  name="relator_designado" style="" required>
                         @foreach( $CountIsertMembers as $key )
-                            <option value="{{$key->id}}">
-                                <span> ID.: {{$key->id}} - {{$key->nome}} </span>
+                            <option value="{{$key->model_id}}">
+                                <span> ID.: {{$key->model_id}} - {{$key->nome}} </span>
                             </option>
                         @endforeach
                     </select>
@@ -204,6 +204,12 @@
 <section> 
     @if(session('alredy_existy_eProtocolo'))
         <div class="alert alert-warning" role="alert"> Já existe este protocolo. </div>
+    @endif
+<section>
+
+<section> 
+    @if(session('errorFile'))
+        <div class="alert alert-warning" role="alert"> Algo de errado com o arquivo, verifique o formato. </div>
     @endif
 <section>
 

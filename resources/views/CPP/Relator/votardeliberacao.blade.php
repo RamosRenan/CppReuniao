@@ -13,15 +13,17 @@
     <div class="card">
         <div class="card-header">
             <div class="row" align="center">
-                <div class="col-sm">
-                    <i style="float:left;" class="fas fa-spinner"> &nbsp; <a href="{{ route('cpp.relator.create', 0) }}"> <small> <u>Clique aqui para atualizar deliberação.</u> </small> </a> </i>
-                </div>
+                <div class="col-sm"> </div>
                 <div class="col-sm">
                     <h5> <i class="far fa-file-alt"></i> &nbsp; Deliberação em votação no momento. </h5>
                 </div>
                 <div class="col-sm">
                     @if(isset($Usorteados))
-                        <i style="float:right;" class="fas fa-paste"> <a href="{{route('cpp.viewRelatorio.create', ['', 'eProtocolo'=>$return_to_vote_member[0]->eProtocolo])}}" style="float: right; "> &nbsp; <small> <u> Visualizar Relatório </u> </small> </a> </i> 
+                        <h5>
+                        <a href="{{route('cpp.viewRelatorio.create', ['', 'eProtocolo'=>$return_to_vote_member[0]->eProtocolo])}}" style="float: right; "> 
+                            <i style=" " class="fas fa-paste"></i> &nbsp; Visualizar Relatório do relator
+                        </a> 
+                        </h5> 
                     @endif
                 </div>
             </div>
@@ -29,8 +31,9 @@
         <!-- card-header -->
 
         <div class="card-body">
-            <h5 class="card-title">Texto da Deliberação.</h5>
-            <p class="card-text"> <i class="fas fa-info-circle"></i> &nbsp; Se não houver opção para o registro do voto, talvez você seja o relator, senão entre em contato com o suporte. </p>
+            <div style=" " class="row">
+                <h5 style="margin: auto;" class="card-title">Texto da Deliberação.</h5>
+            </div>
             <hr>
             @if(isset($return_to_vote_member))
                 <textarea class="form-control contain_data_deliber" id="contain_data_deliber"  style="background: transparent; border:none; text-align:justify;" rows="9" readonly>
@@ -62,27 +65,34 @@
                             <input type="hidden" value=" {{ $usename[0]->id }} " id="id_membro"      class="id_membro"       name="id_membro">
                         @endif
                             <hr>
-                            <button type="submit" style="diaplay:block; margin-bottom: 15px;" class="btn btn-success"> <i class="fas fa-hand-point-up"></i> Votar. </button>
+                            <button type="submit" style="diaplay:block; margin-bottom: 15px;" class="btn btn-success"> 
+                                <i class="fas fa-hand-point-up"></i> &nbsp; Registrar voto
+                            </button>
                             <br>
                     </form>
                 @endif
 
                 @else
-                    <div class="row" style=" width: 100%; heigth: auto; position:relative; top: 45px; ">
-                        <div class=" col-4 "> </div>
-                            <div class=" col-4 " style=" width: 50%; heigth: auto; " align="center">
-                                <i class="fas fa-info-circle" style="position:relative; top:-45px; color:#f9f9f9; font-size:400px;"></i>
-                                <div style="position:absolute; top: 5px;">
-                                    <h5 style="color: #ff3300"> 1 &nbsp;  <i class="fas fa-info"></i> Orientações </h5> 
-                                    <h5 style="color: #2A4B7C"> 1.1 &nbsp; Não há deliberação no momento. </h5> 
-                                    <br>
-                                    <h5 style="color: #2A4B7C;"> <br> 1.2 &nbsp;  Atenção ! <small> Fique atento a novas deliberações a serem enviadas pelo Secretário. Certifique-se quanto ao número do eProtocolo. </small> </h5>   
-                                    <br>
-                                    <h5 style="color: #2A4B7C;"> 1.3 &nbsp; <small> Para saber se há novas deliberaçoẽs basta clicar no link acima. </small> </h5>  
-                                    <h5 style="color: #2A4B7C;"> 1.4 &nbsp; <small> <u> Relatores <b>NÂO</b> votam. </u> </small> </h5>  
-                                </div> 
-                            </div>
-                        <div class=" col-4 "> </div>
+                    <div class="row" style=" width: 100%; heigth: auto; position:relative; top: 45px; " >
+                        <div class="col-8" >
+                            <div style="position:absolute; top: 5px;">
+                                <h3 style=" "> Orientações: </h3> 
+                                <h5 style=""> 
+                                    <small>
+                                    1.1&nbsp; 
+                                    Fique atento a novas deliberações a serem enviadas pelo secretário. 
+                                    Certifique-se quanto ao número do eProtocolo. 
+                                    </small>
+                                </h5>   
+                                <h5 style="">
+                                    <small>  
+                                        1.2 &nbsp; Para saber se há novas deliberaçoẽs clique no link: &nbsp;
+                                        <a href="{{ route('cpp.relator.create', 0) }}">  <u> <i style=" " class="fas fa-spinner"> </i> Verifique aqui se há nova deliberação.</u> </a>  
+                                    </small> 
+                                </h5>  
+                                <h5 style=""> <small> 1.3 &nbsp; Relatores não votam suas deliberações, qualquer dúvida entre em contato com o secretário. </small></h5>  
+                            </div> 
+                        </div>
                     </div>
             @endif
         </div>

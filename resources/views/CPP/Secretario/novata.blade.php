@@ -21,7 +21,7 @@
 
                     <div class="col-sm">
                         <div>
-                            <h5 style="color: white;"> <i class="far fa-file-alt"></i> Nova Ata. <br> <small> Cria nova ata, e gerência de atas abertas. </small> </h5> 
+                            <h5 style="color: white;"> <i class="far fa-file-alt"></i> Nova Ata. </h5> 
                         </div>
                     </div>
 

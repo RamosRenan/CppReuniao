@@ -13,7 +13,7 @@
         @csrf
         <!-- @  @ -->
         <div style="width: 100%; height: auto; display: flex; position: relative; top: -50px;" align="center">
-            <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
+            <input name="search_cpf_police" style=" width: 30%; " type="text" class="form-control" placeholder=" NOME | RG | CPF" onkeyup="this.value = this.value.toUpperCase();">
             <button style="background: #4dabf7;" id="button_search_cpf_police" class="btn btn-primary" type="submit"> 
                 <span style="color: white;"> Buscar </span> 
             </button>

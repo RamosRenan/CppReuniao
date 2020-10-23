@@ -6,15 +6,12 @@
 @yield('content')
 
 @section('content')
-    
+    <!-- card -->
+    <div class="card"  style="width: 100%; height: auto; ">
     <!-- @ section @ -->
     <section> 
         <!-- form  Busca militar informado no campo - url(/cpp/cadastroE-protocolo) -->
         <form class="form-inline" method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}"> 
-                
-            <!-- card card-default -->
-            <div class="card"  style="width: 100%; height: auto; ">
-
                 <!-- card-header -->
                 <div class="card-header" style="width: 100%; height: auto; ">
                     <!-- row -->
@@ -29,42 +26,33 @@
                         <div class="col-md-4" style=" " align="center">
                             <h4 style="color: #2A4B7C;"> 
                                 <i class="fa fa-id-card" style="font-size:32px; " aria-hidden="true">  </i> 
-                                &nbsp Registro de eProtocolo 
+                                &nbsp Registrar  e_Protocolo 
                             </h4>
                         </div> 
                         <!-- col-md-4 -->
                         
                         <div class="col-md-4" >  
-                            <div class="form-group mx-sm-4 mb-2" style="float:right;">
-                                <label for="inputPassword2" class="sr-only">Password</label>
-                                <input type="text" class="form-control" name="search_cpf_police" id="inputPassword2" placeholder="Insira o 'NOME' ou 'RG' do militar.">
-                                <button type="submit" class="btn btn-primary mb-2 btn-sm" style=" position: relative; top: 3px;">
-                                    <i class="fas fa-search" style=""></i> &nbsp  
+                            <div class="form-group " style="float: right;">
+                                <input type="text" class="form-control" name="search_cpf_police" id="inputPassword2" placeholder="NOME | RG | CPF">
+                                <button type="submit" class="btn btn-primary" style=" ">
+                                    <i class="fas fa-search" style=""></i>    
                                 </button>
                             </div>
                         </div>                   
 
                     </div>                
                     <!-- row -->
-                     
                 </div>
                 <!-- card-header -->
-
-            </div>
-            <!-- card  -->
-
+            
         </form> 
         <!-- form -->
 
 
         <!-- form - Cadastra realemnte um novo pedido -->
         <form method="POST" action=" {{ route('cpp.cadastroE-protocolo.store') }} " enctype="multipart/form-data"> 
-            
             <!--  csrf_token() //Campo escodido que garante segunça no envio do form. Obs.: Ver Doc do Laravel 'csrf' -->
             <input type="hidden" name="_token" value="{{ csrf_token() }}">   
-
-            <!-- card card-default - contem campos do formulário -->
-            <div class="card card-default" style="margin-top: -10px;"> 
 
                 <!-- card-body - corpo do form -->
                 <div class="card-body"> 
@@ -86,7 +74,7 @@
                             <div class="sun_contain_curtain" align="center"> 
 
                                 <h5 style="position: relative; top: 8px;"> 
-                                    <i class="fas fa-user-circle"> Confirme os dados do Militar. </i>   
+                                    <i class="fas fa-user-circle"> </i> &nbsp; Policial encontrado.
                                     <a  id="closecurtain" > 
                                         <i class="fas fa-times"style=" cursor:pointer; float:right; margin-right: 8px; margin-top: 2px; color: #c6c6c6; font-size: 19px;"></i> 
                                     </a> 
@@ -155,30 +143,35 @@
                             <label class='awesome'> * Pedido. </label>
                             <select   class="form-control" onchange="keyped()"  id="pedido" name="pedido" required>
                                 <option value="">  </option>
+                                <!-- Policiais -->
+                                <option value="Promoção à graduação  de Sub.Tenente QPMG 1-0">Promoção à graduação  de Sub.Tenente QPMG 1-0</option>
+                                <option value="Promoção à graduação  de 1º Sgt. QPMG 1-0">Promoção à graduação  de 1º Sgt. QPMG 1-0</option>
+                                <option value="Promoção à graduação  de 2º Sgt. QPMG 1-0">Promoção à graduação  de 2º Sgt. QPMG 1-0</option>
+                                <option value="Promoção à graduação  de 3º Sgt. QPMG 1-0" >Promoção à graduação  de 3º Sgt. QPMG 1-0</option>
+                                <option value="Promoção à graduação  de Cb. QPMG 1-0">Promoção à graduação  de Cb. QPMG 1-0</option>									
+                                <!-- Policiais -->
 
-                                <option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPM 1-0</option>
+                                <option value=""> <hr/> </option>
 
-                                <option value="Promoção à graduação  de 1º Sgt. QPM 1-0">Promoção à graduação  de 1º Sgt. QPM 1-0</option>
-
-                                <option value="Promoção à graduação  de 2º Sgt. QPM 1-0">Promoção à graduação  de 2º Sgt. QPM 1-0</option>
-
-                                <option value="Promoção à graduação  de 3º Sgt. QPM 1-0" >Promoção à graduação  de 3º Sgt. QPM 1-0</option>
-
-                                <option value="Promoção à graduação  de Cb. QPM 1-0">Promoção à graduação  de Cb. QPM 1-0</option>									
-
-                                <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
-
-                                <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
+                                <!-- Bombeiros -->
+                                &nbsp;<option value="Promoção à graduação  de Sub.Tenente QPM 2-0">Promoção à graduação  de Sub.Tenente QPM 2-0</option>
+                                &nbsp;<option value="Promoção à graduação  de 1º Sgt. QPM 2-0">Promoção à graduação  de 1º Sgt. QPM 2-0</option>
+                                &nbsp;<option value="Promoção à graduação  de 2º Sgt. QPM 2-0">Promoção à graduação  de 2º Sgt. QPM 2-0</option>
+                                &nbsp;<option value="Promoção à graduação  de 3º Sgt. QPM 2-0" >Promoção à graduação  de 3º Sgt. QPM 2-0</option>
+                                &nbsp;<option value="Promoção à graduação  de Cb. QPM 2-0">Promoção à graduação  de Cb. QPM 2-0</option>
+                                <!-- Bombeiros -->
                                 
+                                <option value=""> <hr/> </option>
+
+                                <!-- Demais pedidos pertinentes a cpp -->
+                                <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
+                                <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
                                 <option value="Retificação de publicação">Retificação de publicação</option>
-
                                 <option value="Reconsideração de Ato">Reconsideração de Ato</option>
-
                                 <option value="Pontos positivos">Pontos positivos</option>
-
                                 <option value="Ato de Bravura" >Ato de Bravura</option>
-
                                 <option value="Sub-Judice">Sub-Judice</option>
+                                <!--  -->
                             </select>
 
                             <!--
@@ -280,14 +273,12 @@
                     <!-- container -->
                 </div> 
                 <!-- <div class="card-body"> -->
-            </div> 
-            <!-- card default -->
         </form> 
         <!-- Final Form -->
-
     </section>
     <!-- @ section @ -->
-
+    </div>
+    <!-- card  -->
 
     <!-- contém todos os avisos caso ocorram as excecoes -->
     <div style="width:100%; heigth: 50px; position:relative; top: -30px;">

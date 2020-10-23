@@ -366,14 +366,22 @@ class PresidenteComissaoController extends Controller
 
 
     public function show(){
-
+        
         $novAta = $_GET['novAta'];
         // return $novAta;
+
+        /* Verifica se existe número ata */
+        if(isset($novAta) && !empty($novAta)) 
+            $verifyExistNumAta = ata::where('numero_ata', '=', $novAta)->get();
+
+        if(isset($verifyExistNumAta) && count($verifyExistNumAta) > 0)
+            return back()->withErrors("Numero de Ata já existe !");
 
         $allUser = roles::where('roles.name', 'like', '%Relator%')
         ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
         ->join('users', 'users.id', '=', 'model_has_roles.model_id')
         ->get();
+
         $verifyAtaOpen = ata::where('ata_finalizada', '=', null)->get();
 
         if(count($verifyAtaOpen) > 0 ){

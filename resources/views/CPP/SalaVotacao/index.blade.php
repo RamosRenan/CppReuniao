@@ -7,6 +7,10 @@
 @yield('content')
 
 <style>
+html{
+    scroll-behavior: smooth;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -26,30 +30,54 @@ tr:nth-child(even) {
 </style>
 
 @section('content')
-    @if(isset($allLastDeliberPostergados))
-        <!-- <section style="position: absolute; top: 70px; margin-bottom: 10px;"> 
-            <i class="far fa-clock" style="font-size:22px; color:magenta;"> </i>
-            <span style="color:gray; "> 
-                <u> 
-                    <span style="color:magenta; font-size: 18px;"> {{$allLastDeliberPostergados}} </span> 
-                    Pedido(s) *Postergados*. 
-                </u> 
-                <br> 
-                <small style="color: magenta;"> Fique atento aos eProtocolos postergados. </small>
-            </span>
-        </section> -->
-    @endif
-
     @if(session('emptyRelatores'))
         <div class="alert alert-danger" role="alert">
             Não é possível prosseguir pois não há membros cadastrados, ou menos que 3 membros. Ou não existe Presidente ou Relator.
         </div>
     @endif
 
+
+    <section>
+
+        @if(isset($relatados) && count($relatados) > 0)
+            @else
+                <div class="card">
+                    <div class="card-body" align="center">
+                        <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i> &nbsp; Não há deliberações para serem votadas no momento !  </div>
+                    </div>
+                </div>
+        @endif
+        
+        @if(session('excedeu'))
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-info-circle"></i> &nbsp;
+                Info! Não há ATA aberta no momento. Sem ATA aberta não é possível prosseguir com a Deliberação !
+            </div>
+        @endif
+
+        @if(session('is_not_has_president_or_secretary') == 'exxced')
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-info-circle"></i>
+                Info. Não foi possível gerar deliberção, pois não há secretário ou presidente ativos.
+            </div>
+        @endif
+
+        @if(isset($emptyrelatados))
+            @if($emptyrelatados == false)
+                <br> <br>
+                <div style=" " class="alert alert-warning" role="alert" align="center">
+                    <h5> <i style="float: left;" class="fas fa-user-alt-slash"></i> </h5>
+                    <h4> <small> Nada encontrado para este relator. </small> </h4>
+                </div>
+            @endif
+        @endif
+    </section>
+
+    <br>
      
     <!-- card -->
     <div class="card" style="">
-        <div class="card-body">
+        <div class="card-header">
             <div class="row" align="center">
                 <div class="col-4">
                     <div class="input-group col-8" style="float:left;">
@@ -76,24 +104,23 @@ tr:nth-child(even) {
 
 
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
-    <!-- Sessão header View(cadastro_eProtocolo.index) -->
         <div style="position:relative;">
             @if(isset($relatados))
                 @foreach($relatados as $key => $value)
-                    <div class="card card-default_sa" style=" ">
+                    <div class="card" style=" ">
                         <div class="card-header">
                             <!-- @ SESSÃO QUAL RELATOR  @ -->
-                            <div class="row"  style="height: 18px;">
+                            <div class="row"  style="">
                                 <div class="col-sm-3" style=" position:relative;  cursor: pointer;">
-                                    <a href="#" style=" " id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > 
-                                        <u> <h5> <i class="fas fa-mouse-pointer"></i>  &nbsp <small> Mais informações clique aqui </small> </h5> </u> 
+                                    <a href="#section{{$value->eProtocolo}}" style=" " id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > 
+                                        <h5> <small> Mais informações clique aqui </small> </h5>   
                                     </a>
                                 </div>
 
-                                <div class="col-sm-4" style=" position:relative;  cursor: pointer;">
-                                    <a href="{{route('cpp.salavotacao.index')}}" style="margin-left: 35px;"> <u> Todos </u> </a>
-                                    <a href="#" style="margin-left: 35px;"> <u style="color: black;"> Total: {{count($relatados)}} </u> </a>
+                                <div class="col-sm-3" style=" position:relative;  cursor: pointer;">
+                                    <a href="{{route('cpp.salavotacao.index')}}" style=" ">  <i class="far fa-list-alt"></i>&nbsp; Todos </a>
                                 </div>
+ 
                             </div>
                             <!-- @ @ -->
                         </div>
@@ -341,19 +368,10 @@ tr:nth-child(even) {
                         <!-- card body -->
 
                         <!-- Cortina que contem mais informações -->
-                        <section id="" class="{{$value->eProtocolo}}" value="false" name="" style=" width: 100%; height:auto; position: absolute; top: 40px; display: none;">
-                            <div style="border-radius: 5px; box-shadow: 0px 2px 2px 0px gray; max-height: 70vh; overflow-y: scroll; background-color: white; position: absolute; top: 4px; text-align: center; " align="center">
-                                <!-- <div class="card" style="">
-                                    <div class="card-header" align="center">
-                                        Sobre a deliberação
-                                    </div>
-                                </div> -->
+                        <section id="section{{$value->eProtocolo}}" class="{{$value->eProtocolo}}" value="false" name="" style=" width: 100%; height:auto; position: absolute; top: 40px; display: none;">
+                            <div style="border-radius: 5px; max-height: 70vh; overflow-y: scroll; background-color: white; position: absolute; top: 4px; text-align: center; " align="center">
                                 <br>
                                 <div class="card" style="margin: auto; width: 100%;">
-                                    <div class="card-header" align="center">
-                                        <h5 style="color: #004B8D;"> <i style="float: left; font-size: 26px;" class="far fa-id-card"></i> Sobre a deliberação. Mais informações. </h5>
-                                    </div>
-
                                     <!-- card-body -->
                                     <div class="card-body" style=">
                                         <h5 style="color: #004B8D;" class="card-title">
@@ -420,48 +438,12 @@ tr:nth-child(even) {
         </div>
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
 
-    <section>
-
-        @if(isset($relatados) && count($relatados) > 0)
-            @else
-                <div class="row" align="center" style="height: 18px;">
-                    <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i>   </div>
-                    <div class="col-sm-12"> <h5 style="color: gray;"> <small > Não há deliberações para serem votadas no momento ! </small> </h5>  </div>
-                </div>
-        @endif
-        
-        @if(session('excedeu'))
-            <div class="alert alert-danger" role="alert">
-                <i class="fas fa-info-circle"></i>
-                Info ! Exced ATA.: Não há ATA aberta no momento. Nenhuma ATA aberta pelo Presidente ainda ! <br>
-                Sem ATA aberta não é possível prosseguir com a Deliberação !
-            </div>
-        @endif
-
-        @if(session('is_not_has_president_or_secretary') == 'exxced')
-            <div class="alert alert-danger" role="alert">
-                <i class="fas fa-info-circle"></i>
-                Info ! Is_Not_Has_President_or_Sercretary.: Não foi possível gerar deliberção, pois não há secretário ou presidente ativos.
-            </div>
-        @endif
-
-        @if(isset($emptyrelatados))
-            @if($emptyrelatados == false)
-                <br> <br>
-                <div style=" " class="alert alert-warning" role="alert" align="center">
-                    <h5> <i style="float: left;" class="fas fa-user-alt-slash"></i> </h5>
-                    <h4> <small> Nada encontrado para este relator. </small> </h4>
-                </div>
-            @endif
-        @endif
-    </section>
-
-    <br>
 
     <!-- @ Script's @  -->
     <script>
         function moreInfo(e){
-            var cn = document.getElementsByClassName(e); 
+            var cn = document.getElementsByClassName(e);
+            console.log(e); 
             if(cn[0].getAttribute('value') == 'false'){
                 var r = $(cn).slideDown();
                 cn[0].setAttribute('value', true);
@@ -469,8 +451,6 @@ tr:nth-child(even) {
                 var r = $(cn).slideUp();
                 cn[0].setAttribute('value', false);
             }
-            console.log(cn);
-            console.log(r);
         }//moreInfo()
     </script>
     <!-- @ Script's @  -->

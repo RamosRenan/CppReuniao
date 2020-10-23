@@ -34,10 +34,12 @@
             </div>
         </section>    
 
+        <br/>
+
         <section style="width:99%; heigth:auto; position:relative; top: 40px;">
             <div align="center" style="text-align:justify;">  
                 <div style="width:94%; heigth:auto; margin:auto;">
-                    <textarea readonly maxlength="1550" style="border:solid 1px #a5d8ff; width:100%; text-align:justify; " rows="8" cols="60">                        
+                    <textarea class="form-control" readonly maxlength="1550" style="width:100%; text-align:justify;" rows="8" cols="60">                        
                         {{ $dataThis44A }}
                     </textarea>
                 </div>
@@ -63,8 +65,8 @@
                     <tr> 
                         <td></td>
                         <td></td>
-                        <td> 
-                            <strong style="margin-left:4px;"> Presidente.:   </strong> 
+                        <td  align="center"> 
+                            <strong style=" "> Presidente.:   </strong> 
                             <!-- percorre $presidenteSecretario até encontrar presidente --> 
                             @foreach($presidenteSecretario as $key)
                                 @if($key->qualificacao == 'Presidente')
@@ -99,14 +101,18 @@
                                         <i class="fa fa-check" style="font-size:24px"></i> 
                                     @endif 
                                 </td>
-                                <td> 
-                                    {{$key->posto}} {{$key->nome}} &nbsp; &nbsp; <b>{{$key->qualificacao}}</b>
+                                <td  align="center">  
+                                    &nbsp; 
+                                    {{$key->posto}} {{$key->nome}} &nbsp; <b>{{$key->qualificacao}}</b>
+                                    &nbsp;  
                                 </td> 
                                 <td> 
+                                    &nbsp; &nbsp;
                                     <b> Assinado digitalmente. </b> 
                                     <span> {{$key->nome}}   </span> 
                                     <b> RG.: </b>           </span> 
                                     <span> {{$key->rg}}     </span>
+                                    &nbsp; &nbsp;
                                 </td> 
                             </tr>
                         @endforeach
@@ -118,7 +124,6 @@
             <!-- Table com mebros e seus votos -->
         </section>          
         <!--@ Final Sessão: Tabela Carregada com Ajax com votos dos relatores @-->
-    
 
         <!-- section que contém ícone para atualizar os votos dos relatores. -->
         <section style=" width:99%; heigth:auto; position:relative; top: 50px; " > 
@@ -132,14 +137,12 @@
             </div>
         </section> 
 
-        
         <!-- II - Lavre-se em Ata e arquive-se. -->
         <section style="width:100%; heigth:auto; position:relative; top: 70px;">
             <div style="margin-left:18px;"> 
                 @lang('globalDocsCpp.comissaoVotacao.footer')
             </div>
         </section> 
-        
 
         <!-- data da deliberação -->
         <section style="width:100%; heigth:auto; position:relative; top:100px;">
@@ -148,15 +151,12 @@
             </div>
         </section> 
 
-
-
         <section style="width:100%; heigth:auto; position:relative; top:130px;">
             <div align="center"> 
                 <h4>    Maj. QOPM Omar Bail.       </h4> 
                 <span> <strong> Presidente da CPP. </strong> <span>
             </div>
         </section> 
-
             
         <section style="width:100%; heigth:auto; position:relative; top: 180px;">
             <div style="margin-left:18px;"> 
@@ -167,8 +167,7 @@
             </div>
         </section> 
 
-
-        <section style=" width:100%; heigth:auto; position: relative; top: 230px; ">
+        <section style=" width:100%; heigth:auto; position: absolute; bottom: 50px; ">
             <div style=" " align="center"> 
                 <form action="{{ route('cpp.deliberacao.edit', 0) }}" method="GET"> 
                     <input type="hidden" value=" {{ $this44A[0] ->id_notification}} " name="id_notification">
@@ -180,7 +179,6 @@
                 </form>
             </div>
         </section> 
-
  
         <input type="hidden" value="  " id="facultyeProtoc" class="facultyeProtoc">
 

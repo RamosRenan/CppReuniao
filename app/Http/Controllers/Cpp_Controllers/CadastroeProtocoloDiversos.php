@@ -37,8 +37,7 @@ class CadastroeProtocoloDiversos extends Controller
         $subs = str_replace($arr, "", $search_cpf_police);
         try {
             //code...
-            if(!empty( $subs)){
-                
+            if(!empty( $subs)){                
                 $result_search_police = POLICE::where('RG', 'like', '%'.$subs.'%')->orWhere('CPF', 'like', '%'.$subs.'%')->orWhere('NOME', 'like', '%'.$subs.'%')->get();
                 $result_search_police_opm = POLICE_OPM::where( 'META4', '=', $result_search_police[0]->OPM_META4 )->get();
                 
@@ -70,7 +69,7 @@ class CadastroeProtocoloDiversos extends Controller
             'sid'       =>  ['required', 'max:12', 'string'],
             'keypedido' =>  ['required', 'max:12', 'string'],
             'data_sid'  =>  ['required', 'max:80', 'date'  ],
-            'FormControlFile1'  =>  ['required', 'max:10000000'],
+            'FormControlFile1'  =>  ['required', 'max:100000'],
         ]);
         // teste de retorno $validatedData ...
         // return $validatedData;

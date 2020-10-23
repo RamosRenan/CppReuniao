@@ -112,7 +112,7 @@
                             @if(session('empate')!= null)
                                 @if(session('empate'))
                                     <span> 
-                                        Nome: {{session('presidente')[0]->nome}} Assinado digitalmente.: <strong> {{ date('d/m/Y ') }} &nbsp; </strong>
+                                        Assinado digitalmente: <b> Nome: </b> &nbsp; {{session('presidente')[0]->nome}}    
                                     </span>                                  
                                 @endif 
                             @endif 
@@ -173,15 +173,16 @@
                                 @if( isset( session('all_memebers_voted_deliber')[$i] ) )
                                     <div style=" margin-left: 4px;" class="assigned_deliber{{$i}}"   id="assigned_deliber{{$i}}">                                       
                                         <span> 
-                                            Assinado digitalmente.: <strong> {{date('d/m/Y ')}} &nbsp; </strong>
+                                            &nbsp; <b> Assinado digitalmente: </b>
                                         </span>
 
                                         <span> 
-                                            Por:<strong> {{ session('all_memebers_voted_deliber')[$i]->name }} &nbsp; </strong>
+                                            Por:<b> {{ session('all_memebers_voted_deliber')[$i]->name }} &nbsp; </b>
                                         </span>
 
                                         <span> 
-                                            RG:<strong> {{ session('all_memebers_voted_deliber')[$i]->rg }} &nbsp; </strong>
+                                            RG:<b> {{ session('all_memebers_voted_deliber')[$i]->rg }} &nbsp; </b>
+                                            &nbsp;
                                         </span>
                                     </div>
                                 @endif                            

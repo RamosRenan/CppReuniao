@@ -370,26 +370,25 @@ class RelatorController extends Controller
 
 
     public function votar44A(){
-        $ativePresidenteSecretario = secretario_e_presidente::where('status', true)
-        ->get();
+        $ativePresidenteSecretario = secretario_e_presidente::where('status', true)->get();
         // return  $ativePresidenteSecretario[0];
         foreach ($ativePresidenteSecretario as $key) {
-            # code...
+            # code  ...
             if( $key->qualificacao == 'Secretaria(o)'){
-                $ativeSecretario = $key->id;
+                $ativeSecretario    = $key->id;
             }
             elseif ($key->qualificacao == 'Presidente') {
-                # code...
-                $ativePresident = $key->id;
+                # code  ...
+                $ativePresident     = $key->id;
             }else{
-                $ativeSecretario = null;
-                $ativePresident = null;
+                $ativeSecretario    = null;
+                $ativePresident     = null;
             }
         }
  
         $toVote44A = notification::where('notifications.read_at', null)
         ->join('A_44_A', 'A_44_A.id_notification', '=', 'notifications.id_notification')->get();
-        // return $toVote44A[0]->data;
+        // return json_decode($toVote44A[0]->data, true);
 
         if(count( $toVote44A) == 0 || empty( $toVote44A)){
             return view('CPP/Relator/votar44A')->with('emptyToVote44A', false);
@@ -405,29 +404,26 @@ class RelatorController extends Controller
         if(count($verifyExistsVote) > 0){
             return view('CPP/Relator/votar44A');
         }else{
-
-            $decode44A = json_decode( $toVote44A[0]['data'] );      /* separa conteúdo da deliberação */
-            
-            return view('CPP/Relator/votar44A')                     /* retorna dados para view 'CPP/Relator/votar44A' */
+            $decode44A = json_decode( $toVote44A[0]['data']);           /* separa conteúdo da deliberação                 */
+            return view('CPP/Relator/votar44A')                         /* retorna dados para view 'CPP/Relator/votar44A' */
             ->with([
-                'vote44AData'=>$toVote44A[0]->data,                   /* conteúdo da deliberação */
-                'responseRelator'=>$toVote44A[0]->id_response_relator,  /* id relator responsavel pela deliberação */
-                'userLoged'=>Auth::user()->id,                          /* usuario logado */
-                'ativeSecretario'=>$ativeSecretario,                    /* id do secretario ativo */ 
-                'ativePresident'=>$ativePresident,                      /* id do presidente ativo */
-                'id44A'=>$toVote44A[0]->id,                             /* id do pedido 44A */
+                'vote44AData'=>json_decode($toVote44A[0]->data, true),  /* conteúdo da deliberação                        */
+                'responseRelator'=>$toVote44A[0]->id_response_relator,  /* id relator responsavel pela deliberação        */
+                'userLoged'=>Auth::user()->id,                          /* usuario logado                                 */
+                'ativeSecretario'=>$ativeSecretario,                    /* id do secretario ativo                         */ 
+                'ativePresident'=>$ativePresident,                      /* id do presidente ativo                         */
+                'id44A'=>$toVote44A[0]->id,                             /* id do pedido 44A                               */
                 'id44ANotification'=>$toVote44A[0]->id_notification,    
                 'emptyToVote44A'=>true  
             ]);
-            
         }        
-
-    }# votar44A
+    }
+    # votar44A
 
     
     /*Registro do parecer do relator referente a pedidos 44a*/
     public function update44_A(Request $request){
-
+        
         //teste de retorno $request
         // return $request;
         
@@ -442,7 +438,8 @@ class RelatorController extends Controller
             $registryRelatorio = new RegistryRelatorioRelatorController($request, $usename[0]->username);
             echo  $registryRelatorio->store();
         }else{
-            return redirect($_SERVER['HTTP_REFERER'])->with('wrongClip', true);
+            return back()->withErrors('Algo de errado com o arquivo, verifique se o mesmo é formato pdf.');
+            return redirect($_SERVER['HTTP_REFERER'])->withErro('wrongClip', true);
         }
 
         $referer44A = $request->input('eProtocolo_referer_44A');        

@@ -10,12 +10,10 @@
     <!-- card-header -->
     <div class="card-header">
         <div class="row" align="center">
-            <div class="col-4">
-                
-            </div>
+            <div class="col-4"> </div>
 
             <div class="col-4" align="center">
-                <h5> <i style=" " class="far fa-address-card"></i>  &nbsp Sala de votação exclusiva 44a <br> <span style="color: #00BFFF;"> <small> Aqui estão listados todos os 44a cadastrados.</small></span> </h5>
+                <h5> <i style=" " class="far fa-address-card"></i>  &nbsp Sala de votação exclusiva 44a <br> <span style=" "> <small> Aqui estão listados todos os 44a cadastrados.</small></span> </h5>
             </div>
 
             <div class="col-4" align="center">
@@ -148,9 +146,11 @@
 
     @if(isset($naoAlanisadosPorComissao) && count($naoAlanisadosPorComissao) > 0)
         @else
-            <div class="row" align="center" style="height: auto; max-width:100%;">
-                <div class="col-sm-12">  <i style=" font-size: 20px; color: gray;" class="fas fa-history"></i>   </div>
-                <div class="col-sm-12"> <h5  style="color: gray;"> <small> Não há deliberações para serem votadas no momento !  </small>  </h5></div>
+            <div class="card" align="center" style=" ">
+                <div class="card-body" align="center" style=" ">
+                    <div class="col-sm-12">  <i style=" font-size: 20px; color: gray;" class="fas fa-history"></i>   </div>
+                    <div class="col-sm-12"> <h4  style="color: gray;"> <small> Não há deliberações para serem votadas no momento !  </small>  </h4></div>
+                </div>
             </div>
     @endif
     

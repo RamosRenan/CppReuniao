@@ -250,7 +250,8 @@ class DeliberController extends Controller
         ->join('Members_Relatores_and_President', 'Members_Relatores_and_President.id', '=', 'relation_vote_each_44A.id_membro')
         ->get();
 
-        $realtorThisDeliber = Members_Relatores_and_President::where('id', $relationVote44Athis44A[0]->id_response_relator)->get();
+        if(count($relationVote44Athis44A)>0)
+            $realtorThisDeliber = Members_Relatores_and_President::where('id', $relationVote44Athis44A[0]->id_response_relator)->get();
 
         if(count($relationVote44Athis44A) > 0){
             return view('CPP.Deliberacoes44A.show')->with(['this44A'=>$relationVote44Athis44A, 
