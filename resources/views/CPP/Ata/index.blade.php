@@ -662,16 +662,16 @@
                             <h5 style=""> Você confirma que realmente <br> Deseja finalizar esta ATA ? </h5>
                             <br> 
                             <form method="get" action="{{ route('cpp.ata.edit', 0) }}"> 
-                            <div class="" style="display:flex; width:100%; height:auto;" >
-                                <input type="hidden" name="numero_ata" value="{{$AtaContent[0]->numero_ata}}">
-                                <input type="hidden" class="introducao_reuniao" id="introducao_reuniao" name="introducao_reuniao" value=" ">
-                                <input type="hidden" class="encerramento_reuniao_inner" id="encerramento_reuniao_inner" name="encerramento_reuniao_inner" value=" ">
-                                <div style="width:50%; height:auto; margin:auto;"> 
-                                    <button type="submit" class="btn btn-primary" > Confirmar </button>
-                                    &nbsp;
-                                    <button  id="cancelEndAta" type="button" class="btn btn-warning cancelEndAta" > Cancelar </button>
+                                <div class="" style="display:flex; width:100%; height:auto;" >
+                                    <input type="hidden" name="numero_ata" value="{{$AtaContent[0]->numero_ata}}">
+                                    <input type="hidden" class="introducao_reuniao" id="introducao_reuniao" name="introducao_reuniao" value=" ">
+                                    <input type="hidden" class="encerramento_reuniao_inner" id="encerramento_reuniao_inner" name="encerramento_reuniao_inner" value=" ">
+                                    <div style="width:50%; height:auto; margin:auto;"> 
+                                        <button type="submit" class="btn btn-primary" > Confirmar </button>
+                                        &nbsp;
+                                        <button  id="cancelEndAta" type="button" class="btn btn-warning cancelEndAta" > Cancelar </button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
                          </div>
                     </div>

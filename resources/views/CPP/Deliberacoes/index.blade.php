@@ -81,7 +81,7 @@
                                             $ComissaoOpnou, $sidTableTotable[0]->relator_opnou_por, $sidTableTotable[0]->eProtocolo),
                                             __('globalDocsCpp.comissaoVotacao.textPadrao') 
                                         ) 
-                                    }}  
+                                    }} 
                                 @endif                                  
                             @endif                                  
                         </textarea>

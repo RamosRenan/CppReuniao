@@ -28,23 +28,35 @@ class AtaController extends Controller{
     static $volateArray = [];
     static $bet         = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y', 'x','z'];
 
-    public function index(){        
+    public function index(){  
+        /*pega o secretario e presidente da cpp*/      
         $ativePresidenteSecretario = secretario_e_presidente::all();
+
+        /*pega somente os relatores ativos*/
         $users_ative_and_inative_cpp = users_ative_and_inative_cpp::where('user_id_your_status', true)
         ->join('Members_Relatores_and_President', 'Members_Relatores_and_President.id', '=', 'users_ative_and_inative_cpp.has_user_id')
         ->get();
 
+        /*pega todas as deliberações pertencentes ao numero da ata em questão*/
         $AtaContent = ata::where('ata.ata_finalizada', null)
         ->join('deliberacao', 'ata.numero_ata', '=', 'deliberacao.numero_ata')
+        ->orWhere('deliberacao', 'ata.numero_ata', '=', 'deliberacao.numero_ata')
+        ->orWhere('deliberacao.condicao_this_deliberacao', 'Postergado')
         ->orderBy('deliberacao.num_deliberacao', 'Asc')
         ->get();
-
-        if(count($AtaContent) == 0){
-            return view('CPP.Sala44A.index');
-        }
-
         $ataOpen = ata::where('ata.ata_finalizada', null)->get();
 
+        // test retorn content ata
+        // return count($AtaContent);
+
+        /*verifica se há deliberação relacionada a esta ata*/
+        if(count($AtaContent) == 0)
+            return new \Exception("Não há deliberações relacionadas a essa ata <a href='/home'> Clique aqui para Voltar. </a>");
+
+        /*pega ata aberta*/
+        $ataOpen = ata::where('ata.ata_finalizada', null)->get();
+
+        /*pega todos os pontos positivos desta ata*/
         if(!empty($ataOpen)){
             $hpp = DB::table('homlog_pontos_positivos')
             ->where('pertence_ata', $ataOpen[0]->numero_ata)
@@ -54,6 +66,7 @@ class AtaController extends Controller{
             ->get();
         }
          
+        /*faz ordenção dos pontos positivos*/
         if(count($hpp) > 0){
             $distinct   = $hpp[0]->distincao;
             $key_inciso = $hpp[0]->key_inciso;
@@ -76,17 +89,20 @@ class AtaController extends Controller{
             }
         }
 
+        /*pega as deliberações 44a que estão na sua tabela especifica*/
+        /*deliberações 44a possuem tramite diferenciado em relação as demais, por isso uma tabela só para 44a*/
         $Ata44A = _A44A::where('pertence_ata_num_ata', $ataOpen[0]->numero_ata)->where('was_voted', true)->get();
  
+        /*pega o usuário lgado*/
         $userLoged = User::where('id', Auth::user()->id)->get();        
 
         return view('CPP.Ata.index')
-        ->with(['AtaContent'=>$AtaContent, 
-                'HomlogAtaContent'=>$hpp, 
-                'Ata44A'=>$Ata44A,
-                'ativePresidenteSecretario'=> $ativePresidenteSecretario,
-                'users_ative_and_inative_cpp'=>$users_ative_and_inative_cpp, 
-                'userLoged'=>$userLoged[0]->name]); 
+        ->with(['AtaContent'        =>$AtaContent, 
+                'HomlogAtaContent'  =>$hpp, 
+                'Ata44A'            =>$Ata44A,
+                'ativePresidenteSecretario'     => $ativePresidenteSecretario,
+                'users_ative_and_inative_cpp'   =>$users_ative_and_inative_cpp, 
+                'userLoged'                     =>$userLoged[0]->name]); 
 
     }// final index();
 
@@ -190,17 +206,18 @@ class AtaController extends Controller{
         $maxNumDeliber = deliberacao::where('date_create_deliberacao','like', date('Y').'%')->max('num_deliberacao');
         $selectNumdeliberNullApreciado = deliberacao::where('numero_ata', $numero_ata)->where('num_deliberacao', null)->where('condicao_this_deliberacao', "Apreciado")->get();
         $selectNumdeliberNullRelatado = deliberacao::where('numero_ata', $numero_ata)->where('num_deliberacao', null)->where('condicao_this_deliberacao', "Relatado")->get();
-        $selectNumdeliberNullPostergado = deliberacao::where('numero_ata', $numero_ata)->where('num_deliberacao', null)->where('condicao_this_deliberacao', "Postergado")->get();
+        $selectNumdeliberNullPostergado = deliberacao::orWhere('numero_ata', $numero_ata)->orWhere('num_deliberacao', null)->orWhere('condicao_this_deliberacao', "Postergado")->get();
+        
         $getYearLastCreateDeliber = explode('-', deliberacao::where('date_create_deliberacao','like', date('Y').'%')->max('created_at'));
         
-        if( ( (date('Y')) - $getYearLastCreateDeliber[0] ) == 1 ){
+        if( ((date('Y')) - $getYearLastCreateDeliber[0] ) == 1 ){
             
             //@ 'for' responsável por numerar APRECIADOS
             $maxNumDeliber = 0;
             for ($i=0; $i < count($selectNumdeliberNullApreciado); $i++){ 
                 #code...
                 try {
-                    //code...
+                    // code ...
                     deliberacao::where('id', $selectNumdeliberNullApreciado[$i]->id)->update(['num_deliberacao'=>$maxNumDeliber = $maxNumDeliber + 1]);
                 } catch (\Throwable $th) {
                     throw $th;

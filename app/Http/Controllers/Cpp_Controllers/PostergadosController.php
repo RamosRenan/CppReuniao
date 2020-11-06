@@ -16,13 +16,15 @@ class PostergadosController extends Controller
     //code ...
 
     public function index(){
-        $allLastDeliberPostergados = deliberacao::where('numero_ata', '<',  ata::max('numero_ata'))
-        ->where('deliberacao.condicao_this_deliberacao', 'Postergado')
+        $allLastDeliberPostergados = deliberacao::Where('deliberacao.condicao_this_deliberacao', '=',  'Postergado')
         ->join('eProtocolo_sorteados', 'eProtocolo_sorteados.eProtocolo', '=', 'deliberacao.eProtocolo')
         ->join('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
         ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
-        ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')
+        // ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')
         ->get();
+
+        // /test contetn $allLastDeliberPostergados
+        // return $allLastDeliberPostergados;
 
         $searchallMembersAtive = users_ative_and_inative_cpp::join('users', 'users.id', '=', 'users_ative_and_inative_cpp.has_user_id')
         ->where('user_id_your_status', '=', 1)->get();
@@ -54,9 +56,13 @@ class PostergadosController extends Controller
             deliberacao::where('eProtocolo', $num_sid)->update(['numero_ata'=>$verify_ata_has_open[0]->numero_ata, 'num_deliberacao'=>null, 'condicao_this_deliberacao'=>$Condicao]);
 
             $sidTableTotable = eProtocolosSorteados::where('eProtocolo_sorteados.eProtocolo', $num_sid)
+            ->join('deliberacao', 'deliberacao.eProtocolo' , '=', 'eProtocolo_sorteados.eProtocolo')
             ->join('eProtocolo', 'eProtocolo.eProtocolo' , '=', 'eProtocolo_sorteados.eProtocolo')
             ->join('policial', 'policial.cpf', '=', 'eProtocolo.cpf')
-            ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')->get();
+            // ->join('users', 'eProtocolo_sorteados.id_membro', '=', 'users.id')
+            ->get();
+
+            // return  $sidTableTotable;
 
             $presidenteSecretario =  secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
             ->where('status', true)->get();
@@ -79,7 +85,8 @@ class PostergadosController extends Controller
                 'numeration_deliberation_deliberacao'=>$numeration_deliberation_deliberacao_[0]->num_deliberacao,
                 'numeration_deliberation_deliberacao_ID'=>$numeration_deliberation_deliberacao_[0]->id,
                 'data_users'=>$data_users,
-                'id_auth'=> Auth::user()->id,
+                'Condicao'=>$Condicao, 
+                // 'id_auth'=> Auth::user()->id,
                 
             ]); 
 

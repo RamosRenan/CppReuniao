@@ -6,12 +6,35 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 @yield('content')
 
+<style>
+html{
+    scroll-behavior: smooth;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-weight: lighter;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
 @section('content')
     
    <div class="scrool_grid_salavotacao" style="height: auto;">
         @if(isset($allLastDeliberPostergados) && count($allLastDeliberPostergados) > 0)
             @foreach($allLastDeliberPostergados as $key => $value)
-                <div class="card card-default_sa" style=" ">
+                <div class="card " style=" ">
                     <div class="card-header">
                         <!-- @ SESSÃO QUAL RELATOR  @ -->
                         <div class="row"  style="text-align:center;">
@@ -23,6 +46,12 @@
                                     <small style="font-size: 13px;"> Lista de todos os protocolos pendentes, postergados, de reuniões(atas), anteriores. </small>
                                 </h5>    
                             </div>
+
+                            <div class="col-sm-1" style=" position:relative; left: 20px; cursor: pointer;">
+                                <span style=" "> 
+                                    <small style="font-size: 13px;"> Total: {{count($allLastDeliberPostergados)}} </small>
+                                </span>    
+                            </div>
                         </div>
                         <!-- @ SESSÃO QUAL RELATOR  @ -->
                     </div>
@@ -31,14 +60,12 @@
                     <div class="card-body" style="height:auto;" align="">
                         <div class="row"  style="height: 18px;">
                             <div class="col-sm-3" style=" position:relative;  cursor: pointer;">
-                                <a href="#" style="" id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > 
-                                    <u> <h5> <i class="fas fa-mouse-pointer"></i>  &nbsp <small> Mais informações clique aqui </small> </h5> </u> 
+                                <a href="#section{{$value->eProtocolo}}" style="" id="{{$value->eProtocolo}}" onclick="moreInfo(this.id)" > 
+                                    <h5> &nbsp; <small> Mais informações clique aqui </small> </h5> 
                                 </a>
                             </div>
 
-                            <div class="col-sm-4" style=" position:relative;  cursor: pointer;">
-                                 
-                            </div>
+                            <div class="col-sm-4" style=" position:relative;  cursor: pointer;"> </div>
 
                             <div class="col-sm-5" style=" " align="right">
                                 <form class="form-inline" style="float: right;">
@@ -49,7 +76,9 @@
                                 </form>
                             </div>
                         </div>
+
                         <br> <br>
+
                         <form action=" {{route('cpp.pedidosPostergados.create')}} " method="put" >
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -129,10 +158,8 @@
 
                                 <!-- dropdown-menu -->
                                 <div style="width: 50%;" class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                                    <div class="card">
-                                        <div class="card-header" align="center">
-                                            <h5> <i class="far fa-id-card"></i> &nbsp Selecione o relator. </h5>
-                                        </div>
+                                    <div class="" " align="center">
+                                        <h5> <i class="far fa-id-card"></i> &nbsp Selecione o relator. </h5>
                                     </div>
                                 
                                     <!-- dropdown-item linha -->
@@ -287,8 +314,72 @@
                         </form>
                     </div>
                     <!-- card body -->
+
+                    <!-- Cortina que contem mais informações -->
+                    <section id="section{{$value->eProtocolo}}" class="{{$value->eProtocolo}}" value="false" name="" style=" width: 100%; height:auto; position: absolute; top: 120px; display: none;">
+                        <div style="border-radius: 5px; max-height: 70vh; overflow-y: scroll; background-color: white; position: absolute; top: 4px; text-align: center; " align="center">
+                            <br>
+                            <div class="card" style="margin: auto; width: 100%;">
+                                <!-- card-body -->
+                                <div class="card-body" style=">
+                                    <h5 style="color: #004B8D;" class="card-title">
+                                        <i class="far fa-user-circle"></i> 
+                                        &nbsp Relator: &nbsp &nbsp {{$value->name}} 
+                                    </h5>
+                                    <br>
+                                    
+                                    <!-- table -->
+                                    <table>
+                                        <tr>
+                                            <th>ID Relator</th>
+                                            <th>{{$value->id_membro}}</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>ID eProtocolo sorteado</th>
+                                            <th>{{$value->id_eProtocolo_sorteados}}</th>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>Data do eProtocolo</th>
+                                            <th>{{$value->entry_system_data}}</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Última atualização</th>
+                                            <th>{{$value->updated_at}}</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Relator votou</th>
+                                            <th>Sim</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Relator opnou por</th>
+                                            <th>{{$value->relator_opnou_por}}</th>
+                                        </tr> 
+
+                                        <tr>
+                                            <th>Parecer do relator</th>
+                                            <th>{{$value->parecer_relator}}ddfdfdf</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>{{$value->status}}</th>
+                                        </tr>
+                                    </table>
+                                    <!-- table -->
+                                    <br>
+                                    </div>
+                                    <!-- card-body -->
+                            </div>
+                        </div>
+                    </section> 
+                    <!-- Cortina que contem mais informações -->
                 </div> 
-                <!-- card card-default -->
+                <!-- card -->
             @endforeach
 
             @else   
@@ -299,28 +390,18 @@
  
      <!-- @ Script's @  -->
      <script>
-        var state = false;
-        var different = null;
-        function moreInfo(i, e){
-            var cn = document.getElementsByClassName(i);
-            if(state && cn != different){
-                $(cn).slideUp("slow");
-                cn = false;
-                different = false;
-            }
-            if(state == false || cn != different){
-                $(cn).slideDown("slow");
-                state = true;
-                different = cn;
+        function moreInfo(e){
+            var cn = document.getElementsByClassName(e);
+            console.log(e); 
+            if(cn[0].getAttribute('value') == 'false'){
+                var r = $(cn).slideDown();
+                cn[0].setAttribute('value', true);
             }else{
-                $(cn).slideUp("slow");
-                state = false;
-                different = cn;
+                var r = $(cn).slideUp();
+                cn[0].setAttribute('value', false);
             }
-            // if(){
-            // }
-            // $(this).slideDown("slow");
-        }//moreInfo()
+        }
+        //moreInfo()
     </script>
     <!-- @ Script's @  -->
 

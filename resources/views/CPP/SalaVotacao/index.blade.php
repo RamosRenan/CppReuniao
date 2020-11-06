@@ -51,7 +51,7 @@ tr:nth-child(even) {
         @if(session('excedeu'))
             <div class="alert alert-danger" role="alert">
                 <i class="fas fa-info-circle"></i> &nbsp;
-                Info! Não há ATA aberta no momento. Sem ATA aberta não é possível prosseguir com a Deliberação !
+                Não há ATA aberta no momento. Sem ATA aberta não é possível prosseguir com a Deliberação !
             </div>
         @endif
 
@@ -431,7 +431,7 @@ tr:nth-child(even) {
                         </section> 
                         <!-- Cortina que contem mais informações -->
                     </div> 
-                    <!-- card card-default -->
+                    <!-- card -->
                     <hr>  
                 @endforeach
             @endif
