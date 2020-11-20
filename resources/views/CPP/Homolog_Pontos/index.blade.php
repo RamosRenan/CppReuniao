@@ -11,10 +11,10 @@
 
     <form method="post'" action="{{ route('cpp.HomologP.create') }}">
         @csrf
-        <!-- @  @ -->
-        <div style="width: 100%; height: auto; display: flex; position: relative; top: -50px;" align="center">
+        <!-- @   @ -->
+        <div style="width: 100%; height: auto; display: flex; position: relative; top: -10px;" align="center">
             <input name="search_cpf_police" style=" width: 30%; " type="text" class="form-control" placeholder=" NOME | RG | CPF" onkeyup="this.value = this.value.toUpperCase();">
-            <button style="background: #4dabf7;" id="button_search_cpf_police" class="btn btn-primary" type="submit"> 
+            <button style=" " id="button_search_cpf_police" class="btn btn-secondary" type="submit"> 
                 <span style="color: white;"> Buscar </span> 
             </button>
         </div>
@@ -24,15 +24,12 @@
 
     <!-- formulario para cadastro de novos pontos positivos -->
     <form method="POST" action=" {{ route('cpp.HomologP.store', 0) }} ">
-        <div class="card card-default" style="position: relative; top: -40px;">
+        <div class="card" style="position: relative; ">
             <div class="card-body" align="center" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 
-                <div style="width: 100%; height:auto;  ">
-                    <h5> <small style=" color: black;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </small> </h5> 
-                </div>
-                <hr>
-
+                <span> <small style="color: black;"> TRANSCRIÇÃO DA RESOLUÇÃO Nº 001 & 002, DE 15 DE MARÇO DE 2019. </small> </span>
+                <hr/>
                 <section>
                     <div class=" curtain_register " align="center" id="curtain_register"> <div>
                 </section>
@@ -237,7 +234,6 @@
                 </div>
                 <!--@ row @-->
 
-
                 <!--@ row @-->
                 <div align="center">
                     <button href="" class="btn btn-success" type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar. </button>
@@ -247,10 +243,7 @@
         </div> <!-- card default -->
     </form> <!-- Final Form -->
 
-
-
-
-
+    <hr/>
 
     <!-- @ Contem todos os avisos e alertas @ -->
     <section>
@@ -272,13 +265,8 @@
 
 
 
-
-
-
-
     <!-- @ Contain todas as funcoes scripts @ -->
     <script type="text/javascript">
-
 
         function mascara(i){
 

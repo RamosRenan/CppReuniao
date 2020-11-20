@@ -14,7 +14,6 @@ use  App\Models\Ata\ata;
 
 class NovosExpedientesController extends Controller
 {
-
     /*@  index()  @*/
     public function index(Request $request){
         
@@ -113,60 +112,41 @@ class NovosExpedientesController extends Controller
         }
     } /*@  create()  @*/
 
-
-
-
-
-
     /*@  edit()  @*/
     public function edit(Request $request){
 
         $tot = $request->all();
 
-        /*@ Get just relators ative @*/
+        /* Get just relators ative */
         $relator = users_ative_and_inative_cpp::where('user_id_your_status', 1)->get();
 
         try {
             for ($i=0; $i < count($tot); $i++) {
                 $verify = eProtocolosSorteados::where('eProtocolo', $tot['object'.$i])->get();
-
                 if(!count($verify) > 0){
-
                     eProtocolo::where('eProtocolo', '=', $tot['object'.$i])->update(['status'=>'Sorteado']);
                     $sorteio = new \App\Models\eProtocoloSorteados\eProtocolosSorteados;
                     $sorteio->eProtocolo = $tot['object'.$i];
                     $sorteio->id_membro = $relator[$i % count($relator)]->has_user_id;
-
                     $sorteio->save(); 
-                    
                 }else{
                     return "Error.: Consulte o Suporte Técnico !";
                 }
-                
-            }//for();
+            }
+            // endfor
             
             return view('/CPP/NovosExpedientes.show')->with(['succes'=>'succes']);
-        
         } 
         catch (\Throwable $th) {
             //     return $th;
             return $th."Error.: Consulte o Suporte Técnico !";
         }
-
     } /*@  edit()  @*/
-
-
-
-
-
 
     /*@  store()  @*/
     public function store(){
 
     } /*@  store()  @*/
-
-
-
 
     /*@  show()  @*/
     public function show($idmembro){

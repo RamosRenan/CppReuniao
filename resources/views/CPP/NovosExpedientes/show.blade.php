@@ -26,16 +26,16 @@
 
                 <div class="col-4" align="center" >
                     <h5> 
-                        <i class="fas fa-project-diagram"></i>  
-                        &nbsp Sorteio de novos expedietes <br>
-                        <small style="font-size: 13px; color: #00BFFF;"> 
+                        Sorteio de novos expedietes 
+                        <br>
+                        <small style="font-size: 13px;"> 
                             Todos os eProtocolos a serem distribuídos estão listados aqui.
                         </small>
                     </h5>
                 </div>
                 
                 <div class="col-4" align="center" >
-                    <span style="float: right; color: #00BFFF;"> Total encontrado: <br> 
+                    <span style="float: right;"> Total encontrado: <br> 
                         @if(isset($tot) && !empty($tot) && !count($tot) <= 0)
                             <small> <i class="fas fa-inbox"></i> &nbsp {{count($tot)}} </small>
                             @else 
@@ -51,14 +51,14 @@
         <!-- card-body -->
         <div class="card-body" style="min-height:230px; max-height: 500px; overflow-y: scroll;"> 
             <table class="table table-striped">
-                <thead style="">
+                <thead>
                     <tr align="center">
-                        <th scope="col">eProtocolo</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">RG</th>
-                        <th scope="col">Graduação</th>
-                        <th scope="col">Unidade</th>
-                        <th scope="col">Pedido</th>
+                        <th scope="col">eProtocolo      </th>
+                        <th scope="col">Nome            </th>
+                        <th scope="col">RG              </th>
+                        <th scope="col">Graduação       </th>
+                        <th scope="col">Unidade         </th>
+                        <th scope="col">Pedido          </th>
                         <th scope="col">Designar relator</th>
                     </tr>
                 </thead>
@@ -82,17 +82,17 @@
                                         <input type="hidden" name="dataeProtocolo"   value="{{$key->data_eProtocolo}}"   />
                                         <input type="hidden" name="conteudo"         value="{{$key->conteudo}}"          />
                                         <input type="hidden" name="status"           value="{{$key->status}}"            />
-
-                                        <button type="submit" style="border:none;" class="btn btn-outline-primary">
+                                        <button type="submit" style="border:none;" >
                                             <u>{{$key->eProtocolo}}</u>
                                         </button>
                                     </form>
                                 </th>
-                                <td> {{$key->nome}} </td>
-                                <td> {{$key->rg}} </td>
-                                <td> {{$key->graduacao}} </td>
-                                <td> {{$key->unidade}} </td>
-                                <td> {{$key->pedido}} </td>
+
+                                <td> {{$key->nome}}         </td>
+                                <td> {{$key->rg}}           </td>
+                                <td> {{$key->graduacao}}    </td>
+                                <td> {{$key->unidade}}      </td>
+                                <td> {{$key->pedido}}       </td>
 
                                 <!-- Listo todos os relatores que podem ser selecionados -->
                                 <td>
@@ -196,36 +196,39 @@
         <!-- card-body -->
 
         <form method="PUT" action="{{route('cpp.novosexpedientes.edit', 0)}}">
-        <!-- card-footer -->
-        <div class="card-footer"> 
-            <div class="row" align="center">
-                @if(isset($tot) && !empty($tot) && !count($tot) <= 0)
-                    <div class="col-4 " >
-                        <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
-                            <i class="fa fa-address-card" aria-hidden="true"></i> Sortear Auto. 
-                        </button>
-                    </div>
-                    
+            @if(isset($tot))
+                @for($i = 0; $i < count($tot); $i++)
+                    <input type="hidden" name="object{{$i}}"  value="{{ $tot[$i]->eProtocolo }}"> 
+                @endfor
+            @endif
 
-                    <div class="col-4 " >
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
-                            <i class="fa fa-address-card" aria-hidden="true"></i> Esta reunião. 
-                        </button>
-                    </div>
+            <!-- card-footer -->
+            <div class="card-footer"> 
+                <div class="row" align="center">
+                    @if(isset($tot) && !empty($tot) && !count($tot) <= 0)
+                        <div class="col-4 " >
+                            <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
+                                <i class="fa fa-address-card" aria-hidden="true"></i> Sortear Auto. 
+                            </button>
+                        </div>
 
-                    <div class="col-4 " >
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
-                            <i class="fa fa-address-card" aria-hidden="true"></i> <i class="far fa-chart-bar"></i> &nbsp Relatório. 
-                        </button>
-                    </div>
-                @endif
+                        <div class="col-4 " >
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
+                                <i class="fa fa-address-card" aria-hidden="true"></i> Esta reunião. 
+                            </button>
+                        </div>
+
+                        <div class="col-4 " >
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalBox" data-url=""> 
+                                <i class="fa fa-address-card" aria-hidden="true"></i> <i class="far fa-chart-bar"></i> &nbsp Relatório. 
+                            </button>
+                        </div>
+                    @endif
+                </div>
             </div>
-        </div>
-        <!-- card-footer -->
+            <!-- card-footer -->
         </form>
-
     </div>
     <!-- card --> 
-
     <br>
 @endsection

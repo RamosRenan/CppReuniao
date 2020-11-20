@@ -14,11 +14,11 @@ class eProtocoloAnexoController extends Controller
     public function index(Request $request){
         if(!$request->isMethod('get')) 
             return redirect()->back()->with('Method', 'Methodo não aceito');
-
-        $eProtocoloAnexoService = new eProtocoloAnexoControllerService($request->query('hid'), $request->method());
-        // return $_SERVER['HTTP_REFERER'];/
-        return $eProtocoloAnexoService->show() == false ?  self::show() :  $eProtocoloAnexoService->show();
+            
+        $eProtocoloAnexoService = new eProtocoloAnexoControllerService($request->query('hid'), $request->method(), $request->query('cpf'));
         
+        // return $_SERVER['HTTP_REFERER'];/
+        return $eProtocoloAnexoService->show() == false ? self::show() : $eProtocoloAnexoService->show();
     }
 
     public function show(){

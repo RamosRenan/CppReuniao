@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Cpp_Controllers;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\E_Protocolo\eProtocolo;
 use App\Models\Policial\Policial;
 use App\Models\anexo_eProtocolos\files_anexo_eProtocolos_refence_pedidos;
 use App\Models\M4PRO\POLICE;
 use App\Models\M4PRO\POLICE_OPM;
-
+use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\ Auth;
 use Illuminate\Support\Facades\Log;
@@ -74,13 +73,11 @@ class CadastroeProtocoloDiversos extends Controller
         // teste de retorno $validatedData ...
         // return $validatedData;
 
-
         //-------------------------------------
         // Instancia de eProtocolo & Policial  
         $eProtocolo = new eProtocolo;
         $Policial   = new Policial;
         //-------------------------------------
-
 
         /*----------------------------------------------------------------------------
         * Bloco responsável por validar o campo eProtocolo     
@@ -96,42 +93,39 @@ class CadastroeProtocoloDiversos extends Controller
         if ($request->hasFile('FormControlFile1') && $request->file('FormControlFile1')->isValid() && $request->file('FormControlFile1')->extension() == "pdf") {
             
             // cria hash com base no nome do arquivo e tempo
-            $hashedNameArq = Hash::make($request->file('FormControlFile1')->getClientOriginalName().time('H:i:s'), [
-                'memory'    => 1,
-                'time'      => 2,
-                'threads'   => 2,
-            ]);
-
-            // return  $hashedNameArq;
-
+            // $hashedNameArq = Hash::make($request->file('FormControlFile1')->getClientOriginalName().time('H:i:s'), [
+            //     'memory'    => 1,
+            //     'time'      => 2,
+            //     'threads'   => 2,
+            // ]);
+ 
             try {
+                // coloca arquivo em /storage/app/public/
+                // envia para servidor arquivo, e retorna path com hash do arquivo
+                $returnStorage = Storage::disk('AnexoPedido')->put($request->input ('cpf'), $request->file('FormControlFile1'));
+                // return substr(strstr($returnStorage, '/'), 1);
+                $justHash = substr(strstr($returnStorage, '/'), 1);
+ 
                 //code...
                 //instancia para novo anexo
-                $newAnexoeProtcolo = new files_anexo_eProtocolos_refence_pedidos;
+                $newAnexoeProtcolo = new files_anexo_eProtocolos_refence_pedidos; // DB files anexo eprotocolos
                 $newAnexoeProtcolo->nome_arquivo        = $request->file('FormControlFile1')->getClientOriginalName();
                 $newAnexoeProtcolo->path                = "teste/teste/";
                 $newAnexoeProtcolo->eprotocolo_foreign  = $request->input ('sid');
                 $newAnexoeProtcolo->PK_cpf__policial    = $request->input ('cpf');
+                $newAnexoeProtcolo->hash                = $justHash;
                 
-                $file =  '/home/pmpr/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/';
-                
-                $hashSplit = str_split($hashedNameArq);
-
-                for($i=0; $i < strlen($hashedNameArq); $i++) {
-                    # code...
-                    if($hashSplit[$i] == '/')
-                        $hashSplit[$i] = '%';
-                }
-
-                $newAnexoeProtcolo->hash = implode('', $hashSplit);
-                
+                // save anexo no DB 
                 $newAnexoeProtcolo->save();
  
-                move_uploaded_file($_FILES['FormControlFile1']['tmp_name'], $file.implode('', $hashSplit));
+                // move arquivo para localhost
+                // move_uploaded_file($_FILES['FormControlFile1']['tmp_name'], $file.implode('', $hashSplit));
 
-            } catch (\Throwable $th) {
-                throw $th;
+            }catch(\Exception $th) {
+                // throw $th;
+                return "Algo de errado ocorreu - ".$th->getMessage()."<h5> <a href='/cpp/cadastroE-protocolo'> Voltar </a> </h5>";
             }
+            
 
         }else{
             return redirect()->back()->with('errorAnexo', 'Error no Arquivo enviado'); 

@@ -7,36 +7,36 @@
 
 @section('content')
 <div class="card" style=" ">
-    <!-- card-header -->
-    <div class="card-header" >
-        <div class="row" >
-            <div class="col-4" align="left">
-                <!-- @ form @ -->
-                <form action="/cpp/getPolice"  method="POST" >
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <!-- @  @ -->
-                    <div style="width: 100%; height: auto; display: flex; position: relative;" align="center">
-                        <input name="search_cpf_police" style=" max-width: 350px; " type="text" class="form-control" placeholder=" Insira o 'NOME' ou 'RG' ou 'CPF' do militar. " >
-                        <button style=" " id="button_search_cpf_police" class="btn btn-primary" type="submit"> 
-                            <span style="color: white;"> <i class="fas fa-search"></i> </span> 
-                             
-                        </button>
+    <form action="/cpp/getPolice"  method="POST">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <!-- card-header -->
+        <div class="card-header" >
+            <!-- row -->
+            <div class="row" style="width: 100%;">
+                <!-- col-md-4 -->
+                <div class="col-md-4"> <h5 style="position: relative; top: 10px;"> <i class="fas fa-id-card"></i> &nbsp; Registro 44a </h5> </div>
+                <!-- col-md-4 -->
+
+                <!-- col-md-4 -->
+                <div class="col-md-4" style=" " align="center"> </div> 
+                <!-- col-md-4 -->
+                
+                <!-- col-md-4 -->
+                <div class="col-md-4">  
+                    <div class="input-group mb-3">
+                        <input type="text" name="search_cpf_police" class="form-control" placeholder="NOME | RG | CPF" aria-label="NOME | RG | CPF" aria-describedby="button-addon2" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"> Encontrar &nbsp; <i class="fas fa-search" style=""></i> </button>
+                        </div>
                     </div>
-                    <!-- @  @ -->
-                </form>
-                <!-- @ form @ -->
-            </div>
-
-            <div class="col-4" align="center">
-                <h5 style="color: #009acd;"> Formulário Registro <br> <small> 44A. </small> </h5>  
-            </div>
-
-            <div class="col-4">
-                    
-            </div>
+                </div>                   
+                <!-- col-md-4 -->
+            </div>                
+            <!-- row -->
         </div>
-    </div>
-    <!-- card-header -->
+        <!-- card-header -->
+    </form>
+    <!-- @ form @ -->
 
     <!-- card-body -->
     <div class="card-body">

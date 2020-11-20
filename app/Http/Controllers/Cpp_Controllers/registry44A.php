@@ -18,6 +18,7 @@ use App\Http\Controllers\Cpp_Controllers\__44AController;
 use App\Models\Ata\ata;
 use App\Models\Policial\Policial;
 use App\Models\Members_Relatores_President\Members_Relatores_and_President;
+use Storage;
 
 
 class registry44A extends Controller
@@ -30,8 +31,6 @@ class registry44A extends Controller
 
     public function store(Request $request){
 
-        // return $request->file('FormControlFile_44A')->getClientOriginalExtension();
-         
         $verify_has_ata_open  = ata::where('ata_finalizada', null)->get();
  
         // necessário verificar se existe ata aberta para serem inseridos 44A.
@@ -64,36 +63,32 @@ class registry44A extends Controller
         if ($request->file('FormControlFile_44A')->isValid() && $request->file('FormControlFile_44A')->getClientOriginalExtension() == "pdf") {
             
             // cria hash com base no nome do arquivo e tempo
-            $hashedNameArq = Hash::make($request->file('FormControlFile_44A')->getClientOriginalName().time('H:i:s'), [
-                'memory'    => 1,
-                'time'      => 2,
-                'threads'   => 2,
-            ]);
-
-            // return  $hashedNameArq;
+            // $hashedNameArq = Hash::make($request->file('FormControlFile_44A')->getClientOriginalName().time('H:i:s'), [
+            //     'memory'    => 1,
+            //     'time'      => 2,
+            //     'threads'   => 2,
+            // ]);
 
             try {
+                // coloca arquivo em /storage/app/public/
+                // envia para servidor arquivo, e retorna path com hash do arquivo
+                $returnStorage = Storage::disk('AnexoPedido')->put($request->input ('CPF'), $request->file('FormControlFile_44A'));
+                // return substr(strstr($returnStorage, '/'), 1);
+                $justHash = substr(strstr($returnStorage, '/'), 1);
+
                 //code...
                 //instancia para novo anexo
                 $newAnexoeProtcolo                      = new files_anexo_eProtocolos_refence_pedidos;
                 $newAnexoeProtcolo->nome_arquivo        = $request->file('FormControlFile_44A')->getClientOriginalName();
                 $newAnexoeProtcolo->path                = $request->file('FormControlFile_44A')->path();
-                $newAnexoeProtcolo->eprotocolo_foreign  = $request->input ('eProtocolo');
-                $newAnexoeProtcolo->PK_cpf__policial    = $request->input ('CPF');
-                $hashSplit = str_split($hashedNameArq);
+                $newAnexoeProtcolo->eprotocolo_foreign  = $request->input('eProtocolo');
+                $newAnexoeProtcolo->PK_cpf__policial    = $request->input('CPF');
+                $newAnexoeProtcolo->hash                = $justHash;
                 
-                for($i=0; $i < count($hashSplit); $i++){
-                    # code...
-                    if($hashSplit[$i] == '/')
-                    $hashSplit[$i] = '.';
-                }
-                
-                $newAnexoeProtcolo->hash = implode('', $hashSplit);
                 $newAnexoeProtcolo->save();
 
-                $file =  '/home/pmpr/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/';
-
-                move_uploaded_file($_FILES['FormControlFile_44A']['tmp_name'], $file.implode('', $hashSplit));
+                // move arquivo para localhost
+                // move_uploaded_file($_FILES['FormControlFile_44A']['tmp_name'], $file.implode('', $hashSplit));
 
             } catch (\Throwable $th) {
                 throw $th;

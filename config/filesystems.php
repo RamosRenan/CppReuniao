@@ -43,14 +43,26 @@ return [
 
     'disks' => [
 
-        'local' => [
+        'AnexoPedido' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('app/public/CppArquivo/windows/AnexoPedido/'),
+            'username' => 'DDTQ-SSI',
+            'password' => 'ssi-ddtq',
+        ],
+
+        'Ata' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/CppArquivo/windows'),
+        ],
+
+        'Relatorio' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/CppArquivo/windows'),
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/public/'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
@@ -62,6 +74,15 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+
+        'sftp' => [
+            'driver'   => 'ftp',
+            'host'     => '10.147.29.156',
+            'username' => 'DDTQ-SSI',
+            'password' => 'ssi-ddtq',
+            'root' => storage_path('D:\teste'),
+            // 'port'=>22,
         ],
 
     ],

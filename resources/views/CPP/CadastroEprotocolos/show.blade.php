@@ -13,9 +13,13 @@
                 <!-- card-header -->
                 <div class="card-header">
                     <div class="row" style=" ">
-                        <div class="col-4" style="display: flex;">
-                            <input class="form-control" type="text" NAME="search_pedido" placeholder="'  RG | CPF | NOME | N° eProtocolo  ' " style=" background: white; max-width: 430px; ">
-                            <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i>  </button>
+                        <div class="col-4" style="">
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" NAME="search_pedido" placeholder="'  RG | CPF | NOME | N° eProtocolo  ' " style=" background: white; max-width: 430px; ">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-secondary"> <i class="fas fa-search"></i> </button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-4" align="center"> 
@@ -28,7 +32,6 @@
                     </div>       
                 </div>
                 <!-- card-header -->
-
 
                 <!-- card-body -->
                 <div class="card-body" style="max-height: 460px; overflow-y: scroll; background-color:white;">

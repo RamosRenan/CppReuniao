@@ -41,10 +41,10 @@ tr:nth-child(even) {
 
         @if(isset($relatados) && count($relatados) > 0)
             @else
-                <div class="card">
-                    <div class="card-body" align="center">
-                        <div class="col-sm-12">  <i style=" font-size: 30px; color: gray;" class="fas fa-history"></i> &nbsp; Não há deliberações para serem votadas no momento !  </div>
-                    </div>
+                <div class="col-sm-12">  
+                    <i style=" font-size: 20px; color: gray;" class="fas fa-history"></i> 
+                    &nbsp; 
+                    <h5>Não há deliberações para serem votadas no momento.</h5>  
                 </div>
         @endif
         
@@ -75,6 +75,7 @@ tr:nth-child(even) {
 
     <br>
      
+    @if(isset($relatados) && count($relatados)>0)
     <!-- card -->
     <div class="card" style="">
         <div class="card-header">
@@ -101,7 +102,7 @@ tr:nth-child(even) {
         </div>
     </div>
     <!-- card -->
-
+    @endif
 
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
         <div style="position:relative;">

@@ -10,42 +10,45 @@ use Illuminate\Support\Facades\Storage;
 class eProtocoloAnexoControllerService extends Controller
 {
     // code ... 
+    private     $eprotocolo;
+    private     $method;
+    private     $cpfPm;
 
-    private  $eprotocolo;
-    private  $method;
-
-    public function __construct($eprotocolo, $method){
+    public function __construct($eprotocolo, $method, $cpfPm)
+    {
         $this->eprotocolo   = $eprotocolo;
         $this->method       = $method;
+        $this->cpfPm        = $cpfPm;
     }
 
-    private function showAnexoeProtocolo(object $objectFile){
+    private function showAnexoeProtocolo(object $objectFile, $cpfPm)
+    {
+        $file = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/AnexoPedido/'.$cpfPm.'/'.$objectFile[0]->hash;
 
-        // return $objectFile;
-
-        $file = '/home/pmpr/public/reuniaoCpp/cpp/policialPedidos/anexo_eProtocolos/'.$objectFile[0]->hash;
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="teste.pdf"');
         header('Content-Transfer-Encoding; binary');
-
-        try {
+        
+        try{
             //code...
             @readfile($file);
-        } catch (\Throwable $th){
-            throw $th;
+        } catch (\Exception $th){
+            // throw $th;
+            return "Algo de errado ocorreu ao abrir o arquivo - ".$th->getMessage()."<h5> <a href='/cpp/cadastroE-protocolo'> Voltar </a> </h5>";
         }
     }
     //showAnexoeProtocolo()
 
-    public function show(){
+    public function show()
+    {
         //verifica se exite eProtocolo na DB
         $objectFile = files_anexo_eProtocolos_refence_pedidos::where('eprotocolo_foreign', $this->eprotocolo)->get();
-        // return count($objectFile);
-
+        
+        // return $objectFile;
         if(empty($objectFile) || count($objectFile)==0)
              return false;
 
-        return self::showAnexoeProtocolo($objectFile);
+        return self::showAnexoeProtocolo($objectFile, $this->cpfPm);
     }
     //show()
 }

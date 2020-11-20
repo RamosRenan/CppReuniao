@@ -8,9 +8,9 @@
 
 @section('content')
     <!-- card -->
-    <div class="card text-center">
+    <div class="card">
         <div class="card-header">
-            <h4 class=" "><i class="far fa-address-card"></i> &nbsp Pedido selecionado </h4>
+            <h4 class=" "><i class="far fa-address-card"></i> &nbsp; {{ strtolower($showSelected['nome']) }} </h4>
         </div>
     
         <!-- card-body -->
@@ -18,13 +18,6 @@
             <!-- row -->
             <div class="row" align="center">
                 <div class="col-sm-12">
-                    <h5 class="card-title" style="color: #364fc7;">
-                        Nome: &nbsp
-                        {{$showSelected['nome']}}
-                    </h5>
-
-                    <br>
-
                     <!-- form -->
                     <form>
                         <!-- form-row -->
@@ -34,7 +27,7 @@
                                 <input readonly value="{{$showSelected['eProtocolo']}}" type="text" class="form-control" id="inputEmail4">
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-6">
                                 <label for="inputPassword4">Pedido</label>
                                 <input readonly value="{{$showSelected['pedido']}}" type="text" class="form-control" id="inputPassword4">
                             </div>
@@ -43,11 +36,12 @@
                                 <label for="inputPassword4">Status</label>
                                 <input readonly value="{{$showSelected['status']}}" type="text" class="form-control" id="inputPassword4">
                             </div>
-
+                            <!--
                             <div class="form-group col-md-3">
                                 <label for="inputPassword4">Token</label>
                                 <input readonly value="{{$showSelected['_token']}}" type="text" class="form-control" id="inputPassword4">
                             </div>
+                            -->
                         </div>
                          <!-- form-row -->
 
@@ -105,17 +99,13 @@
             </div>
             <!-- row -->
 
-            <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$showSelected['eProtocolo']]) }}"> 
-                <span style="float: left;"> &nbsp <i class="fas fa-paperclip"></i> &nbsp; Visualizar anexo &nbsp </span>
+            <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$showSelected['eProtocolo'], 'cpf'=>$showSelected['cpf'] ]) }}"> 
+                <span style="float: left;"> <i class="fas fa-paperclip"></i> &nbsp; Visualizar anexo &nbsp; </span>
             </a>
-            <hr>
-
         </div>
         <!-- card-body -->
 
-        <div class="card-footer text-muted">
-            
-        </div>
+        <div class="card-footer text-muted"> </div>
     </div>
     <!-- card -->
 

@@ -8,75 +8,33 @@
 @section('content')
     <!-- card -->
     <div class="card"  style="width: 100%; height: auto; ">
-    <!-- @ section @ -->
-    <section> 
-        <!-- form  Busca militar informado no campo - url(/cpp/cadastroE-protocolo) -->
-        <form class="form-inline" method="GET" action="{{ route('cpp.cadastroE-protocolo.index') }}"> 
-                <!-- card-header -->
-                <div class="card-header" style="width: 100%; height: auto; ">
-                    <!-- row -->
-                    <div class="row" style="width: 100%;">
-                        <!-- col-md-4 -->
-                        <div class="col-md-4"> 
-
-                        </div>
-                        <!-- col-md-4 -->
-
-                        <!-- col-md-4 -->
-                        <div class="col-md-4" style=" " align="center">
-                            <h4 style="color: #2A4B7C;"> 
-                                <i class="fa fa-id-card" style="font-size:32px; " aria-hidden="true">  </i> 
-                                &nbsp Registrar  e_Protocolo 
-                            </h4>
-                        </div> 
-                        <!-- col-md-4 -->
-                        
-                        <div class="col-md-4" >  
-                            <div class="form-group " style="float: right;">
-                                <input type="text" class="form-control" name="search_cpf_police" id="inputPassword2" placeholder="NOME | RG | CPF">
-                                <button type="submit" class="btn btn-primary" style=" ">
-                                    <i class="fas fa-search" style=""></i>    
-                                </button>
-                            </div>
-                        </div>                   
-
-                    </div>                
-                    <!-- row -->
-                </div>
-                <!-- card-header -->
-            
-        </form> 
-        <!-- form -->
-
+        @include('layouts.header.header', ['bbc'=>'cdsacfsafdsfsdf'])
+        
+        <h5 style="position: absolute; left: 30px; top:20px;"> <small> <i class="fas fa-id-card"></i> &nbsp;Registro de pedidos </small> </h5>
 
         <!-- form - Cadastra realemnte um novo pedido -->
         <form method="POST" action=" {{ route('cpp.cadastroE-protocolo.store') }} " enctype="multipart/form-data"> 
             <!--  csrf_token() //Campo escodido que garante segunça no envio do form. Obs.: Ver Doc do Laravel 'csrf' -->
             <input type="hidden" name="_token" value="{{ csrf_token() }}">   
-
                 <!-- card-body - corpo do form -->
                 <div class="card-body"> 
-                    
                     <!-- section - cortina escondida mostra o militar buscado no campo de busca acima -->
                     <section> 
                         <div class=" curtain_register " align="center" id="curtain_register"> <div> 
                     </section>
                     <!-- /section -->
 
-
                     <!-- section CORTINA DE CORFIRMAÇÃO DE DADOS  Dados retornados do meta4 para confirmação. -->
                     <section> 
-
                         <!-- contain_curtain -->
                         <div class="contain_curtain" id="contain_curtain_section" > 
-
                             <!-- sun_contain_curtain -->
                             <div class="sun_contain_curtain" align="center"> 
 
                                 <h5 style="position: relative; top: 8px;"> 
                                     <i class="fas fa-user-circle"> </i> &nbsp; Policial encontrado.
                                     <a  id="closecurtain" > 
-                                        <i class="fas fa-times"style=" cursor:pointer; float:right; margin-right: 8px; margin-top: 2px; color: #c6c6c6; font-size: 19px;"></i> 
+                                        <i class="fas fa-times" style=" cursor:pointer; float:right; margin-right: 8px; margin-top: 2px; color: #c6c6c6; font-size: 19px;"></i> 
                                     </a> 
                                 </h5>
                                 
@@ -117,13 +75,10 @@
                                             <i style="color: #c9c9c9; font-size: 30px;" class="fas fa-frown-open"></i>
                                 @endif
                                 <!-- final if -->
-
                             </div>
                             <!-- sun_contain_curtain -->
-
                         </div>
                         <!-- contain_curtain -->
-
                     </section> 
                     <!-- /section -->
 
@@ -141,39 +96,66 @@
                         <!-- col-md-3 form-group -->
                         <div class="col-md-3 form-group">
                             <label class='awesome'> * Pedido. </label>
-                            <select   class="form-control" onchange="keyped()"  id="pedido" name="pedido" required>
+                            <select class="form-control" onchange="keyped()"  id="pedido" name="pedido" required>
                                 <option value="">  </option>
                                 <!-- Policiais -->
-                                <option value="Promoção à graduação  de Sub.Tenente QPMG 1-0">Promoção à graduação  de Sub.Tenente QPMG 1-0</option>
+                                <option value="Promoção à graduação  de Sub.Tenente QPM 1-0">Promoção à graduação  de Sub.Tenente QPMG 1-0</option>
+                                
+                                <option value="prom_at_brv"> promoção por ato de bravura                    </option>
+                                <option value="prom_pst_mrt"> promoção post-mortem                           </option> 
+                                <option value="prom_rfm_ivl"> promoção devido à reforma por invalidez        </option> 
+                                <option value="res_pret"> ressarcimento de preterição                    </option>
+                                <option value="rev_alm"> revisão no Almanaque                           </option> 
+                                <option value="anal_sub_jud"> análise da condição de sub-judice              </option> 
+                                <option value="imput_sb_jd"> imputação da condição de sub-judice            </option>
+                                <option value="cont_int"> contagem de interstício                        </option>
+                                <option value="reinc_qd_acs"> reinclusão ao Quadro de Acesso                 </option>
+                                <option value="reinteg"> reintegração                                   </option>
+                                <option value="reversao"> reversão                                       </option>
+                                <option value="retificacao"> retificação                                    </option> 
+                                <option value="rec_prom_brv"> reconsideração de ato referente à promoção por ato de bravura              </option>
+                                <option value="rec_pst_mrt"> reconsideração de ato referente à promoção post-mortem                     </option>
+                                <option value="rec_rfm_ivl"> reconsideração de ato referente à promoção devido à reforma por invalidez  </option>
+                                <option value="rec_res_pret"> reconsideração de ato referente ao ressarcimento de preterição             </option>
+                                <option value="rec_rev_alm"> reconsideração de ato referente à revisão no Almanaque                     </option>
+                                <option value="rec_cnt_pp"> reconsideração de ato referente à contagem de pontos positivos             </option>
+                                <option value="rec_cnt_f_s"> reconsideração de ato referente à contagem de pontos positivos devido à ferimento de serviço   </option>
+                                <option value="rec_anal_p_n"> reconsideração de ato referente à análise de pontos negativos                                  </option>
+                                <option value="rec_imp_p_n"> reconsideração de ato referente à imputação de pontos negativos                                </option>
+                                <option value="rec_sb_jud"> reconsideração de ato referente à análise da condição de sub-judice                            </option>
+                                <option value="rec_ip_sb_jd"> reconsideração de ato referente à imputação da condição de sub-judice                          </option>
+                                <option value="rec_cnt_inter"> reconsideração de ato referente à contagem de interstício                                      </option>
+                                <option value="rec_reinc_qd"> reconsideração de ato referente à reinclusão ao Quadro de Acesso                               </option>
+                                <option value="rec_retif"> reconsideração de ato referente à retificação                                                  </option>
+                                <!-- 
                                 <option value="Promoção à graduação  de 1º Sgt. QPMG 1-0">Promoção à graduação  de 1º Sgt. QPMG 1-0</option>
                                 <option value="Promoção à graduação  de 2º Sgt. QPMG 1-0">Promoção à graduação  de 2º Sgt. QPMG 1-0</option>
                                 <option value="Promoção à graduação  de 3º Sgt. QPMG 1-0" >Promoção à graduação  de 3º Sgt. QPMG 1-0</option>
                                 <option value="Promoção à graduação  de Cb. QPMG 1-0">Promoção à graduação  de Cb. QPMG 1-0</option>									
-                                <!-- Policiais -->
+                                Policiais -->
 
-                                <option value=""> <hr/> </option>
+                                <!-- <option value=""> <hr/> </option> -->
 
                                 <!-- Bombeiros -->
-                                &nbsp;<option value="Promoção à graduação  de Sub.Tenente QPM 2-0">Promoção à graduação  de Sub.Tenente QPM 2-0</option>
+                                <!-- &nbsp;<option value="Promoção à graduação  de Sub.Tenente QPM 2-0">Promoção à graduação  de Sub.Tenente QPM 2-0</option>
                                 &nbsp;<option value="Promoção à graduação  de 1º Sgt. QPM 2-0">Promoção à graduação  de 1º Sgt. QPM 2-0</option>
                                 &nbsp;<option value="Promoção à graduação  de 2º Sgt. QPM 2-0">Promoção à graduação  de 2º Sgt. QPM 2-0</option>
                                 &nbsp;<option value="Promoção à graduação  de 3º Sgt. QPM 2-0" >Promoção à graduação  de 3º Sgt. QPM 2-0</option>
-                                &nbsp;<option value="Promoção à graduação  de Cb. QPM 2-0">Promoção à graduação  de Cb. QPM 2-0</option>
+                                &nbsp;<option value="Promoção à graduação  de Cb. QPM 2-0">Promoção à graduação  de Cb. QPM 2-0</option> -->
                                 <!-- Bombeiros -->
                                 
-                                <option value=""> <hr/> </option>
+                                <!-- <option value=""> <hr/> </option> -->
 
                                 <!-- Demais pedidos pertinentes a cpp -->
-                                <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
+                                <!-- <option value="Ressarcimento de Preterição">Ressarcimento de Preterição </option>
                                 <option value="Reclassificação do Quadro" >Reclassificação do Quadro</option>
                                 <option value="Retificação de publicação">Retificação de publicação</option>
                                 <option value="Reconsideração de Ato">Reconsideração de Ato</option>
                                 <option value="Pontos positivos">Pontos positivos</option>
                                 <option value="Ato de Bravura" >Ato de Bravura</option>
-                                <option value="Sub-Judice">Sub-Judice</option>
+                                <option value="Sub-Judice">Sub-Judice</option> -->
                                 <!--  -->
                             </select>
-
                             <!--
                                 * Obs.:
                                 * No final do código, scrpit responsável por pegar 'value' de 'option' 
@@ -181,7 +163,6 @@
                                 * Verificar o motivo no aquivo "App\Http\Controllers\Presidente\PresidenteController" 
                             -->  
                             <input type="hidden" name="keypedido" id="keyp" value=" ">
-
                         </div>
                         <!-- col-md-3 form-group -->
 
@@ -189,7 +170,6 @@
                         <div class="col-md-2 form-group">                
                             <label class='awesome'> * Data do eProtocolo. </label>
                             <input name="data_sid" required type='date' class='form-control'>
-
                         </div>
                         <!-- col-md-2 form-group -->
 
@@ -203,14 +183,13 @@
 
                         <!-- col-md-2 form-group -->
                         <div class="col-md-2 form-group">
-                            <label class='awesome'> * CPF </label>
-                            <input id="GET_CPF" maxlength="11" class='form-control' type="text"  name="cpf"  style="" required>
+                            <label class='awesome'> * CPF fsdf</label>
+                            <input id="GET_CPF"  maxlength="12" class='form-control' type="text"  name="cpf"  style="" required>
                         </div>
                         <!-- col-md-2 form-group -->
                         
                     </div>
                     <!-- /row -->
-
 
                     <!-- row 2 -->
                     <div class="row">
@@ -226,7 +205,7 @@
 
                         <div class="col-md-2 form-group">
                             <label class='awesome'> * RG </label>
-                            <input id="GET_RG"  class='form-control' type="text"  name="rg"  style="" required>
+                            <input id="GET_RG"  title="World Health Organization" maxlength="12" class='form-control' type="text"  name="rg"  style="" required>
                         </div>
                         
                         <div class="col-md-4 form-group">
@@ -254,7 +233,6 @@
                     </div> 
                     <!-- row 3-->
 
-
                     <!-- container -->
                     <div class="container">
                         <!-- row 4 -->
@@ -275,14 +253,11 @@
                 <!-- <div class="card-body"> -->
         </form> 
         <!-- Final Form -->
-    </section>
-    <!-- @ section @ -->
     </div>
     <!-- card  -->
 
     <!-- contém todos os avisos caso ocorram as excecoes -->
     <div style="width:100%; heigth: 50px; position:relative; top: -30px;">
-
         <!-- inside -->
         <div style="width:100%; heigth: 30px; background-color:green;">
             
@@ -298,7 +273,7 @@
             @if( isset($succes))
                 @if($succes == "succes")
                     <div class="alert alert-success">
-                        <h5> <strong>Info!</strong>  Success - Salvo com sucesso no sistema.   </h5>    
+                        <h5>  Salvo com sucesso no sistema.   </h5>    
                     </div>							 
                 @endif	
             @endif	
@@ -332,9 +307,8 @@
             
         </div>
         <!-- inside -->
-
     </div>
-    <!-- -->
+    <!-- contém todos os avisos caso ocorram as excecoes -->
 
     <br>                                                  
 
@@ -346,93 +320,20 @@
         */
         function keyped(){
 
-            //var run = document.getElementById("pedido").length;
-            var val = document.getElementById("pedido").value;
+            if((document.getElementById("pedido").value) === (null || undefined || '' || "")){
+                alert("Você precisa selecionar uma opção válida !");
+            }else{
+                document.getElementById("keyp").value = document.getElementById("pedido").value;
 
-            switch (val) {
+                var opt = document.getElementById("pedido").selectedIndex;
                 
-                //
-                case "Promoção à graduação  de Sub.Tenente QPM 1-0":
-                    document.getElementById("keyp").value = "PROM00SUB";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Promoção à graduação  de 1º Sgt. QPM 1-0":
-                    document.getElementById("keyp").value = "PROM1ºSGT";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Promoção à graduação  de 2º Sgt. QPM 1-0":
-                    document.getElementById("keyp").value = "PROM2ºSGT";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Promoção à graduação  de 3º Sgt. QPM 1-0":
-                    document.getElementById("keyp").value = "PROM3ºSGT";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Promoção à graduação  de Cb. QPM 1-0":
-                    document.getElementById("keyp").value = "PROM00CB";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Ressarcimento de Preterição":
-                    document.getElementById("keyp").value = "RESS00P";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Reclassificação do Quadro":
-                    document.getElementById("keyp").value = "RECLA00Q";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Retificação de publicação":
-                    document.getElementById("keyp").value = "RET00P";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Reconsideração de Ato":
-                    document.getElementById("keyp").value = "RECON00A";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Pontos positivos":
-                    document.getElementById("keyp").value = "PON00P";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Ato de Bravura":
-                    document.getElementById("keyp").value = "ATO00B";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                case "Sub-Judice":
-                    document.getElementById("keyp").value = "SUB00J";
-                    var keypedido = document.getElementById("keyp").value;
-                    alert(keypedido);
-                    break;
-                //
-                default:
-                    alert("Não válido");					
-                    break;
-            
-            }//Final Switch Case:
+                // teste ...
+                // console.log(document.getElementById("pedido").options[opt].text);
 
+                alert(document.getElementById("pedido").options[opt].text);
+            }
             
-        }//keyped();
-
+        }
 
         //insere caracteres no campo eProtocolo;
         function mascara(i){
@@ -451,7 +352,6 @@
 
         } 
         //mascara(i)
-
 
         // insere auto no campos os valores encontrados da busca pelo policial
         function data_police(){
