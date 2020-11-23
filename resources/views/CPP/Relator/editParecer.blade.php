@@ -14,7 +14,6 @@
         <div class="card text-center">
             <!-- card-header -->
             <div class="card-header" >
-                <i class="fas fa-info"></i><br>
                 <h5 class="card-title" style="color: cian; "> É possível alterar somente pedidos que não foram votados pela comissão.</h5>
                 <p class="card-text" style="color: gray;">Listagem de todos os pareceres registrados que não foram votados. <b style="color:#2A4B7C;">TOTAL: {{count($relatados)}} </b> </p>
             </div>

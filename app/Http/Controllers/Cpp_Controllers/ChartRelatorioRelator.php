@@ -50,10 +50,12 @@ class ChartRelatorioRelator extends Controller
         return $allUser;
     }// allMembers()
 
-    public function show($idRelator){
+    public function show(Request $request){
+        
+        // return $request->get('id');
 
         //busca eProtocolos com o id $idRelator
-        $Usorteados = eProtocolosSorteados::where('id_membro', '=', $_GET['id'])
+        $Usorteados = eProtocolosSorteados::where('id_membro', '=', $request->get('id'))
         ->where('parecer_relator', null)
         ->where('relator_votou', null)
         ->join ('eProtocolo', 'eProtocolo_sorteados.eProtocolo', '=', 'eProtocolo.eProtocolo')
@@ -63,7 +65,7 @@ class ChartRelatorioRelator extends Controller
         //teste de retorno $Usorteados
         // return $Usorteados;
 
-        return view('/CPP/ChartRelatorioRelator/show')->with(['Usorteados'=>$Usorteados]);
+        return view('/CPP/ChartRelatorioRelator/show')->with(['Usorteados'=>$Usorteados, 'relator'=>$request->get('relator')]);
     }
     //show()
 }

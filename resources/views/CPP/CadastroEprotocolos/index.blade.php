@@ -183,7 +183,7 @@
 
                         <!-- col-md-2 form-group -->
                         <div class="col-md-2 form-group">
-                            <label class='awesome'> * CPF fsdf</label>
+                            <label class='awesome'> * CPF </label>
                             <input id="GET_CPF"  maxlength="12" class='form-control' type="text"  name="cpf"  style="" required>
                         </div>
                         <!-- col-md-2 form-group -->

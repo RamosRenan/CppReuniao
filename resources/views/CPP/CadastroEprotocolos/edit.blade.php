@@ -17,7 +17,7 @@
 	<div class="card">
 		<!-- card-header -->
 		<div class="card-header"> 
-			<h4 style="color: #364fc7;"> <i class="fas fa-user-edit"></i> &nbsp Edição de Cadastro. </h4>
+			<h5 style=" "> <i class="fas fa-user-edit"></i> &nbsp; <small> Edição de Cadastro. </small> </h5>
 		</div>
 
 		<div class="card-body" align="center">

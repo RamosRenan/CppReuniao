@@ -10,8 +10,8 @@
     <!-- @ Reabrir Votação.  @ -->
     <section style="position: relative; "> 
         <div class="card card-default"  style="position:relative; top:-30px;"> 
-            <div class="card-header" style="height: 40px; " align="center"> 
-                <h5 style="color: #009acd;">  
+            <div class="card-header" style="height: 40px; "  > 
+                <h5 style=" ">  
                     <i class="fas fa-lock-open"></i>  Reabrir Votação.  
                 </h5> 
             </div>
@@ -23,13 +23,13 @@
                     <thead style=" border-radius: 9px; ">
                         <h5 style="float: right; color: #004B8D;"> <small> Total.:  {{ count($LastDeliberacao) }} </small> </h5>
                         <br>
-                        <tr style="background: #494949; "  align="center">
-                            <th scope="col" style="max-width: 55px; color: #dbdbdb;" > Open. </th>
-                            <th scope="col" style="color: #dbdbdb;">eProtocolo.</th>
-                            <th scope="col" style="color: #dbdbdb;">Pertence  ATA.</th>
-                            <th scope="col" style="color: #dbdbdb;">Número Deliberação.</th>
-                            <th scope="col" style="color: #dbdbdb;">Data Criação.</th>
-                            <th scope="col" style="color: #dbdbdb;">Visualizar Deliberação.</th>
+                        <tr style=" "  align="center">
+                            <th scope="col" style="max-width: 55px; " > Open. </th>
+                            <th scope="col" style="">eProtocolo.</th>
+                            <th scope="col" style="">Pertence  ATA.</th>
+                            <th scope="col" style="">Número Deliberação.</th>
+                            <th scope="col" style="">Data Criação.</th>
+                            <th scope="col" style="">Visualizar Deliberação.</th>
                             <th scope="col-1" style="color: #ed4754; max-width: 25px;">Reabrir.</th>
                             <th scope="col-1" style="color: green; max-width: 25px;">Fechar.</th>
                         </tr>

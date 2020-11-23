@@ -8,7 +8,7 @@
 @section('content')
 
 <div  style=" width: 100%; height:auto; margin-top: -25px;" align="center">
-    <div class="card" style="height: 62.3px; background: #495057;  max-width: 65.5rem;">
+    <div class="card" style="height: 62.3px; background: #868e96;  max-width: 70rem;">
         <div class="card-footer"  style="height: 62.3px;">
             <div class="container">
                 <div class="row">
@@ -91,19 +91,19 @@
         @if( isset($lastAta ))
             @foreach( $lastAta as $key )
         <div class="col-sm">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 20rem;">
                 <div class="card-body" style="text-align: justify;">
                     <div class="card-footer">
-                        <h4 style="color: #1A4876;"> <b> Ata Nº <u>{{$key->numero_ata}}</u> </b>  
+                        <h4 style=" "> <b> Ata Nº <u>{{$key->numero_ata}}</u> </b>  
                             @if(empty($key->data_termino))
                                 <a href="{{ route('cpp.deliberacao.index') }}">
-                                    <button style="float: right;" type="button" class="btn btn-outline-primary"> 
+                                    <button style="float: right;" type="button" class="btn btn-outline-dark"> 
                                         <i class="far fa-eye"></i>                                
                                     </button>
                                 </a>
                                 @else   
                                     <a href="/cpp/findata">
-                                        <button style="float: right;" type="button" class="btn btn-info"> 
+                                        <button style="float: right;" type="button" class="btn btn-dark"> 
                                             <i class="far fa-eye"></i>                                 
                                         </button>
                                     </a>

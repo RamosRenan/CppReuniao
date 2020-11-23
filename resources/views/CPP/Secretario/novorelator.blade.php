@@ -9,23 +9,119 @@
 
     <!-- @ Cadastrar Membros Relatores.  @ -->
     <section style="position: relative; top: -15px;">
-        <div class="card card-default"  style="position:relative;top: 0px;"> 
+        <div class="card" style="position:relative;top: 0px;"> 
 
-            <div class="card-header" style="height: 40px; " align="center"> 
-                <h5 style="color: #009acd;"> 
-                    <i class="fas fa-clipboard"></i> Cadastrar Membros Relatores. 
+            <div class="card-footer" style="height: 40px;"> 
+                <h5 style=" "> 
+                    <i class="fas fa-id-card"></i>  
+                    &nbsp; Cadastrar Membros Relatores. 
                 </h5> 
             </div>
 
             <!-- card body -->
-            <div class="card-body" id="card__body5" style="height: auto; " align="center"> 
-
-                <h5> <small> Membros Relatores Ativos atualmente. </small> </h5>
+            <div class="card-body" id="card__body5" style="height: auto; "  > 
                 
-                <!-- table -->
+                <button type="button" style="border:none; padding-left: 9px; padding-top: 4px; padding-right: 9px; background: transparent;" data-toggle="modal" data-target="#exampleModal">
+                    <h5 > <small> <a href="#" style="color: #869c98;"> <i class="fas fa-user-alt-slash"></i> &nbsp; Relatores desabilitados </a> </small> </h5>
+                </button>
+                
+                <br> 
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                    <!-- modal-dialog -->
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                        <!-- modal-content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"> <i class="fas fa-user-alt-slash"></i> &nbsp; Relatores desabilitados</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="nome | rg | cpf" aria-label="nome | rg | cpf" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"> Buscar </button>
+                                    </div>
+                                </div>
+
+                                <!-- table habilitados -->
+                                <section>
+                                    <table class="table">
+                                        <thead class="">
+                                            <tr align="center">
+                                                <th scope="col"> Nome </th>
+                                                <th scope="col"> Posto </th>
+                                                <th scope="col"> RG </th>
+                                                <th scope="col"> <div> Qualificação. </div> </th>
+                                                <th scope="col"> Status. </th>
+                                                <th scope="col"> <span style="color: green;"> Hab. </span> </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @if(isset($Members_Relatores_and_President))
+                                                @foreach($Members_Relatores_and_President as $key)
+                                                @if($key->user_id_your_status == 0)
+                                                    <tr align="center">
+                                                        <!-- nome -->
+                                                        <td align="left"> {{$key->nome}}     </td>
+
+                                                        <!-- posto -->
+                                                        <td> {{$key->posto}}    </td>
+
+                                                        <!-- rg -->
+                                                        <td> {{$key->rg}}       </td>
+
+                                                        <!-- Qualificação -->
+                                                        <form action="editSecretarioEPresidente" method="GET">
+                                                            <input type="hidden" value="{{$key->has_user_id}}" name="keyid">
+                                                            <td style="display: flex;"> 
+                                                                <span selected value=" "> {{$key->qualificacao}}  </span>                                                             
+                                                            </td>
+                                                        </form> 
+                                                        
+                                                        <!-- status -->
+                                                        <td>  
+                                                            <span style="color: gray;"> Desabilitado. </span>
+                                                        </td>
+
+                                                        <!-- button -->
+                                                        <td > 
+                                                            <div>
+                                                                <a href="editRegistryRelator?key={{$key->has_user_id}}&H=H" style="margin-left: 5px;"> 
+                                                                    <button type="button" class="btn btn-outline-success"> <i class="fas fa-check"> </i>  </button> 
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <!-- table -->
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                        <!-- modal-content -->
+                    </div>
+                    <!-- modal-dialog -->
+                </div>
+                
+                <!-- table habilitados -->
                 <section>
                     <table class="table">
-                        <thead class="thead-dark">
+                        <thead class="">
                             <tr align="center">
                                 <th scope="col"> Nome </th>
                                 <th scope="col"> Posto </th>
@@ -33,13 +129,14 @@
                                 <th scope="col"> CPF </th>
                                 <th scope="col"> <div> Qualificação. </div> </th>
                                 <th scope="col"> Status. </th>
-                                <th scope="col"> <span style="color: green;"> H </span> | <span style="color: gray;"> D </span> | <span style="color: red;"> Del </span> </th>
+                                <th scope="col"> <span style="color: green;"> Hab. </span> | <span style="color: gray;"> Desab. </span> | <span style="color: red;"> Del. </span> </th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @if(isset($Members_Relatores_and_President))
                                 @foreach($Members_Relatores_and_President as $key)
+                                @if($key->user_id_your_status == 1)
                                     <tr>
                                         <td> {{$key->nome}}          </td>
                                         <td> {{$key->posto}}        </td>
@@ -48,55 +145,49 @@
                                         <form action="editSecretarioEPresidente" method="GET">
                                             <input type="hidden" value="{{$key->has_user_id}}" name="keyid">
                                             <td style="display: flex;"> 
-                                                    <select name="edit_status_membro" id="" class="form-control">
-                                                        <option selected value=" "> {{$key->qualificacao}}  </option>                                                             
-                                                        <option  vlaue=""> Membro Efetivo                   </option>
-                                                        <option  vlaue=""> Membro Suplente                  </option>
-                                                    </select>
-                                                    @if($key->user_id_your_status == 1)
-                                                        <a style="display: flex;"> <button type="submit" class="btn btn-outline-primary">   <i class="fas fa-user-edit">   </i>  </button> </a>
-                                                        @else
-                                                            <i class="fas fa-user-alt-slash" style="color: #e5e5e5;"></i>
-                                                        @endif
+                                                <select name="edit_status_membro" id="" class="form-control">
+                                                    <option selected value=" "> {{$key->qualificacao}}  </option>                                                             
+                                                    <option  vlaue=""> Membro Efetivo                   </option>
+                                                    <option  vlaue=""> Membro Suplente                  </option>
+                                                </select>
+                                                @if($key->user_id_your_status == 1)
+                                                    <a style="display: flex;"> <button type="submit" class="btn btn-outline-primary">   <i class="fas fa-user-edit">   </i>  </button> </a>
+                                                    @else
+                                                        <i class="fas fa-user-alt-slash" style="color: #e5e5e5;"></i>
+                                                    @endif
                                             </td>
                                         </form>                                            
                                         <td>  
-                                            @if($key->user_id_your_status == 1)
-                                                <span style="color: #4caf50;"> Habilitado. </span>
-                                                @else
-                                                    <span style="color: gray;"> Desabilitado. </span>
-                                            @endif
+                                            <span style="color: #4caf50;"> Habilitado. </span>
                                         </td>
-
-                                        <td> 
+                                        <td align="center"> 
                                             <div>
                                                 <a href="editRegistryRelator?key={{$key->has_user_id}}&H=H" style="margin-left: 5px;"> 
-                                                    <button type="button" class="btn btn-outline-success">      <i class="fas fa-check">    </i> H      </button> 
+                                                    <button type="button" class="btn btn-outline-success">      <i class="fas fa-check"> </i>  </button> 
                                                 </a>
                                                 
                                                 <a href="editRegistryRelator?key={{$key->has_user_id}}&D=D" style="margin-left: 5px;"> 
-                                                    <button type="button" class="btn btn-outline-secondary">  <i class="fas fa-times">      </i> D      </button> 
+                                                    <button type="button" class="btn btn-outline-secondary">  <i class="fas fa-times">   </i>  </button> 
                                                 </a>
 
                                                 <!-- não pode ser deletado, pois os relatores tem histórico de deliobherações -->
                                                 <a href="editRegistryRelator?key={{$key->has_user_id}}&D=D" style="margin-left: 5px;"> 
-                                                    <button type="button" class="btn btn-outline-danger">  <i class="fas fa-trash-alt">     </i> Del.   </button> 
+                                                    <button type="button" class="btn btn-outline-danger">  <i class="fas fa-trash-alt">  </i>  </button> 
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
+                                @endif
                                 @endforeach
                             @endif
                         </tbody>
-
                     </table>
-
                 </section>
-                <!-- table -->
+                <!-- table habilitados -->
 
                 <hr>
 
-                <h5 style="position:relative; top:-5px; color:  #009acd;"> <i class="fas fa-plus"></i> &nbsp Cadastre um novo membro relator. </h5> 
+                <h5 style="position:relative; top:-5px;"> &nbsp; Cadastre um novo membro relator. </h5> 
 
                 <!-- @ -->
                 <div style="width:100%; auto;" > 
@@ -155,22 +246,24 @@
                             </div><!-- row --> 
 
                             <br>
-                            <button type="submit" class="btn btn-success"> <i class="fab fa-envira"></i> Cadastrar. </button>
-
+                            <button type="submit" class="btn btn-success"> Cadastrar </button>
                         </form>
-
                     </div>
-
                 </div>
                 <!-- @@ -->
-
             <div > 
             <!-- bard body -->
-
         <div> 
     </section>
     <!-- @ Cadastrar Membros Relatores.  @ -->
 
     <br>
+
+    <script type="text/javascript">
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recipient = button.data('whatever'); // Extract info from data-* attributes
+        })
+    </script>
 
 @endsection

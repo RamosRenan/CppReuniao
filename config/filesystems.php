@@ -52,12 +52,12 @@ return [
 
         'Ata' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/CppArquivo/windows'),
+            'root' => storage_path('app/public/CppArquivo/windows/Ata'),
         ],
 
         'Relatorio' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/CppArquivo/windows'),
+            'root' => storage_path('app/public/CppArquivo/windows/Relatorio'),
         ],
 
         'public' => [

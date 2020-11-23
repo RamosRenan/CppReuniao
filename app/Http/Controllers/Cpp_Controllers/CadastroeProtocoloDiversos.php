@@ -110,7 +110,7 @@ class CadastroeProtocoloDiversos extends Controller
                 //instancia para novo anexo
                 $newAnexoeProtcolo = new files_anexo_eProtocolos_refence_pedidos; // DB files anexo eprotocolos
                 $newAnexoeProtcolo->nome_arquivo        = $request->file('FormControlFile1')->getClientOriginalName();
-                $newAnexoeProtcolo->path                = "teste/teste/";
+                $newAnexoeProtcolo->path                = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/AnexoPedido/'.$request->input ('cpf');
                 $newAnexoeProtcolo->eprotocolo_foreign  = $request->input ('sid');
                 $newAnexoeProtcolo->PK_cpf__policial    = $request->input ('cpf');
                 $newAnexoeProtcolo->hash                = $justHash;

@@ -41,7 +41,7 @@ tr:nth-child(even) {
                             <div class="col-sm-11" style=" position:relative; left: 20px; cursor: pointer;">
                                 <!-- <i class="fas fa-bars _more_info "  id="_more_info{{$key}}" onclick="moreInfo(this.id, event)" >  </i>  -->
                                 <h5 style="color: cian;  font-family: 'Montserrat', sans-serif; "> 
-                                    <i style="color: orange;" class="fas fa-hourglass-start"></i> Deliberações Postergadas 
+                                    Deliberações Postergadas 
                                     <br>
                                     <small style="font-size: 13px;"> Lista de todos os protocolos pendentes, postergados, de reuniões(atas), anteriores. </small>
                                 </h5>    

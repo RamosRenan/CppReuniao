@@ -74,7 +74,7 @@ return [
 
    
    # HOMOLOGAÇÕES DOS SARGENTOS
-   'comissaoVotacao.title.sumula.homologation.Sargentos.ata'=>'2.1.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019  <br> <br>',
+   'comissaoVotacao.title.sumula.homologation.Sargentos.ata'=>'1.1.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019  <br> <br>',
 
 
 
@@ -102,7 +102,7 @@ return [
 
 
    # HOMOLOGAÇÕES DOS CB'S & SD'S
-   'comissaoVotacao.title.sumula.homologation.CB_&_SD.ata'=>'2.2.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 002, DE 15 DE MARÇO DE 2019  <br> <br>',
+   'comissaoVotacao.title.sumula.homologation.CB_&_SD.ata'=>'1.2.  TRANSCRIÇÃO DA RESOLUÇÃO Nº 002, DE 15 DE MARÇO DE 2019  <br> <br>',
 
    'comissaoVotacao.sumula.homologation.CB_&_SD.ata'=>'                    Súmula: Dispõe sobre o deferimento de requerimentos e os respectivos registros de pontos positivos na ficha de merecimento dos Cabos e Soldados. 
    
@@ -161,11 +161,11 @@ return [
    'comissaoVotacao.Notifications.ata'=>'<strong>  NOTIFICAÇÕES E PRAZOS PARA RECURSOS </strong>',
 
 
-   'comissaoVotacao.ContentNotifications.ata'=>" <span style=' margin-left:30px; '> 6.1 A notificação das decisões consignadas na presente reunião se dará com a publicação da Ata da reunião no Boletim-Geral, contando-se a data de disponibilidade do Boletim-Geral na intranet, para fins de prazos recursais. <br> </span>
+   'comissaoVotacao.ContentNotifications.ata'=>" <span style=' margin-left:30px; '> 5.1 A notificação das decisões consignadas na presente reunião se dará com a publicação da Ata da reunião no Boletim-Geral, contando-se a data de disponibilidade do Boletim-Geral na intranet, para fins de prazos recursais. <br> </span>
 
-   <span style=' margin-left:30px; '>  6.2	Nos termos do art. 57, inciso II, da Lei Estadual nº 19.583 de 05 de junho de 2018, os militares estaduais que tiveram seus pleitos apreciados na presente reunião, poderão solicitar reconsideração ou recurso, no prazo de 60 (sessenta) dias. <br> </span>
+   <span style=' margin-left:30px; '>  5.2	Nos termos do art. 57, inciso II, da Lei Estadual nº 19.583 de 05 de junho de 2018, os militares estaduais que tiveram seus pleitos apreciados na presente reunião, poderão solicitar reconsideração ou recurso, no prazo de 60 (sessenta) dias. <br> </span>
    
-   <span style=' margin-left:30px; '>  6.3	Para fins de reconsideração ou recurso os relatórios expedidos estarão disponíveis na Secretaria da CCP após a publicação da presente Ata no Boletim-Geral. </span>",
+   <span style=' margin-left:30px; '>  5.3	Para fins de reconsideração ou recurso os relatórios expedidos estarão disponíveis na Secretaria da CCP após a publicação da presente Ata no Boletim-Geral. </span>",
 
 
     'comissaoVotacao.EndMeet.ata'=>'<strong> ENCERRAMENTO DA REUNIÃO </strong>',

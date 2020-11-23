@@ -11,18 +11,18 @@
     <section style="position: relative; top: -30px;">
         <!-- @ card card-default @ -->
         <div class="card card-default"  style="position:relative;top: 8px;"> 
-            <div class="card-header" style="height: 40px; " align="center"> 
-                <h5 style="color: #009acd;"> <i class="fas fa-crown"></i> Cadastrar Presidente & Secretario. </h5 style="color ;"> 
+            <div class="card-header" style="height: 40px; "  > 
+                <h5 style=" ">  Cadastrar Presidente & Secretario. </h5 style="color ;"> 
             </div>
 
             <!-- @ card-body @ -->
             <div class="card-body" id="card__body55" style="height: auto; " align="center"> 
 
-                <h5> <small> Presidente & Secretario. </small> </h5>
+                <h5>  Presidente & Secretario.  </h5>
                 
                 <section>
                     <table class="table">
-                        <thead  style="background: #007bff; color:blanchedalmond;">
+                        <thead  style=" ">
                             <tr>
                                 <th scope="col"> ID </th>
                                 <th scope="col"> Nome </th>
@@ -80,7 +80,7 @@
                     <hr>
                 </section>
 
-                <h5 style="color: #009acd;">  Cadastrar Presidente & Secretario. </h5> 
+                <h5 style=" ">  Cadastrar Presidente & Secretario. </h5> 
 
                 <div style="width:100%; auto;" > 
                     <div style="width:100%; height: auto;"> 
@@ -130,7 +130,7 @@
                             </div>
 
                             <br>
-                            <button type="submit" class="btn btn-success"> <i class="fas fa-plus"></i> &nbsp Cadastrar. </button>
+                            <button type="submit" class="btn btn-success">  Cadastrar </button>
 
                         </form>
 

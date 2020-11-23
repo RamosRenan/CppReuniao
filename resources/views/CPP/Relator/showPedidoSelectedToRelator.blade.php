@@ -16,7 +16,7 @@
             <!-- @ scrool_grid_relator @ -->
             <div class="scrool_grid_relator" style="height: auto; "> 
                 <div class="card-header"  > 
-                    <h5> <i style="font-size: 26px; color: #004B8D;" class="far fa-user-circle"></i> &nbsp; Pedido Selecionado </h5>
+                    <h5> <i style="font-size: 26px; " class="far fa-user-circle"></i> &nbsp; Pedido Selecionado </h5>
                 </div>
                 <!-- card-body -->
                 <div class="card-body " style="max-height: auto;"> 
@@ -88,16 +88,12 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputZip"> <i style="color: blue;" class="fas fa-info-circle"></i> &nbsp; * Inserir relatório *</label></br>
+                            <div class="form-group col-md-6">
+                                <label for="inputZip">  Insera seu relatório aqui </label></br>
                                 <input type="file" name="fileRelatRelat" id="inputZip" required>
-                            </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo]) }}" class="btn btn-outline-primary" > 
-                                    <i class="fas fa-paperclip"></i> &nbsp  Visualizar anexo.  
+                                <a href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo, 'cpf'=>$key->cpf]) }}" style="position:relative; top:-1px;" > 
+                                    <i class="fas fa-paperclip"></i> &nbsp; Visualizar pedido do militar.  
                                 </a>
                             </div>
                         </div>

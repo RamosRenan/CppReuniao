@@ -130,12 +130,12 @@
 
 
                 <!-- @ 1. SORTEIO DE NOVOS EXPEDIENTES  @ -->
-                 <section> 
+                 <!-- <section> 
                     <div style="width: 100%; height:auto; display:flex;">                     
                         <h4> <strong> 1. </strong> <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.NewCaseFile.ata') </u> </h4>
                         <br> <br>
                     </div>                    
-                </section> 
+                </section>  -->
                 <!-- @    @ -->
 
 
@@ -149,9 +149,9 @@
 
 
                 <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
-                 <section> 
+                <section> 
                     <div style="width: 100%; height:auto; display:flex;">                    
-                        <h4> <strong> 2. </strong> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.homologation.ata') </u> </h4>
+                        <h4> <strong> 1. </strong> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.homologation.ata') </u> </h4>
                     </div>                    
                 </section> 
                 <!-- @ @ -->
@@ -495,16 +495,16 @@
 
 
 
-                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+                <!-- @ 2. EXPEDIENTES APRECIADOS @ -->
                  <section> 
-                    <h4> <strong> 3. </strong>  <u style=" margin-left:18px; color: black; "> @lang('globalDocsCpp.comissaoVotacao.AppreciatedExpedients.ata') </u> </h4>  
+                    <h4> <strong> 2. </strong>  <u style=" margin-left:18px; color: black; "> @lang('globalDocsCpp.comissaoVotacao.AppreciatedExpedients.ata') </u> </h4>  
                     <div style="width: 100%; height:auto;"> 
                         <br> 
                         <div style="display: none;"> {{$keyo = 0}}  </div>
                         @if(isset($AtaContent))
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Apreciado')
-                                    <h5> 3.{{ $keyo += 1 }}.  <u style=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u> </h5>
+                                    <h5> 2.{{ $keyo += 1 }}.  <u style=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u> </h5>
                                     <form action="/cpp/editDeliberInAta" method="post">
                                     @csrf
                                         <div style="width:90%; height:auto; margin:auto; text-align:justify; font-weight: lighter; "> 
@@ -526,7 +526,7 @@
                             @foreach($Ata44A as $key => $val)
                                 <form action="\cpp\editDeliberInAta44a" method="post"> <!-- # -->
                                     @csrf
-                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                    <h5> 2.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; "> 
                                         <input name="editdeliberinata44a" type="hidden" value="{{$val['id']}}">
                                         <textarea class="form-control"  type="text" name="contentDeliber44A"  style="width: 100%; " rows="7"> 
@@ -540,7 +540,7 @@
                         @endif
                     </div>                    
                 </section> 
-                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+                <!-- @ 2. EXPEDIENTES APRECIADOS @ -->
 
 
                
@@ -548,16 +548,16 @@
 
 
 
-                <!-- @ 4. RelatedExpedients @  -->
+                <!-- @ 3. RelatedExpedients @  -->
                  <section> 
-                    <h4> <strong> 4. </strong>  <u  style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.RelatedExpedients.ata') </u> </h4>  
+                    <h4> <strong> 3. </strong>  <u  style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.RelatedExpedients.ata') </u> </h4>  
                     <div style="width: 100%; height:auto;"> 
                         <br>
                         <div style="display:none;"> {{ $cont = 0}} </div>
                         @if(isset($AtaContent))
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Relatado')
-                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                    <h5> 3.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                     <form action="\cpp\editDeliberInAtaRelatado" method="post"> <!-- # -->
                                     @csrf
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span>  </span>
@@ -574,7 +574,7 @@
                         @endif
                     </div>                    
                 </section> 
-                <!-- @ 4. RelatedExpedients @  -->
+                <!-- @ 3. RelatedExpedients @  -->
 
 
                  
@@ -583,9 +583,9 @@
 
 
 
-                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+                <!-- @  4. EXPEDIENTES POSTERGADOS @ -->
                 <section> 
-                    <h4> <strong> 5. </strong>   <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.expedientsPostponed.ata') </u> </h4> 
+                    <h4> <strong> 4. </strong>   <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.expedientsPostponed.ata') </u> </h4> 
                     <div style="width: 100%; height:auto;"> 
                         <br>
                         <div style="display:none;"> {{ $cont = 0}} </div>
@@ -594,7 +594,7 @@
                                 <form action="\cpp\editDeliberInAtaPost" method="post"> <!-- # -->
                                     @csrf
                                     @if($value['condicao_this_deliberacao'] == 'Postergado')
-                                        <h5> 5.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                        <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                         <div style="width:90%; height:auto; margin:auto; text-align:justify; "> 
                                             <input name="editDeliberInAtaPost" type="hidden" value="{{$value['id']}}">
                                             <textarea class="form-control"  type="text" name="contentDeliberPost" style="width:100%; height:auto; margin:auto; " rows="7"> 
@@ -609,22 +609,22 @@
                         @endif
                     </div>                    
                 </section> 
-                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+                <!-- @  4. EXPEDIENTES POSTERGADOS @ -->
              
 
                 <br>
 
 
-                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+                <!--  @ 5. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
                 <section> 
-                    <h4> <strong> 6. </strong>  <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4>  
+                    <h4> <strong> 5. </strong>  <u style="margin-left:18px; color:black;"> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4>  
                     <div style="width: 100%; height:auto;"> 
                         <br>
                         <div style="text-align:justify;"> <span style=" "> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
                         <br> <br>
                     </div>                    
                 </section> 
-                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+                <!--  @ 5. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
 
 
                  
@@ -632,9 +632,9 @@
 
 
 
-                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  --> 
+                <!--  @  6. ENCERRAMENTO DA REUNIÃO @  --> 
                 <section> 
-                    <h4> <strong> 7. </strong>  <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.EndMeet.ata') </u> </h4>  
+                    <h4> <strong> 6. </strong>  <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.EndMeet.ata') </u> </h4>  
                     <div style="width: 100%; height:auto;">
                         <br>
                         <textarea class="encerramento_reuniao" id="encerramento_reuniao" name="encerramento_reuniao" style=" width:100%; border:solid 1px #dc3545; " rows="7" required>  
@@ -643,7 +643,7 @@
                         <br> <br>
                     </div>                    
                 </section> 
-                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  -->             
+                <!--  @  6. ENCERRAMENTO DA REUNIÃO @  -->             
                 
 
 

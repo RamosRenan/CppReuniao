@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\files_anexo_relatorios_relator\files_anexo_relatorios_relator;
 use App\Models\Ative_Inative_Relator\users_ative_and_inative_cpp;
 use Illuminate\Support\Facades\ Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -17,7 +18,11 @@ class RegistryRelatorioRelatorController extends Controller
 {
     //  code ...
 
-    const file =  '/home/pmpr/public/reuniaoCpp/cpp/relator/relatorAnexo/';
+    // metodo antigo, para localhost
+    // const file =  '/home/pmpr/public/reuniaoCpp/cpp/relator/relatorAnexo/';
+
+    // metodo novo, para servidor de arquivo
+    private $file;// = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/Relatorio/';//'.$loginRelator.'/'.$objectFile[0]->hash;
 
     private $request;
 
@@ -32,37 +37,47 @@ class RegistryRelatorioRelatorController extends Controller
     private function update(){
         $relat = users_ative_and_inative_cpp::where('has_user_id',  Auth::user()->id)->get();
 
-        $hashedNameArq = Hash::make($this->request->file('fileRelatRelat')->getClientOriginalName().time('H:i:s'), [
-            'memory'    => 1,
-            'time'      => 2,
-            'threads'   => 2,
-        ]);
+        // Não necessário o metodo Storage put cria o HAsh
+        // $hashedNameArq = Hash::make($this->request->file('fileRelatRelat')->getClientOriginalName().time('H:i:s'), [
+        //     'memory'    => 1,
+        //     'time'      => 2,
+        //     'threads'   => 2,
+        // ]);
 
-        $hashSplit = str_split($hashedNameArq);
+        // $hashSplit = str_split($hashedNameArq);
 
-        for($i=0; $i < strlen($hashedNameArq); $i++) {
-            # code...
-            if($hashSplit[$i] == '/')
-                $hashSplit[$i] = '%';
-        }
+        // for($i=0; $i < strlen($hashedNameArq); $i++){
+        //     # code...
+        //     if($hashSplit[$i] == '/')
+        //         $hashSplit[$i] = '%';
+        // }
 
-        $hash = implode('', $hashSplit);
+        // $hash = implode('', $hashSplit);
+
+        /*
+         * nova forma de inserção 
+         */
+        // coloca arquivo em /storage/app/public/
+        // envia para servidor arquivo, e retorna path com hash do arquivo
+        $returnStorage = Storage::disk('Relatorio')->put($this->loginRelator, $this->request->file('fileRelatRelat'));
+        // return substr(strstr($returnStorage, '/'), 1);
+        $justHash = substr(strstr($returnStorage, '/'), 1);
 
         try {
-            //code...
+            //code ...
             $novofiles_anexo_relatorios_relator = new files_anexo_relatorios_relator;
-            $novofiles_anexo_relatorios_relator->nome_arquivo = $this->request->file('fileRelatRelat')->getClientOriginalName();
-            $novofiles_anexo_relatorios_relator->eprotocolo = $this->request->input('eProtocolo');
-            $novofiles_anexo_relatorios_relator->path       = '/home/pmpr/public/reuniaoCpp/cpp/relator/relatorAnexo/'.$this->loginRelator;
-            $novofiles_anexo_relatorios_relator->FK_relator = $relat[0]->has_user_id;
-            $novofiles_anexo_relatorios_relator->hash       = $hash;   
+            $novofiles_anexo_relatorios_relator->nome_arquivo   = $this->request->file('fileRelatRelat')->getClientOriginalName();
+            $novofiles_anexo_relatorios_relator->eprotocolo     = $this->request->input('eProtocolo');
+            $novofiles_anexo_relatorios_relator->path           = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/Relatorio/'.$this->loginRelator;
+            $novofiles_anexo_relatorios_relator->FK_relator     = $relat[0]->has_user_id;
+            $novofiles_anexo_relatorios_relator->hash           = $justHash;   
             $novofiles_anexo_relatorios_relator->save();   
 
-            $this->request->file('fileRelatRelat')->move(self::file.$this->loginRelator, $hash);
-
+            // $this->request->file('fileRelatRelat')->move(self::file.$this->loginRelator, $hash);
         } catch (\Throwable $th) {
             throw $th;
         }
+
     }
     //update()
 
@@ -82,7 +97,7 @@ class RegistryRelatorioRelatorController extends Controller
 
     //registro do relatório do relator
     public function store(){
-        return $this->create();
+        return $this->update();
     }
     //store()
     

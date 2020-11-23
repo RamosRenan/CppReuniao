@@ -10,9 +10,9 @@
 @section('content')
     <div class="card">
         <div class="card-footer" align="center">
-            <h5 style="color: #009acd;"> Registro Selecionado <br> 
-                <small style="color: #009acd;"> Homologção de Pontos Positivos. </small> <br>
-                <small > <u> Protocolo: <b style="color: #4c566a;"> {{$selectedHom[0]->eProtocolo}} </b> </u></small> <br>
+            <h5 style="">  
+                <small style=""> Homologção de Pontos Positivos. </small> <br>
+                <small >  Protocolo: <a href="#"> {{$selectedHom[0]->eProtocolo}} </a> </small> <br>
             </h5>
         </div>
         <div class="card-body" align="center">

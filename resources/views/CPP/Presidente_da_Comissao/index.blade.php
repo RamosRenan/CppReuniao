@@ -11,7 +11,7 @@
     <!-- nav nav-tabs -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="#" style="color:red;">
+            <a class="nav-link active" href="#" style=" ">
                 <i class="fas fa-radiation-alt"></i> Corrigir meu Voto. </u> 
             </a>
         </li>
@@ -20,9 +20,6 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
     </ul>
     <!-- nav nav-tabs -->

@@ -73,43 +73,41 @@ tr:nth-child(even) {
         @endif
     </section>
 
-    <br>
-     
-    @if(isset($relatados) && count($relatados)>0)
-    <!-- card -->
-    <div class="card" style="">
-        <div class="card-header">
-            <div class="row" align="center">
-                <div class="col-4">
-                    <div class="input-group col-8" style="float:left;">
-                        <input type="text" class="form-control" placeholder="eProtocolo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2"><a href="#"><i class="fas fa-search"></i></a></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <h4> <i class="far fa-address-card"></i> &nbsp Sala de votação principal </h4>
-                </div>
-
-                <div class="col-4" align="center">
-                    @if(isset($relatados))
-                        <h5 style="float:right;"> <small>Total cadastrado: <br> <i class="fas fa-inbox"></i> &nbsp {{count($relatados)}} </small></h5>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- card -->
-    @endif
 
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
         <div style="position:relative;">
-            @if(isset($relatados))
-                @foreach($relatados as $key => $value)
-                    <div class="card" style=" ">
-                        <div class="card-header">
+            <!-- card pai -->
+            <div class="card" style=" ">
+                @if(isset($relatados) && count($relatados)>0)
+                <!-- card-header principal -->
+                <div class="card-header">
+                    <div class="row" align="center">
+                        <div class="col-4">
+                            <div class="input-group col-8" style="float:left;">
+                                <input type="text" class="form-control" placeholder="eProtocolo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2"><a href="#"><i class="fas fa-search"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <h5> <i class="far fa-address-card"></i> &nbsp Sala de votação principal </h5>
+                        </div>
+
+                        <div class="col-4" align="center">
+                            @if(isset($relatados))
+                                <h5 style="float:right;"> <small>Total cadastrado: <br> <i class="fas fa-inbox"></i> &nbsp {{count($relatados)}} </small></h5>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <!-- card-header principal -->
+                @endif
+
+                @if(isset($relatados))
+                    @foreach($relatados as $key => $value)
+                        <div class="card-footer" >
                             <!-- @ SESSÃO QUAL RELATOR  @ -->
                             <div class="row"  style="">
                                 <div class="col-sm-3" style=" position:relative;  cursor: pointer;">
@@ -198,7 +196,7 @@ tr:nth-child(even) {
                                 <!-- dropdown -->
                                 <div class="dropdown">
                                     <button style="border:none; background: transparent;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span style="color: blue;"> 
+                                        <span style="color:black;"> 
                                             Selecione um relator para filtrar eProtocolos, respectivos ao relator. &nbsp 
                                             <i class="fas fa-caret-down"></i> 
                                         </span>
@@ -206,19 +204,20 @@ tr:nth-child(even) {
 
                                     <!-- dropdown-menu -->
                                     <div style="width: 50%;" class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                                        <div class="card">
-                                            <div class="card-header" align="center">
-                                                <h5> <i class="far fa-id-card"></i> &nbsp Selecione o relator. </h5>
+                                        <div class=" ">
+                                            <div class=" " align="center">
+                                                <h5> <i class="far fa-id-card"></i> &nbsp Selecione o relator </h5>
+                                                <hr/>
                                             </div>
                                         </div>
                                     
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[0]))
-                                                <a style="color: cian; " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[0]->id ])}} ">
+                                                <a style=" " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[0]->id ])}} ">
                                                     <h5 class=" ">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp 
+                                                        &nbsp; 
                                                         {{$searchall[0]->name}} 
                                                     </h5>
                                                 </a>
@@ -231,10 +230,10 @@ tr:nth-child(even) {
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[1]))
-                                                <a style="color: cian;" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[1]->id ])}} ">
+                                                <a style=" " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[1]->id ])}} ">
                                                     <h5 class=" ">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp
+                                                        &nbsp;
                                                         {{$searchall[1]->name}} 
                                                     </h5>
                                                 </a>
@@ -247,10 +246,10 @@ tr:nth-child(even) {
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[2]))
-                                                <a style="color:cian; " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[2]->id ])}} ">
+                                                <a style="  " href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[2]->id ])}} ">
                                                     <h5 class="">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp
+                                                        &nbsp;
                                                         {{$searchall[2]->name}}
                                                     </h5>
                                                 </a>
@@ -263,10 +262,10 @@ tr:nth-child(even) {
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[3]))
-                                                <a style="color: cian; font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[3]->id ])}} ">
+                                                <a style="  font-size: 13.56px" href=" {{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[3]->id ])}} ">
                                                     <h5 class="">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp
+                                                        &nbsp;
                                                         {{$searchall[3]->name}}
                                                     </h5>
                                                 </a>
@@ -278,10 +277,10 @@ tr:nth-child(even) {
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[4]))
-                                                <a style="color:cian; " href="{{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[4]->id ])}} ">
+                                                <a style="  " href="{{route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[4]->id ])}} ">
                                                     <h5 class=" ">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp
+                                                        &nbsp;
                                                         {{$searchall[4]->name}}
                                                     </h5>
                                                 </a>
@@ -294,10 +293,11 @@ tr:nth-child(even) {
                                         <!-- dropdown-item linha -->
                                         <span class="dropdown-item">
                                             @if(isset($searchall[5]))
-                                                <a style="color:cian;  " href=" {{ route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[5]->id ]) }} ">
+                                                <a style="   " href=" {{ route('cpp.novosexpedientes.show', ['user_membro'=>$searchall[5]->id ]) }} ">
                                                     <h5 class=" ">
                                                         <i class="far fa-user-circle"></i>
-                                                        &nbsp &nbsp &nbsp{{$searchall[5]->name}}
+                                                        &nbsp;
+                                                        {{$searchall[5]->name}}
                                                     </h5>
                                                 </a>
                                                 @else   
@@ -431,11 +431,10 @@ tr:nth-child(even) {
                             </div>
                         </section> 
                         <!-- Cortina que contem mais informações -->
-                    </div> 
-                    <!-- card -->
-                    <hr>  
-                @endforeach
-            @endif
+                    @endforeach
+                @endif
+            </div> 
+            <!-- card pai -->
         </div>
     <!-- @ SESSÃO CONTEM GRID COM PEDIDO  DO POLICIAL @ -->
 

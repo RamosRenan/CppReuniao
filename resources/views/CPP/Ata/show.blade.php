@@ -116,14 +116,14 @@
 
 
                 <!-- @ 1. SORTEIO DE NOVOS EXPEDIENTES  @ -->
-                 <section> 
+                 <!-- <section> 
                     <div style="width: 100%; height:auto; display:flex;"> 
                     
                         <h4> <strong> 1. </strong> </h4>  <h4> <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.NewCaseFile.ata') </u> </h4>
                         <br>
                         <br>
                     </div>                    
-                </section> 
+                </section>  -->
                 <!-- @    @ -->
 
 
@@ -136,10 +136,10 @@
 
 
 
-                <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
+                <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
                  <section> 
                     <div style="width: 100%; height:auto; display:flex;">                    
-                        <h4> <strong> 2. </strong> </h4> <h4> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.homologation.ata') </u> </h4>
+                        <h4> <strong> 1. </strong> </h4> <h4> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.homologation.ata') </u> </h4>
                     </div>                    
                 </section> 
                 <!-- @ @ -->
@@ -147,7 +147,7 @@
                 <br>
 
  
-                <!-- @ 2. 2.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
+                <!-- @ 1. 1.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
                 <section> 
                     <div style="width: 100%; height:auto; text-align:justify; "  > 
                         <div align="center"> <span style="font-size: 14px;">  <strong> @lang('globalDocsCpp.comissaoVotacao.title.sumula.homologation.Sargentos.ata') </strong> </span> </div>  
@@ -157,7 +157,7 @@
 
 
 
-                <!-- @ 2. Súmula comissaoVotacao.sumula.homologation.Sargentos.ata @ -->
+                <!-- @ 1. Súmula comissaoVotacao.sumula.homologation.Sargentos.ata @ -->
                 <section> 
                     <div style="width: 100%; height:auto; "> 
                                         
@@ -176,7 +176,7 @@
 
                         
                 <!-- @ FICHA DE MERECIMENTO DOS *SARGENTOS*  @ -->
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -200,7 +200,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -224,7 +224,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -249,7 +249,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -275,7 +275,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -302,7 +302,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -341,7 +341,7 @@
                 <!-- @ FICHA DE MERECIMENTO DOS * SD'S & CB'S*  @ -->
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.title.sumula.homologation.CB_&_SD.ata @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.title.sumula.homologation.CB_&_SD.ata @ -->
                     <section> 
                         <div style="width: 100%; height:auto; text-align:justify; "  > 
                             <div align="center"> <span style="font-size: 14px;"> <strong> @lang('globalDocsCpp.comissaoVotacao.title.sumula.homologation.CB_&_SD.ata') </strong> </span> </div> 
@@ -361,7 +361,7 @@
                     <br> <br>
 
                     <!-- @ TRECHO SE REFERE AOS INCISOS DOS CB'S E SD'S @ -->
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoI') </strong> </span> <br> <br>
@@ -420,7 +420,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; ">                         
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoIV') </strong> </span> <br> <br>
@@ -440,7 +440,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoV') </strong> </span> <br> <br>
@@ -460,7 +460,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                              <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoVI') </strong> </span> <br> <br> <br>
@@ -496,15 +496,15 @@
 
 
 
-                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+                <!-- @ 2. EXPEDIENTES APRECIADOS @ -->
                  <section> 
-                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 3. </strong> </h4> <h4> <u style=" margin-left:18px; color: black; "> @lang('globalDocsCpp.comissaoVotacao.AppreciatedExpedients.ata') </u> </h4> </div>
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 2. </strong> </h4> <h4> <u style=" margin-left:18px; color: black; "> @lang('globalDocsCpp.comissaoVotacao.AppreciatedExpedients.ata') </u> </h4> </div>
                     <div style="width: 100%; height:auto;"> 
                         <br> 
                         @if(isset($AtaContent))
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Apreciado')
-                                    <h5> 3.{{ $key += 1 }}.  <u style=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u> </h5>
+                                    <h5> 2.{{ $key += 1 }}.  <u style=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u> </h5>
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; font-weight: lighter; "> <span> {{ $value['deliberacao'] }} </span> </div> <br> <br> <br>
                                 @endif
                             @endforeach
@@ -512,14 +512,14 @@
                         <br> <br>
                     </div>                    
                 </section> 
-                <!-- @ 3. EXPEDIENTES APRECIADOS @ -->
+                <!-- @ 2. EXPEDIENTES APRECIADOS @ -->
 
                
                 <br>
 
 
 
-                <!-- @ 4. RelatedExpedients @  -->
+                <!-- @ 3. RelatedExpedients @  -->
                  <section> 
                     <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 4. </strong> </h4>  <h4> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.RelatedExpedients.ata') </u> </h4> </div>
                     <br>
@@ -528,7 +528,7 @@
                         @if(isset($AtaContent))
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Relatado')
-                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                    <h5> 3.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> {{ $value['deliberacao'] }} </span> </div> <br> <br> <br>
                                 @endif
                              @endforeach
@@ -536,13 +536,13 @@
 
                         @if(isset($Ata44A))
                             @foreach($Ata44A as $key)
-                                <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                <h5> 3.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                 <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> {{ $key->contain_delibercao }} </span> </div> <br> <br> <br>
                             @endforeach
                         @endif
                     </div>                    
                 </section> 
-                <!-- @ 4. RelatedExpedients @  -->
+                <!-- @ 3. RelatedExpedients @  -->
 
 
 
@@ -552,61 +552,60 @@
 
 
 
-                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+                <!-- @ 4. EXPEDIENTES POSTERGADOS @ -->
                 <section> 
-                    <div style="width:100%; height: auto; display:flex;">  <h4> <strong> 5. </strong> </h4> <h4> <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.expedientsPostponed.ata') </u> </h4> </div>
+                    <div style="width:100%; height: auto; display:flex;">  <h4> <strong> 4. </strong> </h4> <h4> <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.expedientsPostponed.ata') </u> </h4> </div>
                     <div style="width: 100%; height:auto;"> 
                         <br>
                         <div style="display:none;"> {{ $cont = 0}} </div>
                         @if(isset($AtaContent))
                             @foreach($AtaContent as $key => $value)
                                 @if($value['condicao_this_deliberacao'] == 'Postergado')
-                                    <h5> 5.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
+                                    <h5> 4.{{ $cont = $cont + 1 }}. <u ustyle="   color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; "> <span> {{ $value['deliberacao'] }} </span> </div> <br> <br> <br>
                                 @endif
                              @endforeach
                         @endif
                     </div>                    
                 </section> 
-                <!-- @  5. EXPEDIENTES POSTERGADOS @ -->
+                <!-- @  4. EXPEDIENTES POSTERGADOS @ -->
              
 
                 <br>
 
 
-                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+                <!--  @ 5. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
                 <section> 
-                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 6. </strong> </h4> <h4> <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4> </div>
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 5. </strong> </h4> <h4> <u style="margin-left:18px; color:black;  "> @lang('globalDocsCpp.comissaoVotacao.Notifications.ata') </u> </h4> </div>
                     <div style="width: 100%; height:auto;"> 
                         <br>
                         <div style="text-align:justify;"> <span style="font-weight: lighter;"> @lang('globalDocsCpp.comissaoVotacao.ContentNotifications.ata') </span> 
                         <br> <br>
                     </div>                    
                 </section> 
-                <!--  @ 6. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
+                <!--  @ 5. NOTIFICAÇÕES E PRAZOS PARA RECURSOS @ -->
 
 
 
 
 
                  
-                <br>
-                <br>               
+                <br> <br>               
                
 
 
 
 
 
-                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  --> 
+                <!--  @  6. ENCERRAMENTO DA REUNIÃO @  --> 
                 <section> 
-                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 7. </strong> </h4>  <h4> <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.EndMeet.ata') </u> </h4> </div>
+                    <div style="width:100%; height: auto; display:flex;"> <h4> <strong> 6. </strong> </h4>  <h4> <u style="margin-left:18px; color:black;   "> @lang('globalDocsCpp.comissaoVotacao.EndMeet.ata') </u> </h4> </div>
                     <br>
                     <div style="width: 100%; height:auto;">
                         {{ $AtaContent[0]->TERMO_ENCERRAMENTO_REUNIAO }}
                     </div>                    
                 </section> 
-                <!--  @  7. ENCERRAMENTO DA REUNIÃO @  -->  
+                <!--  @  6. ENCERRAMENTO DA REUNIÃO @  -->  
                 
                 
 
