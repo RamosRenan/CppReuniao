@@ -13,7 +13,7 @@
   
 <div class="card" style=" ">
     <div class="card-body">
-        <h3 class=" ">Votação 44a</h3>
+        <h5 class=" ">Votação 44A</h5>
 
         <h6 class="card-subtitle mb-2 text-muted" >
             <span style="">
@@ -22,18 +22,18 @@
             </span>
         </h6>
 
-        <br/>
+        <hr/>
 
         <div class="row" style="width: 100%; ">
-            <h5 style="margin: 0 auto;"> Texto da deliberação </h5> 
+            <h5 style="margin: 0 auto;"> Texto da deliberação </h5>
         </div>
 
-        <br/>
+        <hr/> 
 
         <!-- conteudo da deliberacao -->
         <p class="card-text" style="text-align: justify;">
             @if(isset($emptyToVote44A) && $emptyToVote44A)
-                {{$vote44AData['dados']}}
+                {{$vote44AData}}
                 @else
                     <h4 class="card-subtitle mb-2 text-muted">
                         Não há deliberação no momento.

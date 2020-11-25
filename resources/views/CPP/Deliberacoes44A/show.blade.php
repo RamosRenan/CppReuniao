@@ -66,9 +66,9 @@
                         <td></td>
                         <td></td>
                         <td  align="center"> 
-                            <strong style=" "> Presidente.:   </strong> 
+                            <strong style=" "> Presidente &nbsp; </strong> 
                             <!-- percorre $presidenteSecretario até encontrar presidente --> 
-                            @foreach($presidenteSecretario as $key)
+                            @foreach($president as $key)
                                 @if($key->qualificacao == 'Presidente')
                                     <span> {{$key->posto}} {{$key->nome}} </span>
                                 @endif
@@ -153,7 +153,7 @@
 
         <section style="width:100%; heigth:auto; position:relative; top:130px;">
             <div align="center"> 
-                <h4>    Maj. QOPM Omar Bail.       </h4> 
+                <h4>{{$president[0]->posto}} {{$president[0]->nome}}</h4> 
                 <span> <strong> Presidente da CPP. </strong> <span>
             </div>
         </section> 
@@ -161,13 +161,14 @@
         <section style="width:100%; heigth:auto; position:relative; top: 180px;">
             <div style="margin-left:18px;"> 
                 <span>
-                    Eu, <strong> Assinado digitalmente em: </strong>   <strong> RG: </strong>  ,  S,
+                    Eu, {{$secretario[0]->posto}} {{$secretario[0]->nome}}, <strong> Assinado digitalmente em: {{date('d/m/Y h:i:s')}}</strong>   RG: <strong> {{$secretario[0]->rg}}, </strong>
                     Secretário da Comissão de Promoção de Praças, lavrei a presente deliberação.
                 </span>
             </div>
         </section> 
 
-        <section style=" width:100%; heigth:auto; position: absolute; bottom: 50px; ">
+
+        <section style=" width:100%; heigth:auto; position: absolute; bottom: 10px; ">
             <div style=" " align="center"> 
                 <form action="{{ route('cpp.deliberacao.edit', 0) }}" method="GET"> 
                     <input type="hidden" value=" {{ $this44A[0] ->id_notification}} " name="id_notification">

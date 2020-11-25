@@ -92,7 +92,7 @@
 
         <section style="width:100%; heigth:auto; position:relative; top:130px;">
             <div align="center"> 
-                <h4>Maj. QOPM Omar Bail.</h4> 
+                <h4>{{$president[0]->posto}} {{$president[0]->nome}}</h4> 
                 <span> <strong> Presidente da CPP. </strong> <span>
             </div>
         </section> 
@@ -102,7 +102,7 @@
         <section style="width:100%; heigth:auto; position:relative; top: 150px;">
             <div style="margin-left:18px;"> 
                 <span>
-                    Eu, <strong> Assinado digitalmente em: </strong> {{$this44A[0]->created_at}} <strong> RG: </strong> {{$presidenteSecretario[0]->rg}}, {{$presidenteSecretario[0]->posto}} {{$presidenteSecretario[0]->nome}},
+                    Eu, <strong> Assinado digitalmente em: </strong> {{date('d/m/Y h:i:s')}} <strong> RG: </strong> {{$presidenteSecretario[0]->rg}}, {{$presidenteSecretario[0]->posto}} {{$presidenteSecretario[0]->nome}},
                     Secretário da Comissão de Promoção de Praças, lavrei a presente deliberação.
                  </span>
             </div>

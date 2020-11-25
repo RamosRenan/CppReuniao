@@ -103,6 +103,7 @@ class CadastroeProtocoloDiversos extends Controller
                 // coloca arquivo em /storage/app/public/
                 // envia para servidor arquivo, e retorna path com hash do arquivo
                 $returnStorage = Storage::disk('AnexoPedido')->put($request->input ('cpf'), $request->file('FormControlFile1'));
+                
                 // return substr(strstr($returnStorage, '/'), 1);
                 $justHash = substr(strstr($returnStorage, '/'), 1);
  

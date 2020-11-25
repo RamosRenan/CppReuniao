@@ -57,12 +57,14 @@
 
                 <div class="col-sm" align="right">
                     <h5 style=" "> 
-                        Total: 
+                        <small>
+                        Total &nbsp; 
                             @if(isset($my44A))
                                 {{count($my44A)}} 
                                 @else
                                     0
                             @endif
+                        </small>
                     </h5> 
                 </div>
             </div>
@@ -73,145 +75,141 @@
         @if(isset($my44A) && !empty($my44A))
             @foreach($my44A as $key)
             <div class="card-body" style="height: auto; overflow-y: scroll;">
-            <form method="POST" action="update44A" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <form method="POST" action="update44A" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                <div class="form-group row">
-                    <div class="col-5" style=" ">
-                        <i style="font-size: 30px; color: #00BFFF;" class="far fa-user-circle"></i>
-                        &nbsp
-                        <label> Nome: {{ $key->nome }} </label>
-                    </div>
+                    <div class="form-group row">
+                        <div class="col-5" style=" ">
+                            <i style="font-size: 30px;  " class="far fa-user-circle"></i>
+                            &nbsp;
+                            <label> {{ $key->nome }} </label>
+                        </div>
 
-                    <div class="col-7  form-group" style=" " align="right">
-                        <p>
-                            <a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <i class="far fa-clipboard"></i> &nbsp;Clique aqui para registrar seu parecer
-                            </a>
-                        </p>
+                        <div class="col-7  form-group" style=" " align="right">
+                            <p>
+                                <a class="btn btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="far fa-clipboard"></i> &nbsp;Clique aqui para registrar seu parecer
+                                </a>
+                            </p>
 
-                        <div class="collapse" id="collapseExample" style="position: absolute; z-index:999; width: 95%; height:auto;">
-                            <!--  -->
-                            <div class="card card-body" style="">
-                                <div class="form-group" style="width: 95%; height:100%; margin: auto;">
-                                    <label> Meu parecer &nbsp; <small>(descrição)</small></label>
-                                    <textarea  class="form-control" rows="3" class="form-control is-invalid" name="myParecer" style=""  required> </textarea>
-                                </div>
+                            <div class="collapse" id="collapseExample" style="position: absolute; z-index:999; width: 95%; height:auto;">
+                                <div class="card card-body" style="">
+                                    <div class="form-group" style="width: 95%; height:100%; margin: auto;">
+                                        <label> Meu parecer &nbsp; <small>(descrição)</small></label>
+                                        <textarea  class="form-control" rows="3" class="form-control is-invalid" name="myParecer" style=""  required> </textarea>
+                                    </div>
 
-                                <div class="form-group" style="width: 95%; height:auto; margin: auto;">
-                                    <label> Selecione sua decisão &nbsp; </label>
-
-                                    <select class="form-control" style="" id="inputGroupSelect02" name="opnouPor" required>
-                                        <option vlaue="default">                              </option>
-                                        <option vlaue="Indeferimento">  Indeferimento   </option>
-                                        <option value="deferimento">    deferimento     </option>                                
-                                        <option value="restituir">      restituir       </option>                                
-                                        <option value="postergar">      postergar       </option>
-                                        <option value="postergar">      encaminhamento  </option>
-                                    </select> 
+                                    <div class="form-group" style="width: 95%; height:auto; margin: auto;">
+                                        <label> Selecione sua decisão &nbsp; </label>
+                                        <select class="form-control" style="" id="inputGroupSelect02" name="opnouPor" required>
+                                            <option vlaue="default">                              </option>
+                                            <option vlaue="Indeferimento">  Indeferimento   </option>
+                                            <option value="deferimento">    deferimento     </option>                                
+                                            <option value="restituir">      restituir       </option>                                
+                                            <option value="postergar">      postergar       </option>
+                                            <option value="postergar">      encaminhamento  </option>
+                                        </select> 
+                                    </div>
                                 </div>
                             </div>
-                            <!--  -->
+                        </div>                        
+                    </div>
+
+                    <!-- primeira linha do form -->
+                    <div class="form-group row">
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label  > <h5> eProtocolo: </h5> </label>
+                            &nbsp;
+                            <input class="form-control"  style="" readonly name="eProtocolo" value="{{ $key->eProtocolo }}">                        
                         </div>
-                    </div>                        
-                </div>
 
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label  > <h5> Data do registro: </h5> </label>
+                            &nbsp;
+                            <input class="form-control"  readonly name="data_sid" value=" {{$key->created_at}} ">                        
+                        </div>
 
-                <!-- primeira linha do form -->
-                <div class="form-group row">
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label  > <h5> <b>e-Protocolo:</b> </h5> </label>
-                        &nbsp &nbsp
-                        <input class="form-control"  style="" readonly name="eProtocolo" value="{{ $key->eProtocolo }}">                        
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label > <h5> Unidade: </h5> </label>
+                            &nbsp;
+                            <input class="form-control" readonly  name="Unidade" value=" {{$key->unidade}}">                        
+                        </div>
                     </div>
 
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label  > <h5> <b>Data do registro:</b> </h5> </label>
-                        &nbsp &nbsp
-                        <input class="form-control"  readonly name="data_sid" value=" {{$key->created_at}} ">                        
+                    <!-- segunda linha do form -->
+                    <div class="form-group row">
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label class='awesome'> <h5> CPF </h5>  </label>
+                            &nbsp &nbsp
+                            <input class="form-control" readonly name="cpf"   value=" {{$key->cpf}} ">
+                        </div>
+
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label class=' '> <h5> RG </h5>  </label>
+                            &nbsp &nbsp
+                            <input class="form-control"  readonly name="rg"    value=" {{$key->rg}} ">
+                        </div>
+
+                        <div class="col-md-4 form-group" style=" " align="left">
+                            <label class=' '> <h5> Graduacão </h5>  </label>
+                            &nbsp &nbsp
+                            <input class="form-control" readonly name="Graduacao"  value=" {{$key->graduacao}} ">
+                        </div>
                     </div>
 
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label > <h5> <b>Unidade:</b> </h5> </label>
-                        &nbsp &nbsp
-                        <input class="form-control" readonly  name="Unidade" value=" {{$key->unidade}}">                        
+                    <!-- terceira linha do form -->
+                    <div class="form-group row" align="center">
+                        <div class="col-md-12" style=" " align="center">
+                            <h5> <i class="far fa-copy"></i> Descrição do pedido do militar. </h5>  
+                            <br>
+                            <textarea class="form-control" readonly value=" {{ $key->descricao_pedido }} " rows="5"> 
+                                {{$key->descricao_pedido}}
+                            </textarea>
+                        </div>
                     </div>
-                </div>
+                    <!-- terceira linha do form -->
 
-                <!-- segunda linha do form -->
-                <div class="form-group row">
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label class='awesome'> <h5> <b>CPF</b> </h5>  </label>
-                        &nbsp &nbsp
-                        <input class="form-control" readonly name="cpf"   value=" {{$key->cpf}} ">
-                    </div>
+                    <br>
 
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label class=' '> <h5> <b>RG</b> </h5>  </label>
-                        &nbsp &nbsp
-                        <input class="form-control"  readonly name="rg"    value=" {{$key->rg}} ">
-                    </div>
+                    <div class="form-group row"> 
+                        <div class="col-md-8 form-group" >
+                            <label for="fileRelatorRelatorio"> Insira seu relatório aqui </label> <span> (Tamanho max. <b>10MB</b>) &nbsp; (Type: &nbsp; <b>pdf</b>) </span>  
+                            <input type="file" name="fileRelatRelat" class="form-control-file" id="fileRelatorRelatorio" required> 
+                        </div>
 
-                    <div class="col-md-4 form-group" style=" " align="left">
-                        <label class=' '> <h5> <b>Graduacão</b> </h5>  </label>
-                        &nbsp &nbsp
-                        <input class="form-control" readonly name="Graduacao"  value=" {{$key->graduacao}} ">
-                    </div>
-                </div>
-
-                <!-- terceira linha do form -->
-                <div class="form-group row" align="center">
-                    <div class="col-md-12" style=" " align="center">
-                        <h5> <i class="far fa-copy"></i> Descrição do pedido do militar. </h5>  
-                        <br>
-                        <textarea class="form-control" readonly value=" {{ $key->descricao_pedido }} " rows="5"> 
-                            {{$key->descricao_pedido}}
-                        </textarea>
-                    </div>
-                </div>
-                <!-- terceira linha do form -->
-
-                <br>
-
-                <div class="form-group row"> 
-                    <div class="col-md-8 form-group" >
-                        <label for="fileRelatorRelatorio"> Insira seu relatório aqui </label> <span> (Tamanho max. <b>10MB</b>) &nbsp; (Type: &nbsp; <b>pdf</b>) </span>  
-                        <input type="file" name="fileRelatRelat" class="form-control-file" id="fileRelatorRelatorio" required> 
+                        <div class="col-md-4"  align="center">
+                            <a style="border:none;" href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo, 'cpf'=>$key->cpf]) }}" class="btn btn-outline-primary  btn-sm"> 
+                                <i class="fas fa-paperclip"></i>  &nbsp; Visualizar Anexo do pedido do militar  
+                            </a>  
+                            <!-- <input style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" type="file" class="form-control" id="formGroupExampleInput" placeholder="Example Anexo para doc"> -->
+                        </div>
                     </div>
 
-                    <div class="col-md-4"  align="center">
-                        <a style="border:none;" href="{{ route('cpp.eProtocoloAnexoController.show', ['', 'hid'=>$key->eProtocolo]) }}" class="btn btn-outline-primary  btn-sm"> 
-                            <i class="fas fa-paperclip"></i>  &nbsp Visualizar Anexo do pedido do militar.  
-                        </a>  
-                        <!-- <input style="background: transparent; box-shadow: none; border: none; border-bottom: solid 1px black;" type="file" class="form-control" id="formGroupExampleInput" placeholder="Example Anexo para doc"> -->
+                    <br>
+
+                    <div class="form-group row" align="center"> 
+                        <button style="margin:0 auto;" class="btn btn-success" type="submit"> 
+                            <i class="fa fa-gavel" aria-hidden="true"></i>  &nbsp; Registrar parecer.
+                        </button> 
                     </div>
-                </div>
-
-                <br>
-
-                <div class="form-group row" align="center"> 
-                    <button style="margin:0 auto;" class="btn btn-success" type="submit"> 
-                        <i class="fa fa-gavel" aria-hidden="true"></i>  &nbsp; Registrar parecer.
-                    </button> 
-                </div>
 
 
-                <!-- terceira linha do form -->
-                <div class="row" align="center" style="position: relative; ">
-                    
-                </div>
-                <!-- terceira linha do form -->
+                    <!-- terceira linha do form -->
+                    <div class="row" align="center" style="position: relative; ">
+                        
+                    </div>
+                    <!-- terceira linha do form -->
 
-                <!-- @ type="hidden" name="eProtocolo_referer_44A" @
-                    --------------------------------------------
-                    |    Não deve ser retirado. enviado com      |
-                    |   form  para posterior uso. identifica     |
-                    |   qual o 44a                              |
-                    ---------------------------------------------
-                -->
-                <input type="hidden" name="eProtocolo_referer_44A" value="{{ $key->eProtocolo }}">
-            </form>
-
+                    <!-- @ type="hidden" name="eProtocolo_referer_44A" @
+                        --------------------------------------------
+                        |    Não deve ser retirado. enviado com      |
+                        |   form  para posterior uso. identifica     |
+                        |   qual o 44a                              |
+                        ---------------------------------------------
+                    -->
+                    <input type="hidden" name="eProtocolo_referer_44A" value="{{ $key->eProtocolo }}">
+                </form>
+                <hr/>
             </div>
             <!-- card-body -->
             @endforeach

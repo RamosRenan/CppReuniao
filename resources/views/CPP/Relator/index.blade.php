@@ -113,7 +113,7 @@
                                 <h4> <i class="far fa-list-alt"></i> Protocolos encaminhados da secretaria </h4>  
                                 <h5 class="card-title" style=" "> <b> <small> Pedidos encaminhados pela secretaria </small> </b> </h5>
                                 <a style="color: #324AB2;"  href="#contact" role="tab" aria-controls="Meus_44A">
-                                    eProtocolos emcaminhados. Atuais.
+                                    eProtocolos encaminhados. Que ainda devem ser análisados.
                                 </a>
                                 <br> <br>
                                 <a href="\cpp\listPedidosRelator" class="btn btn-success"> 
@@ -126,7 +126,9 @@
                                 <h5> 
                                     @if(isset($Usorteados) )
                                         @if(count($Usorteados) > 0 ) 
-                                        <i class="fas fa-inbox" style="font-size: 35px;"></i> &nbsp <b style="color: #00BFFF;"> Total {{count($Usorteados)}} </b>
+                                            <h1> {{count($Usorteados)}} </h1>
+                                            @else   
+                                            <h1> 0 </h1>
                                         @endif
                                     @endif
                                 </h5>

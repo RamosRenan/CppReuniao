@@ -2420,3 +2420,66 @@
 [2020-11-24 09:16:30] local.NOTICE: Acessou Url: http://10.147.30.130:8001/cpp/cadastroE-protocolo - MARCOS VINICIUS PICINATO Acessou a pagina de cadastro - id: 9 
         - Token: $2y$10$rK8/Erlf4edsfMQYMGD.guD4twvhPi1u4VFtXZ8VIRG6NPZpZqh5u - Permission Accesss: @Cadastro eProtocolo@
   
+[2020-11-25 10:32:52] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: testFechaModal.pdf
+  
+[2020-11-25 10:51:06] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: testFechaModal.pdf
+  
+[2020-11-25 10:51:55] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: 150920UpdateCpp.pdf
+  
+[2020-11-25 10:52:23] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: 150920UpdateCpp.pdf
+  
+[2020-11-25 10:55:04] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: defesa.pdf
+  
+[2020-11-25 10:57:28] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: Ata3252020 (cópia).pdf
+  
+[2020-11-25 10:59:47] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: blabla.pdf
+  
+[2020-11-25 11:00:53] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: dscdsfvcds.pdf
+  
+[2020-11-25 11:02:16] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: dscdsfvcds.pdf
+  
+[2020-11-25 11:02:23] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: Ata3252020.pdf
+  
+[2020-11-25 11:02:43] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: testFechaModal.pdf
+  
+[2020-11-25 11:04:09] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: fgfghjg55.pdf
+  
+[2020-11-25 11:05:05] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: fgfghjg55.pdf
+  
+[2020-11-25 11:06:29] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: fgfghjg55.pdf
+  
+[2020-11-25 11:07:07] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: afcsdfdsfsdf777.pdf
+  
+[2020-11-25 11:30:59] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: Ata3252020.pdf
+  
+[2020-11-25 11:37:40] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: safdewsfewfewf5555.pdf
+  
+[2020-11-25 11:38:27] local.NOTICE: Acessou Url: http://localhost:8001/cpp/uploadFile - Renan Barbosa Ramos da Silva Realizou Upload de um documento - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@ - Doc name: safdewsfewfewf5555.pdf
+  
+[2020-11-25 11:41:51] local.NOTICE: Acessou Url: http://localhost:8001/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@
+  
+[2020-11-25 12:14:02] local.NOTICE: Acessou Url: http://localhost:8001/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@
+  
+[2020-11-25 12:14:48] local.NOTICE: Acessou Url: http://localhost:8001/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
+        - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@
+  

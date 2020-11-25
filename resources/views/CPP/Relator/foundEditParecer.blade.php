@@ -13,8 +13,7 @@
     <section style="width: 100%; height:auto;"> 
         <div class="card text-center">
             <div class="card-header" align="center">
-                <i class="far fa-edit"></i> <br>
-                <h4 style="color: #223A5E;"> Editar parecer. </h4>
+                <h4 style="color: #223A5E;"> <i class="far fa-edit"></i> &nbsp; Editar parecer </h4>
                 <span style="color: #495057;"> <small> Este pedido ainda não foi votado pela comissão, após a comissão votar, não é mais possível atera-lá. </small> </span>
             </div>
 

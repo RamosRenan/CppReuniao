@@ -12,8 +12,8 @@
 @section('content')
     <!-- card -->
     <div class="card">
-        <div class="card-header" align="center"> 
-             <h5> <i class="far fa-list-alt" style="font-size: 26px; color: #00BFFF;"></i> &nbsp Selecione o pedido(ePrtocolo) para acessá-lo  </h5>
+        <div class="card-header" > 
+             <h5> <i class="far fa-list-alt" style=" "></i> &nbsp; Selecione o pedido(eProtocolo) para acessá-lo  </h5>
         </div>
             <div class="card-body">
                 <table class="table table-striped">

@@ -86,14 +86,26 @@ class FindAtaController extends Controller
 
 
     public function presentingAta(){
-        $file = '../public/ata/reunioes/cpp/pdf/'.$_GET['nameata'].'';
+
+        // return fileAta::where('name', $_GET['nameata'])->get();
+        $ata = DB::select('SELECT * FROM public."fileAta" WHERE id = '.$_GET['id'].'');
+
+        // $file = '../public/ata/reunioes/cpp/pdf/'.$_GET['nameata'].'';
+        $file = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/Ata/'.$ata[0]->hash;
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="' .$_GET['nameata']. '"');
         header('Content-Transfer-Encoding; binary');
-        readfile($file);
+
+        try {
+            //code...
+            readfile($file);
+        } catch (\Exception $th) {
+            //throw $th;
+                return "Algo de errado ocorreu ao abrir o arquivo - ".$th->getMessage()."<h5> <a href='{$_SERVER['HTTP_REFERER']}'> Voltar </a> </h5>";
+        }
     }
 
     public function store(){
-        return "okokokokoatata";
+        return " vazio find ata controller";
     }
 }#FindAta

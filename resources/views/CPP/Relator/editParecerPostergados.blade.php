@@ -12,11 +12,11 @@
 @section('content')
 
     <section style="width: 100%; height:auto;"> 
-        <div class="card text-center">
+        <div class="card ">
             <div class="card-header " style=" " >
                 <h4 style="color: black;"> 
-                    <i style="color: #ff3300;" class="far fa-clock"></i>
-                    <small> Este pedido está na condição de Postergado. </small>
+                    <i style=" " class="far fa-clock"></i>
+                    <small> Este pedido está na condição de <b>Postergado</b> </small>
                 </h4>
             </div>
 
@@ -91,7 +91,7 @@
                     </div>
                     <!-- form-row -->
 
-                    <button style="float:left;" type="button" class="btn btn-info"><i class="fas fa-paperclip"></i> &nbspArquivos anexados</button>
+                    <button style="float:left; background:transparent; color:black; border:none;" type="button" class="btn btn-info"><i class="fas fa-paperclip"></i> &nbspArquivos anexados</button>
 
                     <br>
                     <br>

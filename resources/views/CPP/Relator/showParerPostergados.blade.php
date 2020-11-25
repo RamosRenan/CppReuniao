@@ -10,15 +10,13 @@
 
 @section('content')
     <section style=" width:100%; height:auto;"> 
-        <div class="card text-center">
+        <div class="card">
             <div class="card-header ">
-                <i class="fas fa-user-clock" style="font-size: 28px; color: #ff3300;"></i><br>
-                <h5 style="color: cian; margin-left: 15px;"> Seus pedidos postergados. <small> Total: {{count($postergados)}} </small> </h5>
+                <h5 style="color: cian; margin-left: 15px;"> <i class="fas fa-user-clock"  ></i> &nbsp; Seus pedidos postergados.  <br/> <small> Total: {{count($postergados)}} </small> </h5>
             </div>
 
-            <div class="card-body" style="max-height: 400px; overflow-y: scroll;">
-                <h5 class=" " style="color:  #eb984e ;">
-                    <i class="fas fa-info"></i> <br>
+            <div class="card-body" style="max-height: 400px; overflow-y: scroll;" align="center">
+                <h5 class=" " style="">
                     Não deixe seus pedidos acumularem. <br>
                     <small style="color: #577284;"> Aqui você tem acesso aos seus pedidos que foram postergados. </small>
                 </h5>
@@ -42,8 +40,8 @@
                         <h3 style="color: green; font-family: 'Tajawal', sans-serif;"> Não há pedidos postergados.  </h3>
                 @endif
             </div>
-            <div class="card-footer text-muted">
-                Postergados.
+            <div class="card-footer text-muted" align="center">
+                Postergados
             </div>
         </div>
     </section>

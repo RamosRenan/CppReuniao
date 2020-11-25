@@ -148,7 +148,7 @@
 
 
 
-                <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
+                <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.homologation.ata @ -->
                 <section> 
                     <div style="width: 100%; height:auto; display:flex;">                    
                         <h4> <strong> 1. </strong> <u style="margin-left:18px; color:black; "> @lang('globalDocsCpp.comissaoVotacao.homologation.ata') </u> </h4>
@@ -159,7 +159,7 @@
                 <br>
 
  
-                <!-- @ 2. 2.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
+                <!-- @ 1. 1.1. TRANSCRIÇÃO DA RESOLUÇÃO Nº 001, DE 15 DE MARÇO DE 2019 comissaoVotacao.title.sumula.homologation.Sargentos.ata @ -->
                 <section> 
                     <div style="width: 100%; height:auto; text-align:justify; "  > 
                         <div align="center"> <span style="font-size: 14px;">  <strong> @lang('globalDocsCpp.comissaoVotacao.title.sumula.homologation.Sargentos.ata') </strong> </span> </div>  
@@ -169,7 +169,7 @@
 
 
 
-                <!-- @ 2. Súmula comissaoVotacao.sumula.homologation.Sargentos.ata @ -->
+                <!-- @ 1. Súmula comissaoVotacao.sumula.homologation.Sargentos.ata @ -->
                 <section> 
                     <div style="width: 100%; height:auto; "> 
                                         
@@ -188,7 +188,7 @@
 
                         
                 <!-- @ FICHA DE MERECIMENTO DOS *SARGENTOS*  @ -->
-                <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
                 <section> 
                     <div style="width: 100%; height:auto; "> 
                                             
@@ -212,7 +212,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -236,7 +236,7 @@
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -261,7 +261,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -287,7 +287,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -314,7 +314,7 @@
 
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                                                 
@@ -351,7 +351,7 @@
                 <!-- @ FICHA DE MERECIMENTO DOS * SD'S & CB'S*  @ -->
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.title.sumula.homologation.CB_&_SD.ata @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.title.sumula.homologation.CB_&_SD.ata @ -->
                     <section> 
                         <div style="width: 100%; height:auto; text-align:justify; "  > 
                             <div align="center"> <span style="font-size: 14px;"> <strong> @lang('globalDocsCpp.comissaoVotacao.title.sumula.homologation.CB_&_SD.ata') </strong> </span> </div> 
@@ -360,7 +360,7 @@
                     <!-- @   @ -->
 
  
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.sumula.homologation.CB_&_SD.ata @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO comissaoVotacao.sumula.homologation.CB_&_SD.ata @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "  > 
                             <textarea style=" width:100%; resize: none; border:none; " rows="7" readonly>   @lang('globalDocsCpp.comissaoVotacao.sumula.homologation.CB_&_SD.ata')   </textarea>  
@@ -371,7 +371,7 @@
                     <br> <br>
 
                     <!-- @ TRECHO SE REFERE AOS INCISOS DOS Cbs e Sds @ -->
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoI') </strong> </span> <br> <br>
@@ -384,13 +384,12 @@
                                 @endif
                             @endif
                         @endforeach
-
                     </section> 
                     <!-- @   @ -->
 
                     <br>
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoII') </strong> </span> <br> <br>
@@ -409,12 +408,11 @@
 
                     <br>
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIII  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                              <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoIII') </strong> </span> <br> <br>
                         </div>         
-                        
                         @foreach($HomlogAtaContent as $key)
                             @if($key->key_inciso == 'III')
                                 @if($key->distincao == "Cbs e Sds")
@@ -422,20 +420,17 @@
                                 @endif
                             @endif
                         @endforeach
-
-
                     </section> 
                     <!-- @   @ -->
 
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoIV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; ">                         
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoIV') </strong> </span> <br> <br>
                         </div>  
-                        
                         @foreach($HomlogAtaContent as $key)
                             @if($key->key_inciso == 'IV')
                                 @if($key->distincao == "Cbs e Sds")
@@ -443,19 +438,17 @@
                                 @endif
                             @endif
                         @endforeach
-                        
                     </section> 
                     <!-- @   @ -->
 
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoV  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                             <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoV') </strong> </span> <br> <br>
                         </div>  
-                        
                         @foreach($HomlogAtaContent as $key)
                             @if($key->key_inciso == 'V')
                                 @if($key->distincao == "Cbs e Sds") 
@@ -463,19 +456,17 @@
                                 @endif
                             @endif
                         @endforeach
-
                     </section> 
                     <!-- @   @ -->
 
                     <br>
 
 
-                    <!-- @ 2. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
+                    <!-- @ 1. HOMOLOGAÇÃO DE REGISTRO DE PONTOS POSITIVOS NA FICHA DE MERECIEMENTO  IncisoVI  @ -->
                     <section> 
                         <div style="width: 100%; height:auto; "> 
                              <span style=" "> <strong> @lang('globalDocsCpp.comissaoVotacao.FichaMerecimentoSargentos.homologation.ata.IncisoVI') </strong> </span> <br> <br> 
                         </div> 
-                        
                         @foreach($HomlogAtaContent as $key)
                             @if($key->key_inciso == 'VI')
                                 @if($key->distincao == "Cbs e Sds")
@@ -521,10 +512,10 @@
                         @endif
 
                         <br> <br>
-                        <div style="display:none;"> {{ $cont = 0}} </div>
+                        <div style="display:none;"> {{ $cont = $keyo}} </div>
                         @if(isset($Ata44A))
                             @foreach($Ata44A as $key => $val)
-                                <form action="\cpp\editDeliberInAta44a" method="post"> <!-- # -->
+                                <form action="\cpp\editDeliberInAta44a" method="post">  
                                     @csrf
                                     <h5> 2.{{ $cont = $cont + 1 }}. <u ustyle=" color:black; "> DELIBERAÇÃO Nº *** /2019 </u > </h5>
                                     <div style="width:90%; height:auto; margin:auto; text-align:justify; "> 

@@ -386,11 +386,12 @@ class RelatorController extends Controller
             }
         }
  
-        $toVote44A = notification::where('notifications.read_at', null)
+        $toVote44A = notification::where('notifications.read_at', null)//->get();
         ->join('A_44_A', 'A_44_A.id_notification', '=', 'notifications.id_notification')->get();
+        // return $toVote44A;
         // return json_decode($toVote44A[0]->data, true);
 
-        if(count( $toVote44A) == 0 || empty( $toVote44A)){
+        if(count($toVote44A) == 0 || empty( $toVote44A)){
             return view('CPP/Relator/votar44A')->with('emptyToVote44A', false);
         }
         // $decode44A = json_decode( $toVote44A[0]['data'] );
@@ -407,7 +408,7 @@ class RelatorController extends Controller
             $decode44A = json_decode( $toVote44A[0]['data']);           /* separa conteúdo da deliberação                 */
             return view('CPP/Relator/votar44A')                         /* retorna dados para view 'CPP/Relator/votar44A' */
             ->with([
-                'vote44AData'=>json_decode($toVote44A[0]->data, true),  /* conteúdo da deliberação                        */
+                'vote44AData'=>$toVote44A[0]->contain_delibercao,  /* conteúdo da deliberação                        */
                 'responseRelator'=>$toVote44A[0]->id_response_relator,  /* id relator responsavel pela deliberação        */
                 'userLoged'=>Auth::user()->id,                          /* usuario logado                                 */
                 'ativeSecretario'=>$ativeSecretario,                    /* id do secretario ativo                         */ 
@@ -418,12 +419,11 @@ class RelatorController extends Controller
             ]);
         }        
     }
-    # votar44A
+    // votar44A
 
     
     /*Registro do parecer do relator referente a pedidos 44a*/
-    public function update44_A(Request $request){
-        
+    public function update44_A(Request $request){        
         //teste de retorno $request
         // return $request;
         
@@ -453,7 +453,6 @@ class RelatorController extends Controller
         ->join('policial', 'policial.cpf', '=', 'A_44_A.id_policial')->get();
 
         return view('CPP/Relator/edit')->with(['usename'=>$usename, 'updateSuccess'=>'true', 'my44A'=>$my44A]);
-
     }# update44_A
 
 

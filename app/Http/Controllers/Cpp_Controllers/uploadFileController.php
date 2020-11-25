@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\FileAta\fileAta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Storage;
+
 
 class uploadFileController extends Controller
 {
@@ -22,36 +24,49 @@ class uploadFileController extends Controller
         // return $request->all();
 
         $id = Auth::user();
+
+        $name = Auth::user()->name;
+
         Log::channel('single')->notice('Acessou Url: '.url()->current().' - '.$id->name.' Realizou Upload de um documento - '.'id: '.$id->id.' 
         - Token: '.$id->token_access.' - Permission Accesss: '.$id->roles[0]->name.' - Doc name: '.$_FILES['userfile']['name']."\n");
 
+        // verifica se ata ja existe
         $issetExistdoc = fileAta::where('name', $_FILES['userfile']['name'])->get();
+
         // return $_FILES['userfile']['size'];
         if($_FILES['userfile']['size'] > 0 && count($issetExistdoc) == 0){
             try {
                 //code...
+                // $file = '../public/ata/reunioes/cpp/pdf/';
+                // $uploadfile = $file . basename($_FILES['userfile']['name']);
+                
+                $returnStorage = Storage::disk('Ata')->put('', $request->file('userfile'));
+                // return $returnStorage;
 
-                $file = '../public/ata/reunioes/cpp/pdf/';
-                $uploadfile = $file . basename($_FILES['userfile']['name']);
-                if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
-                    $newAta = new fileAta;
-                    $newAta->name = $_FILES['userfile']['name'];
-                    $newAta->responsavel = Auth::id();
-                    $newAta->size = $_FILES['userfile']['size'];
-                    // $newAta->created_at = date('d-m-Y H:i:s');
-                    $newAta->save();
-                    return view('CPP.UploadFile.index')->with(['moveAta'=>'ok']);
-                }else{
-                    return view('CPP.UploadFile.index')->with(['moveAta'=>'false']);
-                }
+                // return substr(strstr($returnStorage, '/'), 1);
+                // $justHash = substr(strstr($returnStorage, '/'), 1);
+                
+                $newAta = new fileAta;
+                $newAta->name = $_FILES['userfile']['name'];
+                $newAta->responsavel = Auth::id();
+                $newAta->responseUpload = $name;
+                $newAta->hash = $returnStorage;
+                $newAta->size = $_FILES['userfile']['size'];
+                $newAta->save();
 
-            } catch (\Throwable $th) {
+                return view('CPP.UploadFile.index')->with(['moveAta'=>'ok']);
+
+                // if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
+                
+                // }else{
+                // }
+                
+            }catch (\Throwable $th) {
                 throw $th;
+                return view('CPP.UploadFile.index')->with(['moveAta'=>'false']);
             }
+
         }else{
-            if(count($issetExistdoc) > 0){
-                return view('CPP.UploadFile.index')->with(['moveAta'=>'existAta']);
-            }
             return view('CPP.UploadFile.index')->with(['moveAta'=>'false']);
         }
 

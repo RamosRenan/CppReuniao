@@ -30,8 +30,7 @@
         <div class="card" align="center">
             <!-- card-header -->
             <div class="card-header">
-                <h4 class="card-title" style="color: black;"> Prévia do texto da deliberação. <br> <small style="color: #1971c2;"> Texto que está em votação no momento. </small> </h4>
-                <h5 class="card-title" style="color: #1971c2;"> <small> Reunião deliberativa. </small> </h5>
+                <h4 class="card-title" style="color: black;"> Prévia do texto da deliberação. <br> <small style="color: #1971c2;"> Texto em votação no momento. </small> </h4>
             </div>
             <!-- card-header -->
 

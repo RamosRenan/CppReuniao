@@ -14,7 +14,7 @@
             <!-- row -->
             <div class="row" style="width: 100%;">
                 <!-- col-md-4 -->
-                <div class="col-md-4"> <h5 style="position: relative; top: 10px;"> <i class="fas fa-id-card"></i> &nbsp; Registro 44a </h5> </div>
+                <div class="col-md-4"> <h5 style="position: relative; top: 10px;"> <i class="fas fa-id-card"></i> &nbsp; Registro de pedidos 44A </h5> </div>
                 <!-- col-md-4 -->
 
                 <!-- col-md-4 -->

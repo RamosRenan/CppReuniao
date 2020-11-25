@@ -15,8 +15,8 @@ use App\Models\Ative_Inative_Relator\users_ative_and_inative_cpp;
 use App\Models\Relation_Vote_Deliber\relation_vote_each_deliberacao;
 use App\Models\secretario_e_presidente\secretario_e_presidente;
 use App\Models\_A44A\_A44A;
-use  App\Models\Ata\ata;
-use  App\Models\Members_Relatores_President\Members_Relatores_and_President;
+use App\Models\Ata\ata;
+use App\Models\Members_Relatores_President\Members_Relatores_and_President;
 use App\Http\Controllers\Cpp_Controllers\AtaController;
 use App\Models\eProtocoloSorteados\eProtocolosSorteados;
 
@@ -189,14 +189,17 @@ class DeliberController extends Controller
         $currentAta = ata::orderBy('id', 'Desc')
         ->where('ata_finalizada', null)->paginate(1);
 
-        $presidenteSecretario =  secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
+        $secretario =  secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
+        ->where('status', true)->get();
+
+        $president =  secretario_e_presidente::where('qualificacao', 'Presidente')
         ->where('status', true)->get();
 
         $this44A = _A44A::where('eProtocolo', $eProtocolo)
         ->join('policial', 'policial.cpf', '=', 'A_44_A.id_policial')
         ->get();
 
-        return view('CPP.Deliberacoes44A.index')->with(['this44A'=>$this44A, 'presidenteSecretario'=>$presidenteSecretario, 'currentAta'=>$currentAta[0]->numero_ata]);
+        return view('CPP.Deliberacoes44A.index')->with(['this44A'=>$this44A, 'presidenteSecretario'=>$secretario, 'currentAta'=>$currentAta[0]->numero_ata, 'president'=>$president]);
     }# newDeliber44A
 
 
@@ -208,7 +211,10 @@ class DeliberController extends Controller
         $currentAta = ata::orderBy('id', 'Desc')
         ->where('ata_finalizada', null)->paginate(1);
 
-        $presidenteSecretario = secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
+        $secretario = secretario_e_presidente::where('qualificacao', 'Secretaria(o)')
+        ->where('status', true)->get();
+
+        $president =  secretario_e_presidente::where('qualificacao', 'Presidente')
         ->where('status', true)->get();
 
         $this44A = _A44A::where('eProtocolo', $eProtocolo44_A)
@@ -222,12 +228,12 @@ class DeliberController extends Controller
         // return $rp;
         // $rp = json_decode($this44A[0]["data"]);
         //  return $rp->{'dados'};
-         
  
         return view('CPP.Deliberacoes44A.show')->with(['this44A'=>$this44A, 
         'this44AeProtocolo'=>$this44A[0]->eProtocolo,
         'dataThis44A'=>$deliber,
-        'presidenteSecretario'=>$presidenteSecretario,
+        'secretario'=>$secretario,
+        'president'=>$president,
         'currentAta'=>$currentAta[0]->numero_ata]);
 
     }# votoRelatoresDeliber44A

@@ -9,7 +9,7 @@
     <section style="width: 100%; height:auto;" >
         <br> <br> <br>
         <div style="width:50%; height: auto; margin:auto; text-align: center;">
-            <h2> Faça o upload da Ata. </h2>
+            <h2> Faça upload da Ata. </h2>
             <br> 
             <!-- O tipo de encoding de dados, enctype, DEVE ser especificado abaixo -->
             <form enctype="multipart/form-data" action="{{route('cpp.uploadFile.store')}}" method="POST" >
@@ -17,9 +17,8 @@
                 <!-- MAX_FILE_SIZE deve preceder o campo input -->
                 <input type="hidden" name="MAX_FILE_SIZE" value="90000" />
                 <!-- O Nome do elemento input determina o nome da array $_FILES -->
-                Enviar esse arquivo: 
                 <br>
-                <input style="border: solid 1px black;" name="userfile" type="file" />
+                <input style="border-bottom: solid 1px black;" name="userfile" type="file" />
                 <br>
                 <br>
                 <input type="submit" value="Enviar arquivo" />
@@ -29,7 +28,7 @@
         <br>
 
         <div class="" style="width:100%; height:auto;" align="center">
-            <a href="#"> <u> Buscar todas as Atas. </u> </a>
+            <!-- <a href="#"> <u> Buscar todas as Atas. </u> </a> -->
         </div>
 
         @if(isset($moveAta))
