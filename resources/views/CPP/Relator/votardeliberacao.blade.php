@@ -20,9 +20,11 @@
                 <div class="col-sm">
                     @if(isset($Usorteados))
                         <h5>
-                        <a href="{{route('cpp.viewRelatorio.create', ['', 'eProtocolo'=>$return_to_vote_member[0]->eProtocolo])}}" style="float: right; "> 
-                            <i style=" " class="fas fa-paste"></i> &nbsp; Visualizar Relatório do relator
-                        </a> 
+                            <small>
+                                <a href="{{route('cpp.viewRelatorio.create', ['', 'eProtocolo'=>$return_to_vote_member[0]->eProtocolo])}}" style="float: right; "> 
+                                    <i style=" " class="fas fa-paste"></i> &nbsp; Visualizar Relatório do relator
+                                </a> 
+                            </small>
                         </h5> 
                     @endif
                 </div>

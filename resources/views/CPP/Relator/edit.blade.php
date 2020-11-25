@@ -36,25 +36,30 @@
         <div class="card-header"  style="max-height: 60px;">
             <div class="row" align="center">
                 <div class="col-sm">
-                    <form class="form-inline" >
-                        <input style="height: 33px; " type="text" class="form-control"  placeholder="Procurar">
-                        <button style="position: relative;  top: 5px;" type="submit" class="btn btn-primary mb-2"> 
-                            <i style="font-size: 18px;" class="fas fa-search"> </i> 
-                        </button>
+                    <form class="form-inline">
+                        <div class="input-group mb-3">
+                            <input style=" " type="text" class="form-control"  placeholder="Procurar">
+                            <div class="input-group-append">
+                                <button style="position: relative;" type="submit" class="btn btn-outline-secondary"> 
+                                    Buscar 
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
+
                 <div class="col-sm">
-                    <h5 style="color: #223A5E;"> 
+                    <h5 style=" "> 
                         Pedidos 44A à serem análisados. <br>
-                        <small style="color: #495057; font-size: 12px;"> <i class="fas fa-info"></i> &nbspTodos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
+                        <small style=" font-size: 12px;"> &nbsp; Todos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
                     </h5>
                 </div>
+
                 <div class="col-sm" align="right">
-                    <h5 style="color: #009ACD;"> 
+                    <h5 style=" "> 
                         Total: 
                             @if(isset($my44A))
                                 {{count($my44A)}} 
-
                                 @else
                                     0
                             @endif
@@ -63,7 +68,6 @@
             </div>
         </div>
         <!-- card-header -->
-
 
         <!-- card-body -->
         @if(isset($my44A) && !empty($my44A))

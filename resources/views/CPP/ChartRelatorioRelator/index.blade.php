@@ -10,6 +10,7 @@
 @section('content')
 
     <div class="card"> 
+        <!-- header -->
         <div class="card-header" style=" "> 
             <div class="row">
                 <div class="col-sm">
@@ -20,16 +21,19 @@
 
                 <div class="col-sm" align="right">
                     <form class="form-inline" style="float:right;">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
+                        <div class="input-group mb-3">
                             <input type="text" class="form-control" id="inputPassword2" placeholder="Nome | RG">
+                            <div class="input-group-append mb-2">
+                                <button type="submit" class="btn btn-outline-secondary mb-2">Buscar</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-secondary mb-2">Buscar</button>
                     </form>
                 </div>
             </div>
         </div>
-       
+        <!-- header -->
+        
+        <!-- row -->
         <div class="row">
             @if(isset($CountIsertMembers) && count($CountIsertMembers)>0)
                 <!-- col-sm-6 -->
@@ -38,12 +42,12 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class=" ">
-                                <i class="far fa-user-circle"></i> &nbsp Relator &nbsp; {{$key->name}} <small> Id:  {{$key->model_id}}             </small> &nbsp;
-                                <small style="font-size: 18px;"> <b>Status: </b>    &nbsp; <span style="color:green;"> Ativo    </span> </small> 
+                                <i class="far fa-user-circle"></i> &nbsp Relator &nbsp; {{$key->name}} <small> Id:  {{$key->model_id}} </small> &nbsp;
+                                <small style="font-size: 18px;"> <b>Status: </b> &nbsp; <span style="color:green;"> Ativo    </span> </small> 
                                 <br>
-                                <small style="font-size: 18px;"> <b>Usuário:</b>   &nbsp; <span style=" "> {{$key->username}}  </span> </small> 
+                                <small style="font-size: 18px;"> <b>Usuário:</b> &nbsp; <span style=" "> {{$key->username}}  </span> </small> 
                                 &nbsp;&nbsp;
-                                <small style="font-size: 18px;"> <b>eMail:  </b>     &nbsp; <span style=" "> {{$key->email}}     </span> </small> 
+                                <small style="font-size: 18px;"> <b>eMail:  </b> &nbsp; <span style=" "> {{$key->email}}     </span> </small> 
                                 &nbsp;&nbsp;
                             </h4>
 
@@ -55,7 +59,6 @@
                 </div>
                 @endforeach
                 <!-- col-sm-6 -->
-
                 @else
                     <h5> Não econtrado relatores. </h5>
             @endif

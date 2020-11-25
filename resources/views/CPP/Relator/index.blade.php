@@ -110,8 +110,8 @@
                         <!-- row -->
                         <div class="row"  style="background: transparent;">
                             <div class="col-sm-4" style="background: transparent;">
-                                <h2> <i class="far fa-list-alt"></i> Encaminhamentos de eprocolos da secretaria </h2>  
-                                <h5 class="card-title" style=" "> <b> Pedidos encaminhados pela secretaria. </b> </h5>
+                                <h4> <i class="far fa-list-alt"></i> Protocolos encaminhados da secretaria </h4>  
+                                <h5 class="card-title" style=" "> <b> <small> Pedidos encaminhados pela secretaria </small> </b> </h5>
                                 <a style="color: #324AB2;"  href="#contact" role="tab" aria-controls="Meus_44A">
                                     eProtocolos emcaminhados. Atuais.
                                 </a>

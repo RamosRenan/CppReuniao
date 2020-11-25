@@ -26,7 +26,7 @@ class eProtocoloAnexoControllerService extends Controller
         $file = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/AnexoPedido/'.$cpfPm.'/'.$objectFile[0]->hash;
 
         header('Content-type: application/pdf');
-        header('Content-Disposition: inline; filename="teste.pdf"');
+        header('Content-Disposition: inline; filename="Arquivo.pdf"');
         header('Content-Transfer-Encoding; binary');
         
         try{

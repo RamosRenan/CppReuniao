@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 Route::redirect('/', '/login');
 
-//Auth::routes();
+// Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -48,45 +48,6 @@ Route::group(['middleware' => ['auth', 'auth.unique.user'], 'prefix' => 'manager
     Route::resource('roles', 'Manager\RolesController');
     Route::post('roles_mass_destroy', ['uses' => 'Manager\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
 });
-
-// Route::group(['middleware' => ['auth', 'auth.unique.user'], 'prefix' => 'siscop', 'as' => 'siscop.'], function () {
-//     Route::resource('solicitations', 'Siscop\SolicitationController');
-//     Route::get('cities_list', ['uses' => 'Siscop\SolicitationController@citiesAjax', 'as' => 'cities.list']);
-//     Route::post('solicitations_mass_destroy', ['uses' => 'Siscop\SolicitationController@massDestroy', 'as' => 'siscop.mass_destroy']);
- 
-// });
-
-// Route::group(['middleware' => ['auth', 'auth.unique.user'], 'prefix' => 'dentist', 'as' => 'dentist.'], function () {
-//     Route::resource('units', 'Dentist\UnitController');
-//     Route::post('units_mass_destroy', ['uses' => 'Dentist\UnitController@massDestroy', 'as' => 'units.mass_destroy']);
-    
-//     Route::resource('dentists', 'Dentist\DentistController');
-//     Route::post('dentists_mass_destroy', ['uses' => 'Dentist\DentistController@massDestroy', 'as' => 'dentists.mass_destroy']);
-    
-//     Route::resource('specialties', 'Dentist\SpecialtyController');
-//     Route::post('specialties_mass_destroy', ['uses' => 'Dentist\SpecialtyController@massDestroy', 'as' => 'specialties.mass_destroy']);
-
-//     Route::resource('procedures', 'Dentist\ProcedureController');
-//     Route::post('procedures_mass_destroy', ['uses' => 'Dentist\ProcedureController@massDestroy', 'as' => 'procedures.mass_destroy']);
-
-//     Route::resource('supplies', 'Dentist\SupplyController');
-//     Route::post('supplies_mass_destroy', ['uses' => 'Dentist\SupplyController@massDestroy', 'as' => 'supplies.mass_destroy']);
-
-//     Route::resource('stock', 'Dentist\StockController');
-//     Route::post('stock_mass_destroy', ['uses' => 'Dentist\StockController@massDestroy', 'as' => 'stock.mass_destroy']);
-
-//     Route::resource('patients', 'Dentist\PatientController');
-//     Route::post('patients_mass_destroy', ['uses' => 'Dentist\PatientController@massDestroy', 'as' => 'patients.mass_destroy']);
-
-//     Route::resource('schedules', 'Dentist\ScheduleController');
-//     Route::get('schedules_list', ['uses' => 'Dentist\ScheduleController@ScheduleListAjax', 'as' => 'schedules.list']);
-//     Route::post('schedule_mass_destroy', ['uses' => 'Dentist\ScheduleController@massDestroy', 'as' => 'schedules.mass_destroy']);
-
-//     Route::resource('attendances', 'Dentist\AttendanceController');
-//     Route::post('attendances_mass_destroy', ['uses' => 'Dentist\AttendanceController@massDestroy', 'as' => 'attendances.mass_destroy']);
-
-//     Route::resource('reports', 'Dentist\ReportsController');
-// });
 
 Route::group(['middleware' => ['auth', 'auth.unique.user', 'check.permissions'], 'prefix' => 'legaladvice', 'as' => 'legaladvice.'], function () {
     Route::resource('doctypes', 'LegalAdvice\DoctypesController');
@@ -168,7 +129,6 @@ Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], '
     Route::get('/presentingAta', 'Cpp_Controllers\FindAtaController@presentingAta'                     );
     Route::get('/listPedidosRelator', 'Cpp_Controllers\RelatorController@listPedidosRelator'                     );
     Route::get('/showPedidoSelectedToRelator', 'Cpp_Controllers\RelatorController@showPedidoSelectedToRelator'                     );
-    
 });
 
 // rotas de testes

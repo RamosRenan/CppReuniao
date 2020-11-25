@@ -86,13 +86,13 @@ tr:nth-child(even) {
                             <div class="input-group col-8" style="float:left;">
                                 <input type="text" class="form-control" placeholder="eProtocolo" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2"><a href="#"><i class="fas fa-search"></i></a></span>
+                                    <span class="input-group-text" id="basic-addon2"><a href="#"> Buscar </a></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-4">
-                            <h5> <i class="far fa-address-card"></i> &nbsp Sala de votação principal </h5>
+                            <h5> <i class="far fa-address-card"></i> &nbsp; Sala de votação principal </h5>
                         </div>
 
                         <div class="col-4" align="center">

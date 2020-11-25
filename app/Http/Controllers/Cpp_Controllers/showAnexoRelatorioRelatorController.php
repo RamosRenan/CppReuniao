@@ -13,17 +13,14 @@ class showAnexoRelatorioRelatorController extends Controller
 {
     // code ... 
 
-    public function index(){
-        
-    }
+    public function index(){}
     // index
 
     private function showAnexoeRelatorioRelator(object $objectFile){
         // return $objectFile[0]->hash;
         $resp = trim($objectFile[0]->hash, " ");
         $file = $objectFile[0]->path.'/'.$resp;
-        // var_dump($resp);
- 
+  
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="teste.pdf"');
         header('Content-Transfer-Encoding; binary');

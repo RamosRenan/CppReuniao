@@ -2411,3 +2411,12 @@
   
 [2020-11-23 11:37:17] local.NOTICE: Acessou Url: http://localhost:8001/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 14 - Token: $2y$10$4PNMixQtzMSyqgSXmiWTfe0rIkZM9ZglXWjrxPmNnqa7t8Z3kTJ4. - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: ANDRE BOROSKY DA CRUZ - RG: 45659879
   
+[2020-11-24 09:15:55] local.NOTICE: Acessou Url: http://10.147.30.130:8001/cpp/cadastroE-protocolo - MARCOS VINICIUS PICINATO Acessou a pagina de cadastro - id: 9 
+        - Token: $2y$10$rK8/Erlf4edsfMQYMGD.guD4twvhPi1u4VFtXZ8VIRG6NPZpZqh5u - Permission Accesss: @Cadastro eProtocolo@
+  
+[2020-11-24 09:16:17] local.NOTICE: Acessou Url: http://10.147.30.130:8001/cpp/cadastroE-protocolo - MARCOS VINICIUS PICINATO Acessou a pagina de cadastro - id: 9 
+        - Token: $2y$10$rK8/Erlf4edsfMQYMGD.guD4twvhPi1u4VFtXZ8VIRG6NPZpZqh5u - Permission Accesss: @Cadastro eProtocolo@
+  
+[2020-11-24 09:16:30] local.NOTICE: Acessou Url: http://10.147.30.130:8001/cpp/cadastroE-protocolo - MARCOS VINICIUS PICINATO Acessou a pagina de cadastro - id: 9 
+        - Token: $2y$10$rK8/Erlf4edsfMQYMGD.guD4twvhPi1u4VFtXZ8VIRG6NPZpZqh5u - Permission Accesss: @Cadastro eProtocolo@
+  
