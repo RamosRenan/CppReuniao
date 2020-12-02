@@ -45,19 +45,19 @@ return [
 
         'AnexoPedido' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/CppArquivo/windows/AnexoPedido'),
+            'root' => storage_path('app/public/CppArquivo/windows/CppArquivo/AnexoPedido'),
             'username' => 'DDTQ-SSI',
             'password' => 'ssi-ddtq',
         ],
 
         'Ata' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/CppArquivo/windows/Ata'),
+            'root' => storage_path('app/public/CppArquivo/windows/CppArquivo/Ata'),
         ],
 
         'Relatorio' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/CppArquivo/windows/Relatorio'),
+            'root' => storage_path('app/public/CppArquivo/windows/CppArquivo/Relatorio'),
         ],
 
         'public' => [

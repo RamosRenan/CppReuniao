@@ -23,8 +23,7 @@ class eProtocoloAnexoControllerService extends Controller
 
     private function showAnexoeProtocolo(object $objectFile, $cpfPm)
     {
-        $file = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/AnexoPedido/'.$cpfPm.'/'.$objectFile[0]->hash;
-
+        $file = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/CppArquivo/AnexoPedido/'.$cpfPm.'/'.$objectFile[0]->hash;
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="Arquivo.pdf"');
         header('Content-Transfer-Encoding; binary');

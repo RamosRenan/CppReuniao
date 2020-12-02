@@ -2483,3 +2483,11 @@
 [2020-11-25 12:14:48] local.NOTICE: Acessou Url: http://localhost:8001/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
         - Token: $2y$10$CxH4MJwMNw9lV7.5QZn62.is02YdbKH9rMuCpr7LveROgEGxpr0KW - Permission Accesss: @@ superadmin @@
   
+[2020-12-02 09:54:12] local.NOTICE: Acessou Url: http://localhost:8002/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
+        - Token: $2y$10$S0/bTjaRDJADjQjBfBro6OQaStxnNNTCAUH/IFfHsSsgsUQ/HHJCm - Permission Accesss: @@ superadmin @@
+  
+[2020-12-02 09:54:42] local.NOTICE: Acessou Url: http://localhost:8002/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Acessou a pagina de cadastro - id: 14 
+        - Token: $2y$10$S0/bTjaRDJADjQjBfBro6OQaStxnNNTCAUH/IFfHsSsgsUQ/HHJCm - Permission Accesss: @@ superadmin @@
+  
+[2020-12-02 10:05:05] local.NOTICE: Acessou Url: http://localhost:8002/cpp/cadastroE-protocolo - Renan Barbosa Ramos da Silva Realizou um cadastro - id: 14 - Token: $2y$10$S0/bTjaRDJADjQjBfBro6OQaStxnNNTCAUH/IFfHsSsgsUQ/HHJCm - Permission Accesss: @@ superadmin @@ - Policial Cadastrado: GILBERTO SANTANA PINTO - RG: 60110638
+  

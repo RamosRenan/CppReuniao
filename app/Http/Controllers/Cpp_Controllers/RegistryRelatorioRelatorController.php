@@ -68,7 +68,7 @@ class RegistryRelatorioRelatorController extends Controller
             $novofiles_anexo_relatorios_relator = new files_anexo_relatorios_relator;
             $novofiles_anexo_relatorios_relator->nome_arquivo   = $this->request->file('fileRelatRelat')->getClientOriginalName();
             $novofiles_anexo_relatorios_relator->eprotocolo     = $this->request->input('eProtocolo');
-            $novofiles_anexo_relatorios_relator->path           = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/Relatorio/'.$this->loginRelator;
+            $novofiles_anexo_relatorios_relator->path           = pathinfo($_SERVER['DOCUMENT_ROOT'])['dirname'].'/storage/app/public/CppArquivo/windows/CppArquivo/Relatorio/'.$this->loginRelator;
             $novofiles_anexo_relatorios_relator->FK_relator     = $relat[0]->has_user_id;
             $novofiles_anexo_relatorios_relator->hash           = $justHash;   
             $novofiles_anexo_relatorios_relator->save();   

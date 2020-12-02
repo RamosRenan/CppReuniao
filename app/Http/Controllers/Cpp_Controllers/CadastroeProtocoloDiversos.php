@@ -24,7 +24,6 @@ class CadastroeProtocoloDiversos extends Controller
 {
     //
     public function index(Request $request){
-
         // return $id->roles[0]->name;
         // return url()->current();
         $id = Auth::user();

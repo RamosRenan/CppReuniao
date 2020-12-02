@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="col-sm">
-                    <h5 style=" "> 
+                    <h5 style=""> 
                         Pedidos 44A à serem análisados. <br>
                         <small style=" font-size: 12px;"> &nbsp; Todos os pedidos 44A listados nesta area ainda devem ser analisados. </small> 
                     </h5>

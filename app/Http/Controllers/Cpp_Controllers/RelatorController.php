@@ -76,9 +76,7 @@ class RelatorController extends Controller
 
     /*@  store()  @*/
     public function store(Request $request){
-
         // return $request;
-
         $validator=Validator::make($request->all(),[
             'parecer'=>'required|string'
         ]);

@@ -49,24 +49,7 @@ Route::group(['middleware' => ['auth', 'auth.unique.user'], 'prefix' => 'manager
     Route::post('roles_mass_destroy', ['uses' => 'Manager\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
 });
 
-Route::group(['middleware' => ['auth', 'auth.unique.user', 'check.permissions'], 'prefix' => 'legaladvice', 'as' => 'legaladvice.'], function () {
-    Route::resource('doctypes', 'LegalAdvice\DoctypesController');
-    Route::post('doctypes_mass_destroy', ['uses' => 'LegalAdvice\DoctypesController@massDestroy', 'as' => 'doctypes.mass_destroy']);
-    
-    Route::resource('registries', 'LegalAdvice\RegistryController');
-    Route::get('registries_search', ['uses' => 'LegalAdvice\RegistryController@search', 'as' => 'registries.search']);
-    Route::get('registries_uploadindex', ['uses' => 'LegalAdvice\RegistryController@uploadIndex', 'as' => 'registries.uploadindex']);
-    Route::get('registries_upload', ['uses' => 'LegalAdvice\RegistryController@uploadCreate', 'as' => 'registries.uploadcreate']);
-    Route::post('registries_upload', ['uses' => 'LegalAdvice\RegistryController@uploadStore', 'as' => 'registries.uploadstore']);
-    Route::delete('registries_upload', ['uses' => 'LegalAdvice\RegistryController@uploadDestroy', 'as' => 'registries.uploaddestroy']);
-
-    Route::resource('procedures', 'LegalAdvice\ProcedureController');
-    Route::resource('uploads', 'LegalAdvice\UploadController');
-    Route::post('registry_mass_destroy', ['uses' => 'LegalAdvice\RegistryController@massDestroy', 'as' => 'registries.mass_destroy']);
-});
-
 Route::group(['middleware'=>['auth', 'auth.unique.user', 'check.permissions'], 'prefix'=>'cpp', 'as' =>'cpp.'], function(){
-
     Route::resource('/cadastroE-protocolo', 'Cpp_Controllers\CadastroeProtocoloDiversos');    
     Route::resource('/novosexpedientes', 'Cpp_Controllers\NovosExpedientesController'   );
     Route::resource('/salavotacao', 'Cpp_Controllers\SalaVotacaoController'             );
